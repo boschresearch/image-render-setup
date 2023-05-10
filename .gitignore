@@ -1,0 +1,12 @@
+repos/image-render*
+repos/functional-json*
+repos/vcs
+repos/dev-test*
+env
+docs/build
+__pycache__
+*.pyc
+build
+*.egg-info
+dist
+_testlog_*

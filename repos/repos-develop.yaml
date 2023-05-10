@@ -1,0 +1,53 @@
+repositories:
+  functional-json:
+    type: git
+    url: https://github.com/boschresearch/functional-json.git
+    version: develop
+  functional-json-vscode:
+    type: git
+    url: https://github.com/boschresearch/functional-json-vscode.git
+    version: develop
+  image-render-actions-std:
+    type: git
+    url: https://github.com/boschresearch/image-render-actions-std.git
+    version: develop
+  image-render-actions-std-blender:
+    type: git
+    url: https://github.com/boschresearch/image-render-actions-std-blender.git
+    version: develop
+  image-render-asset-cameras:
+    type: git
+    url: https://github.com/boschresearch/image-render-asset-cameras.git
+    version: develop
+  image-render-automation:
+    type: git
+    url: https://github.com/boschresearch/image-render-automation.git
+    version: develop
+  image-render-base:
+    type: git
+    url: https://github.com/boschresearch/image-render-base.git
+    version: develop
+  image-render-blender-base:
+    type: git
+    url: https://github.com/boschresearch/image-render-blender-base.git
+    version: develop
+  image-render-blender-camera:
+    type: git
+    url: https://github.com/boschresearch/image-render-blender-camera.git
+    version: develop
+  image-render-blender-human:
+    type: git
+    url: https://github.com/boschresearch/image-render-blender-human.git
+    version: develop
+  image-render-blender-label:
+    type: git
+    url: https://github.com/boschresearch/image-render-blender-label.git
+    version: develop
+  image-render-blender-points:
+    type: git
+    url: https://github.com/boschresearch/image-render-blender-points.git
+    version: develop
+  image-render-blender-vehicle:
+    type: git
+    url: https://github.com/boschresearch/image-render-blender-vehicle.git
+    version: develop
