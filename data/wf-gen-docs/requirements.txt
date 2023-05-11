@@ -1,0 +1,6 @@
+packaging
+vcstool
+sphinx
+myst_parser
+myst_nb
+sphinx-book-theme
