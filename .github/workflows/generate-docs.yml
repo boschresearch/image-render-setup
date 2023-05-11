@@ -1,6 +1,6 @@
 name: Generate Image-Render System Documentation
 run-name: ${{ github.actor }} is generating documentation 🚀
-on: [workflow_dispatch]
+on: [push, workflow_dispatch]
 permissions:
     contents: write
   
@@ -42,7 +42,7 @@ jobs:
         run: pip install -e .
 
       - name: Build Documentation
-        run: cathy build docs
+        run: cathy build docs -I
       
       - name: Copy index referrer
         run: cp data/wf-gen-docs/index.html ./docs/build/.

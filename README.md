@@ -2,7 +2,7 @@
 
 This is the setup and system module for the `image-render` automation system.
 
-See the [change log](docs/source/change-log.md) for the latest changes. See the [installation documentation](docs/source/setup.md) to get started.
+See the [documentation](https://boschresearch.github.io/image-render-setup/html/index.html) for a change-log and the [installation documentation](https://boschresearch.github.io/image-render-setup/html/setup.html) to get started.
 
 ## Purpose of the project
 
