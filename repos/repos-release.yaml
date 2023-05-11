@@ -1,0 +1,57 @@
+repositories:
+    functional-json:
+        type: git
+        url: https://github.com/boschresearch/functional-json.git
+        version: tags/v1.3.1
+    functional-json-vscode:
+        type: git
+        url: https://github.com/boschresearch/functional-json-vscode.git
+        version: tags/v1.2.3
+    image-render-actions-std:
+        type: git
+        url: https://github.com/boschresearch/image-render-actions-std.git
+        version: tags/v3.1.1
+    image-render-actions-std-blender:
+        type: git
+        url: https://github.com/boschresearch/image-render-actions-std-blender.git
+        version: tags/v3.2.1
+    image-render-asset-cameras:
+        type: git
+        url: https://github.com/boschresearch/image-render-asset-cameras.git
+        version: tags/v1.2.1
+    image-render-automation:
+        type: git
+        url: https://github.com/boschresearch/image-render-automation.git
+        version: tags/v3.1.1
+    image-render-base:
+        type: git
+        url: https://github.com/boschresearch/image-render-base.git
+        version: tags/v2.7.1
+    image-render-blender-base:
+        type: git
+        url: https://github.com/boschresearch/image-render-blender-base.git
+        version: tags/v3.2.1
+    image-render-blender-camera:
+        type: git
+        url: https://github.com/boschresearch/image-render-blender-camera.git
+        version: tags/v3.2.1
+    image-render-blender-human:
+        type: git
+        url: https://github.com/boschresearch/image-render-blender-human.git
+        version: tags/v3.1.1
+    image-render-blender-label:
+        type: git
+        url: https://github.com/boschresearch/image-render-blender-label.git
+        version: tags/v3.2.1
+    image-render-blender-points:
+        type: git
+        url: https://github.com/boschresearch/image-render-blender-points.git
+        version: tags/v3.1.1
+    image-render-blender-vehicle:
+        type: git
+        url: https://github.com/boschresearch/image-render-blender-vehicle.git
+        version: tags/v3.1.1
+    image-render-templates:
+        type: git
+        url: https://github.com/boschresearch/image-render-templates.git
+        version: tags/v1.1.1
