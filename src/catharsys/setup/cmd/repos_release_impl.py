@@ -143,8 +143,8 @@ def _RepoTest(*, pathModule):
     # endfor remotes
     print("")
 
-    headMaster = repoMod.heads["main"]
-    headDev = repoMod.heads["develop"]
+    headMaster = repoMod.heads["stable"]
+    headDev = repoMod.heads["main"]
 
     print("Commits before current in {}".format(headDev.name))
     for comX in headDev.commit.parents:
@@ -180,11 +180,11 @@ def _RepoTest(*, pathModule):
         print(f"  - {comX.name_rev} [{sName}]")
 
         if comX == headDev.commit:
-            print("Master branch more advanced than develop branch")
+            print("Stable branch more advanced than main branch")
         elif comX == headMaster.commit:
-            print("Can merge Develop into Master")
+            print("Can merge Main into Stable")
         else:
-            print("Invalid state for merging develop into main")
+            print("Invalid state for merging main into stable")
         # endif
     # endif
     print("")
@@ -371,8 +371,8 @@ def ReleaseFromRepo(
     sResultMsg = "ok"
 
     try:
-        sBranchMain = "main"
-        sBranchDev = "develop"
+        sBranchMain = "stable"
+        sBranchDev = "main"
 
         sLocalVersion, sModuleType = GetRepoVersion(pathModule=pathModule)
         sTagName = f"v{sLocalVersion}"
@@ -576,8 +576,8 @@ def Run(
         raise RuntimeError("Modules can only be built from source install")
     # endif
 
-    sBranchMain = "main"
-    sBranchDev = "develop"
+    sBranchMain = "stable"
+    sBranchDev = "main"
 
     #########################################
     # For debugging
@@ -657,13 +657,13 @@ def Run(
 
     if bDoMain is True and bAllReleasesAvailable is False:
         print(
-            "ERROR: Cannot release main repo, "
-            "if not all module repositories have their main branches at a release tag\n"
+            "ERROR: Cannot release stabke repo, "
+            "if not all module repositories have their stable branches at a release tag\n"
         )
 
     elif bDoMain is True:
         print("\n===================================================")
-        print(f"Release main repo: {pathSetup.name}\n")
+        print(f"Release stable repo: {pathSetup.name}\n")
 
         repoMain = Repo(pathSetup)
         if sBranchMain not in repoMain.heads:
@@ -794,7 +794,7 @@ def Run(
         print("")
 
         # Release main repo
-        print("Releasing main module")
+        print("Releasing stabke module")
         ReleaseFromRepo(
             pathRepos=pathRepos,
             pathModule=pathSetup,
