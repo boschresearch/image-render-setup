@@ -75,7 +75,6 @@ def FilterPyModules(**kwargs):
 
 #######################################################6#############
 def CannotReleaseFromDist(*, pathDist: Path, pathModule: Path, sName: str, sVersion: str):
-
     print("===================================================")
     print("Cannot release module from distribution for: {} v{}\n".format(sName, sVersion))
 
@@ -85,7 +84,6 @@ def CannotReleaseFromDist(*, pathDist: Path, pathModule: Path, sName: str, sVers
 
 ####################################################################
 def FindHeadForCommit(*, repoMod: Repo, comX: Commit, bLocal: bool = True) -> Head:
-
     for headX in repoMod.heads:
         if headX.commit == comX:
             return headX
@@ -110,7 +108,6 @@ def FindHeadForCommit(*, repoMod: Repo, comX: Commit, bLocal: bool = True) -> He
 
 ####################################################################
 def GetHeadNameForCommit(*, repoMod: Repo, comX: Commit, bLocal: bool = True) -> str:
-
     headX = FindHeadForCommit(repoMod=repoMod, comX=comX)
     sName = ""
     if headX is not None:
@@ -125,7 +122,6 @@ def GetHeadNameForCommit(*, repoMod: Repo, comX: Commit, bLocal: bool = True) ->
 
 ####################################################################
 def _RepoTest(*, pathModule):
-
     sLocalVersion = module.GetRepoVersion(pathModule=pathModule)
     print("Repo: {}, v{}".format(pathModule.name, sLocalVersion))
 
@@ -147,7 +143,7 @@ def _RepoTest(*, pathModule):
     # endfor remotes
     print("")
 
-    headMaster = repoMod.heads["master"]
+    headMaster = repoMod.heads["main"]
     headDev = repoMod.heads["develop"]
 
     print("Commits before current in {}".format(headDev.name))
@@ -188,7 +184,7 @@ def _RepoTest(*, pathModule):
         elif comX == headMaster.commit:
             print("Can merge Develop into Master")
         else:
-            print("Invalid state for merging develop into master")
+            print("Invalid state for merging develop into main")
         # endif
     # endif
     print("")
@@ -207,9 +203,9 @@ def _RepoTest(*, pathModule):
 
 # enddef
 
+
 ####################################################################
 def PrintStdOut(_sStdOut, *, sPrintPrefix: str = ""):
-
     if len(_sStdOut) == 0:
         return
     # endif
@@ -221,6 +217,7 @@ def PrintStdOut(_sStdOut, *, sPrintPrefix: str = ""):
 
 
 # enddef
+
 
 ####################################################################
 def GitCheckout(_repoMod: Repo, _sBranch: str, **kwargs):
@@ -239,7 +236,6 @@ def GitCheckout(_repoMod: Repo, _sBranch: str, **kwargs):
 
 ####################################################################
 def GetRepoVersion(*, pathModule: Path) -> str:
-
     pathSetupCfgFile = pathModule / "setup.cfg"
 
     pathPackageFile = pathModule / "package.json"
@@ -284,7 +280,6 @@ def GetRepoVersion(*, pathModule: Path) -> str:
 
 ####################################################################
 def IncRepoVersion(*, pathModule: Path, iVerPart: int, bDoExecute=True):
-
     pathSetupCfgFile = pathModule / "setup.cfg"
 
     pathPackageFile = pathModule / "package.json"
@@ -372,12 +367,11 @@ def ReleaseFromRepo(
     bDoPush: bool,
     iVerPart: int,
 ):
-
     print("===================================================")
     sResultMsg = "ok"
 
     try:
-        sBranchMain = "master"
+        sBranchMain = "main"
         sBranchDev = "develop"
 
         sLocalVersion, sModuleType = GetRepoVersion(pathModule=pathModule)
@@ -480,7 +474,9 @@ def ReleaseFromRepo(
 
                     headMain = repoMod.heads[sBranchMain]
                     if repoMod.is_dirty():
-                        raise RuntimeError("Resolve merge problems and commit master. Then run this command again.")
+                        raise RuntimeError(
+                            f"Resolve merge problems and commit {sBranchMain}. Then run this command again."
+                        )
                     # endif
                 # endif do execute
             # endif Main differs from develop
@@ -568,14 +564,13 @@ def Run(
     iVerPart: int,
     bDoMain: bool,
 ):
-
     # Look for documentation virtual environment
     pathRepos = util.TryGetReposPath()
     if pathRepos is None:
         raise RuntimeError("Modules can only be built from source install")
     # endif
 
-    sBranchMain = "master"
+    sBranchMain = "main"
     sBranchDev = "develop"
 
     #########################################
