@@ -48,7 +48,6 @@ g_debug_lInstallModules = []  # ["functional-json", "image-render-blender-camera
 
 ####################################################################
 def GetRegExModuleDistFile(*, sType: str = "WHEEL"):
-
     if sType == "WHEEL":
         reDist = re.compile(r"(.*?)-(\d+\.\d+\.\d+)-(.+)\.whl")
 
@@ -67,10 +66,8 @@ def GetRegExModuleDistFile(*, sType: str = "WHEEL"):
 
 ####################################################################
 def GetModulePath(*, sPathPythonProg: str, sModuleName: str) -> str:
-
     xScript = res.files(catharsys.setup).joinpath("scripts").joinpath("run-get-module-path.py")
     with res.as_file(xScript) as pathScript:
-
         bOK, lStdOut = util.ExecShellCmd(
             sCmd='{} "{}" -- {}'.format(sPathPythonProg, pathScript.as_posix(), sModuleName),
             bDoPrint=False,
@@ -88,7 +85,6 @@ def GetModulePath(*, sPathPythonProg: str, sModuleName: str) -> str:
 
 ####################################################################
 def CanPipInstallModule(*, pathModule: Path) -> bool:
-
     if pathModule.is_dir():
         pathSetupCfg = pathModule / "setup.cfg"
         return pathSetupCfg.exists()
@@ -105,7 +101,6 @@ def CanPipInstallModule(*, pathModule: Path) -> bool:
 
 ####################################################################
 def GetRepoVersion(*, pathModule: Path, bGetSource: bool = False) -> Union[str, tuple[str, str, Path]]:
-
     pathSetupCfg = pathModule / "setup.cfg"
     if not pathSetupCfg.exists():
         raise RuntimeError(
@@ -199,7 +194,6 @@ def GetRepoVersion(*, pathModule: Path, bGetSource: bool = False) -> Union[str, 
 ####################################################################
 # Increment the repository version
 def IncRepoVersion(*, pathModule: Path, iVerPart: int, bDoExecute=True, bGetSource: bool = False) -> str:
-
     if iVerPart < 0 or iVerPart > 2:
         raise RuntimeError(f"Version part index has to be in range [0,1,2], is given as '{iVerPart}'")
     # endif
@@ -210,7 +204,7 @@ def IncRepoVersion(*, pathModule: Path, iVerPart: int, bDoExecute=True, bGetSour
 
     sVersion, sAttrName, pathSource = GetRepoVersion(pathModule=pathModule, bGetSource=True)
 
-    xMatch = re.match(r"(\d+)\.(\d+)\.(\d+)", sVersion)
+    xMatch = re.fullmatch(r"(\d+)\.(\d+)\.(\d+)", sVersion)
     if xMatch is None:
         raise RuntimeError(f"Invalid version string '{sVersion}' for module '{pathModule.name}'")
     # endif
@@ -266,7 +260,6 @@ def IncRepoVersion(*, pathModule: Path, iVerPart: int, bDoExecute=True, bGetSour
 
 ####################################################################
 def RepoNeedsInstall(*, sPathPythonProg: str, pathModule: Path) -> bool:
-
     try:
         sVersion = GetRepoVersion(pathModule=pathModule)
     except Exception as xEx:
@@ -296,7 +289,6 @@ def RepoNeedsInstall(*, sPathPythonProg: str, pathModule: Path) -> bool:
 
 ####################################################################
 def DistNeedsInstall(*, sPathPythonProg: str, sName: str, sVersion: str):
-
     bInstall = True
     sInstVer = None
     dicInfo = util.GetInstalledModuleInfo(sPathPythonProg=sPathPythonProg, sModuleName=sName)
@@ -333,7 +325,6 @@ def ForEach(
     funcTest: Optional[Callable] = None,
     pathReposOverride: Optional[Path] = None,
 ) -> list[Path]:
-
     lPathModule = []
     bUseDist = None
     pathModules = None
@@ -370,7 +361,7 @@ def ForEach(
             # Test for exclude filter
             bContinue = False
             for reFilter in lExcludeRegExComp:
-                if reFilter.match(pathMod.name) is not None:
+                if reFilter.fullmatch(pathMod.name) is not None:
                     bContinue = True
                     break
                 # endif
@@ -384,7 +375,7 @@ def ForEach(
             if len(lIncludeRegEx) > 0:
                 bContinue = True
                 for reFilter in lIncludeRegExComp:
-                    if reFilter.match(pathMod.name) is not None:
+                    if reFilter.fullmatch(pathMod.name) is not None:
                         bContinue = False
                         break
                     # endif
@@ -410,7 +401,7 @@ def ForEach(
                     continue
                 # endif
 
-                xMatch = reDist.match(pathMod.name)
+                xMatch = reDist.fullmatch(pathMod.name)
                 if xMatch is None:
                     continue
                 # endif
@@ -455,7 +446,6 @@ class CRepoHandlerFactory:
     @classmethod
     def CreateUninstall(cls, _sPathPythonProg):
         def Handler(*, pathModule, pathRepos):
-
             if not CanPipInstallModule(pathModule=pathModule):
                 return
             # endif
@@ -484,7 +474,6 @@ class CRepoHandlerFactory:
     @classmethod
     def CreateInstall(cls, _sPathPythonProg, _bForceInstall):
         def Handler(*, pathModule, pathRepos):
-
             if not CanPipInstallModule(pathModule=pathModule):
                 return
             # endif
@@ -538,7 +527,6 @@ class CDistHandlerFactory:
     @classmethod
     def CreateInstall(cls, _sPathPythonProg, _bForceInstall):
         def Handler(*, pathModule, pathDist, sName, sVersion):
-
             if not CanPipInstallModule(pathModule=pathModule):
                 return
             # endif
@@ -603,6 +591,7 @@ class CDistHandlerFactory:
 
 # end class
 
+
 ############################################################################
 def InstallModules(
     *,
@@ -611,7 +600,6 @@ def InstallModules(
     bForceInstall: bool,
     bSourceDist: bool,
 ):
-
     ForEach(
         bForceDist=bForceDist,
         bSourceDist=bSourceDist,
@@ -632,7 +620,6 @@ def UninstallModules(
     *,
     sPathPythonProg: str = "python",
 ):
-
     ForEach(
         bForceDist=False,
         # funcRunRepo=CreateUninstallRepoHandler(sPathPythonProg),
