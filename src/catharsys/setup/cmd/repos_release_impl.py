@@ -432,7 +432,11 @@ def ReleaseFromRepo(
                 print(f"{sPrintPrefix}Committing version file: {sPathVerFile}")
                 if bDoExecute is True:
                     repoMod.index.add([sPathVerFile])
-                    repoMod.index.commit(f":cathy:set-version:{sNewVersion}: Increment version to {sNewVersion}")
+                    repoMod.index.write()
+                    repoMod.git.commit(
+                        "-S", "-m", f":cathy:set-version:{sNewVersion}: Increment version to {sNewVersion}"
+                    )
+                    # repoMod.index.commit(f":cathy:set-version:{sNewVersion}: Increment version to {sNewVersion}")
                 # endif
 
                 sLocalVersion = sNewVersion
@@ -514,7 +518,9 @@ def ReleaseFromRepo(
             print(f"{sPrintPrefix}Committing version file: {sPathVerFile}")
             if bDoExecute is True:
                 repoMod.index.add([sPathVerFile])
-                repoMod.index.commit(f":cathy:set-version:{sNewVersion}: Increment version to {sNewVersion}")
+                repoMod.index.write()
+                repoMod.git.commit("-S", "-m", f":cathy:set-version:{sNewVersion}: Increment version to {sNewVersion}")
+                # repoMod.index.commit(f":cathy:set-version:{sNewVersion}: Increment version to {sNewVersion}")
             # endif
         # endif needs release
 
@@ -776,9 +782,13 @@ def Run(
             print(f"Committing new repo list file: {pathRepoListFile.name}")
             sPathRepoListFile = pathRepoListFile.relative_to(pathSetup).as_posix()
             repoMain.index.add([sPathRepoListFile])
-            repoMain.index.commit(
-                f":cathy:new-repo-list:{sLocalVersion}: Create new repo list file for {sLocalVersion}"
+            repoMain.index.write()
+            repoMain.git.commit(
+                "-S", "-m", f":cathy:new-repo-list:{sLocalVersion}: Create new repo list file for {sLocalVersion}"
             )
+            # repoMain.index.commit(
+            #     f":cathy:new-repo-list:{sLocalVersion}: Create new repo list file for {sLocalVersion}"
+            # )
         # endif
 
         print("")

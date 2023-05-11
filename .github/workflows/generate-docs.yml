@@ -1,0 +1,61 @@
+name: Generate Image-Render System Documentation
+run-name: ${{ github.actor }} is generating documentation 🚀
+on: [workflow_dispatch]
+permissions:
+    contents: write
+  
+jobs:
+  Generate-Image-Render-Documentation:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "🎉 The job was triggered by a ${{ github.event_name }} event."
+      - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
+      - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
+      
+      - name: Check out repository code
+        uses: actions/checkout@v3
+    
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+          cache: 'pip'
+
+      - run: pip install -r data/wf-gen-docs/requirements.txt
+      
+      - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
+
+      - name: Clone all repos
+        run: |
+            cd repos
+            vcs import < repos-release.yaml
+    
+      - name: List cloned repositories repository
+        run: ls repos
+          
+      - name: Install Functional JSON
+        run: |
+          cd repos/functional-json
+          pip install .
+      
+      - name: Install Catharsys Setup
+        run: pip install -e .
+
+      - name: Build Documentation
+        run: cathy build docs
+      
+      - name: Copy index referrer
+        run: cp data/wf-gen-docs/index.html ./docs/build/.
+        
+      - name: List docs folder
+        run: ls docs/build
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          publish_branch: gh-pages
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: docs/build/
+          force_orphan: true 
+          
+      - run: echo "🍏 This job's status is ${{ job.status }}."
