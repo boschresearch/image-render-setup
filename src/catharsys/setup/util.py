@@ -25,6 +25,7 @@
 ###
 
 import re
+import io
 import os
 import sys
 import subprocess
@@ -155,12 +156,13 @@ def ExecShellCmd(
         stderr=subprocess.STDOUT,
         shell=True,
         cwd=sEffCwd,
-        universal_newlines=True,
+        # universal_newlines=True,
         env=dicEnviron,
     )
 
     lLines = []
-    for sLine in iter(procChild.stdout.readline, ""):
+    # for sLine in iter(procChild.stdout.readline, ""):
+    for sLine in io.TextIOWrapper(procChild.stdout, encoding="utf-8", errors="ignore"):
         lLines.append(sLine)
         if bDoPrint:
             print(sPrintPrefix + sLine, end="", flush=True)

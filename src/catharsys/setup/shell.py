@@ -24,7 +24,8 @@
 # </LICENSE>
 ###
 
-
+import io
+import locale
 import os
 import subprocess
 import platform
@@ -62,12 +63,13 @@ def ExecCmd(
         stderr=subprocess.STDOUT,
         shell=True,
         cwd=sEffCwd,
-        universal_newlines=True,
+        # universal_newlines=True,
         env=dicEnviron,
     )
 
     lLines = []
-    for sLine in iter(procChild.stdout.readline, ""):
+    # for sLine in iter(procChild.stdout.readline, ""):
+    for sLine in io.TextIOWrapper(procChild.stdout, encoding="utf-8", errors="ignore"):
         lLines.append(sLine)
         if bDoPrint:
             print(sPrintPrefix + sLine, end="", flush=True)
@@ -149,12 +151,12 @@ def ExecShellCmds(
         stderr=subprocess.STDOUT,
         shell=False,
         cwd=sEffCwd,
-        universal_newlines=True,
+        # universal_newlines=True,
         env=dicEnviron,
     )
 
     lLines = []
-    for sLine in iter(procChild.stdout.readline, ""):
+    for sLine in io.TextIOWrapper(procChild.stdout, encoding="utf-8", errors="ignore"):
         lLines.append(sLine)
         if bDoPrint:
             print(sPrintPrefix + sLine, end="", flush=True)
@@ -190,7 +192,7 @@ def ExecShellCmds(
 #################################################################################################################
 def ExecPowerShellCmds(
     *,
-    lCmds,
+    lCmds: list,
     sCwd=None,
     bDoPrint=False,
     bDoPrintOnError=False,
@@ -202,6 +204,7 @@ def ExecPowerShellCmds(
 
     return ExecShellCmds(
         sShellPath="powershell.exe",
+        lShellArgs=["-ExecutionPolicy", "ByPass"],
         lCmds=lCmds,
         sCwd=sCwd,
         bDoPrint=bDoPrint,
