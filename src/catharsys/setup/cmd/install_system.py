@@ -35,6 +35,7 @@ def AddArgParseArguments(_xArgParser):
     _xArgParser.add_argument("--vscode-addons", dest="vscode_addons_only", action="store_true", default=False)
     _xArgParser.add_argument("--sdist", dest="sdist", action="store_true", default=False)
     _xArgParser.add_argument("--docs", dest="docs", nargs="*", default=None)
+    _xArgParser.add_argument("--repos", dest="repos", nargs=1, default=[None])
 
 
 # enddef
@@ -53,6 +54,7 @@ def RunCmd(_argsCmd, _lArgs):
         bVsCodeAddOnsOnly=argsSubCmd.vscode_addons_only,
         bSourceDist=argsSubCmd.sdist,
         lDocFiles=argsSubCmd.docs,
+        sReposFile=argsSubCmd.repos[0],
     )
 
 

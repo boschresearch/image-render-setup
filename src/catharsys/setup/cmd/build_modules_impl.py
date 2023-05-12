@@ -67,6 +67,18 @@ def FilterPyModules(**kwargs):
 
 # enddef
 
+####################################################################
+def AssertSetupToolsInstalled():
+    # Check whether "build" is installed
+    dicInfo = util.GetInstalledModuleInfo(sPathPythonProg="python", sModuleName="build")
+    if dicInfo.get("Version") is None:
+        raise RuntimeError(
+            "Module 'build' from setuptools not installed.\n"
+            "Please install it with: pip install build\n"
+            "You may need to download a version >= 0.7.0 manually from: https://github.com/pypa/build/tags\n"
+        )
+    # endif
+# enddef
 
 ####################################################################
 def TestDoBuild(
@@ -140,8 +152,8 @@ def CannotBuildFromDist(*, pathDist: Path, pathModule: Path, sName: str, sVersio
 
 #####################################################################
 def SelectBuildBranch(*, pathModule):
-    sBranchMain = "master"
-    sBranchDev = "develop"
+    sBranchMain = "stable"
+    sBranchDev = "main"
     repoMod = Repo(pathModule)
 
     if sBranchMain not in repoMod.heads:
@@ -182,10 +194,13 @@ def SelectBranch(*, pathModule, sBranch):
 
 
 #####################################c###############################
-def BuildFromRepo(*, pathRepos: Path, pathModule: Path, pathDist: Path, pathSetup: Path):
+def BuildFromRepo(*, pathRepos: Path, pathModule: Path, pathDist: Path, pathSetup: Path, bUseActiveBranch: bool):
 
     print("===================================================")
-    sSwitchBackToBranch = SelectBuildBranch(pathModule=pathModule)
+    sSwitchBackToBranch: str = None
+    if bUseActiveBranch is False:
+        sSwitchBackToBranch = SelectBuildBranch(pathModule=pathModule)
+    # endif
 
     pathSetupCfgFile = pathModule / "setup.cfg"
 
@@ -200,6 +215,7 @@ def BuildFromRepo(*, pathRepos: Path, pathModule: Path, pathDist: Path, pathSetu
     lreDist = [module.GetRegExModuleDistFile(sType="WHEEL"), module.GetRegExModuleDistFile(sType="SOURCE")]
 
     if pathSetupCfgFile.exists():
+        AssertSetupToolsInstalled()
         sRepoVersion = module.GetRepoVersion(pathModule=pathModule)
 
         if (
@@ -697,6 +713,8 @@ def BuildSetupPackage(*, pathSetupSrc: Path, pathDist: Path, pathTop: Path):
         r".+\.code-workspace",
     ]
 
+    AssertSetupToolsInstalled()
+
     sSwitchBackToBranch = SelectBuildBranch(pathModule=pathSetupSrc)
 
     sVersion = module.GetRepoVersion(pathModule=pathSetupSrc)
@@ -743,8 +761,8 @@ def BuildSetupPackage(*, pathSetupSrc: Path, pathDist: Path, pathTop: Path):
     pathReposSrc = pathSetupSrc / "repos"
     pathReposTrg = pathBuildMod / "repos"
     pathReposTrg.mkdir(exist_ok=True)
-    pathReposFileTrg = pathReposTrg / "repos-develop.yaml"
-    pathReposFileSrc = pathReposSrc / "repos-develop.yaml"
+    pathReposFileTrg = pathReposTrg / "repos-main.yaml"
+    pathReposFileSrc = pathReposSrc / "repos-main.yaml"
     shutil.copy(pathReposFileSrc.as_posix(), pathReposFileTrg.as_posix())
 
     pathReposFileTrg = pathReposTrg / "repos-release.yaml"
@@ -806,17 +824,8 @@ def BuildSetupPackage(*, pathSetupSrc: Path, pathDist: Path, pathTop: Path):
 # enddef
 
 ####################################################################
-def Run(*, lModules: list[str] = []):
+def Run(*, lModules: list[str] = [], bUseActiveBranch: bool = False):
 
-    # Check whether "build" is installed
-    dicInfo = util.GetInstalledModuleInfo(sPathPythonProg="python", sModuleName="build")
-    if dicInfo.get("Version") is None:
-        raise RuntimeError(
-            "Module 'build' from setuptools not installed.\n"
-            "Please install it with: pip install build\n"
-            "You may need to download a version >= 0.7.0 manually from: https://github.com/pypa/build/tags\n"
-        )
-    # endif
 
     # Look for documentation virtual environment
     pathRepos = util.TryGetReposPath()
@@ -827,13 +836,14 @@ def Run(*, lModules: list[str] = []):
     pathSetup = pathRepos.parent
     pathDist = util.GetDistPath()
 
-    def CreateBuildFunc(_pathDist: Path, _pathSetup: Path):
+    def CreateBuildFunc(_pathDist: Path, _pathSetup: Path, _bUseActiveBranch: bool):
         def Lambda(*, pathRepos: Path, pathModule: Path):
             BuildFromRepo(
                 pathRepos=pathRepos,
                 pathModule=pathModule,
                 pathDist=_pathDist,
                 pathSetup=_pathSetup,
+                bUseActiveBranch=_bUseActiveBranch,
             )
 
         # enddef
@@ -846,7 +856,7 @@ def Run(*, lModules: list[str] = []):
     lPathModules = module.ForEach(
         bForceDist=False,
         funcRunDist=CannotBuildFromDist,
-        funcRunRepo=CreateBuildFunc(pathDist, pathSetup),
+        funcRunRepo=CreateBuildFunc(pathDist, pathSetup, bUseActiveBranch),
         funcTest=FilterPyModules,
         lIncludeRegEx=lIncMods,
     )

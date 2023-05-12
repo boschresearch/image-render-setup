@@ -19,8 +19,12 @@
 
 # Catharsys Installation
 
-These are the basic steps to install the image render system **Catharsys** from scratch.
+These are the basic steps to install the image render system **Catharsys** from scratch. There are two modes of installation, which are both described in this document:
 
+1. a **distribution** install from a `.zip` package, if you just want to use Catharsys,
+2. a **develop** install from a fork, if you want to modify or contribute code. 
+
+The Catharsys modules are entirely written in Python and the software repositories can be installed locally via `pip`. However, the modules are currently not available on `pypi`. Instead, there is an installation script that prepares the environment and installs all the packages you need. 
 
 ## Pre-requisites
 
@@ -28,7 +32,7 @@ Prepare the following, before you start installing Catharsys.
 
 **Python**
 
-Currently, an Anaconda (miniconda) Python installation is needed.
+An Anaconda (miniconda) Python installation is needed.
 
 **Blender**
 
@@ -37,7 +41,7 @@ To render images with Blender, you need to download an *archive version* (*.zip,
 **Do not** unpack the archive right now. This will be done later on by a Catharsys tool.
 
 ```{note}
-Catharsys can work with a system wide install of Blender. However, this is not recommended, because the Catharsys code is installed in the Python distributon that comes with Blender. This may not be possible for a system wide install and you may run into problems, if you want to use different Catharsys versions for different projects.
+Catharsys has to install Blender in a special Catharsys folder, because the Catharsys code is installed in the Python distributon that comes with Blender. Therefore, there is a separate Blender installation for each Blender version (Major.Minor version) and for each Catharsys version (Major.Minor version), so that they can be used side-by-side.
 ```
 
 **Visual Studio Code**
@@ -46,98 +50,12 @@ Catharsys can work with a system wide install of Blender. However, this is not r
 
 ## Catharsys System
 
-The installation starts with an image render setup archive. The filename is of the form `image-render-setup-[X.Y.Z].zip`, where `[X.Y.Z]` stands for a three digit version number. For this tutorial, we assume that the image render setup archive is located at `~/code/image-render-setup-3.0.28.zip`. 
+- For a **distribution** installation from a `.zip` file, [go to this document](install_distribution.md).
+- For a **development** install from a fork of the `image-render-*` repositories, [read on here](install_development.md).
 
-```{admonition} Windows
-For a Windows install, it is assumed that you are using a PowerShell. This should be the default in all current Windows installations. If you are unfamiliar with PowerShell, [here](./powershell.md) is a list of helpful commands and information.
-```
+**IMPORTANT**: Only carry on, if you successfully installed the system with one of the above workflows.
 
-### Step 0
-
-Open a standard PowerShell (Windows) or Bash (Linux) prompt.
-
-### Step 1
-
-Unpack the zip-file directly in the `code` folder. 
-
-```{admonition} PowerShell
-`expand-archive .\image-render-setup-3.0.28.zip -DestinationPath .`
-```
-
-```{admonition} Linux
-`unzip image-render-setup-3.0.28.zip`
-```
-
-### Step 2
-
-Change to the newly created folder with 
-
-```{admonition} Shell
-`cd image-render-setup-3.0.28`
-```
-
-Now activate the base anaconda environment. 
-
-```{admonition} PowerShell
-If you started the default PowerShell, Anaconda will not be activated, even if it is installed. The image render setup comes with a helpful script that does that for you. Execute:
-
-`.\scripts\CondaActivate.ps1`
-```
-
-```{admonition} Linux
-Under Linux, you have probably already initialized anaconda with the command `conda init`, which will modify your `~/.bashrc`. You can therefore activate conda from any bash prompt with:
-
-`conda activate`
-```
-
-### Step 3
-
-Make sure that the command `pip` can access the internet. You can test this by trying to upgrade pip (which is a sensible thing to do anyway):
-
-```{admonition} Shell
-`python -m pip install --upgrade pip`
-```
-
-If `pip` cannot access the module archive, you may need to install and configure a proxy.
-
-### Step 4
-
-Run the image render installation. This will create an anaconda environment for you, where everything is installed. We will choose `cex1` as the environment name, but you can choose any valid name you like.
-
-```{admonition} Shell
-`python ./scripts/cathy-conda.py install cex1`
-```
-This command will create a *distribution* install, which is sufficient, if you just want to use Catharsys. If you want to develop Catharsys code or Catharsys add-ons, you should do a *develop* install. In a develop install, the source code of all modules is cloned from a `git` server, and the code is installed such that you can edit and debug everything, while still using the standard execution commands. If you execute the following command for a develop install, all other commands will recognize this type of install and act accordingly. For example, the VS-Code initialization described later, creates a workspace file that maps all source repositories.
-
-```{admonition} Shell *(develop install)*
-`python ./scripts/cathy-conda.py install cex1 --develop`
-```
-
-### Step 5
-
-To test whether the system installed successfully, you first of all need to switch to the Anaconda environment that was just created:
-
-```{admonition} Shell
-`conda activate cex1`
-```
-
-Now let's run the main Catharsys management command `cathy`:
-
-```{admonition} Shell
-`cathy -h`
-```
-
-This should print the usage and available sub-commands of `cathy`. The set of available commands depends on the Catharsys modules and add-ons installed. If you write your own Catharsys module, you can also define your own sub-commands.
-
-Now try to open the HTML documentation in a web browser, with the command:
-
-```{admonition} Shell
-`cathy --docs`
-```
-
-This should open the default web browser and show this documentation.
-
-### `cathy`
+## The `cathy` command
 
 You can access the `cathy` commands from any folder, as long as you are in the `cex1` environment. 
 
@@ -161,15 +79,15 @@ See {doc}`cathy_main` for more information on `cathy`
 
 Since Catharsys needs to install itself in the Python environment that comes with Blender, the Blender installation is done by a Catharsys tool. Blender will be installed in the path 
 
-`~/.catharsys/[Catharsys version]/Blender/[Blender archive folder]`
+`~/.catharsys/[Conda environment]/[Catharsys version]/Blender/[Blender archive folder]`
 
-For example, for Catharsys 3.0 and the Blender archive `blender-3.2.2-windows-x64.zip`, Blender will be unpacked in the folder:
+For example, for Catharsys 3.0 installed in the Conda environment `cex1` and the Blender archive `blender-3.2.2-windows-x64.zip`, Blender will be unpacked in the folder:
 
-`~/.catharsys/3.0/Blender/blender-3.2.2-windows-x64`
+`~/.catharsys/cex1/3.0/Blender/blender-3.2.2-windows-x64`
 
 In this way, each Catharsys version has its' own group of Blender installs. In addition, the following symbolic link (or junction in Windows) is created, that points to the above folder:
 
-`~/.catharsys/3.0/blender-3.2`
+`~/.catharsys/cex1/3.0/blender-3.2`
 
 This link always points to the latest Blender 3.2 version installed.
 

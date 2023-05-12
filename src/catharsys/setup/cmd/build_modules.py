@@ -31,6 +31,7 @@ g_sCmdDesc = "Builds the Catharsys modules"
 ####################################################################
 def AddArgParseArguments(_xArgParser):
     _xArgParser.add_argument("-m", "--modules", dest="modules", nargs="*", default=[])
+    _xArgParser.add_argument("--use-active-branch", dest="use_act_branch", action="store_true", default=False)
 
 
 # enddef
@@ -43,7 +44,7 @@ def RunCmd(_argsCmd, _lArgs):
 
     argsSubCmd = args.ParseCmdArgs(_argsCmd=_argsCmd, _lArgs=_lArgs, _funcAddArgs=AddArgParseArguments)
 
-    Run(lModules=argsSubCmd.modules)
+    Run(lModules=argsSubCmd.modules, bUseActiveBranch=argsSubCmd.use_act_branch)
 
 
 # enddef

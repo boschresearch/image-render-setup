@@ -81,42 +81,51 @@ def Run(*, sPathWorkspace=None, sPrintPrefix=">> "):
         pathWS = Path(sPathWorkspace)
     # endif
 
-    print("{}Initializing VSCode for workspace at path: {}".format(sPrintPrefix, pathWS.as_posix()))
+    pathSetupCfg = pathWS / "setup.cfg"
+    bIsCodeWs = pathSetupCfg.exists()
 
-    pathConfig = pathWS / "config"
-    if not pathConfig.exists():
-        raise RuntimeError("Configuration folder 'config' not found in workspace: {}".format(pathConfig.as_posix()))
+    if bIsCodeWs is True:
+        print(f"{sPrintPrefix}Initializing VSCode for python module at path: {(pathWS.as_posix())}")
+    else:
+        print("{}Initializing VSCode for workspace at path: {}".format(sPrintPrefix, pathWS.as_posix()))
+
+        pathConfig = pathWS / "config"
+        if not pathConfig.exists():
+            raise RuntimeError("Configuration folder 'config' not found in workspace: {}".format(pathConfig.as_posix()))
+        # endif
+
+        ##############################################################################
+        # Search for launch files
+        lLaunchFiles = [
+            x
+            for x in pathConfig.rglob("launch.*")
+            if (x.is_file() and ".vscode" not in x.as_posix() and x.suffix in [".json", ".json5", ".ison"])
+        ]
+
+        # Get list of valid project configurations in workspace
+        lPrjCfg: list[CProjectConfig] = []
+        for pathLaunchFile in lLaunchFiles:
+            xPrjCfg = CProjectConfig()
+            try:
+                xPrjCfg.FromLaunchPath(pathLaunchFile)
+            except Exception as xEx:
+                print(
+                    "{}! Invalid launch file for configuraton: {}\n{}\n".format(
+                        sPrintPrefix, pathLaunchFile.as_posix(), str(xEx)
+                    )
+                )
+            # endtry
+            lPrjCfg.append(xPrjCfg)
+        # endfor
+
+        # Print valid configurations found
+        print(f"{sPrintPrefix}Configurations found:")
+        for xPrjCfg in lPrjCfg:
+            print("{}- {}".format(sPrintPrefix, xPrjCfg.sLaunchFolderName))
+        # endfor
+
     # endif
 
-    ##############################################################################
-    # Search for launch files
-    lLaunchFiles = [
-        x
-        for x in pathConfig.rglob("launch.*")
-        if (x.is_file() and ".vscode" not in x.as_posix() and x.suffix in [".json", ".json5", ".ison"])
-    ]
-
-    # Get list of valid project configurations in workspace
-    lPrjCfg: list[CProjectConfig] = []
-    for pathLaunchFile in lLaunchFiles:
-        xPrjCfg = CProjectConfig()
-        try:
-            xPrjCfg.FromLaunchPath(pathLaunchFile)
-        except Exception as xEx:
-            print(
-                "{}! Invalid launch file for configuraton: {}\n{}\n".format(
-                    sPrintPrefix, pathLaunchFile.as_posix(), str(xEx)
-                )
-            )
-        # endtry
-        lPrjCfg.append(xPrjCfg)
-    # endfor
-
-    # Print valid configurations found
-    print(f"{sPrintPrefix}Configurations found:")
-    for xPrjCfg in lPrjCfg:
-        print("{}- {}".format(sPrintPrefix, xPrjCfg.sLaunchFolderName))
-    # endfor
 
     ##############################################################################
     lPathModules = GetRepoPaths()
@@ -257,7 +266,7 @@ def Run(*, sPathWorkspace=None, sPrintPrefix=">> "):
     ##############################################################################
     # write workspace file
     sName = pathWS.name
-    if sName.startswith("image-render-"):
+    if bIsCodeWs is False and sName.startswith("image-render-"):
         sName = sName[len("image-render-") :]
     # endif
 
