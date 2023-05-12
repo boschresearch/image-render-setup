@@ -12,3 +12,4 @@ dist
 _testlog_*
 _local
 *.code-workspace
+.vscode
