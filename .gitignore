@@ -13,3 +13,4 @@ _testlog_*
 _local
 *.code-workspace
 .vscode
+.catharsys
