@@ -1,5 +1,7 @@
 # Image Render Setup
 
+**Check out the `stable` branch for the latest stable version**
+
 This is the setup and system module for the `image-render` automation system.
 
 See the [documentation](https://boschresearch.github.io/image-render-setup/html/index.html) for a change-log and the [installation documentation](https://boschresearch.github.io/image-render-setup/html/setup.html) to get started.

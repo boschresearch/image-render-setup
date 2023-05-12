@@ -9,6 +9,15 @@ front helps to avoid frustration later on.  Please follow the [coding guidelines
 Your contribution must be licensed under the Apache-2.0 license, the [license](LICENSE.md)
 used by this project. 
 
+## Branching Model
+
+This project uses the GitFlow branching model. However, the naming of the branches is adapted to make the workflow with GitHub easier. What would typically be called `develop` branch is here the `main` branch, which is the default GitHub branch. The `main` or `master` branch of the GitFlow model is here called `stable`. That is, you develop in a feature branch (`feature/[your feature]`) and then create a pull request agains the `main` branch. Pull requests against the `stable` branch will be rejected.
+
+Releases are tagged with a version number in the stable branch. This allows to go back to a specific version from which to create a new release branch, if multiple releases need to be developed or fixed in parallel.
+
+Note that you need to fork this repository if you want to modify it. When forking, it is sufficient to only include the `main` branch in the fork.
+
+
 ## Add / retain copyright notices
 
 Include a copyright notice and license in each new file to be contributed,
