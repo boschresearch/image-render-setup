@@ -192,13 +192,14 @@ def Install(
     sEnvName: str,
     pathSetup: Path,
     bForceInstall: bool = False,
-    bDevelop: bool = False,
+    sDevelopReposFile: str = None,
     bEnvOnly: bool = False,
     sShellInitScript: str = None,
     sPrintPrefix=">> ",
 ):
 
     # sSystem = platform.system()
+    bDevelop: bool = sDevelopReposFile is not None
 
     pathShellInitScript: Path = None
     if isinstance(sShellInitScript, str):
@@ -265,7 +266,10 @@ def Install(
     print(f"{sPrintPrefix}Installing necessary packages in conda environment '{sEnvName}'...")
 
     sInstallCath = "cathy install system"
-
+    if bDevelop is True and sDevelopReposFile != "__default__":
+        sInstallCath += f" --repos {sDevelopReposFile}"
+    # endif
+    
     if bDevelop is True:
         sInstallSetup = "python -m pip install --editable ."
     else:

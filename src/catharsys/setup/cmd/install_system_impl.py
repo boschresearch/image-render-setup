@@ -193,9 +193,10 @@ def InstallDocs(*, bForceInstall: bool = False, bForceDist: bool = False, lDocFi
 
 
 ####################################################################
-def Run(*, bForceDist: bool, bForceInstall: bool, bSourceDist: bool, bVsCodeAddOnsOnly: bool, lDocFiles: bool):
+def Run(*, bForceDist: bool, bForceInstall: bool, bSourceDist: bool, bVsCodeAddOnsOnly: bool, lDocFiles: bool, sReposFile: str):
 
     from catharsys.setup import module
+    sSystem: str = platform.system()
 
     bDocsOnly = isinstance(lDocFiles, list)
 
@@ -212,21 +213,33 @@ def Run(*, bForceDist: bool, bForceInstall: bool, bSourceDist: bool, bVsCodeAddO
                 # endif
             # endfor
             if len(lRepoPaths) == 0:
-                pathRepoListFile = pathRepos / "repos-develop.yaml"
+                if sReposFile is None:
+                    pathRepoListFile = pathRepos / "repos-main.yaml"
+                else:
+                    pathRepoListFile = Path(util.NormPath(sReposFile))
+                    if not pathRepoListFile.is_absolute():
+                        pathRepoListFile = util.NormPath(Path.cwd() / pathRepoListFile)
+                    # endif
+                # endif
                 if pathRepoListFile.exists():
-                    print("Cloning repositories in develop branch...")
-                    sCmd = "vcs import < {}".format(pathRepoListFile.name)
+                    print("Cloning repositories...")
+                    if sSystem == "Windows":
+                        sCmd = f"Get-Content {pathRepoListFile} | vcs import"
+                    else:
+                        sCmd = "vcs import < {}".format(pathRepoListFile)
+                    # endif
                     sCwd = pathRepos.as_posix()
-                    shell.ExecCmd(
-                        sCmd=sCmd,
-                        sCwd=sCwd,
-                        bDoPrint=True,
-                        bDoPrintOnError=True,
-                        sPrintPrefix=">> ",
-                    )
+                    shell.ExecPlatformCmds(lCmds=[sCmd], sCwd=sCwd, bDoPrint=True,bDoPrintOnError=True, sPrintPrefix=">> ")
+                    # shell.ExecCmd(
+                    #     sCmd=sCmd,
+                    #     sCwd=sCwd,
+                    #     bDoPrint=True, 
+                    #     bDoPrintOnError=True,
+                    #     sPrintPrefix=">> ",
+                    # )
                 else:
                     print(
-                        "WARNING: File 'repos-develop.yaml' missing in 'repos' folder.\nPlease clone the develop repositories manually."
+                        f"WARNING: Repository listing file is missing at {(pathRepoListFile.as_posix())}.\nPlease clone the develop repositories manually."
                     )
                 # endif
             else:

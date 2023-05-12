@@ -86,7 +86,7 @@ def RunCmd_Install(_xArgs):
     conda.Install(
         sEnvName=_xArgs.env_name[0],
         pathSetup=g_pathSetup,
-        bDevelop=_xArgs.develop,
+        sDevelopReposFile=_xArgs.develop,
         bEnvOnly=_xArgs.env_only,
         bForceInstall=_xArgs.force_install,
         sShellInitScript=_xArgs.shell_init_script[0],
@@ -109,7 +109,7 @@ def RunCli():
 
         parseCreate = parseSub.add_parser("install", help="create a conda environment and install catharsys")
         parseCreate.add_argument("env_name", nargs=1)
-        parseCreate.add_argument("--develop", dest="develop", action="store_true", default=False)
+        parseCreate.add_argument("--develop", dest="develop", nargs="?", const="__default__", default=None)
         parseCreate.add_argument("--shell-init-script", dest="shell_init_script", nargs=1, default=[None])
         parseCreate.add_argument("--env-only", dest="env_only", action="store_true", default=False)
         parseCreate.add_argument("--force", dest="force_install", action="store_true", default=False)
