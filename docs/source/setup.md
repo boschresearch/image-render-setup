@@ -105,22 +105,28 @@ This will install Blender and install all Catharsys modules in Blender Python.
 
 ## Example Workspace
 
-The image render setup includes a number of example workspaces, that you can use as starting points for your own projects. All example workspaces follow the naming convention `image-render-workspace-[name]`, where `[name]` is some identifier.
+The image render setup includes a number of template workspaces, that you can use as starting points for your own projects. You can obtain a list of the available templates with the command:
+
+```{admonition} Shell
+`cathy install template --list`
+```
 
 ### Install Example Workspace
 
-LetÂ´s go ahead and install the `simple` workspace. In this example, we navigate to the folder `~/code` and run the following shell command:
+Let´s go ahead and create a workspace based on the `just-render` template workspace. In this example, we navigate to the folder `~/code` and run the following shell command:
 
 ```{admonition} Shell
-`cathy install workspace simple`
+`cathy install template workspace-just-render`
 ```
 
-There should now be a folder `image-render-workspace-simple-1.0.0` (the version may differ). There are just a few more steps we need to do before we can render images.
+You will be prompted for a new name for the workspace and a name for a configuration. In this example, we choose `cws-just-render` for the workspace name and `trial-01` for the configuration name.
+
+There should now be a folder `cws-just-render`. There are just a few more steps we need to do before we can render images.
 
 For the following steps, we will change into the newly created workspace directory via
 
 ```{admonition} Shell
-`cd image-render-workspace-simple-1.0.0`
+`cd cws-just-render`
 ```
 
 
@@ -177,16 +183,16 @@ Before you can render images with Blender using a project configuration in the w
 The structure of Workspaces for Blender rendering is discussed {external+image-render-automation:doc}`here <workspace_basics>`.
 ```
 
-To initialize the project configuration `test` run the following command:
+To initialize the project configuration `trial-01` run the following command:
 
 ```{admonition} Shell
-`cathy blender init -c test`
+`cathy blender init -c trial-01`
 ```
 
 This command also checks whether Catharsys is installed in the Blender Python and installs it if not. To avoid checking for the installation every time you update the Blender configuration, you can run the command:
 
 ```{admonition} Shell
-`cathy blender init -c test --addons`
+`cathy blender init -c trial-01 --addons`
 ```
 
 
@@ -195,7 +201,7 @@ This command also checks whether Catharsys is installed in the Blender Python an
 A rendering configuration references the Blender file to use in a trial file, which in turn is referenced by an action. To open the blender file that is used by the action `render` of the configuration `test`, run the command:
 
 ```{admonition} Shell
-`cathy blender show -c test -a render`
+`cathy blender show -c trial-01 -a render`
 ```
 
 This opens the correct Blender version with the correct Blender configuration for the Catharsys action. 
@@ -206,20 +212,20 @@ Note that actions can have any name. That is, an action that renders something d
 
 ### Launch a rendering job
 
-Finally, let's launch the rendering action `render` for configuration `test` with:
+Finally, let's launch the rendering action `render` for configuration `trial-01` with:
 
 ```{admonition} Shell
-`cathy ws launch -c test -a render`
+`cathy ws launch -c trial-01 -a render`
 ```
 
-This should start Blender in background mode and render six images in the folder `./_render/rq0004/test/Camera/delta_rot_01/rot_01/Image`.
+This should start Blender in background mode and render six images in the folder `./_render/rq0004/trial-01/Camera/delta_rot_01/rot_01/Image`.
 
 
 ## Catharsys API
 
 Instead of working with workspaces from the command line, you can also use the Catharsys API. This is especially nice, when you are using Jupyter notebooks. They are available directly in VS-Code as well.
 
-As an example, open the `image-render-workspace-simple` in VS-Code and open the file `./config/test/launch.ipynb`. When you open the notebook for the first time, you will have to select the python kernel the notebook is run with. This can be selected in the top right corner of the notebook window. Ensure that is says `cex1` in this example.
+As an example, open the `cws-just-render` in VS-Code and open the file `./config/trial-01/launch.ipynb`. When you open the notebook for the first time, you will have to select the python kernel the notebook is run with. This can be selected in the top right corner of the notebook window. Ensure that is says `cex1` in this example.
 
 Now execute the Code blocks in the document to launch the action and display the resultant images. The API objects and commands can be used in any Python program, so you can write an automation for the rendering automation system ;-)
 

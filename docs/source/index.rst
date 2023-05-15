@@ -43,18 +43,18 @@ Catharsys
 Additional Modules
 -------------------
 
-- :external+functional-json:doc:"index"
-- :external+image-render-actions-std:doc:"index"
-- :external+image-render-actions-std-blender:doc:"index"
-- :external+image-render-automation:doc:"index"
-- :external+image-render-base:doc:"index"
-- :external+image-render-blender-base:doc:"index"
-- :external+image-render-blender-camera:doc:"index"
-- :external+image-render-blender-human:doc:"index"
-- :external+image-render-blender-label:doc:"index"
-- :external+image-render-blender-points:doc:"index"
-- :external+image-render-blender-vehicle:doc:"index"
-- :external+image-render-templates:doc:"index"
+- :external+functional-json:doc:`index`
+- :external+image-render-actions-std:doc:`index`
+- :external+image-render-actions-std-blender:doc:`index`
+- :external+image-render-automation:doc:`index`
+- :external+image-render-base:doc:`index`
+- :external+image-render-blender-base:doc:`index`
+- :external+image-render-blender-camera:doc:`index`
+- :external+image-render-blender-human:doc:`index`
+- :external+image-render-blender-label:doc:`index`
+- :external+image-render-blender-points:doc:`index`
+- :external+image-render-blender-vehicle:doc:`index`
+- :external+image-render-templates:doc:`index`
 
 
 .. Indices and tables
