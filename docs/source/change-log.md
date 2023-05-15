@@ -1,5 +1,13 @@
 # Change Log
 
+## 2023-05-15 Catharsys Release 3.2.25
+
+This is the first release on GitHub. The main changes are:
+
+- Documentation adapted to describe installation from GitHub and contributing via forks and pull-requests.
+- Extended `cathy` command functionality to simplify develop installation from fork.
+- GitHub workflow to automatically generate documentation. 
+
 ## 2023-04-25 Catharsys Release 3.2.19
 
 - Ground Truth
