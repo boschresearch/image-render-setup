@@ -55,3 +55,7 @@ repositories:
     type: git
     url: https://github.com/boschresearch/image-render-templates.git
     version: main
+  image-render-workspace-examples:
+    type: git
+    url: https://github.com/boschresearch/image-render-workspace-examples.git
+    version: main
