@@ -1,5 +1,16 @@
 # Change Log
 
+## 2023-05-22 Catharsys Release 3.2.26
+
+- Adds repository `image-render-workspace-examples` which contains a number of configuration examples for the `image-render` automation system. You can install this workspace from a distribution install via `cathy install workspace examples`. If you are in a develop install, first run the command `cathy build modules -m image-render-workspace-examples`, or simply look into the cloned repository.
+- Bug fixes
+  - now executes the render output type modifiers before applying the lable configuration. In this way, you can enable objects just for the label pass, for example.
+  - fixes bug where random object distribution could ignore obstacles for first sampled position.
+  - fixes handling of shadow catcher for label rendering
+  - fixes bug in calculating label 3d boxes for scaled objects
+  - stores anycam camera data also for polynomial fisheye cameras when rendering pos3d
+
+
 ## 2023-05-15 Catharsys Release 3.2.25
 
 This is the first release on GitHub. The main changes are:
