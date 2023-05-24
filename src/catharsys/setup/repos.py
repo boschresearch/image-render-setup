@@ -197,7 +197,17 @@ def PullRepoCln(*, _pathRepos: Path = None, _bDoPrint: bool = True, _sPrintPrefi
 
     pathRepo: Path
     for pathRepo in pathRepoClnTrg.iterdir():
+        if not pathRepo.is_dir():
+            continue
+        # endif
+        if not (pathRepo / ".git").exists():
+            continue
+        # endif
+
         PullRepo(pathRepo, _bDoPrint=_bDoPrint, _sPrintPrefix=_sPrintPrefix)
+        if _bDoPrint is True:
+            print("")
+        # endif
     # endfor
 
 
@@ -218,6 +228,9 @@ def PullMain(*, _pathRepos: Path = None, _bDoPrint: bool = True, _sPrintPrefix: 
     # endif
 
     PullRepo(pathRepo, _bDoPrint=_bDoPrint, _sPrintPrefix=_sPrintPrefix)
+    if _bDoPrint is True:
+        print("")
+    # endif
 
 
 # enddef
@@ -225,19 +238,19 @@ def PullMain(*, _pathRepos: Path = None, _bDoPrint: bool = True, _sPrintPrefix: 
 
 # #####################################################################################################
 def PullRepo(_pathRepo: Path, *, _bDoPrint: bool = True, _sPrintPrefix: str = ">> "):
-    repoX = Repo(_pathRepo.as_posix())
     try:
+        repoX = Repo(_pathRepo.as_posix())
         remX = repoX.remote("origin")
         sActiveBranch = repoX.active_branch
 
         if _bDoPrint is True:
-            print(f"{_sPrintPrefix}Pulling branch '{sActiveBranch}' from repository '{_pathRepo.name}'")
+            print(f"{_sPrintPrefix}[{_pathRepo.name}]: Pulling branch '{sActiveBranch}'")
         # endif
 
         xInfo: FetchInfo
-        for xInfo in remX.pull(progress=ProgressPrinter()):
+        for xInfo in remX.pull(refspec=sActiveBranch, progress=ProgressPrinter()):
             if _bDoPrint is True:
-                print(f"{_sPrintPrefix}ref: {xInfo.ref}, commit: {xInfo.commit}")
+                print(f"{_sPrintPrefix}{_sPrintPrefix}ref: {xInfo.ref}, commit: {xInfo.commit}")
             # endif
         # endfor
     except Exception as xEx:
