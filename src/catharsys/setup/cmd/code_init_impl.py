@@ -198,6 +198,9 @@ def Run(*, sPathWorkspace=None, sPrintPrefix=">> "):
 
     print(f"{sPrintPrefix}Using conda environemnt '{sCondaEnv}' as default environment for VSCode")
 
+    # Write conda env Settings for Catharsys Painkiller preconfiguration in generated workspaces
+    dicWS["settings"].update({"Image-Render-Automation.condaenv": sCondaEnv})
+
     pathWsCath = pathWS / ".catharsys" / sCondaEnv
     pathWsCath.mkdir(parents=True, exist_ok=True)
 
