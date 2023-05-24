@@ -39,13 +39,13 @@ from pathlib import Path
 import catharsys.setup
 
 from shutil import unpack_archive
-from catharsys.setup import util, shell
+from catharsys.setup import util, shell, repos
 
 g_sCmdDesc = "Installs the Catharsys modules"
 
+
 ####################################################################
 def InstallVsCodeModules(*, bForceInstall: bool = False):
-
     sSystem = platform.system()
     if sSystem == "Windows":
         pathVsCodeAddons = Path(util.NormPath("%USERPROFILE%\.vscode\extensions"))
@@ -120,6 +120,7 @@ def InstallVsCodeModules(*, bForceInstall: bool = False):
 
 # enddef
 
+
 ####################################################################
 def _ProvideEmptyUserDocsPath() -> Path:
     pathDocsTrg = util.GetCathUserPath(_bCheckExists=False) / "docs"
@@ -132,9 +133,9 @@ def _ProvideEmptyUserDocsPath() -> Path:
 
 # enddef
 
+
 ####################################################################
 def InstallDocs(*, bForceInstall: bool = False, bForceDist: bool = False, lDocFiles: list = None):
-
     if lDocFiles is None or len(lDocFiles) == 0:
         with res.path(catharsys.setup, "dist") as pathDist:
             pathDocs = pathDist / "docs"
@@ -193,9 +194,17 @@ def InstallDocs(*, bForceInstall: bool = False, bForceDist: bool = False, lDocFi
 
 
 ####################################################################
-def Run(*, bForceDist: bool, bForceInstall: bool, bSourceDist: bool, bVsCodeAddOnsOnly: bool, lDocFiles: bool, sReposFile: str):
-
+def Run(
+    *,
+    bForceDist: bool,
+    bForceInstall: bool,
+    bSourceDist: bool,
+    bVsCodeAddOnsOnly: bool,
+    lDocFiles: bool,
+    sReposFile: str,
+):
     from catharsys.setup import module
+
     sSystem: str = platform.system()
 
     bDocsOnly = isinstance(lDocFiles, list)
@@ -223,20 +232,21 @@ def Run(*, bForceDist: bool, bForceInstall: bool, bSourceDist: bool, bVsCodeAddO
                 # endif
                 if pathRepoListFile.exists():
                     print("Cloning repositories...")
-                    if sSystem == "Windows":
-                        sCmd = f"Get-Content {pathRepoListFile} | vcs import"
-                    else:
-                        sCmd = "vcs import < {}".format(pathRepoListFile)
-                    # endif
-                    sCwd = pathRepos.as_posix()
-                    shell.ExecPlatformCmds(lCmds=[sCmd], sCwd=sCwd, bDoPrint=True,bDoPrintOnError=True, sPrintPrefix=">> ")
-                    # shell.ExecCmd(
-                    #     sCmd=sCmd,
-                    #     sCwd=sCwd,
-                    #     bDoPrint=True, 
-                    #     bDoPrintOnError=True,
-                    #     sPrintPrefix=">> ",
-                    # )
+                    repos.CloneFromRepoListFile(_pathRepoList=pathRepoListFile, _pathRepos=pathRepos)
+                    # if sSystem == "Windows":
+                    #     sCmd = f"Get-Content {pathRepoListFile} | vcs import"
+                    # else:
+                    #     sCmd = "vcs import < {}".format(pathRepoListFile)
+                    # # endif
+                    # sCwd = pathRepos.as_posix()
+                    # shell.ExecPlatformCmds(lCmds=[sCmd], sCwd=sCwd, bDoPrint=True,bDoPrintOnError=True, sPrintPrefix=">> ")
+                    # # shell.ExecCmd(
+                    # #     sCmd=sCmd,
+                    # #     sCwd=sCwd,
+                    # #     bDoPrint=True,
+                    # #     bDoPrintOnError=True,
+                    # #     sPrintPrefix=">> ",
+                    # # )
                 else:
                     print(
                         f"WARNING: Repository listing file is missing at {(pathRepoListFile.as_posix())}.\nPlease clone the develop repositories manually."

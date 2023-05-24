@@ -1,5 +1,12 @@
 # Change Log
 
+## 2023-??-?? Catharsys Release 3.2.27
+
+- System
+  - Uses git directly to clone all repositories during system installation. This avoids compatibility problems between `vcstool` and `git`.
+  - Adds command `cathy repos update`, which pulls `image-render-setup` and all repositories in the `repos` folder in their current branch.
+  
+
 ## 2023-05-22 Catharsys Release 3.2.26
 
 - Adds repository `image-render-workspace-examples` which contains a number of configuration examples for the `image-render` automation system. You can install this workspace from a distribution install via `cathy install workspace examples`. If you are in a develop install, first run the command `cathy build modules -m image-render-workspace-examples`, or simply look into the cloned repository.

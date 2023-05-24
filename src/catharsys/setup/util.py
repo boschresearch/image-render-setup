@@ -49,6 +49,7 @@ from . import conda
 
 ####################################################################
 def TryGetReposPath() -> Path:
+    pathRepos: Path = None
     with res.path(catharsys.setup, "dist") as pathDist:
         pathRepos = GetReposPath(pathDist)
     # endwith
@@ -83,7 +84,6 @@ def IsDevelopInstall() -> bool:
 #            need to duplicate this function in image-render-automation, catharsys.util.path.
 #
 def GetCathUserPath(*, _bCheckExists: bool = False) -> Path:
-
     sEnvName = conda.GetActiveEnvName()
     if sEnvName is None:
         raise RuntimeError("Conda environment name not set in system environment")
@@ -102,7 +102,6 @@ def GetCathUserPath(*, _bCheckExists: bool = False) -> Path:
 
 #######################################################################
 def NormPath(_xPath: Union[str, Path]):
-
     if isinstance(_xPath, str):
         return Path(os.path.normpath(os.path.expandvars(os.path.expanduser(_xPath)))).as_posix()
 
@@ -130,7 +129,6 @@ def ExecShellCmd(
     dicEnv=None,
     pathVirtEnv=None,
 ):
-
     if sCwd is None:
         sEffCwd = os.getcwd()
     else:
@@ -196,7 +194,6 @@ def ExecShellCmd(
 
 ####################################################################
 def GetReposPath(_pathDist, bDoRaise=False):
-
     if "src" not in _pathDist.parts:
         if bDoRaise:
             raise RuntimeError("Unable to install as 'editable', because this is not a source repository")
@@ -228,7 +225,6 @@ def GetReposPath(_pathDist, bDoRaise=False):
 def GetInstalledModuleInfo(
     *, sPathPythonProg: str, sModuleName: str, pathVirtEnv: typing.Optional[Path] = None
 ) -> dict:
-
     bOK, lStdOut = ExecShellCmd(
         sCmd="{} -m pip show {}".format(sPathPythonProg, sModuleName),
         pathVirtEnv=pathVirtEnv,
@@ -273,7 +269,6 @@ def PipInstallModule(
     bDoPrintOnError=True,
     sPrintPrefix="",
 ):
-
     if sUserModuleName is None:
         sUserModuleName = sModuleName
     # endif
@@ -327,7 +322,6 @@ def PipInstallModule(
 
 ####################################################################
 def Unzip(*, pathZipFile: Path, pathUnpack: Path, bOverwrite: bool = False):
-
     with ZipFile(pathZipFile.as_posix(), "r") as zipFile:
         lNames = zipFile.namelist()
         sMainFolder = lNames[0].split("/")[0]
@@ -372,7 +366,6 @@ def CopyFiles(
     pathSrcTop: Optional[Path] = None,
     pathTrgTop: Optional[Path] = None,
 ):
-
     if len(_lReCmpExclDirs) > 0:
         lReExclDirs = _lReCmpExclDirs
     else:
@@ -394,7 +387,6 @@ def CopyFiles(
     # endif
 
     for pathSrcX in pathSrc.glob("*"):
-
         if pathSrcX.is_file():
             sName = pathSrcX.name
 
