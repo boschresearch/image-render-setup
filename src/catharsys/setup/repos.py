@@ -25,12 +25,12 @@
 ###
 
 import yaml
+import json
 from tqdm import tqdm
 from pathlib import Path
 from dataclasses import dataclass
-from git import Repo, Commit, Head, Remote, FetchInfo, RemoteProgress
+from git import Repo, FetchInfo, RemoteProgress
 
-from anybase import config as anycfg
 from catharsys.setup import util
 
 
@@ -105,8 +105,19 @@ def LoadRepoListFile(*, _pathRepoList: Path) -> list[CRepoData]:
             # endfor
         # endwith
 
-    elif _pathRepoList.suffix in [".json", ".json5", ".ison"]:
-        dicRepoCln = anycfg.Load(_pathRepoList, sDTI="/catharsys/system/repository-collection:1")
+    elif _pathRepoList.suffix == ".json":
+        with _pathRepoList.open("r") as xFile:
+            dicRepoCln = json.load(xFile)
+        # endwith
+        # anycfg.Load(_pathRepoList, sDTI="/catharsys/system/repository-collection:1")
+        sDti = dicRepoCln.get("sDTI")
+        if sDti is None:
+            raise RuntimeError(f"Repository list file has no element 'sDTI': {(_pathRepoList.as_posix())}")
+        # endif
+        if not sDti.startswith("/catharsys/system/repository-collection:1"):
+            raise RuntimeError(f"Repository list file has unsupported DTI: {(_pathRepoList.as_posix())}")
+        # endif
+
         dicRepoList = dicRepoCln.get("mRepositories")
         for sRepo in dicRepoList:
             dicRepo = dicRepoList[sRepo]
@@ -116,6 +127,11 @@ def LoadRepoListFile(*, _pathRepoList: Path) -> list[CRepoData]:
                 )
             )
         # endfor
+
+    else:
+        raise RuntimeError(
+            f"Unsupported repository list file type '{_pathRepoList.suffix}': {(_pathRepoList.as_posix())}"
+        )
     # endif
 
     return lRepos
@@ -155,7 +171,12 @@ def ProvideReposPath(_pathRepos: Path = None, *, _bDoRaise=True) -> Path:
 
 # #####################################################################################################
 def CloneFromRepoListFile(
-    *, _pathRepoList: Path, _pathRepos: Path = None, _bDoPrint: bool = True, _sPrintPrefix: str = ">> "
+    *,
+    _pathRepoList: Path,
+    _pathRepos: Path = None,
+    _bPullIfExists: bool = False,
+    _bDoPrint: bool = True,
+    _sPrintPrefix: str = ">> ",
 ):
     pathRepoClnTrg = ProvideReposPath(_pathRepos)
     lRepos = LoadRepoListFile(_pathRepoList=_pathRepoList)
@@ -163,17 +184,21 @@ def CloneFromRepoListFile(
     xRepo: CRepoData
     for xRepo in lRepos:
         try:
-            if _bDoPrint is True:
-                print(f"{_sPrintPrefix}Cloning repository '{xRepo.sName}' from: {xRepo.sUrl}")
-            # endif
-
             if xRepo.sType == "git":
                 pathRepoTrg = pathRepoClnTrg / xRepo.sName
                 if pathRepoTrg.exists():
-                    print(
-                        f"WARNING: Target cloning folder already exists for repository '{xRepo.sName}': {(pathRepoTrg.as_posix())}"
-                    )
+                    if _bPullIfExists is True:
+                        PullRepo(pathRepoTrg, _bDoPrint=_bDoPrint, _sPrintPrefix=_sPrintPrefix)
+                    elif _bDoPrint is True:
+                        print(
+                            f"WARNING: Target cloning folder already exists for repository "
+                            f"'{xRepo.sName}': {(pathRepoTrg.as_posix())}"
+                        )
+                    # endif
                 else:
+                    if _bDoPrint is True:
+                        print(f"{_sPrintPrefix}Cloning repository '{xRepo.sName}' from: {xRepo.sUrl}")
+                    # endif
                     Repo.clone_from(
                         xRepo.sUrl, pathRepoTrg.as_posix(), branch=xRepo.sVersion, progress=ProgressPrinter()
                     )
@@ -192,9 +217,10 @@ def CloneFromRepoListFile(
 
 
 # #####################################################################################################
-def PullRepoCln(*, _pathRepos: Path = None, _bDoPrint: bool = True, _sPrintPrefix: str = ">> "):
+def GetAvailRepoList(_pathRepos: Path = None) -> list[Path]:
     pathRepoClnTrg = ProvideReposPath(_pathRepos)
 
+    lRepos: list[Path] = []
     pathRepo: Path
     for pathRepo in pathRepoClnTrg.iterdir():
         if not pathRepo.is_dir():
@@ -204,6 +230,19 @@ def PullRepoCln(*, _pathRepos: Path = None, _bDoPrint: bool = True, _sPrintPrefi
             continue
         # endif
 
+        lRepos.append(pathRepo)
+    # endfor
+
+    return lRepos
+
+
+# enddef
+
+
+# #####################################################################################################
+def PullRepoCln(*, _pathRepos: Path = None, _bDoPrint: bool = True, _sPrintPrefix: str = ">> "):
+    lRepos = GetAvailRepoList(_pathRepos)
+    for pathRepo in lRepos:
         PullRepo(pathRepo, _bDoPrint=_bDoPrint, _sPrintPrefix=_sPrintPrefix)
         if _bDoPrint is True:
             print("")

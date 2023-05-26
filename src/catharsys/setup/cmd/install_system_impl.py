@@ -39,7 +39,7 @@ from pathlib import Path
 import catharsys.setup
 
 from shutil import unpack_archive
-from catharsys.setup import util, shell, repos
+from catharsys.setup import util, shell, repos, conda
 
 g_sCmdDesc = "Installs the Catharsys modules"
 
@@ -202,15 +202,36 @@ def Run(
     bVsCodeAddOnsOnly: bool,
     lDocFiles: bool,
     sReposFile: str,
+    bUpdate: bool,
 ):
     from catharsys.setup import module
 
-    sSystem: str = platform.system()
+    # sSystem: str = platform.system()
 
     bDocsOnly = isinstance(lDocFiles, list)
 
     if bVsCodeAddOnsOnly is False and bDocsOnly is False:
         pathRepos = util.TryGetReposPath()
+        if bUpdate is True:
+            if not isinstance(pathRepos, Path):
+                raise RuntimeError("Update can only be used on a develop install")
+            # endif
+            pathMain = pathRepos.parent
+
+            # pull "image-render-setup" and install it in current environment
+            repos.PullMain()
+            sEnvName = conda.GetActiveEnvName()
+            lCmds = conda.GetShellActivateCommands(sEnvName, bTestActivation=False)
+            lCmds.append("python -m pip install --editable .")
+            shell.ExecPlatformCmds(
+                lCmds=lCmds,
+                sCwd=pathMain.as_posix(),
+                bDoPrint=True,
+                bDoPrintOnError=True,
+                sPrintPrefix=">> ",
+            )
+        # endif
+
         if isinstance(pathRepos, Path):
             lRepoPaths = []
             for pathX in pathRepos.iterdir():
@@ -232,7 +253,9 @@ def Run(
                 # endif
                 if pathRepoListFile.exists():
                     print("Cloning repositories...")
-                    repos.CloneFromRepoListFile(_pathRepoList=pathRepoListFile, _pathRepos=pathRepos)
+                    repos.CloneFromRepoListFile(
+                        _pathRepoList=pathRepoListFile, _pathRepos=pathRepos, _bPullIfExists=bUpdate
+                    )
                     # if sSystem == "Windows":
                     #     sCmd = f"Get-Content {pathRepoListFile} | vcs import"
                     # else:

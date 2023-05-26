@@ -29,11 +29,11 @@ g_sCmdDesc = "Installs the Catharsys modules"
 
 ####################################################################
 def AddArgParseArguments(_xArgParser):
-
     _xArgParser.add_argument("--force-dist", dest="force_dist", action="store_true", default=False)
     _xArgParser.add_argument("--force", dest="force_install", action="store_true", default=False)
     _xArgParser.add_argument("--vscode-addons", dest="vscode_addons_only", action="store_true", default=False)
     _xArgParser.add_argument("--sdist", dest="sdist", action="store_true", default=False)
+    _xArgParser.add_argument("--update", dest="update", action="store_true", default=False)
     _xArgParser.add_argument("--docs", dest="docs", nargs="*", default=None)
     _xArgParser.add_argument("--repos", dest="repos", nargs=1, default=[None])
 
@@ -55,6 +55,7 @@ def RunCmd(_argsCmd, _lArgs):
         bSourceDist=argsSubCmd.sdist,
         lDocFiles=argsSubCmd.docs,
         sReposFile=argsSubCmd.repos[0],
+        bUpdate=argsSubCmd.update,
     )
 
 
