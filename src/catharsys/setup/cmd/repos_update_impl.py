@@ -54,7 +54,13 @@ def Run():
     # sBranchDev = "main"
 
     repos.PullMain()
-    repos.PullRepoCln()
+
+    pathRepoListFile = pathRepos / "repos-main.yaml"
+    if pathRepoListFile.exists():
+        repos.CloneFromRepoListFile(_pathRepoList=pathRepoListFile, _pathRepos=pathRepos, _bPullIfExists=True)
+    else:
+        repos.PullRepoCln()
+    # endif
 
 
 # enddef
