@@ -216,20 +216,20 @@ def Run(
             if not isinstance(pathRepos, Path):
                 raise RuntimeError("Update can only be used on a develop install")
             # endif
-            pathMain = pathRepos.parent
+            # pathMain = pathRepos.parent
 
             # pull "image-render-setup" and install it in current environment
             repos.PullMain()
-            sEnvName = conda.GetActiveEnvName()
-            lCmds = conda.GetShellActivateCommands(sEnvName, bTestActivation=False)
-            lCmds.append("python -m pip install --editable .")
-            shell.ExecPlatformCmds(
-                lCmds=lCmds,
-                sCwd=pathMain.as_posix(),
-                bDoPrint=True,
-                bDoPrintOnError=True,
-                sPrintPrefix=">> ",
-            )
+            # sEnvName = conda.GetActiveEnvName()
+            # lCmds = conda.GetShellActivateCommands(sEnvName, bTestActivation=False)
+            # lCmds.append("python -m pip install --editable .")
+            # shell.ExecPlatformCmds(
+            #     lCmds=lCmds,
+            #     sCwd=pathMain.as_posix(),
+            #     bDoPrint=True,
+            #     bDoPrintOnError=True,
+            #     sPrintPrefix=">> ",
+            # )
         # endif
 
         if isinstance(pathRepos, Path):
@@ -242,7 +242,7 @@ def Run(
                     # endif
                 # endif
             # endfor
-            if len(lRepoPaths) == 0:
+            if len(lRepoPaths) == 0 or bUpdate is True:
                 if sReposFile is None:
                     pathRepoListFile = pathRepos / "repos-main.yaml"
                 else:
@@ -293,6 +293,16 @@ def Run(
 
     if bDocsOnly is False:
         InstallVsCodeModules(bForceInstall=bForceInstall)
+    # endif
+
+    if bUpdate is True:
+        pathRepos = util.TryGetReposPath()
+        pathMain = pathRepos.parent
+        print("******\n")
+        print(
+            f"    Run the command 'python -m pip install --editable .' in the following folder to update 'image-render-setup':\n    >> '{(pathMain.as_posix())}\n"
+        )
+        print("******\n")
     # endif
 
 
