@@ -4,8 +4,16 @@
 
 - System
   - Uses git directly to clone all repositories during system installation. This avoids compatibility problems between `vcstool` and `git`.
-  - Adds command `cathy repos update`, which pulls `image-render-setup` and all repositories in the `repos` folder in their current branch.
+  - Adds command `cathy repos update`, which pulls `image-render-setup` and all repositories in the `repos` folder in their current branch. This command also clones repos that are in the repo list `repos-main.yaml` but are not in the repos folder.
   
+- Functional JSON (ISON)
+  - Fixes bug with nested `__includes__` using relative paths.
+
+- image-render-blender-human
+  - Fixes bugs with certain randomization modes
+  - adds unit tests
+
+
 
 ## 2023-05-22 Catharsys Release 3.2.26
 
