@@ -25,7 +25,7 @@
 ###
 
 
-__version__ = "3.2.27"
+__version__ = "3.2.28"
 
 
 def AsString() -> str:
