@@ -1,6 +1,6 @@
 # Change Log
 
-## 2023-??-?? Catharsys Release 3.2.27
+## 2023-06-06 Catharsys Release 3.2.27
 
 - System
   - Uses git directly to clone all repositories during system installation. This avoids compatibility problems between `vcstool` and `git`.
@@ -12,6 +12,10 @@
 - image-render-blender-human
   - Fixes bugs with certain randomization modes
   - adds unit tests
+
+- Documentation
+  - adds overview documentation
+  - adds first two parts of workspace tutorial
 
 
 
