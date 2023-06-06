@@ -33,10 +33,11 @@ Catharsys
    :maxdepth: 1
    :caption: Contents
 
-   change-log
+   overview
    system_main
    workspace_main
    develop
+   change-log
    license
 
 

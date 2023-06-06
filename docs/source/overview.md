@@ -24,7 +24,10 @@ At its' heart Catharsys is simply a configuration compiler, that takes a bunch o
 ## System Structure
 Here is an overview of the basic system structure:
 
-<p style="text-align:center;"><img src="./images/system-overview-01.png" width=800/></p>
+:::{image} images/system-overview-01.png
+:width: 800px
+:align: center
+:::
 
 There are a number of components in this image:
 
@@ -49,7 +52,10 @@ The action is some process that is started by an appropriate executor and receiv
 
 Many parts of the Catharsys system can be extended with plugins. The following image shows the various parts that are implemented as plugins.
 
-<p style="text-align:center;"><img src="./images/system-implementation-01.png" width=800/></p>
+:::{image} images/system-implementation-01.png
+:width: 800px
+:align: center
+:::
 
 The python plugins are realized via entry points specified in the repository's `setup.cfg` file. Installing a module in the a python environment makes the plugin available to the whole system. In the configuration files you can reference actions and other parts via id strings. 
 
@@ -64,7 +70,10 @@ Note that the Blender rendering is also just an action plugin. If you wanted to 
 
 One of the central actions is the Blender render action. It consists of the following parts:
 
-<p style="text-align:center;"><img src="./images/action-render.png" width=800/></p>
+:::{image} images/action-blender-render.png
+:width: 800px
+:align: center
+:::
 
 ### Configurations
 
@@ -106,5 +115,7 @@ This addon allows you to import and animate point clouds.
 
 This addon allows you to define labels for Blender scene collections. This enables the rendering of label ground truth with 3d boxes, 2d boxes, semantic segmentation and skeletons.
 
-
-<p style="text-align:center;"><img src="./images/label-types.png" width=800/></p>
+:::{image} images/label-types.png
+:width: 800px
+:align: center
+:::
