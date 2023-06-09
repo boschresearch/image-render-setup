@@ -1,5 +1,14 @@
 # Change Log
 
+## 2023-??-?? Catharsys Release 3.2.28
+
+- Job Execution
+  - New LSF execution configuration parameters `lJobExcludeHosts` and `lJobHosts`. Both expect lists of strings. The later expects host names or host group names.
+
+- Actions
+  - Blender render action logging now supports additional parameter `bLogCameraSet`. If this is set to `False`, the camera set yaml files will not be written.
+
+
 ## 2023-06-06 Catharsys Release 3.2.27
 
 - System
