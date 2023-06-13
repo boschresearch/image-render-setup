@@ -266,6 +266,9 @@ def Run(*, sPathWorkspace=None, sPrintPrefix=">> "):
         }
     )
 
+    # Ensure that conda environment set by scripts above, is not overwritten by VSCode
+    dicWS["settings"].update({"python.terminal.activateEnvironment": False})
+
     ##############################################################################
     # write workspace file
     sName = pathWS.name
