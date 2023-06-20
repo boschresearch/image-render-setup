@@ -7,8 +7,17 @@
 
 - Actions
   - Blender render action logging now supports additional parameter `bLogCameraSet`. If this is set to `False`, the camera set yaml files will not be written.
+  - Standard render action
+    - In the trial file you can now leave out the "sBlenderFile" parameter in the "mBlender" block, or set it to an empty string. In this case, Blender starts up with an empty Blender Scene. The default box, camera and light are automatically deleted. Note, you still need the "mBlender" block as before.
+    - You no longer need to specify a camera configuration. If no camera is specified, no camera will be activated and rendering an image will lead to errors. This is mainly used when generating new Blender files.
+    - You no longer need to specify a capture configuration for the standard Blender rendering. If no configuration is specified, the render FPS is the same as the scene FPS set in the Blender file.
+    - There is a new render output type "none", which does not output anything. This can be useful for configurations that import assets, modify them and export them again as .obj files.
 
-
+  - Modifier
+    - Apply object transformations, with sDTI: `/catharsys/blender/modify/object/apply-transforms:1.0`
+    - Remesh object with voxel remesh and then bake the original object's texture onto the remeshed object: `/catharsys/blender/modify/object/voxel-remesh-bake-texture:1.0`
+    - Export object as OBJ file: `/catharsys/blender/modify/object/export/obj:1.0`
+    
 ## 2023-06-06 Catharsys Release 3.2.27
 
 - System
