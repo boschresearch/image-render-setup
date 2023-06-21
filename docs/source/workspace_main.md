@@ -19,7 +19,6 @@
 # Automation with Workspaces
 
 **Contents**
-- {external+image-render-automation:doc}`workspace/basics`
-- {external+image-render-automation:doc}`config_proc`
+- {external+image-render-automation:doc}`index`
 
 
