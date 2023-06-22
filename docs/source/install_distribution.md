@@ -90,3 +90,7 @@ Now try to open the HTML documentation in a web browser, with the command:
 ```
 
 This should open the default web browser and show this documentation.
+
+## Next Steps
+
+Now go back to the [main setup document](setup.md#catharsys-system) for the next steps.

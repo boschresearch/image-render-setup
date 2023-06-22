@@ -2,13 +2,17 @@
 
 A development installation installs all Catharsys Python source in `editable` mode. This means, you can use all commands registered in the Python environment by Catharsys, but the code executed is the one in your cloned repositories and not code installed in `site-packages`.
 
+If you just want to have a source installation and do not plan to modify the code, not all the steps described in the following will be necessary. The advantage of a source install is, that you can get the latest (possible buggy) features with the command `cathy repos update`. This pulls the main branch for all repositories in the system. 
+
+The steps that are only needed if you want to contribute code, will be denoted by "**(for contribution install)**". You can leave these out if you just want to use the source install. 
+
 ## Contributing
 
 If you want to contribute to any of the repositories, make sure to read and follow the instructions in the repository's `CONTRIBUTION.md` file. Note that the projects have different Open Source licenses. In particular, all Blender related projects are **GPL-v3** licensed, while the other projects are **Apache-2.0** licensed, unless stated otherwise. The documentation is `CC-BY-4.0` and the example configurations `CC-4.0` licensed. In any case, the license file that is included with a project determines its' license. Here is the [CONTRIBUTING.md](CONTRIBUTING.md) file of the `image-render-setup` project.
 
 ## Branching Model
 
-This project uses the GitFlow branching model. However, the naming of the branches is adapted to make the workflow with GitHub easier. What would typically be called `develop` branch is here the `main` branch, which is the default GitHub branch. The `main` or `master` branch of the GitFlow model is here called `stable`. That is, you develop in a feature branch (`feature/[your feature]`) and then create a pull request agains the `main` branch. Pull requests against the `stable` branch will be rejected.
+This project uses the GitFlow branching model. However, the naming of the branches is adapted to make the workflow with GitHub easier. What would typically be called `develop` branch becomes the `main` branch, which is the default GitHub branch. The `main` or `master` branch of the GitFlow model becomes the `stable` branch. That is, you develop in a feature branch (`feature/[your feature]`) and then create a pull request agains the `main` branch. Pull requests against the `stable` branch will be rejected.
 
 Releases are tagged with a version number in the stable branch. This allows to go back to a specific version from which to create a new release branch, if multiple releases need to be developed or fixed in parallel.
 
@@ -22,11 +26,15 @@ For a Windows install, it is assumed that you are using a PowerShell. This shoul
 
 ### Step 1
 
+*(for contribution install)*
+
 To install the Catharsys system from the Python sources, you first need to create forks from all repositories starting with `image-render` in the [github.com/boschresearch](https://github.com/boschresearch) organization. In addition you also need forks of `functional-json` and `functional-json-vscode` also in `boschresearch`.
 
 To be precise, you only really need to fork those repositories that you want to modify. The others can be used directly from the `boschresearch` organization. This may, however, become quite confusing later on.
 
 ### Step 2
+
+*(for contribution install)*
 
 Pull requests can only be merged with the repositories on `boschresearch`, if **all** commits are signed with a GPG key. With `gpg` signing a commit message you certify that you authored the patch or otherwise have the right to submit it under an open source license. You also agree with the DCO that is given in the `CONTRIBUTION` file. 
 
@@ -52,6 +60,8 @@ Clone the `image-render-setup` repository to your local machine and open the clo
 
 ### Step 4
 
+*(for contribution install)*
+
 Within the `image-render-setup` folder, copy the file `repos/repos-main.yaml` to a new folder `_local/repos-main-fork.yaml`. We will use this copy to specify which repositories should be cloned from where. If you have forked all repositories simply replace `boschresearch` with your GitHub user name. For example, `https://github.com/boschresearch/functional-json.git` becomes `https://github.com/<user>/functional-json.git`.
 
 ### Step 5
@@ -59,7 +69,7 @@ Within the `image-render-setup` folder, copy the file `repos/repos-main.yaml` to
 Open a terminal in the `image-render-setup` folder. 
 
 :::{admonition} Windows
-If the base Conda envrionment is not active run `.\scripts\CondaActivate.ps1` if `conda activate base` does not work.
+If the base Conda environment is not active run `.\scripts\CondaActivate.ps1` if `conda activate base` does not work.
 :::
 
 Now install the Catharsys system with the command:
@@ -93,11 +103,18 @@ In VSCode select the `ISON language` extension as the default syntax highlightin
 
 ### Step 7
 
-To start working with the Catharsys system, you can create a VSCode workspace file, that contains references to all repositories and sets paramters for the `black`-formatter etc. You generate a workspace file by running the following command in the `image-render-setup` folder:
+To start working with the Catharsys system, you can create a VSCode workspace file, that contains references to all repositories and sets parameters for the `black`-formatter etc. You generate a workspace file by running the following command in the `image-render-setup` folder:
 
 :::{admonition} Shell
 `cathy code init`
 :::
 
+:::{note}
+This command only works either inside the `image-render-setup` folder or in a workspace (as discussed later).
+:::
+
 You should now see a `.code-workspace` file. If you open this file with VSCode, all repositories should be listed in the file explorer. Also, when you open a terminal, the conda environment that was active when you executed the `cathy code init` command, will be activated again. It is also the default environment for all debugging calls.
 
+## Next Steps
+
+Now go back to the [main setup document](setup.md#catharsys-system) for the next steps.

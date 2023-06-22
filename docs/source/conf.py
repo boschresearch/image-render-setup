@@ -76,6 +76,7 @@ extensions = [
 myst_enable_extensions = ["colon_fence", "substitution"]
 
 myst_substitutions = {"ProjectName": project}
+myst_heading_anchors = 3
 
 # Napoleon settings
 napoleon_google_docstring = True

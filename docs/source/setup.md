@@ -53,7 +53,9 @@ Catharsys has to install Blender in a special Catharsys folder, because the Cath
 - For a **distribution** installation from a `.zip` file, [go to this document](install_distribution.md).
 - For a **development** install from a fork of the `image-render-*` repositories, [read on here](install_development.md).
 
-**IMPORTANT**: Only carry on, if you successfully installed the system with one of the above workflows.
+:::{admonition} IMPORTANT
+Only carry on, if you successfully installed the system with one of the above workflows.
+:::
 
 ## The `cathy` command
 
@@ -180,7 +182,7 @@ The configurations are the folders in the `config` folder and the names listes a
 Before you can render images with Blender using a project configuration in the workspace, you need to initialize Blender for that project configuration. This sets default user preferences and installs the add-ons needed by a configuration of the workspace. The add-ons are specified in the execution configurations of a project. 
 
 ```{note} 
-The structure of Workspaces for Blender rendering is discussed {external+image-render-automation:doc}`here <workspace_basics>`.
+The structure of Workspaces for Blender rendering is discussed {external+image-render-automation:doc}`here <index>`.
 ```
 
 To initialize the project configuration `trial-01` run the following command:
@@ -233,5 +235,5 @@ Now execute the Code blocks in the document to launch the action and display the
 
 The next step is to understand the basic workspace and configuration structure, so that you can define your own workspaces and use Catharsys productively.
 
-{external+image-render-automation:doc}`workspace_basics`
+{external+image-render-automation:doc}`index`
 
