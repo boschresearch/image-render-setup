@@ -43,7 +43,6 @@ from anybase import file as anyfile
 
 ####################################################################
 def GetRepoPaths() -> list[Path]:
-
     lPathModules: list[Path] = []
 
     def CreateHandler_GetRepoPath(_lPathModules):
@@ -65,7 +64,6 @@ def GetRepoPaths() -> list[Path]:
 
 ####################################################################
 def Run(*, sPathWorkspace=None, sPrintPrefix=">> "):
-
     try:
         from catharsys.config.cls_project import CProjectConfig
     except Exception:
@@ -125,7 +123,6 @@ def Run(*, sPathWorkspace=None, sPrintPrefix=">> "):
         # endfor
 
     # endif
-
 
     ##############################################################################
     lPathModules = GetRepoPaths()
@@ -266,8 +263,14 @@ def Run(*, sPathWorkspace=None, sPrintPrefix=">> "):
         }
     )
 
-    # Ensure that conda environment set by scripts above, is not overwritten by VSCode
-    dicWS["settings"].update({"python.terminal.activateEnvironment": False})
+    dicWS["settings"].update(
+        {
+            # Ensure that conda environment set by scripts above, is not overwritten by VSCode
+            "python.terminal.activateEnvironment": False,
+            # Ensure that all commit messages contain a "signed-off-by" line.
+            "git.alwaysSignOff": True,
+        }
+    )
 
     ##############################################################################
     # write workspace file

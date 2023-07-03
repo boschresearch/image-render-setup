@@ -36,7 +36,9 @@ To be precise, you only really need to fork those repositories that you want to 
 
 *(for contribution install)*
 
-Pull requests can only be merged with the repositories on `boschresearch`, if **all** commits are signed with a GPG key. With `gpg` signing a commit message you certify that you authored the patch or otherwise have the right to submit it under an open source license. You also agree with the DCO that is given in the `CONTRIBUTION` file. 
+Pull requests can only be merged with the repositories on `boschresearch`, if **all** commits are signed with a GPG key **and** the commit message contains a 'signed-off-by' statement. With `gpg` signing a commit message you certify that you authored the patch or otherwise have the right to submit it under an open source license. You also agree with the DCO that is given in the `CONTRIBUTION` file. 
+
+To automatically add a 'signed-off-by' text in your commit message you can use the `-s` flag for the `git commit` command. If you are using VS Code, enable the setting `git.alwaysSignOff` to sign all commits in this way. Note that this is not the same as GPG signing your commits, which will be discussed in the following.
 
 There is a nice description of how to set this up [here](https://dev.to/devmount/signed-git-commits-in-vs-code-36do). Here is the `TL;DR` version:
 

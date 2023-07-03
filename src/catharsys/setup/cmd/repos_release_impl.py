@@ -434,7 +434,7 @@ def ReleaseFromRepo(
                     repoMod.index.add([sPathVerFile])
                     repoMod.index.write()
                     repoMod.git.commit(
-                        "-S", "-m", f":cathy:set-version:{sNewVersion}: Increment version to {sNewVersion}"
+                        "-s", "-S", "-m", f":cathy:set-version:{sNewVersion}: Increment version to {sNewVersion}"
                     )
                     # repoMod.index.commit(f":cathy:set-version:{sNewVersion}: Increment version to {sNewVersion}")
                 # endif
@@ -519,7 +519,9 @@ def ReleaseFromRepo(
             if bDoExecute is True:
                 repoMod.index.add([sPathVerFile])
                 repoMod.index.write()
-                repoMod.git.commit("-S", "-m", f":cathy:set-version:{sNewVersion}: Increment version to {sNewVersion}")
+                repoMod.git.commit(
+                    "-s", "-S", "-m", f":cathy:set-version:{sNewVersion}: Increment version to {sNewVersion}"
+                )
                 # repoMod.index.commit(f":cathy:set-version:{sNewVersion}: Increment version to {sNewVersion}")
             # endif
         # endif needs release
@@ -784,7 +786,7 @@ def Run(
             repoMain.index.add([sPathRepoListFile])
             repoMain.index.write()
             repoMain.git.commit(
-                "-S", "-m", f":cathy:new-repo-list:{sLocalVersion}: Create new repo list file for {sLocalVersion}"
+                "-s", "-S", "-m", f":cathy:new-repo-list:{sLocalVersion}: Create new repo list file for {sLocalVersion}"
             )
             # repoMain.index.commit(
             #     f":cathy:new-repo-list:{sLocalVersion}: Create new repo list file for {sLocalVersion}"

@@ -1,5 +1,18 @@
 # Change Log
 
+## 2023-??-?? Catharsys Release 3.2.29
+
+- **Ground Truth**
+  - Optical flow ground truth estimation has been improved.
+
+- **Post-Processing Actions**
+  - New focus blur action, that uses the depth ground truth to generate a depth-of-field effect.
+  - New motion blur action, that uses the flow ground truth to generate a motion blur effect.
+
+- **System**
+  - the command `cathy code init` now also sets the flag `git.alwaysSignOff` to always add a `signed-off-by` text to the commit message.
+  - the command `cathy repos release` now adds the 'signed-off-by' text in addition to GPG signing commits.
+  
 ## 2023-06-21 Catharsys Release 3.2.28
 
 - **Documentation**
