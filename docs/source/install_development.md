@@ -64,7 +64,7 @@ Clone the `image-render-setup` repository to your local machine and open the clo
 
 *(for contribution install)*
 
-Within the `image-render-setup` folder, copy the file `repos/repos-main.yaml` to a new folder `_local/repos-main-fork.yaml`. We will use this copy to specify which repositories should be cloned from where. If you have forked all repositories simply replace `boschresearch` with your GitHub user name. For example, `https://github.com/boschresearch/functional-json.git` becomes `https://github.com/<user>/functional-json.git`.
+Within the `image-render-setup` folder, copy and **rename** the file `repos/repos-main.yaml` to a new folder `_local/repos-main-fork.yaml`. We will use this copy to specify which repositories should be cloned from where. If you have forked all repositories simply replace `boschresearch` with your GitHub user name. For example, `https://github.com/boschresearch/functional-json.git` becomes `https://github.com/<user>/functional-json.git`.
 
 ### Step 5
 
@@ -79,6 +79,8 @@ Now install the Catharsys system with the command:
 :::{admonition} Shell
 `python ./scripts/cathy-conda.py install [new environment name] --develop ./_local/repos-main-fork.yaml`
 :::
+
+In the remainder of the installation documentation it is assumed that the environment name is `cex1`, short for *Catharsys Example 1*.
 
 The script will create a new Conda environment with the given name. You can install different Catharsys versions side-by-side on your system, as long as they are in different Conda environments.
 
