@@ -2,6 +2,12 @@
 
 ## 2023-??-?? Catharsys Release 3.2.29
 
+- **ISON Language**
+  - Bug fix: the function `$rand.generator{}` now generates consistent seeds from string and float values.
+
+- **Configuration Generation**
+  - Bug fix: The variable `${path-trg}` and `${rel-path-trg}` are now generated correctly also for configurations that at a lower manifest loop level.
+
 - **Ground Truth**
   - Optical flow ground truth estimation has been improved.
 
