@@ -31,8 +31,11 @@ if (Test-Path "~\\.catharsys\\CondaActivateCathUser.ps1") {
     if (!(Test-Path $condahook)) {
         $condahook = "$env:PROGRAMFILES\\Anaconda3\\shell\\condabin\\conda-hook.ps1"
         if (!(Test-Path $condahook)) {
-            Write-Output "ERROR: Conda hook script could not be found"
-            $condahook = ""
+            $condahook = "$env:LOCALAPPDATA\\Anaconda3\\shell\\condabin\\conda-hook.ps1"
+            if (!(Test-Path $condahook)) {
+                Write-Output "ERROR: Conda hook script could not be found"
+                $condahook = ""
+            }
         }
     }
 

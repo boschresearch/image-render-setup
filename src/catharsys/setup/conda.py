@@ -38,7 +38,6 @@ except Exception:
 
 ###############################################################################################
 def GetInfo(*, lPreCmds=[]) -> dict:
-
     lCmds = lPreCmds.copy()
     lCmds.append("conda info")
 
@@ -133,10 +132,8 @@ def GetActiveEnvName():
 def GetShellActivateCommands(
     _sEnvName: str, *, sSystem: str = platform.system(), bTestActivation: bool = False, pathShellInitScript: Path = None
 ) -> "list[str]":
-
     lSysCmds = []
     if sSystem == "Linux":
-
         if pathShellInitScript is not None:
             lSysCmds.append(f"source {(pathShellInitScript.as_posix())}")
         # endif
@@ -154,9 +151,12 @@ def GetShellActivateCommands(
             if not pathHook.exists():
                 pathHook = Path("{}/Anaconda3/shell/condabin/conda-hook.ps1".format(os.environ.get("PROGRAMFILES")))
                 if not pathHook.exists():
-                    raise RuntimeError(
-                        "Cannot find conda activation script 'conda-hook.ps1'. Maybe conda is not installed."
-                    )
+                    pathHook = Path("{}/Anaconda3/shell/condabin/conda-hook.ps1".format(os.environ.get("LOCALAPPDATA")))
+                    if not pathHook.exists():
+                        raise RuntimeError(
+                            "Cannot find conda activation script 'conda-hook.ps1'. Maybe conda is not installed."
+                        )
+                    # endif
                 # endif
             # endif
         # endif
@@ -197,7 +197,6 @@ def Install(
     sShellInitScript: str = None,
     sPrintPrefix=">> ",
 ):
-
     # sSystem = platform.system()
     bDevelop: bool = sDevelopReposFile is not None
 
@@ -269,7 +268,7 @@ def Install(
     if bDevelop is True and sDevelopReposFile != "__default__":
         sInstallCath += f" --repos {sDevelopReposFile}"
     # endif
-    
+
     if bDevelop is True:
         sInstallSetup = "python -m pip install --editable ."
     else:
