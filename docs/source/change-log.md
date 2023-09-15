@@ -4,7 +4,9 @@
 
 - **ISON Language**
   - Bug fix: the function `$rand.generator{}` now generates consistent seeds from string and float values.
-
+  - The node names in the `__platform__` blocks, now allow for wildcards, i.e. '*' for any number of characters
+    and '?' for a single character.
+    
 - **Configuration Generation**
   - Bug fix: The variable `${path-trg}` and `${rel-path-trg}` are now generated correctly also for configurations that at a lower manifest loop level.
 
