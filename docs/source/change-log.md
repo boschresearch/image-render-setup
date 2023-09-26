@@ -6,12 +6,19 @@
   - Bug fix: the function `$rand.generator{}` now generates consistent seeds from string and float values.
   - The node names in the `__platform__` blocks, now allow for wildcards, i.e. '*' for any number of characters
     and '?' for a single character.
+  - The parsing speed has been improved by avoiding some deep copies in the code. For example, local variables are now pushed to a stack when entering nested dictionaries, instead of doing a deep copy.
     
 - **Configuration Generation**
   - Bug fix: The variable `${path-trg}` and `${rel-path-trg}` are now generated correctly also for configurations that at a lower manifest loop level.
+  - The configuration generation has been sped up by improving the parsing speed itself, as well as the processing of manifest based configuration setups.
 
 - **Ground Truth**
   - Optical flow ground truth estimation has been improved.
+  - Optical flow output is now black in background areas for LUT cameras and standard Blender cameras.
+  - When generating ground truth label with a LUT camera, the LUT file is now stored at the top level production 
+    folder and not with the image file. This reduces the amount of storage space needed.
+  - User defined label shader are now adapted automatically to using an emission or diffusion shader depending on the camera used. For example, a LUT camera must use emission shaders, while Blender native cameras can use a diffusion shader.
+
 
 - **Post-Processing Actions**
   - New focus blur action, that uses the depth ground truth to generate a depth-of-field effect.
