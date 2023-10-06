@@ -143,21 +143,49 @@ def GetShellActivateCommands(
         if pathShellInitScript is not None:
             pathHook = pathShellInitScript
         else:
-            pathHook = Path(os.path.expanduser("~/Anaconda3/shell/condabin/conda-hook.ps1"))
-            # It seems that on some system then environment variable "HOME" is not defined.
-            # On the command prompt is may be available as '$HOME' directly.
-            # Using '~' and expanding it works, however.
-            # pathHook = Path("{}/Anaconda3/shell/condabin/conda-hook.ps1".format(os.environ.get("HOME")))
-            if not pathHook.exists():
-                pathHook = Path("{}/Anaconda3/shell/condabin/conda-hook.ps1".format(os.environ.get("PROGRAMFILES")))
-                if not pathHook.exists():
-                    pathHook = Path("{}/Anaconda3/shell/condabin/conda-hook.ps1".format(os.environ.get("LOCALAPPDATA")))
-                    if not pathHook.exists():
-                        raise RuntimeError(
-                            "Cannot find conda activation script 'conda-hook.ps1'. Maybe conda is not installed."
-                        )
-                    # endif
+            pathHook: Path = None
+
+            sUserCondaPath = os.environ.get("CATHARSYS_CONDA_PATH")
+            if sUserCondaPath is not None:
+                pathTest = Path(sUserCondaPath) / "shell/condabin/conda-hook.ps1"
+                if not pathTest.exists():
+                    raise RuntimeError(
+                        f"Conda hook script cannot be found using main conda path set by environment variable 'CATHARSYS_CONDA_PATH': {sUserCondaPath}\n"
+                        f"> Testing for script at path: {(pathTest.as_posix())}"
+                    )
                 # endif
+                pathHook = pathTest
+
+            else:
+                # It seems that on some systems the environment variable "HOME" is not defined.
+                # On the command prompt is may be available as '$HOME' directly.
+                # Using '~' and expanding it works, however.
+                lPaths: list[str] = []
+                for sType in ["Anaconda3", "Miniconda3"]:
+                    lPaths.extend(
+                        [
+                            os.path.expanduser(f"~/{sType}/shell/condabin/conda-hook.ps1"),
+                            "{}/{}/shell/condabin/conda-hook.ps1".format(os.environ.get("PROGRAMFILES"), sType),
+                            "{}/{}/shell/condabin/conda-hook.ps1".format(os.environ.get("LOCALAPPDATA"), sType),
+                        ]
+                    )
+                # endfor
+
+                for sTestPath in lPaths:
+                    pathTest = Path(sTestPath)
+                    if pathTest.exists():
+                        pathHook = pathTest
+                        break
+                    # endif
+                # endfor
+            # endif
+
+            if pathHook is None:
+                raise RuntimeError(
+                    "Cannot find conda activation script 'conda-hook.ps1'.\n"
+                    "You may need to set the main conda installation path with the environment variable 'CATHARSYS_CONDA_PATH'.\n"
+                    "Tested for the script in the following paths:\n" + "\n".join(lPaths)
+                )
             # endif
         # endif
 
