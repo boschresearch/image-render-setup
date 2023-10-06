@@ -32,7 +32,7 @@ g_pathModules: Path = None
 ###############################################################################################
 # Prepare Environment
 try:
-    g_pathThis = Path(__file__)
+    g_pathThis = Path(__file__).absolute()
     g_pathSetup = g_pathThis.parent.parent
     g_pathModules = g_pathThis.parent.parent / "src" / "catharsys" / "setup"
     if not g_pathModules.exists():
@@ -94,6 +94,7 @@ def RunCmd_Install(_xArgs):
 
 
 # enddef
+
 
 ###############################################################################################
 # Main function
