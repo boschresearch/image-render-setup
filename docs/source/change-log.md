@@ -1,6 +1,6 @@
 # Change Log
 
-## 2023-??-?? Catharsys Release 3.2.29
+## 2023-10-06 Catharsys Release 3.2.29
 
 - **ISON Language**
   - Bug fix: the function `$rand.generator{}` now generates consistent seeds from string and float values.
@@ -19,15 +19,26 @@
     folder and not with the image file. This reduces the amount of storage space needed.
   - User defined label shader are now adapted automatically to using an emission or diffusion shader depending on the camera used. For example, a LUT camera must use emission shaders, while Blender native cameras can use a diffusion shader.
 
+- **Render Actions**
+  - adds support for EEVEE settings via configuration file. You can choose the render engine via the render settings config. In the new EEVEE settings config, the render quality etc. can be set. 
 
 - **Post-Processing Actions**
   - New focus blur action, that uses the depth ground truth to generate a depth-of-field effect.
   - New motion blur action, that uses the flow ground truth to generate a motion blur effect.
 
+- **Modifiers**
+  - Modifier `blender/generate/collection/import/folder-type-hierarchy:1` 
+    - can now also import `.fbx`, `.glb` and `.gltf` files,
+    - has new option `bJoinObjectGroups` to optionally join all objects imported from a file into a single object,
+    - has new option `lIncludeFileSuffix` to optionally set a list of file types to import. Default is all file types.
+
 - **System**
   - the command `cathy code init` now also sets the flag `git.alwaysSignOff` to always add a `signed-off-by` text to the commit message.
   - the command `cathy repos release` now adds the 'signed-off-by' text in addition to GPG signing commits.
-  
+  - the set of paths used to search for the `conda-hook.ps1` script on windows systems is extended to include the local app data path, and Miniconda3 as well as Anaconda3 installs. If nothing works, you can set the path to the Anaconda install with the new environment variable `CATHARSYS_CONDA_PATH`. If this environment variable is set, it is the
+  only path the system looks for the conda hook script.
+
+
 ## 2023-06-21 Catharsys Release 3.2.28
 
 - **Documentation**
