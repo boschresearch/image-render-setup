@@ -1,5 +1,11 @@
 # Change Log
 
+## 2023-10-?? Catharsys Release 3.2.30
+
+- **Installation**
+  - The module `image-render-setup` now also installs `GitPython`
+
+
 ## 2023-10-06 Catharsys Release 3.2.29
 
 - **ISON Language**
