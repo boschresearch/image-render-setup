@@ -38,10 +38,18 @@ else:
 from pathlib import Path
 import catharsys.setup
 
-from shutil import unpack_archive
-from catharsys.setup import util, shell, repos, conda
+# from shutil import unpack_archive
+from catharsys.setup import util
 
 g_sCmdDesc = "Installs the Catharsys modules"
+
+try:
+    from catharsys.setup import repos
+
+    bHasGit = True
+except Exception:
+    bHasGit = False
+# endtry
 
 
 ####################################################################
@@ -216,6 +224,11 @@ def Run(
             if not isinstance(pathRepos, Path):
                 raise RuntimeError("Update can only be used on a develop install")
             # endif
+
+            if bHasGit is False:
+                raise RuntimeError("'Git' is not installed on this machine")
+            # endif
+
             # pathMain = pathRepos.parent
 
             # pull "image-render-setup" and install it in current environment
@@ -233,6 +246,10 @@ def Run(
         # endif
 
         if isinstance(pathRepos, Path):
+            if bHasGit is False:
+                raise RuntimeError("'Git' is not installed on this machine")
+            # endif
+
             lRepoPaths = []
             for pathX in pathRepos.iterdir():
                 if pathX.is_dir():
