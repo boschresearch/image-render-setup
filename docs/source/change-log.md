@@ -1,9 +1,24 @@
 # Change Log
 
-## 2023-10-?? Catharsys Release 3.2.30
+## 2023-10-10 Catharsys Release 3.2.30
 
 - **Installation**
   - The module `image-render-setup` now also installs `GitPython`
+  - The system install command only demands git, when installing from repositories.
+
+- **Internals**
+  - Module `image-render-actions-std` no uses the module `cls_python.py` from anybase.
+
+- **ISON Parser**
+  - Bug fix, where some variables were not processed due to caching of processed configs.
+
+- **Blender Render Action**
+  - Fixes processing of render type dependent modifiers. These were not give all locals and globals
+    from their parent configurations and render variable were not available.
+
+- **AnyCam**
+  - The anycam addon now allows you to automatically create compact camera pose paths for camera sets. That is, instead of representing the camera pose by a path, a single camera pose name is created. This can improve the usability.
+
 
 
 ## 2023-10-06 Catharsys Release 3.2.29
