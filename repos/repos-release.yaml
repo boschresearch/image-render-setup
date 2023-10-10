@@ -2,7 +2,7 @@ repositories:
     functional-json:
         type: git
         url: https://github.com/boschresearch/functional-json.git
-        version: tags/v1.3.4
+        version: tags/v1.3.5
     functional-json-vscode:
         type: git
         url: https://github.com/boschresearch/functional-json-vscode.git
@@ -10,11 +10,11 @@ repositories:
     image-render-actions-std:
         type: git
         url: https://github.com/boschresearch/image-render-actions-std.git
-        version: tags/v3.1.5
+        version: tags/v3.1.6
     image-render-actions-std-blender:
         type: git
         url: https://github.com/boschresearch/image-render-actions-std-blender.git
-        version: tags/v3.2.5
+        version: tags/v3.2.6
     image-render-asset-cameras:
         type: git
         url: https://github.com/boschresearch/image-render-asset-cameras.git
@@ -34,7 +34,7 @@ repositories:
     image-render-blender-camera:
         type: git
         url: https://github.com/boschresearch/image-render-blender-camera.git
-        version: tags/v3.2.3
+        version: tags/v3.2.4
     image-render-blender-human:
         type: git
         url: https://github.com/boschresearch/image-render-blender-human.git
