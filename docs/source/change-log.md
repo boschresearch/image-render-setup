@@ -1,5 +1,11 @@
 # Change Log
 
+## 2023-??-?? Catharsys Release 3.2.21
+
+- **Blender Render Action**
+  - The render action now also applies the render output type modifiers after possible annotation modifications have been applied to the scene. This is done with the apply type "POST_ANNOTATION". This can, for example, be used to set materials created for annotation as arguments to geometry node trees.
+  - A modifier can now also specify the apply mode "`*`" in `lApplyModes`, to be run for all apply modes.
+
 ## 2023-10-10 Catharsys Release 3.2.30
 
 - **Installation**
