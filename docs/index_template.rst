@@ -35,6 +35,7 @@ Catharsys
 
    overview
    system_main
+   gui_main
    workspace_main
    develop
    change-log
