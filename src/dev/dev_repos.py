@@ -34,7 +34,7 @@ pathReposListFile = pathRepos / "repos-main.yaml"
 lRepos = repos.LoadRepoListFile(_pathRepoList=pathReposListFile)
 # print(lRepos)
 
-pathRepoCln = Path(r"C:\Users\prc2hi\Documents\10_Code\tmp\repos")
+pathRepoCln = Path(r"[PATH]")
 # repos.CloneRepoListFile(_pathRepoList=pathReposListFile, _pathRepos=pathRepoCln)
 
 repos.PullAll(_pathRepos=pathRepoCln)
