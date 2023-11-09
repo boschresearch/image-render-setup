@@ -59,3 +59,7 @@ repositories:
     type: git
     url: https://github.com/boschresearch/image-render-workspace-examples.git
     version: main
+  image-render-gui:
+    type: git
+    url: https://github.com/boschresearch/image-render-gui.git
+    version: main
