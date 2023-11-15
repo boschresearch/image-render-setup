@@ -1,10 +1,18 @@
 # Change Log
 
-## 2023-??-?? Catharsys Release 3.2.21
+## 2023-11-15 Catharsys Release 3.2.31
+
+- **Web GUI**
+  - This release adds the module `image-render-gui`, which implements a web GUI for launching Catharsys jobs and viewing created products, like images. See the {external+image-render-gui:doc}`Web GUI Documentation <get_started>` for more information.
 
 - **Blender Render Action**
   - The render action now also applies the render output type modifiers after possible annotation modifications have been applied to the scene. This is done with the apply type "POST_ANNOTATION". This can, for example, be used to set materials created for annotation as arguments to geometry node trees.
   - A modifier can now also specify the apply mode "`*`" in `lApplyModes`, to be run for all apply modes.
+  - **Rolling Shutter Rendering** is now working again for 3d-position ground truth rendering. The rolling shutter construction action now supports calculating depth with standard deviation from this data.
+
+- **Example Workspace**
+  - The module `image-render-workspace-examples` now includes an example of how to render, construct and tonemap rolling shutting images. You can find it under `config/usecase/rolling-shutter`. This also includes a `production.json5` configuration for the Web GUI, to view the generated images.
+
 
 ## 2023-10-10 Catharsys Release 3.2.30
 
