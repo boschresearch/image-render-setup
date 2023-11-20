@@ -1,5 +1,14 @@
 # Change Log
 
+## 2023-11-?? Catharsys Release 3.2.32
+
+- **Blender Render Action**
+  - Important bug fixes for rolling shutter rendering and post processing.
+
+- **Automation**
+  - A new nested loop configuration type has been added with id `/catharsys/manifest/control/loop/nested-range:1.0`. It allows you to specify a nested loop of arbitrary depth in a single configuration. See the configuration `config/usecase/loop-nested` of the module `image-render-workspace-examples` for an example.
+
+
 ## 2023-11-15 Catharsys Release 3.2.31
 
 - **Web GUI**
