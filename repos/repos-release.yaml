@@ -10,11 +10,11 @@ repositories:
     image-render-actions-std:
         type: git
         url: https://github.com/boschresearch/image-render-actions-std.git
-        version: tags/v3.1.7
+        version: tags/v3.1.8
     image-render-actions-std-blender:
         type: git
         url: https://github.com/boschresearch/image-render-actions-std-blender.git
-        version: tags/v3.2.7
+        version: tags/v3.2.8
     image-render-asset-cameras:
         type: git
         url: https://github.com/boschresearch/image-render-asset-cameras.git
@@ -22,7 +22,7 @@ repositories:
     image-render-automation:
         type: git
         url: https://github.com/boschresearch/image-render-automation.git
-        version: tags/v3.1.6
+        version: tags/v3.1.7
     image-render-base:
         type: git
         url: https://github.com/boschresearch/image-render-base.git
@@ -62,4 +62,4 @@ repositories:
     image-render-workspace-examples:
         type: git
         url: https://github.com/boschresearch/image-render-workspace-examples.git
-        version: tags/v1.0.5
+        version: tags/v1.0.6
