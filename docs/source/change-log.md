@@ -1,6 +1,6 @@
 # Change Log
 
-## 2023-11-?? Catharsys Release 3.2.32
+## 2023-11-20 Catharsys Release 3.2.32
 
 - **Blender Render Action**
   - Important bug fixes for rolling shutter rendering and post processing.
