@@ -24,10 +24,8 @@
 # </LICENSE>
 ###
 
-import imp
 import re
 import sys
-import importlib.util
 
 if sys.version_info < (3, 10):
     import importlib_resources as res
