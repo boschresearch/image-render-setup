@@ -63,3 +63,7 @@ repositories:
     type: git
     url: https://github.com/boschresearch/image-render-gui.git
     version: main
+  image-render-generative:
+    type: git
+    url: https://github.com/boschresearch/image-render-generative.git
+    version: main
