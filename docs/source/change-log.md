@@ -1,5 +1,19 @@
 # Change Log
 
+## 2023-12-01 Catharsys Release 3.2.33
+
+To update a develop installation to this version, you need to run `cathy install system --update`. This should clone  new repositories and install all modified modules in the Anaconda environment.
+
+- **Blender 4.0 Support**
+  - Blender 4 has some breaking changes in its' Python code. The Catharsys code has been adapted to support Blender 3.x and 4.0.
+
+- **Generative AI Action**
+  - A generative AI action repository is now added as `image-render-generative`.
+
+- **Bug Fixes**
+  - Import paths were not always set correctly in the ison parser.
+
+
 ## 2023-11-20 Catharsys Release 3.2.32
 
 - **Blender Render Action**
