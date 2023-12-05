@@ -287,5 +287,33 @@ def Run(*, sPathWorkspace=None, sPrintPrefix=">> "):
     # endwith
     print(f"{sPrintPrefix}VSCode workspace file written to: {pathCodeWs.as_posix()}")
 
+    ##############################################################################
+    # Copy default extension configuration files
+    if bIsDevelop is True:
+        xExt = res.files(catharsys.setup).joinpath("data").joinpath("default-extensions-develop.json")
+        with res.as_file(xExt) as pathExt:
+            if pathExt.exists():
+                dicNewExt = anyfile.LoadJson(pathExt)
+                pathVsCode = pathWS / ".vscode"
+                pathVsCode.mkdir(exist_ok=True, parents=True)
+                pathVscExt = pathVsCode / "extensions.json"
+                if pathVscExt.exists():
+                    dicExt = anyfile.LoadJson(pathVscExt)
+                    if "recommendations" not in dicExt:
+                        dicExt["recommendations"] = []
+                    # endif
+                    dicExt["recommendations"].extend(dicNewExt.get("recommendations", []))
+                else:
+                    dicExt = dicNewExt
+                # endif
+
+                anyfile.SaveJson(pathVscExt, dicExt, iIndent=4)
+            # endif
+        # endwith
+    else:
+        # TODO: Load extension config for non-develop install
+        pass
+    # endif
+
 
 # enddef

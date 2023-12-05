@@ -23,12 +23,5 @@
         "editor.wordWrap": "wordWrapColumn",
         "editor.wordWrapColumn": 120,
     },
-    "extensions": {
-        "recommendations": [
-            "ms-python.python",
-            "ms-python.flake8",
-            "ms-python.black-formatter"
-        ]
-    }
 
 }
