@@ -44,6 +44,7 @@ from catharsys.setup import util, module
 
 g_sCmdDesc = "Installs Catharsys workspaces"
 
+
 ####################################################################
 class CTemplateModuleInfo(NamedTuple):
     sId: str = None
@@ -54,6 +55,7 @@ class CTemplateModuleInfo(NamedTuple):
 
 
 # endclass
+
 
 ####################################################################
 def Run(
@@ -67,7 +69,6 @@ def Run(
     bYes: bool = False,
     lVars: list = None,
 ):
-
     pathTplTrg: Path
     if not isinstance(sPathTrg, str):
         pathTplTrg = Path.cwd()
@@ -101,6 +102,7 @@ def Run(
 
 # enddef
 
+
 ####################################################################
 def InstallTemplate(
     *,
@@ -112,7 +114,6 @@ def InstallTemplate(
     _sNewModuleName: str = None,
     _lVars: list = None,
 ):
-
     pathTrg = anypath.MakeNormPath(_pathTrg.absolute())
 
     lTemplates = GetTemplateInfoList(_bForceDist=_bForceDist)
@@ -148,7 +149,6 @@ def InstallTemplate(
     # Parse command line argument variables, if any
     dicUserVarValues: dict[str, str] = {}
     if isinstance(_lVars, list):
-
         reVarDef = re.compile(r"^([a-zA-Z_][a-zA-Z0-9_]*)=([a-zA-Z_][a-zA-Z0-9_\-]*)")
         for sVarDef in _lVars:
             xMatch = reVarDef.match(sVarDef)
@@ -396,6 +396,9 @@ def InstallTemplate(
                     if isinstance(sValueKind, str):
                         if sValueKind == "python/class":
                             sVarValue = f"{sVarValue.upper()[0]}{sVarValue[1:]}"
+
+                        elif sValueKind == "python/function":
+                            sVarValue = f"{sVarValue.upper()[0]}{sVarValue[1:]}"
                         # endif
                     # endif
                     sNewReplace = sReReplace.replace("\\0", sVarValue)
@@ -419,7 +422,6 @@ def InstallTemplate(
 
 ####################################################################
 def _DoRenameInFiles(_pathMain: Path, _lReFilesComp, _reSearch, _sReReplace: str):
-
     for pathChild in _pathMain.iterdir():
         if pathChild.is_dir():
             _DoRenameInFiles(
@@ -459,9 +461,9 @@ def RenameInFiles(*, _pathMain: Path, _lReFiles: list[str], _sReSearch: str, _sR
 
 # enddef
 
+
 ####################################################################
 def _DoRenamePath(*, _pathAct: Path, _reSearch, _sReReplace: str, _lRenames: list, _bFile: bool, _bFolder: bool):
-
     # Recurse first through child folders
     for pathChild in _pathAct.iterdir():
         if pathChild.is_dir():
@@ -520,7 +522,6 @@ def RenamePath(*, _pathMain: Path, _sReSearch: str, _sReReplace: str, _bFile: bo
 
 ####################################################################
 def ListTemplates(*, _bForceDist: bool):
-
     lTemplates = GetTemplateInfoList(_bForceDist=_bForceDist)
 
     print("Available templates:")
@@ -537,9 +538,9 @@ def ListTemplates(*, _bForceDist: bool):
 
 # enddef
 
+
 ####################################################################
 def GetTemplateInfoList(*, _bForceDist: bool) -> list[CTemplateModuleInfo]:
-
     lTemplates: list[CTemplateModuleInfo] = []
 
     if util.IsDevelopInstall() and _bForceDist is False:
@@ -639,6 +640,7 @@ def _CreateRepoTemplateListHandler(_lTemplateNameList: list):
 
 # enddef
 
+
 ####################################################################
 def _CreateInvalidHandler():
     def Handler(*, pathModule, pathDist, sName, sVersion):
@@ -653,7 +655,6 @@ def _CreateInvalidHandler():
 
 ####################################################################
 def GetRepoTemplateList(pathRepos: Path) -> list[str]:
-
     lTemplateNameList: list[str] = []
 
     module.ForEach(

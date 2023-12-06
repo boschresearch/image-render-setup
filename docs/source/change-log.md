@@ -1,17 +1,26 @@
 # Change Log
 
-## 2023-12-01 Catharsys Release 3.2.33
+## 2023-12-05 Catharsys Release 3.2.33
 
-To update a develop installation to this version, you need to run `cathy install system --update`. This should clone  new repositories and install all modified modules in the Anaconda environment.
+To update a develop installation to this version, you need to run `cathy install system --update`. This should clone  new repositories and install all modified modules in the Anaconda environment. You may also have to update the Catharsys installation in Blender using `cathy blender init -c [your config]`.
 
 - **Blender 4.0 Support**
   - Blender 4 has some breaking changes in its' Python code. The Catharsys code has been adapted to support Blender 3.x and 4.0.
 
 - **Generative AI Action**
   - A generative AI action repository is now added as `image-render-generative`.
+  - The module `image-render-workspace-examples` has an additional example configuration for using the generative rendering.
+
+- **Miscellaneous**
+  - The JSON output of the product analysis is now better suited for further processing. The path to the missing artefacts is now given as tuple, where each part is an element of the path structure given in the production definition.
+  - You can now install a Blender modifier template module with the command `cathy install template std-modifier-blender`.
+  
+- **Web GUI**
+  - The module `nicegui` which is used by Catharsys has had a major version change with breaking changes. The Catharsys code has been adopted accordingly. The Catharsys installer of the web gui module now fixes the nicegui version to 1.4.5.
 
 - **Bug Fixes**
   - Import paths were not always set correctly in the ison parser.
+  - A relative configuration path was not processed correctly by the commands `cathy prod [...]`.
 
 
 ## 2023-11-20 Catharsys Release 3.2.32
