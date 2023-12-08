@@ -597,7 +597,19 @@ def InstallModules(
     bForceDist: bool,
     bForceInstall: bool,
     bSourceDist: bool,
+    lIncludeRegEx: list[str] = [],
 ):
+    lIncRegEx: list[str] = []
+    if isinstance(g_debug_lInstallModules, list) and len(g_debug_lInstallModules) > 0:
+        lIncRegEx.extend(g_debug_lInstallModules)
+    # endif
+
+    if isinstance(lIncludeRegEx, list) and len(lIncludeRegEx) > 0:
+        lIncRegEx.extend(lIncludeRegEx)
+    # endif
+
+    # print(f"lIncRegEx: {lIncRegEx}")
+
     ForEach(
         bForceDist=bForceDist,
         bSourceDist=bSourceDist,
@@ -605,7 +617,7 @@ def InstallModules(
         # funcRunDist=CreateInstallDistHandler(sPathPythonProg, bForceInstall),
         funcRunRepo=CRepoHandlerFactory.CreateInstall(sPathPythonProg, bForceInstall),
         funcRunDist=CDistHandlerFactory.CreateInstall(sPathPythonProg, bForceInstall),
-        lIncludeRegEx=g_debug_lInstallModules,
+        lIncludeRegEx=lIncRegEx,
         lExcludeRegEx=["image-render-workspace-.+"],
     )
 

@@ -4,8 +4,9 @@
 
 To update a develop installation to this version, you need to run `cathy install system --update`. This should clone  new repositories and install all modified modules in the Anaconda environment. You may also have to update the Catharsys installation in Blender using `cathy blender init -c [your config]`.
 
-- **Blender 4.0 Support**
+- **Blender**
   - Blender 4 has some breaking changes in its' Python code. The Catharsys code has been adapted to support Blender 3.x and 4.0.
+  - Only the Catharsys modules that are needed in Blender are installed to Blender python now. The list of modules that are installed is given in the file `image-render-actions-std-blender/src/catharsys/plugins/std/blender/data/blender-install.json5`. The module names are actually interpreted as regular expressions.
 
 - **Generative AI Action**
   - A generative AI action repository is now added as `image-render-generative`.
