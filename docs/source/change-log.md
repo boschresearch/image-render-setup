@@ -19,6 +19,9 @@ To update a develop installation to this version, you need to run `cathy install
 - **Web GUI**
   - The module `nicegui` which is used by Catharsys has had a major version change with breaking changes. The Catharsys code has been adopted accordingly. The Catharsys installer of the web gui module now fixes the nicegui version to 1.4.5.
 
+- **Automation**
+  - Whole configuration files can now be enabled/disabled with an element `bEnabled` in the manifest declaration as well as at the top level of the configuration file itself. This is an updated version of the `sFilter` element, which is evaluated as Python string. The `bEnabled` element has to evaluate to a `bool`, `integer` or `float`. Value `true` or values other than zero are regarded as `true`. You can, for example, use this element to only enable certain configurations if another specific configuration is active. 
+
 - **Bug Fixes**
   - Import paths were not always set correctly in the ison parser.
   - A relative configuration path was not processed correctly by the commands `cathy prod [...]`.
