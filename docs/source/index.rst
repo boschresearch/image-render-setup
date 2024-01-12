@@ -56,6 +56,7 @@ Additional Modules
 - :external+image-render-blender-label:doc:`index`
 - :external+image-render-blender-points:doc:`index`
 - :external+image-render-blender-vehicle:doc:`index`
+- :external+image-render-generative:doc:`index`
 - :external+image-render-gui:doc:`index`
 - :external+image-render-templates:doc:`index`
 

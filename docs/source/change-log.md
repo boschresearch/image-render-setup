@@ -10,6 +10,7 @@ To update a develop installation to this version, you need to run `cathy install
 
 - **Generative AI Action**
   - A generative AI action repository is now added as `image-render-generative`.
+  - The [PowerShell script](https://github.com/boschresearch/image-render-generative/blob/main/scripts/get_takuma_diffusers.ps1) to install the code and download the network weights now contains the correct versions of all modules explicitly.
   - The module `image-render-workspace-examples` has an additional example configuration for using the generative rendering.
 
 - **Miscellaneous**
@@ -17,6 +18,9 @@ To update a develop installation to this version, you need to run `cathy install
   - You can now install a Blender modifier template module with the command `cathy install template std-modifier-blender`.
   
 - **Web GUI**
+  - **Much improved GUI with new split window image viewer**. The image viewer is now activated by simply clicking on an image. The image is then shown in a panel to the right of the main view.
+  - Improved visualization with less empty spaces around elements. Long label names are now also broken into a number of lines at spaces, underscores and hyphens.
+  - **The GUI now supports annotation of the result data** by categorizing the path structure variables defined in the production definition. Documentation for this feature can be found here ([markdown](https://github.com/boschresearch/image-render-automation/tree/main/docs/source/products/categorize.md)|{external+image-render-automation:doc}`docs <products/categorize>`). An example can be found in the [production](https://github.com/boschresearch/image-render-workspace-examples/blob/main/config/usecase/generative/production.json5) JSON file of the `usecase/generative` configuration of the `image-render-workspace-examples` [module](https://github.com/boschresearch/image-render-workspace-examples/tree/main).
   - The module `nicegui` which is used by Catharsys has had a major version change with breaking changes. The Catharsys code has been adopted accordingly. The Catharsys installer of the web gui module now fixes the nicegui version to 1.4.5.
 
 - **Automation**
@@ -25,7 +29,7 @@ To update a develop installation to this version, you need to run `cathy install
 - **Bug Fixes**
   - Import paths were not always set correctly in the ison parser.
   - A relative configuration path was not processed correctly by the commands `cathy prod [...]`.
-
+  - The logging action is now also enabled for the rolling shutter capture configurations.
 
 ## 2023-11-20 Catharsys Release 3.2.32
 
