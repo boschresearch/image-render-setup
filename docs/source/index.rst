@@ -59,6 +59,7 @@ Additional Modules
 - :external+image-render-generative:doc:`index`
 - :external+image-render-gui:doc:`index`
 - :external+image-render-templates:doc:`index`
+- :external+image-render-workspace-examples:doc:`index`
 
 
 .. Indices and tables
