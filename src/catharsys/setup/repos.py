@@ -24,14 +24,30 @@
 # </LICENSE>
 ###
 
+import re
 import yaml
 import json
 from tqdm import tqdm
 from pathlib import Path
 from dataclasses import dataclass
 from git import Repo, FetchInfo, RemoteProgress
+from anybase.cls_any_error import CAnyError, CAnyError_Message
+from typing import Optional, Union, Tuple
+from anybase import file as anyfile
 
 from catharsys.setup import util
+from catharsys.setup import module
+
+
+####################################################################
+class CRepoError(CAnyError_Message):
+    def __init__(self, *, sMsg: str, xChildEx: Optional[Exception] = None):
+        super().__init__(sMsg=sMsg, xChildEx=xChildEx)
+
+    # enddef
+
+
+# endclass
 
 
 # #####################################################################################################
@@ -296,6 +312,129 @@ def PullRepo(_pathRepo: Path, *, _bDoPrint: bool = True, _sPrintPrefix: str = ">
         sError = str(xEx)
         print(f"ERROR pulling branch '{sActiveBranch}' from repository '{_pathRepo.name}':\n{sError}")
     # endtry
+
+
+# enddef
+
+
+####################################################################
+def GetRepoVersion(*, pathModule: Path) -> Tuple[str, str]:
+    pathSetupCfgFile = pathModule / "setup.cfg"
+
+    pathPackageFile = pathModule / "package.json"
+    if not pathPackageFile.exists():
+        pathPackageFile = pathModule / "package.json5"
+        if not pathPackageFile.exists():
+            pathPackageFile = None
+        # endif
+    # endif
+
+    sModuleType: str = None
+    sLocalVersion: str = None
+
+    if pathSetupCfgFile.exists():
+        sLocalVersion = module.GetRepoVersion(pathModule=pathModule, bGetSource=False)
+        sModuleType = "Python Module"
+
+    elif pathPackageFile is not None:
+        # print("Build from package.json")
+        dicPkg = anyfile.LoadJson(pathPackageFile)
+
+        if isinstance(dicPkg.get("engines"), dict):
+            sLocalVersion = dicPkg.get("version")
+            sModuleType = "VS-Code AddOn"
+
+        elif isinstance(dicPkg.get("sDTI"), str):
+            sLocalVersion = dicPkg.get("sVersion")
+            sModuleType = "Workspace"
+
+        else:
+            raise CRepoError(sMsg="Unsupported module package file type.")
+        # endif
+    else:
+        CRepoError(sMsg="Unsupported module type.")
+    # endif
+
+    return sLocalVersion, sModuleType
+
+
+# enddef
+
+
+####################################################################
+def IncRepoVersion(*, pathModule: Path, iVerPart: int, bDoExecute=True):
+    pathSetupCfgFile = pathModule / "setup.cfg"
+
+    pathPackageFile = pathModule / "package.json"
+    if not pathPackageFile.exists():
+        pathPackageFile = pathModule / "package.json5"
+        if not pathPackageFile.exists():
+            pathPackageFile = None
+        # endif
+    # endif
+
+    sNewVersion: str = None
+    sAttrName: str = None
+    pathSource: Path = None
+    dicPkg: dict = None
+
+    if pathSetupCfgFile.exists():
+        sNewVersion, pathSource = module.IncRepoVersion(
+            pathModule=pathModule,
+            iVerPart=iVerPart,
+            bDoExecute=bDoExecute,
+            bGetSource=True,
+        )
+
+    elif pathPackageFile is not None:
+        # print("Build from package.json")
+        dicPkg = anyfile.LoadJson(pathPackageFile)
+
+        if isinstance(dicPkg.get("engines"), dict):
+            sAttrName = "version"
+            # print("VS-Code AddOn: {}, v{}".format(pathModule.name, sLocalVersion))
+
+        elif isinstance(dicPkg.get("sDTI"), str):
+            sAttrName = "sVersion"
+            # print("Workspace: {}, v{}".format(pathModule.name, sLocalVersion))
+
+        else:
+            raise CRepoError(sMsg="Unsupported module package file type.")
+        # endif
+
+        sLocalVersion = dicPkg.get(sAttrName)
+        if sLocalVersion is None:
+            raise CRepoError(sMsg="Version element '{}' not found in: {}".format(sAttrName, pathPackageFile.as_posix()))
+        # endif
+
+        xMatch = re.match(r"(\d+)\.(\d+)\.(\d+)", sLocalVersion)
+        if xMatch is None:
+            raise RuntimeError(f"Invalid version string '{sLocalVersion}' for module '{pathModule.name}'")
+        # endif
+
+        lVersion = [0, 0, 0]
+        for i in range(3):
+            lVersion[i] = int(xMatch.group(i + 1))
+        # endfor
+
+        lVersion[iVerPart] += 1
+        for i in range(iVerPart + 1, len(lVersion)):
+            lVersion[i] = 0
+        # endfor
+
+        sNewVersion = ".".join([str(x) for x in lVersion])
+        pathSource = pathPackageFile
+
+        if bDoExecute is True:
+            dicPkg[sAttrName] = sNewVersion
+            anyfile.SaveJson(pathPackageFile, dicPkg, iIndent=4)
+        # endif
+
+    else:
+        CRepoError(sMsg="Unsupported module type.")
+    # endif
+
+    return sNewVersion, pathSource
 
 
 # enddef

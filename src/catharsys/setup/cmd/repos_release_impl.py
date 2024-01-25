@@ -27,27 +27,15 @@
 
 import re
 import yaml
-import shutil
-from typing import Optional, Union
 from pathlib import Path
 
-from git import Repo, Commit, Head, Remote
+from git import Repo, Commit, Head
 
-from anybase import file as anyfile
-from anybase.cls_any_error import CAnyError, CAnyError_Message
+from anybase.cls_any_error import CAnyError
 from catharsys.setup import util
 from catharsys.setup import module
-
-
-####################################################################
-class CRepoError(CAnyError_Message):
-    def __init__(self, *, sMsg: str, xChildEx: Optional[Exception] = None):
-        super().__init__(sMsg=sMsg, xChildEx=xChildEx)
-
-    # enddef
-
-
-# endclass
+from catharsys.setup.repos import CRepoError
+from catharsys.setup import repos
 
 
 ####################################################################
@@ -73,7 +61,7 @@ def FilterPyModules(**kwargs):
 # enddef
 
 
-#######################################################6#############
+# ######################################################6#############
 def CannotReleaseFromDist(*, pathDist: Path, pathModule: Path, sName: str, sVersion: str):
     print("===================================================")
     print("Cannot release module from distribution for: {} v{}\n".format(sName, sVersion))
@@ -82,7 +70,7 @@ def CannotReleaseFromDist(*, pathDist: Path, pathModule: Path, sName: str, sVers
 # enddef
 
 
-####################################################################
+# ###################################################################
 def FindHeadForCommit(*, repoMod: Repo, comX: Commit, bLocal: bool = True) -> Head:
     for headX in repoMod.heads:
         if headX.commit == comX:
@@ -235,129 +223,6 @@ def GitCheckout(_repoMod: Repo, _sBranch: str, **kwargs):
 
 
 ####################################################################
-def GetRepoVersion(*, pathModule: Path) -> str:
-    pathSetupCfgFile = pathModule / "setup.cfg"
-
-    pathPackageFile = pathModule / "package.json"
-    if not pathPackageFile.exists():
-        pathPackageFile = pathModule / "package.json5"
-        if not pathPackageFile.exists():
-            pathPackageFile = None
-        # endif
-    # endif
-
-    sModuleType: str = None
-    sLocalVersion: str = None
-
-    if pathSetupCfgFile.exists():
-        sLocalVersion = module.GetRepoVersion(pathModule=pathModule, bGetSource=False)
-        sModuleType = "Python Module"
-
-    elif pathPackageFile is not None:
-        # print("Build from package.json")
-        dicPkg = anyfile.LoadJson(pathPackageFile)
-
-        if isinstance(dicPkg.get("engines"), dict):
-            sLocalVersion = dicPkg.get("version")
-            sModuleType = "VS-Code AddOn"
-
-        elif isinstance(dicPkg.get("sDTI"), str):
-            sLocalVersion = dicPkg.get("sVersion")
-            sModuleType = "Workspace"
-
-        else:
-            raise CRepoError(sMsg="Unsupported module package file type.")
-        # endif
-    else:
-        CRepoError(sMsg="Unsupported module type.")
-    # endif
-
-    return sLocalVersion, sModuleType
-
-
-# enddef
-
-
-####################################################################
-def IncRepoVersion(*, pathModule: Path, iVerPart: int, bDoExecute=True):
-    pathSetupCfgFile = pathModule / "setup.cfg"
-
-    pathPackageFile = pathModule / "package.json"
-    if not pathPackageFile.exists():
-        pathPackageFile = pathModule / "package.json5"
-        if not pathPackageFile.exists():
-            pathPackageFile = None
-        # endif
-    # endif
-
-    sNewVersion: str = None
-    sAttrName: str = None
-    pathSource: Path = None
-    dicPkg: dict = None
-
-    if pathSetupCfgFile.exists():
-        sNewVersion, pathSource = module.IncRepoVersion(
-            pathModule=pathModule,
-            iVerPart=iVerPart,
-            bDoExecute=bDoExecute,
-            bGetSource=True,
-        )
-
-    elif pathPackageFile is not None:
-        # print("Build from package.json")
-        dicPkg = anyfile.LoadJson(pathPackageFile)
-
-        if isinstance(dicPkg.get("engines"), dict):
-            sAttrName = "version"
-            # print("VS-Code AddOn: {}, v{}".format(pathModule.name, sLocalVersion))
-
-        elif isinstance(dicPkg.get("sDTI"), str):
-            sAttrName = "sVersion"
-            # print("Workspace: {}, v{}".format(pathModule.name, sLocalVersion))
-
-        else:
-            raise CRepoError(sMsg="Unsupported module package file type.")
-        # endif
-
-        sLocalVersion = dicPkg.get(sAttrName)
-        if sLocalVersion is None:
-            raise CRepoError(sMsg="Version element '{}' not found in: {}".format(sAttrName, pathPackageFile.as_posix()))
-        # endif
-
-        xMatch = re.match(r"(\d+)\.(\d+)\.(\d+)", sLocalVersion)
-        if xMatch is None:
-            raise RuntimeError(f"Invalid version string '{sLocalVersion}' for module '{pathModule.name}'")
-        # endif
-
-        lVersion = [0, 0, 0]
-        for i in range(3):
-            lVersion[i] = int(xMatch.group(i + 1))
-        # endfor
-
-        lVersion[iVerPart] += 1
-        for i in range(iVerPart + 1, len(lVersion)):
-            lVersion[i] = 0
-        # endfor
-
-        sNewVersion = ".".join([str(x) for x in lVersion])
-        pathSource = pathPackageFile
-
-        if bDoExecute is True:
-            dicPkg[sAttrName] = sNewVersion
-            anyfile.SaveJson(pathPackageFile, dicPkg, iIndent=4)
-        # endif
-
-    else:
-        CRepoError(sMsg="Unsupported module type.")
-    # endif
-
-    return sNewVersion, pathSource
-
-
-# enddef
-
-
-####################################################################
 def ReleaseFromRepo(
     *,
     pathRepos: Path,
@@ -374,7 +239,7 @@ def ReleaseFromRepo(
         sBranchMain = "stable"
         sBranchDev = "main"
 
-        sLocalVersion, sModuleType = GetRepoVersion(pathModule=pathModule)
+        sLocalVersion, sModuleType = repos.GetRepoVersion(pathModule=pathModule)
         sTagName = f"v{sLocalVersion}"
         print("{}: {}, v{}".format(sModuleType, pathModule.name, sLocalVersion))
         sPrintPrefix = ">> "
@@ -421,11 +286,12 @@ def ReleaseFromRepo(
                     GitCheckout(repoMod, headDev.name, sPrintPrefix=sPrintPrefix + ">> ")
                 # endif
 
-                sNewVersion, pathSource = IncRepoVersion(
+                sNewVersion, pathSource = repos.IncRepoVersion(
                     pathModule=pathModule, iVerPart=iVerPart, bDoExecute=bDoExecute
                 )
                 print(
-                    f"{sPrintPrefix}Incrementing version of module '{pathModule.name}' from '{sLocalVersion}' to '{sNewVersion}'"
+                    f"{sPrintPrefix}Incrementing version of module '{pathModule.name}' "
+                    f"from '{sLocalVersion}' to '{sNewVersion}'"
                 )
 
                 sPathVerFile = pathSource.relative_to(pathModule).as_posix()
@@ -509,9 +375,12 @@ def ReleaseFromRepo(
 
             GitCheckout(repoMod, headDev.name, sPrintPrefix=sPrintPrefix + ">> ")
 
-            sNewVersion, pathSource = IncRepoVersion(pathModule=pathModule, iVerPart=iVerPart, bDoExecute=bDoExecute)
+            sNewVersion, pathSource = repos.IncRepoVersion(
+                pathModule=pathModule, iVerPart=iVerPart, bDoExecute=bDoExecute
+            )
             print(
-                f"{sPrintPrefix}Incrementing version of module '{pathModule.name}' from '{sLocalVersion}' to '{sNewVersion}'"
+                f"{sPrintPrefix}Incrementing version of module '{pathModule.name}' "
+                f"from '{sLocalVersion}' to '{sNewVersion}'"
             )
 
             sPathVerFile = pathSource.relative_to(pathModule).as_posix()
@@ -692,7 +561,7 @@ def Run(
         # Checkout develop branch to ensure that we are reading the correct version file
         GitCheckout(repoMain, sBranchDev)
 
-        pathPrevRepoListFile = pathRepos / f"repos-release.yaml"
+        pathPrevRepoListFile = pathRepos / "repos-release.yaml"
         # pathPrevRepoListFile = pathRepos / f"repos-{sTagRelName}.yaml"
         bCreateNewRepoList = False
         bCopyRepoList = False
@@ -744,7 +613,7 @@ def Run(
         # endif
         print("")
 
-        sLocalVersion, sModType = GetRepoVersion(pathModule=pathSetup)
+        sLocalVersion, sModType = repos.GetRepoVersion(pathModule=pathSetup)
         print(f"Local version: {sLocalVersion}")
         pathRepoListFile = pathPrevRepoListFile
         # pathRepoListFile = pathRepos / f"repos-v{sLocalVersion}.yaml"

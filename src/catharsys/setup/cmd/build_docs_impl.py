@@ -35,21 +35,17 @@ import shutil
 from catharsys.setup import util
 from catharsys.setup import module
 
+
 ####################################################################
 def _BuildFromRepo(*, pathRepos, pathModule, sOutputType, pathEnv, pathDocMain):
-
     pathSource = pathModule / "docs" / "source"
     sPathBuild = "build/{}".format(pathModule.name)
 
     print("===================================================")
     print("Building Documentation for: {}\n---\n".format(pathModule.name))
-    sCmd = 'sphinx-build -M {} "{}" {}'.format(
-        sOutputType, pathSource.as_posix(), sPathBuild
-    )
+    sCmd = 'sphinx-build -M {} "{}" {}'.format(sOutputType, pathSource.as_posix(), sPathBuild)
     sCwd = pathDocMain.as_posix()
-    util.ExecShellCmd(
-        sCmd=sCmd, sCwd=sCwd, bDoPrint=True, bDoPrintOnError=True, pathVirtEnv=pathEnv
-    )
+    util.ExecShellCmd(sCmd=sCmd, sCwd=sCwd, bDoPrint=True, bDoPrintOnError=True, pathVirtEnv=pathEnv)
     print("")
 
 
@@ -58,16 +54,12 @@ def _BuildFromRepo(*, pathRepos, pathModule, sOutputType, pathEnv, pathDocMain):
 
 #######################################################6#############
 def _CannotBuildFromDist(*, pathDist, pathModule, sName, sVersion):
-
     print("===================================================")
-    print(
-        "Cannot build documentation from distribution for: {} v{}\n".format(
-            sName, sVersion
-        )
-    )
+    print("Cannot build documentation from distribution for: {} v{}\n".format(sName, sVersion))
 
 
 # enddef
+
 
 ####################################################################
 def _FilterDocModules(**kwargs):
@@ -80,9 +72,9 @@ def _FilterDocModules(**kwargs):
 
 # enddef
 
+
 ####################################################################
 def Run(*, sOutputType, bInstall, bModulesOnly, bMainOnly, lModules):
-
     import ison
     import json
 
@@ -104,9 +96,7 @@ def Run(*, sOutputType, bInstall, bModulesOnly, bMainOnly, lModules):
             print("Documentation generation python environment not found.")
             print("Creating virtual python environment...")
             util.ExecShellCmd(
-                sCmd='python -m venv "{}" --system-site-packages'.format(
-                    pathRelEnv.as_posix()
-                ),
+                sCmd='python -m venv "{}" --system-site-packages'.format(pathRelEnv.as_posix()),
                 sCwd=pathSetup.as_posix(),
                 bDoPrint=True,
                 bDoPrintOnError=True,
@@ -120,11 +110,7 @@ def Run(*, sOutputType, bInstall, bModulesOnly, bMainOnly, lModules):
                 )
             # endif
         else:
-            print(
-                "Documentation generation python environment found at: {}".format(
-                    pathEnv.as_posix()
-                )
-            )
+            print("Documentation generation python environment found at: {}".format(pathEnv.as_posix()))
         # endif
 
         ##################################################################################
@@ -196,6 +182,11 @@ def Run(*, sOutputType, bInstall, bModulesOnly, bMainOnly, lModules):
             funcTest=_FilterDocModules,
             lIncludeRegEx=lIncMods,
         )
+    # endif
+
+    # print(f"lPathModules: {lPathModules}")
+    if len(lPathModules) == 0:
+        raise RuntimeError("No modules found with documentation structure.")
     # endif
 
     # Only process modules documentation

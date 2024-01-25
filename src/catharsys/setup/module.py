@@ -355,7 +355,10 @@ def ForEach(
         lExcludeRegExComp = [re.compile(x) for x in lExcludeRegEx]
         lIncludeRegExComp = [re.compile(x) for x in lIncludeRegEx]
 
+        # print(f"pathModules: {pathModules}")
         for pathMod in pathModules.iterdir():
+            # print(f"pathMod: {pathMod}")
+
             # Test for exclude filter
             bContinue = False
             for reFilter in lExcludeRegExComp:
