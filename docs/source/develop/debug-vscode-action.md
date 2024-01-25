@@ -30,7 +30,7 @@ The options have the following meaning:
 
 When the debugger server is up and running you should see the text `Catharsys debug port open at [...]` in the shell. You can then attach the VSCode debugger. To do this you need to create a launch configuration either in a separate `launch.json` file or in your current `.code-workspace` file. 
 
-:::json
+```json
 "launch": {
     "version": "0.2.0",
     "configurations": [
@@ -44,7 +44,7 @@ When the debugger server is up and running you should see the text `Catharsys de
         }
     ]
 }
-:::
+```
 
 You should then see the debug option `Python: Debug Action` in the VS Code debug tab. Start the debugger and the editor should jump to a line in the file `debug.py`, which you can find in the module `image-render-base` in the folder `src/anybase`. Just press `F5` to run past the current breakpoint. Now you can debug the Catharsys action. 
 
@@ -57,7 +57,7 @@ Note that `print()` outputs of any scripts run in Blender are **not** shown in t
 
 In this approach everything is started directly from VS Code. For this setup you need to add a task to the `.code-workspace` file or a separate `tasks.json` file. The JSON block for the task looks like this:
 
-:::json
+```json
 "tasks": {
     "version": "2.0.0",
     "tasks": [
@@ -99,14 +99,14 @@ In this approach everything is started directly from VS Code. For this setup you
         }
     ]
 }
-:::
+```
 
 The task `Launch-Debug-Action` sets the current working directory to the folder of the Catharsys project. If you are in a multi-workspace environment you can use the approach as shown above. In a single workspace environment just use `${workspaceFolder}`. Note that the arguments of `cathy` in the `command` element need to be enclosed in `''`. The `problemMatcher` defines in the `background/endsPattern` the regular expression to look for, when the task is finished. In this case, when the debug server is running. 
 
 The additional task `Terminate All Tasks` does what is says, and will be executed as a post debug task.
 
 The full launch configuration now looks like this:
-:::json
+```json
 "launch": {
     "version": "0.2.0",
     "configurations": [
@@ -122,6 +122,6 @@ The full launch configuration now looks like this:
         }
     ]
 }
-:::
+```
 
 The `Launch-Debug-Action` task is executed before VS Code tries to attach the debugger. Therefore, this task must only return, when the debug server is actually running. The post debug task closes all task terminals. Without it, the debug task terminal will stay open until you close it manually. Restarting the debug launch configuration while the debug task terminal is still open from a previous launch, causes an error.
