@@ -28,14 +28,25 @@
 import re
 import yaml
 from pathlib import Path
+from typing import Optional
 
 from git import Repo, Commit, Head
 
-from anybase.cls_any_error import CAnyError
+from anybase.cls_any_error import CAnyError, CAnyError_Message
 from catharsys.setup import util
 from catharsys.setup import module
-from catharsys.setup.repos import CRepoError
 from catharsys.setup import repos
+
+
+####################################################################
+class CRepoError(CAnyError_Message):
+    def __init__(self, *, sMsg: str, xChildEx: Optional[Exception] = None):
+        super().__init__(sMsg=sMsg, xChildEx=xChildEx)
+
+    # enddef
+
+
+# endclass
 
 
 ####################################################################

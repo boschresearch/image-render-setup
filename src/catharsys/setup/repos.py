@@ -31,23 +31,10 @@ from tqdm import tqdm
 from pathlib import Path
 from dataclasses import dataclass
 from git import Repo, FetchInfo, RemoteProgress
-from anybase.cls_any_error import CAnyError, CAnyError_Message
-from typing import Optional, Union, Tuple
-from anybase import file as anyfile
+from typing import Tuple
 
 from catharsys.setup import util
 from catharsys.setup import module
-
-
-####################################################################
-class CRepoError(CAnyError_Message):
-    def __init__(self, *, sMsg: str, xChildEx: Optional[Exception] = None):
-        super().__init__(sMsg=sMsg, xChildEx=xChildEx)
-
-    # enddef
-
-
-# endclass
 
 
 # #####################################################################################################
@@ -338,7 +325,7 @@ def GetRepoVersion(*, pathModule: Path) -> Tuple[str, str]:
 
     elif pathPackageFile is not None:
         # print("Build from package.json")
-        dicPkg = anyfile.LoadJson(pathPackageFile)
+        dicPkg = util.LoadJson(pathPackageFile)
 
         if isinstance(dicPkg.get("engines"), dict):
             sLocalVersion = dicPkg.get("version")
@@ -349,10 +336,10 @@ def GetRepoVersion(*, pathModule: Path) -> Tuple[str, str]:
             sModuleType = "Workspace"
 
         else:
-            raise CRepoError(sMsg="Unsupported module package file type.")
+            raise RuntimeError("Unsupported module package file type.")
         # endif
     else:
-        CRepoError(sMsg="Unsupported module type.")
+        RuntimeError("Unsupported module type.")
     # endif
 
     return sLocalVersion, sModuleType
@@ -388,7 +375,7 @@ def IncRepoVersion(*, pathModule: Path, iVerPart: int, bDoExecute=True):
 
     elif pathPackageFile is not None:
         # print("Build from package.json")
-        dicPkg = anyfile.LoadJson(pathPackageFile)
+        dicPkg = util.LoadJson(pathPackageFile)
 
         if isinstance(dicPkg.get("engines"), dict):
             sAttrName = "version"
@@ -399,12 +386,12 @@ def IncRepoVersion(*, pathModule: Path, iVerPart: int, bDoExecute=True):
             # print("Workspace: {}, v{}".format(pathModule.name, sLocalVersion))
 
         else:
-            raise CRepoError(sMsg="Unsupported module package file type.")
+            raise RuntimeError("Unsupported module package file type.")
         # endif
 
         sLocalVersion = dicPkg.get(sAttrName)
         if sLocalVersion is None:
-            raise CRepoError(sMsg="Version element '{}' not found in: {}".format(sAttrName, pathPackageFile.as_posix()))
+            raise RuntimeError("Version element '{}' not found in: {}".format(sAttrName, pathPackageFile.as_posix()))
         # endif
 
         xMatch = re.match(r"(\d+)\.(\d+)\.(\d+)", sLocalVersion)
@@ -427,11 +414,11 @@ def IncRepoVersion(*, pathModule: Path, iVerPart: int, bDoExecute=True):
 
         if bDoExecute is True:
             dicPkg[sAttrName] = sNewVersion
-            anyfile.SaveJson(pathPackageFile, dicPkg, iIndent=4)
+            util.SaveJson(pathPackageFile, dicPkg, iIndent=4)
         # endif
 
     else:
-        CRepoError(sMsg="Unsupported module type.")
+        RuntimeError("Unsupported module type.")
     # endif
 
     return sNewVersion, pathSource
