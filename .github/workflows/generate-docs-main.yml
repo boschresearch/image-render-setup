@@ -49,22 +49,10 @@ jobs:
         run: |
           pwd
           cathy build docs -I
-      
-      # - name: Check Python venv 1
-      #   run: ls
-        
-      # - name: Check Python venv 2
-      #   run: ls env
-        
-      # - name: Check Python venv 3
-      #   run: ls env/docs
 
-      # - name: Check Python venv 4
-      #   run: ls env/docs/bin
-
-      # - name: Try to activate environment
-      #   run: source env/docs/bin/activate
-
+      - name: Build Documentation (2nd pass)
+        run: cathy build docs
+         
       - name: Copy index referrer
         run: cp data/wf-gen-docs/index.html ./docs/build/.
         
