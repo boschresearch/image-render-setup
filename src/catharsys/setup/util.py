@@ -28,6 +28,7 @@ import re
 import io
 import os
 import sys
+import platform
 import subprocess
 import typing
 import json
@@ -233,8 +234,13 @@ def ExecShellCmd(
 
     sEffCmd = ""
     if pathVirtEnv is not None:
-        pathAct = pathVirtEnv / "Scripts" / "activate"
-        sEffCmd = "{} & ".format(str(pathAct))
+        if platform.system() == "Windows":
+            pathAct = pathVirtEnv / "Scripts" / "activate.bat"
+            sEffCmd = "{} & ".format(str(pathAct))
+        else:
+            pathAct = pathVirtEnv / "bin" / "activate"
+            sEffCmd = "source {} && ".format(str(pathAct))
+        # endif
     # endif
 
     sEffCmd += sCmd

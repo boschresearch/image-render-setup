@@ -45,7 +45,7 @@ jobs:
       - name: Build Documentation
         run: |
           pwd
-          cathy build docs -J
+          cathy build docs -I
       
       - name: Check Python venv 1
         run: ls
@@ -57,21 +57,20 @@ jobs:
         run: ls env/docs
 
       - name: Check Python venv 4
-        run: ls env/docs/Scripts
+        run: ls env/docs/bin
 
-
-      # - name: Copy index referrer
-      #   run: cp data/wf-gen-docs/index.html ./docs/build/.
+      - name: Copy index referrer
+        run: cp data/wf-gen-docs/index.html ./docs/build/.
         
-      # - name: List docs folder
-      #   run: ls docs/build
+      - name: List docs folder
+        run: ls docs/build
 
-      # - name: Deploy
-      #   uses: peaceiris/actions-gh-pages@v3
-      #   with:
-      #     publish_branch: gh-pages
-      #     github_token: ${{ secrets.GITHUB_TOKEN }}
-      #     publish_dir: docs/build/
-      #     force_orphan: true 
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          publish_branch: gh-pages
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: docs/build/
+          force_orphan: true 
           
       - run: echo "🍏 This job's status is ${{ job.status }}."
