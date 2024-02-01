@@ -46,12 +46,12 @@ jobs:
         run: cathy build docs -J
       
       - name: Check Python venv
-          run: |
-            ls
-            ls env/docs
-            ls env/docs/Scripts
-            ls env/docs/Scripts/activate
-            
+        run: |
+          ls
+          ls env/docs
+          ls env/docs/Scripts
+          ls env/docs/Scripts/activate
+
       # - name: Copy index referrer
       #   run: cp data/wf-gen-docs/index.html ./docs/build/.
         
