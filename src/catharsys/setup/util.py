@@ -232,9 +232,10 @@ def ExecShellCmd(
         dicEnviron.update(dicEnv)
     # endif
 
+    bIsWindows: bool = platform.system() == "Windows"
     sEffCmd = ""
     if pathVirtEnv is not None:
-        if platform.system() == "Windows":
+        if bIsWindows is True:
             pathAct = pathVirtEnv / "Scripts" / "activate.bat"
             sEffCmd = "{} & ".format(str(pathAct))
         else:
@@ -247,12 +248,18 @@ def ExecShellCmd(
     sEffCmd += sCmd
 
     print(f"Effective Command:\n{sEffCmd}")
+    sExecutable: str = None
+    if bIsWindows is False:
+        sExecutable = "/bin/bash"
+        print(f"Using Executable: {sExecutable}")
+    # endif
 
     procChild = subprocess.Popen(
         sEffCmd,
         stdout=subprocess.PIPE,
         stderr=subprocess.STDOUT,
         shell=True,
+        executable=sExecutable,
         cwd=sEffCwd,
         # universal_newlines=True,
         env=dicEnviron,
