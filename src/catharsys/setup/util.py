@@ -239,11 +239,13 @@ def ExecShellCmd(
             sEffCmd = "{} & ".format(str(pathAct))
         else:
             pathAct = pathVirtEnv / "bin" / "activate"
-            sEffCmd = "source {} && ".format(str(pathAct))
+            sEffCmd = "source {} && ".format(pathAct.as_posix())
         # endif
     # endif
 
     sEffCmd += sCmd
+
+    print(f"Effective Command:\n{sEffCmd}")
 
     procChild = subprocess.Popen(
         sEffCmd,

@@ -45,7 +45,7 @@ jobs:
       - name: Build Documentation
         run: |
           pwd
-          cathy build docs -I
+          cathy build docs -J
       
       - name: Check Python venv 1
         run: ls
@@ -58,6 +58,9 @@ jobs:
 
       - name: Check Python venv 4
         run: ls env/docs/bin
+
+      - name: Try to activate environment
+        run: source env/docs/bin/activate
 
       - name: Copy index referrer
         run: cp data/wf-gen-docs/index.html ./docs/build/.
