@@ -239,6 +239,7 @@ def ExecShellCmd(
             sEffCmd = "{} & ".format(str(pathAct))
         else:
             pathAct = pathVirtEnv / "bin" / "activate"
+            pathAct = pathAct.relative_to(Path(sEffCwd))
             sEffCmd = "source {} && ".format(pathAct.as_posix())
         # endif
     # endif
