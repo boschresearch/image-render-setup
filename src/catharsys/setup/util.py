@@ -247,12 +247,12 @@ def ExecShellCmd(
 
     sEffCmd += sCmd
 
-    print(f"Effective Command:\n{sEffCmd}")
     sExecutable: str = None
     if bIsWindows is False:
         sExecutable = "/bin/bash"
         print(f"Using Executable: {sExecutable}")
     # endif
+    print(f"Effective Command:\n{sEffCmd}")
 
     procChild = subprocess.Popen(
         sEffCmd,
