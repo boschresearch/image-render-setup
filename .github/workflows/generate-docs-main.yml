@@ -5,7 +5,7 @@ permissions:
     contents: write
   
 jobs:
-  Generate-Image-Render-Documentation:
+  Generate-Image-Render-Documentation-Main:
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main'
     steps:
@@ -29,7 +29,7 @@ jobs:
       - name: Clone all repos
         run: |
             cd repos
-            vcs import < repos-release.yaml
+            vcs import < repos-main.yaml
     
       - name: List cloned repositories repository
         run: ls repos
@@ -43,20 +43,27 @@ jobs:
         run: pip install -e .
 
       - name: Build Documentation
-        run: cathy build docs -I
+        run: cathy build docs -J
       
-      - name: Copy index referrer
-        run: cp data/wf-gen-docs/index.html ./docs/build/.
+      - name: Check Python venv
+          run: |
+            ls
+            ls env/docs
+            ls env/docs/Scripts
+            ls env/docs/Scripts/activate
+            
+      # - name: Copy index referrer
+      #   run: cp data/wf-gen-docs/index.html ./docs/build/.
         
-      - name: List docs folder
-        run: ls docs/build
+      # - name: List docs folder
+      #   run: ls docs/build
 
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          publish_branch: gh-pages
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: docs/build/
-          force_orphan: true 
+      # - name: Deploy
+      #   uses: peaceiris/actions-gh-pages@v3
+      #   with:
+      #     publish_branch: gh-pages
+      #     github_token: ${{ secrets.GITHUB_TOKEN }}
+      #     publish_dir: docs/build/
+      #     force_orphan: true 
           
       - run: echo "🍏 This job's status is ${{ job.status }}."

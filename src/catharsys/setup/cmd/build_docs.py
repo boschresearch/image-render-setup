@@ -32,6 +32,7 @@ g_sCmdDesc = "Builds the Catharsys documentation"
 def AddArgParseArguments(_parseArgs):
     _parseArgs.add_argument("output_type", nargs="?", default="html")
     _parseArgs.add_argument("-I", "--install", dest="install", action="store_true", default=False)
+    _parseArgs.add_argument("-J", "--install-only", dest="install_only", action="store_true", default=False)
     _parseArgs.add_argument("-M", "--modules-only", dest="modules_only", action="store_true", default=False)
     _parseArgs.add_argument("-N", "--main-only", dest="main_only", action="store_true", default=False)
     _parseArgs.add_argument("-m", "--modules", dest="modules", nargs="*", default=[])
@@ -50,6 +51,7 @@ def RunCmd(_argsCmd, _lArgs):
     impl.Run(
         sOutputType=argsSubCmd.output_type,
         bInstall=argsSubCmd.install,
+        bInstallOnly=argsSubCmd.install_only,
         bModulesOnly=argsSubCmd.modules_only,
         bMainOnly=argsSubCmd.main_only,
         lModules=argsSubCmd.modules,

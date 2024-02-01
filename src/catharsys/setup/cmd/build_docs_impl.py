@@ -74,7 +74,7 @@ def _FilterDocModules(**kwargs):
 
 
 ####################################################################
-def Run(*, sOutputType, bInstall, bModulesOnly, bMainOnly, lModules):
+def Run(*, sOutputType, bInstall, bModulesOnly, bMainOnly, lModules, bInstallOnly=False):
     import ison
     import json
 
@@ -89,12 +89,17 @@ def Run(*, sOutputType, bInstall, bModulesOnly, bMainOnly, lModules):
     pathEnv = pathSetup / "env" / "docs"
     pathRelEnv = pathEnv.relative_to(pathSetup.as_posix())
 
-    if bInstall is True:
+    print(f"pathSetup: {pathSetup}")
+    print(f"pathDocMain: {pathDocMain}")
+    print(f"pathEnv: {pathEnv}")
+    print(f"pathRelEnv: {pathRelEnv}")
+
+    if bInstall is True or bInstallOnly is True:
         ##################################################################################
         # Create virtual environment if it does not exist
         if not pathEnv.exists():
             print("Documentation generation python environment not found.")
-            print("Creating virtual python environment...")
+            print(f"Creating virtual python environment at path\n    {(pathEnv.as_posix())}")
             util.ExecShellCmd(
                 sCmd='python -m venv "{}" --system-site-packages'.format(pathRelEnv.as_posix()),
                 sCwd=pathSetup.as_posix(),
@@ -152,6 +157,10 @@ def Run(*, sOutputType, bInstall, bModulesOnly, bMainOnly, lModules):
             "Documentation generation python environment not found at: {}\n"
             "Install environment with: cathy build docs -I\n".format(pathEnv.as_posix())
         )
+    # endif
+
+    if bInstallOnly is True:
+        return
     # endif
 
     ##################################################################################
