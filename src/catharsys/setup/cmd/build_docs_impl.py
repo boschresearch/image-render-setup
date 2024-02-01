@@ -89,10 +89,10 @@ def Run(*, sOutputType, bInstall, bModulesOnly, bMainOnly, lModules, bInstallOnl
     pathEnv = pathSetup / "env" / "docs"
     pathRelEnv = pathEnv.relative_to(pathSetup.as_posix())
 
-    print(f"pathSetup: {pathSetup}")
-    print(f"pathDocMain: {pathDocMain}")
-    print(f"pathEnv: {pathEnv}")
-    print(f"pathRelEnv: {pathRelEnv}")
+    # print(f"pathSetup: {pathSetup}")
+    # print(f"pathDocMain: {pathDocMain}")
+    # print(f"pathEnv: {pathEnv}")
+    # print(f"pathRelEnv: {pathRelEnv}")
 
     if bInstall is True or bInstallOnly is True:
         ##################################################################################
