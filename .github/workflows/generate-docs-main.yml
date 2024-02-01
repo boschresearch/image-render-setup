@@ -47,12 +47,18 @@ jobs:
           pwd
           cathy build docs -J
       
-      - name: Check Python venv
-        run: |
-          ls
-          ls env
-          ls env/docs
-          ls env/docs/Scripts
+      - name: Check Python venv 1
+        run: ls
+        
+      - name: Check Python venv 2
+        run: ls env
+        
+      - name: Check Python venv 3
+        run: ls env/docs
+
+      - name: Check Python venv 4
+        run: ls env/docs/Scripts
+
 
       # - name: Copy index referrer
       #   run: cp data/wf-gen-docs/index.html ./docs/build/.
