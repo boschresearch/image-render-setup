@@ -8,6 +8,9 @@ jobs:
   Generate-Image-Render-Documentation-Main:
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main'
+    defaults:
+      run:
+        shell: bash
     steps:
       - run: echo "🎉 The job was triggered by a ${{ github.event_name }} event."
       - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
