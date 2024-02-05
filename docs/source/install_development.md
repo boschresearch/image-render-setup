@@ -24,6 +24,8 @@ Note that you need to fork this repository if you want to modify it. When forkin
 For a Windows install, it is assumed that you are using a PowerShell. This should be the default in all current Windows installations. If you are unfamiliar with PowerShell, [here](./powershell.md) is a list of helpful commands and information. Make sure that you have the permissions to run PowerShell scripts. You can enable this locally with the command `Set-ExecutionPolicy RemoteSigned -Scope CurrentUser`.
 ```
 
+**IMPORTANT**: If you just want a source code install without contributing to the code via forked repositories, you only need to do steps 3, 5, 6, 7.
+
 ### Step 1
 
 *(for contribution install)*
@@ -76,10 +78,16 @@ Open a terminal in the `image-render-setup` folder.
 If the base Conda environment is not active run `.\scripts\CondaActivate.ps1` if `conda activate base` does not work.
 :::
 
-Now install the Catharsys system with the command:
+Now install the Catharsys system with one of the following commands. If you forked any repository and created a new repository list `./_local/repos-main-fork.yaml`, then use this command:
 
 :::{admonition} Shell
 `python ./scripts/cathy-conda.py install [new environment name] --develop ./_local/repos-main-fork.yaml`
+:::
+
+If you didn't fork any repositories and just want to get a source install, run this command:
+
+:::{admonition} Shell
+`python ./scripts/cathy-conda.py install [new environment name] --develop`
 :::
 
 In the remainder of the installation documentation it is assumed that the environment name is `cex1`, short for *Catharsys Example 1*.
@@ -93,18 +101,7 @@ Switch to the new environment with:
 `conda activate [new environment name]`
 :::
 
-The Catharsys configuration files use a JSON compatible style, called ISON, that implements a basic functional programming language. The simplest example are references to variables in JSON strings with the syntax `${variable}`. To have proper syntax highlighting for these types of configuration files, the Catharsys system comes with a VSCode addon for this purpose. To install it, you first need to build the package with:
-
-:::{admonition} Shell
-`cathy build modules -m functional-json-vscode --use-active-branch`
-:::
-
-Once it's build, you can install it with:
-
-:::{admonition} Shell
-`cathy install system --vscode-addons`
-:::
-
+Go to the latest [release](https://github.com/boschresearch/image-render-setup/releases) for `image-render-setup` and download the ISON language VS-Code addon. This should be a `.vsix` file. You can [install](https://vscode-docs.readthedocs.io/en/stable/extensions/install-extension/) this directly via VS-Code.
 In VSCode select the `ISON language` extension as the default syntax highlighting for `.json5` and `.ison` files.
 
 ### Step 7
