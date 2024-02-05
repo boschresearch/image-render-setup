@@ -31,19 +31,20 @@
 #     print(xDistFile.name)
 # # endfor
 
-import shutil
+# import shutil
 from catharsys.setup import util
 from catharsys.setup import module
 
 
 ####################################################################
-def _BuildFromRepo(*, pathRepos, pathModule, sOutputType, pathEnv, pathDocMain):
+def _BuildFromRepo(*, pathRepos, pathModule, sOutputType, pathEnv, pathDocMain, bFreshEnv=False):
     pathSource = pathModule / "docs" / "source"
     sPathBuild = "build/{}".format(pathModule.name)
+    sFlags = "-E" if bFreshEnv is True else ""
 
     print("===================================================")
     print("Building Documentation for: {}\n---\n".format(pathModule.name))
-    sCmd = 'sphinx-build -M {} "{}" {}'.format(sOutputType, pathSource.as_posix(), sPathBuild)
+    sCmd = 'sphinx-build -M {} "{}" {} {}'.format(sOutputType, pathSource.as_posix(), sPathBuild, sFlags)
     sCwd = pathDocMain.as_posix()
     util.ExecShellCmd(sCmd=sCmd, sCwd=sCwd, bDoPrint=True, bDoPrintOnError=True, pathVirtEnv=pathEnv)
     print("")
@@ -74,7 +75,7 @@ def _FilterDocModules(**kwargs):
 
 
 ####################################################################
-def Run(*, sOutputType, bInstall, bModulesOnly, bMainOnly, lModules, bInstallOnly=False):
+def Run(*, sOutputType, bInstall, bModulesOnly, bMainOnly, lModules, bInstallOnly=False, bFreshEnv=False):
     import ison
     import json
 
@@ -166,7 +167,7 @@ def Run(*, sOutputType, bInstall, bModulesOnly, bMainOnly, lModules, bInstallOnl
     ##################################################################################
     # Loop over all modules that have the basic sphinx documentation structure
 
-    def CreateBuildFunc(_sOutputType, _pathEnv, _pathDocMain):
+    def CreateBuildFunc(_sOutputType, _pathEnv, _pathDocMain, bFreshEnv=False):
         def Lambda(*, pathRepos, pathModule):
             _BuildFromRepo(
                 pathRepos=pathRepos,
@@ -174,6 +175,7 @@ def Run(*, sOutputType, bInstall, bModulesOnly, bMainOnly, lModules, bInstallOnl
                 sOutputType=_sOutputType,
                 pathEnv=_pathEnv,
                 pathDocMain=_pathDocMain,
+                bFreshEnv=bFreshEnv,
             )
 
         # enddef
@@ -187,7 +189,7 @@ def Run(*, sOutputType, bInstall, bModulesOnly, bMainOnly, lModules, bInstallOnl
         lPathModules = module.ForEach(
             bForceDist=False,
             funcRunDist=_CannotBuildFromDist,
-            funcRunRepo=CreateBuildFunc(sOutputType, pathEnv, pathDocMain),
+            funcRunRepo=CreateBuildFunc(sOutputType, pathEnv, pathDocMain, bFreshEnv),
             funcTest=_FilterDocModules,
             lIncludeRegEx=lIncMods,
         )
@@ -251,9 +253,10 @@ def Run(*, sOutputType, bInstall, bModulesOnly, bMainOnly, lModules, bInstallOnl
 
         print("===================================================")
         print("Building main documentation...")
+        sFlags = "-E" if bFreshEnv is True else ""
 
         util.ExecShellCmd(
-            sCmd="sphinx-build -M {} source build".format(sOutputType),
+            sCmd="sphinx-build -M {} source build {}".format(sOutputType, sFlags),
             sCwd=pathDocMain.as_posix(),
             pathVirtEnv=pathEnv,
             bDoPrint=True,

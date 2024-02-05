@@ -36,6 +36,7 @@ def AddArgParseArguments(_parseArgs):
     _parseArgs.add_argument("-M", "--modules-only", dest="modules_only", action="store_true", default=False)
     _parseArgs.add_argument("-N", "--main-only", dest="main_only", action="store_true", default=False)
     _parseArgs.add_argument("-m", "--modules", dest="modules", nargs="*", default=[])
+    _parseArgs.add_argument("-E", "--fresh-env", dest="fresh_env", action="store_true", default=False)
 
 
 # enddef
@@ -55,6 +56,7 @@ def RunCmd(_argsCmd, _lArgs):
         bModulesOnly=argsSubCmd.modules_only,
         bMainOnly=argsSubCmd.main_only,
         lModules=argsSubCmd.modules,
+        bFreshEnv=argsSubCmd.fresh_env,
     )
 
 
