@@ -51,7 +51,7 @@ jobs:
           cathy build docs -I
 
       - name: Build Documentation (2nd pass)
-        run: cathy build docs
+        run: cathy build docs -E
          
       - name: Copy index referrer
         run: cp data/wf-gen-docs/index.html ./docs/build/.
