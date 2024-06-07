@@ -1,5 +1,16 @@
 # Change Log
 
+## 2024-06-07 Catharsys Release 3.2.35
+
+This release is a collection of some bug fixes and added documentation. 
+
+- **Camera Module**
+  - There are some bug fixes for the OpenCV camera module by Melanie Bay, see (PR)[https://github.com/boschresearch/image-render-blender-camera/pull/4].
+  - The feature to transform the scene to the camera frame, which is needed for non-Blender native cameras, now transforms all objects of all view layers.
+
+- **Syntax Highlighting**
+  - The VSCode addon for the json5 syntax highlighting has been updated, so that it also works with the latest version of VSCode. The binary `.vsix` file is part of the release on GitHub.
+
 ## 2023-12-05 Catharsys Release 3.2.33
 
 To update a develop installation to this version, you need to run `cathy install system --update`. This should clone  new repositories and install all modified modules in the Anaconda environment. You may also have to update the Catharsys installation in Blender using `cathy blender init -c [your config]`.
