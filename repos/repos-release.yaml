@@ -2,68 +2,68 @@ repositories:
     functional-json:
         type: git
         url: https://github.com/boschresearch/functional-json.git
-        version: tags/v1.3.7
+        version: tags/v1.3.8
     functional-json-vscode:
         type: git
         url: https://github.com/boschresearch/functional-json-vscode.git
-        version: tags/v1.2.5
+        version: tags/v1.2.6
     image-render-actions-std:
         type: git
         url: https://github.com/boschresearch/image-render-actions-std.git
-        version: tags/v3.1.8
+        version: tags/v3.1.9
     image-render-actions-std-blender:
         type: git
         url: https://github.com/boschresearch/image-render-actions-std-blender.git
-        version: tags/v3.2.10
+        version: tags/v3.2.11
     image-render-asset-cameras:
         type: git
         url: https://github.com/boschresearch/image-render-asset-cameras.git
-        version: tags/v1.2.3
+        version: tags/v1.2.4
     image-render-automation:
         type: git
         url: https://github.com/boschresearch/image-render-automation.git
-        version: tags/v3.1.9
+        version: tags/v3.1.11
     image-render-base:
         type: git
         url: https://github.com/boschresearch/image-render-base.git
-        version: tags/v2.7.5
+        version: tags/v2.7.6
     image-render-blender-base:
         type: git
         url: https://github.com/boschresearch/image-render-blender-base.git
-        version: tags/v3.2.7
+        version: tags/v3.2.8
     image-render-blender-camera:
         type: git
         url: https://github.com/boschresearch/image-render-blender-camera.git
-        version: tags/v3.2.5
+        version: tags/v3.2.6
     image-render-blender-human:
         type: git
         url: https://github.com/boschresearch/image-render-blender-human.git
-        version: tags/v3.1.5
+        version: tags/v3.1.6
     image-render-blender-label:
         type: git
         url: https://github.com/boschresearch/image-render-blender-label.git
-        version: tags/v3.2.8
+        version: tags/v3.2.9
     image-render-blender-points:
         type: git
         url: https://github.com/boschresearch/image-render-blender-points.git
-        version: tags/v3.1.2
+        version: tags/v3.1.3
     image-render-blender-vehicle:
         type: git
         url: https://github.com/boschresearch/image-render-blender-vehicle.git
-        version: tags/v3.1.2
+        version: tags/v3.1.3
     image-render-generative:
         type: git
         url: https://github.com/boschresearch/image-render-generative.git
-        version: tags/v1.0.2
+        version: tags/v1.0.3
     image-render-gui:
         type: git
         url: https://github.com/boschresearch/image-render-gui.git
-        version: tags/v1.0.3
+        version: tags/v1.0.4
     image-render-templates:
         type: git
         url: https://github.com/boschresearch/image-render-templates.git
-        version: tags/v1.1.4
+        version: tags/v1.1.5
     image-render-workspace-examples:
         type: git
         url: https://github.com/boschresearch/image-render-workspace-examples.git
-        version: tags/v1.0.8
+        version: tags/v1.0.9
