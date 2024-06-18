@@ -1,8 +1,8 @@
 
-# How to debug Blender addons
+# How to debug Blender addons or your own python code
 *by Christian Perwass*
 
-To debug Blender addons developed for the Catharsys system, the following steps are needed:
+To debug Blender addons developed for the Catharsys system or python script using the blender python API, the following steps are needed:
 
 1. Blender must be started with an appropriate catharsys project configuration.
 2. Blender has to run a script starting `debugpy` and waiting for a debugger connection.
@@ -118,3 +118,36 @@ The full launch configuration now looks like this:
 ```
 
 The `Launch-Debug-Blender` task is executed before VS Code tries to attach the debugger. Therefore, this task must only return, when the debug server is actually running. The post debug task closes all task terminals. Without it, the debug task terminal will stay open until you close it manually. Restarting the debug launch configuration while the debug task terminal is still open from a previous launch, causes an error.
+
+### Debug your own python script 
+Lets assume you want to write a python modifier for catharsys and want to use the catharsys debugger. Start the debugger with `F5` and go to the *scripts tab* in blender and use the following boiler plate code
+
+```python
+    import bpy
+    import sys
+    import os
+
+    dir = os.path.dirname(
+        PathToFolderWhereCodeIsLocated
+    )
+    # e.g. r'C:\MyPythonCode\\' DO NOT Forget the "\\" at the end!
+    # In C:\MyPythonCode you have the file MyModule.py which contains
+    # def HelloWorld()
+    #   print("Hello world!")
+    if not dir in sys.path:
+        sys.path.append(dir)
+    print(dir)
+    import MyModule
+
+
+    def _test():
+        MyModule.HelloWorld()
+
+
+    if __name__ == "__main__":
+        HelloWorld()
+```
+
+If you have set a breakpoint on e.g. `print("Hello world!")` the debugger will stop there.
+
+
