@@ -77,6 +77,7 @@ If a command returns with an error and you think it's a bug, or you do not under
 See {doc}`cathy_main` for more information on `cathy`
 ```
 
+(blender-setup)=
 ## Blender
 
 Since Catharsys needs to install itself in the Python environment that comes with Blender, the Blender installation is done by a Catharsys tool. Blender will be installed in the path 
