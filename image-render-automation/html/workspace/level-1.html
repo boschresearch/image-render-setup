@@ -1,0 +1,1060 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Level 1 - Basic Configuration Details &#8212; Image-Render Automation 3.1.12 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=3cdd2af7"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'workspace/level-1';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Configuration File Processing" href="../config_proc.html" />
+    <link rel="prev" title="Workspace Basics" href="basics.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Image-Render Automation 3.1.12 documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../reference/main.html">Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../reference/launch.html">Launch Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/manifest.html">Manifest Configuration</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="basics.html">Workspace Basics</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Level 1 - Basic Configuration Details</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../config_proc.html">Configuration File Processing</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../products/analyze.html">Production Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../products/categorize.html">Production Categorization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../back-to-main.html">Back to main documentation</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/workspace/level-1.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Level 1 - Basic Configuration Details</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">Installation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#initialization">Initialization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration-files-overview">Configuration Files Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-launch-file">The Launch File</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#actions">Actions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#action-configuration">Action Configuration</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#render-action-parameters">Render Action Parameters</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-platform-element">The <code class="docutils literal notranslate"><span class="pre">__platform__</span></code> Element</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-execution-file">The Execution File</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-manifest-file">The Manifest File</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#automatic-output-path-generation">Automatic Output Path Generation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-trial-file">The Trial File</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-render-configurations">The Render Configurations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-blender-render-output-list">The Blender render output list</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#settings">Settings</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#render-setting">Render Setting</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#cycles-setting">CYCLES Setting</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#catharsys-render-setting">Catharsys Render Setting</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#outputs">Outputs</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#compositor">Compositor</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#output-file-format">Output File Format</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-capture-configuration">The Capture Configuration</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-jupyter-notebook-launch-ipynb">The Jupyter Notebook <code class="docutils literal notranslate"><span class="pre">Launch.ipynb</span></code></a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <!---
+<LICENSE id="CC BY-SA 4.0">
+    
+    Image-Render Automation Functions module documentation
+    Copyright 2022 Robert Bosch GmbH and its subsidiaries
+    
+    This work is licensed under the 
+    
+        Creative Commons Attribution-ShareAlike 4.0 International License.
+    
+    To view a copy of this license, visit 
+        http://creativecommons.org/licenses/by-sa/4.0/ 
+    or send a letter to 
+        Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
+    
+</LICENSE>
+--->
+<section id="level-1-basic-configuration-details">
+<h1>Level 1 - Basic Configuration Details<a class="headerlink" href="#level-1-basic-configuration-details" title="Link to this heading">#</a></h1>
+<p>This workspace demonstrates the minimal setup to render anything with Catharsys. This is also the first step in a series of documents introducing the various aspects of Catharsys setup by step.</p>
+<section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Link to this heading">#</a></h2>
+<p>To get started, let’s install the workspace from a template,</p>
+<div class="admonition-shell admonition">
+<p class="admonition-title">Shell</p>
+<p><code class="docutils literal notranslate"><span class="pre">cathy</span> <span class="pre">install</span> <span class="pre">template</span> <span class="pre">workspace-just-render</span></code></p>
+</div>
+<p>This command will ask you a couple of questions, as it allows you to create your own workspace, with your own names from a template. For this example, we will choose “level-1” as <em>module name</em> and “just-render” as <em>configuration name</em>. The output from the command should look something like this:</p>
+<div class="docutils">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Creating template &#39;workspace-just-render&#39;
+Enter new module name (press RETURN to abort): level-1
+New module path: [...]/level-1
+Create module folder [y]/n:
+Please enter values for the following template parameters:
+Using &#39;Configuration&#39; = &#39;just-render&#39;
+Using &#39;MODULE-NAME&#39; = &#39;level-1&#39;
+Do you want to use these values [y]/n/x:
+_cfg-name_ -&gt; just-render
+</pre></div>
+</div>
+</div>
+<p>To simplify working with the workspace, you can use VS-Code. To initialize the workspace for VS-Code, change to the workspace folder, ensure that you are in the conda environment you want to use and execute the command,</p>
+<div class="admonition-shell admonition">
+<p class="admonition-title">Shell</p>
+<p><code class="docutils literal notranslate"><span class="pre">cathy</span> <span class="pre">code</span> <span class="pre">init</span></code></p>
+</div>
+<p>This generates a workspace file for VS-Code. You can open this workspace from VS-Code or run the following command,</p>
+<div class="admonition-shell admonition">
+<p class="admonition-title">Shell</p>
+<p><code class="docutils literal notranslate"><span class="pre">cathy</span> <span class="pre">code</span> <span class="pre">show</span></code></p>
+</div>
+</section>
+<section id="initialization">
+<h2>Initialization<a class="headerlink" href="#initialization" title="Link to this heading">#</a></h2>
+<p>Since we want to render something with Blender, we also need to initialize Blender for this workspace. If you havn’t installed Blender, yet, go back to the Catharsys system installation documentation, and find the part for installing Blender. Note that this template workspace expects Blender version 3.3.</p>
+<p>Initialize Blender for all configurations of the newly created workspace with the command,</p>
+<div class="admonition-shell admonition">
+<p class="admonition-title">Shell</p>
+<p><code class="docutils literal notranslate"><span class="pre">cathy</span> <span class="pre">blender</span> <span class="pre">init</span> <span class="pre">--all</span> <span class="pre">--addons</span></code></p>
+</div>
+<p>Note that there will be separate Blender installations, one for each combination of Conda workspace and Catharsys version. Since every configuration can specify a different Blender version, there is a Blender configuration folder for each configuration called <code class="docutils literal notranslate"><span class="pre">_Blender</span></code>. This folder contains the Blender user preferences and symbolic links to the installed addons for this configuration. How you specify this, will be discussed later, when we talk about the <em>execution file</em>.</p>
+<p>To get an overview of the available configurations and actions in the workspace, run the command,</p>
+<div class="admonition-shell admonition">
+<p class="admonition-title">Shell</p>
+<p><code class="docutils literal notranslate"><span class="pre">cathy</span> <span class="pre">ws</span> <span class="pre">info</span></code></p>
+</div>
+<p>To start our first render, let’s <em>launch</em> an action,</p>
+<div class="admonition-shell admonition">
+<p class="admonition-title">Shell</p>
+<p><code class="docutils literal notranslate"><span class="pre">cathy</span> <span class="pre">ws</span> <span class="pre">launch</span> <span class="pre">-c</span> <span class="pre">just-render</span> <span class="pre">-a</span> <span class="pre">run</span></code></p>
+</div>
+<p>If everything has been installed correctly, you should now find an image in the folder <code class="docutils literal notranslate"><span class="pre">_render/rq0004/just-render/Camera/Image</span></code>.</p>
+<p>Clearly, you could have rendered this image by just starting up Blender and rendering it. However, even this simple setup can be helpful, if you want to render many frames of an animation. In this case, Catharsys can split the rendering into a number of jobs that can be executed in parallel on a GPU cluster running the LSF job distribution system, or simply on a machine with a number of graphics cards.</p>
+</section>
+<section id="configuration-files-overview">
+<h2>Configuration Files Overview<a class="headerlink" href="#configuration-files-overview" title="Link to this heading">#</a></h2>
+<p>The configuration files of the workspace are located in the folder <code class="docutils literal notranslate"><span class="pre">config/just-render</span></code>. There you can find the following files:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">launch.json5</span></code>: The launch file, specifying the available actions and defining action parameters. This file <strong>must</strong> be called <code class="docutils literal notranslate"><span class="pre">launch.json</span></code> or <code class="docutils literal notranslate"><span class="pre">launch.json5</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">manifest.json5</span></code>: The manifest file, which specifies the configuration <em>types</em> per action.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">trial.json5</span></code>: The trial file gives a list of configurations per configuration <em>type</em> for each action, as specified by the manifest.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">exec.json5</span></code>: The execution file defines how to execute the action. For Blender rendering it also defined which Blender version to use and which addons.</p></li>
+</ul>
+<p>The Blender render action also needs these configuration files:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">capture.json5</span></code>: The capture configuration specifies how to capture the images. For standard rendering this is simply the framerate. For rolling shutter rendering, this contains the rolling shutter parameters.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">render.json5</span></code>: The render configuration configures the renderer and defines which render outputs to generate.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Test.blend</span></code>: This is Blender file that is used for rendering.</p></li>
+</ul>
+<p>The file <code class="docutils literal notranslate"><span class="pre">Launch.ipynb</span></code> is a Jupyter notebook that allows to launch actions and view the results via the Catharsys API.</p>
+<p>Now, let’s now have a look at the various configuration files.</p>
+</section>
+<section id="the-launch-file">
+<span id="launch-file-info"></span><h2>The Launch File<a class="headerlink" href="#the-launch-file" title="Link to this heading">#</a></h2>
+<p>The launch file must be called <code class="docutils literal notranslate"><span class="pre">launch.json</span></code> or <code class="docutils literal notranslate"><span class="pre">launch.json5</span></code> and is meant to simplify starting an action for a configuration. Instead of putting all the necessary parameters in a command line, they are contained in the launch file. The launch file in this example contains documentation for all the parameters. In the following, the most important parts are discussed here.</p>
+<section id="actions">
+<h3>Actions<a class="headerlink" href="#actions" title="Link to this heading">#</a></h3>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// The type identifier of this file</span>
+<span class="w">    </span><span class="nt">&quot;sDTI&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/catharsys/launch:3.0&quot;</span><span class="p">,</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="c1">// The id of this launch parameter set</span>
+<span class="w">    </span><span class="nt">&quot;sId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;$filebasename&quot;</span><span class="p">,</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="c1">// Some information what this configuration is for</span>
+<span class="w">    </span><span class="nt">&quot;sInfo&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Minimal workspace for rendering with Blender file&quot;</span><span class="p">,</span>
+
+<span class="w">    </span><span class="c1">// The map of all actions that can be launched</span>
+<span class="w">    </span><span class="nt">&quot;mActions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// An arbitrarily chosen name for an action.</span>
+<span class="w">        </span><span class="c1">// In this case it makes sense to call it &#39;render&#39;, as it</span>
+<span class="w">        </span><span class="c1">// executes the rendering action.</span>
+<span class="w">        </span><span class="nt">&quot;run&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;sDTI&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/catharsys/launch/action:1.0&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="c1">// The id of the action</span>
+<span class="w">            </span><span class="nt">&quot;sActionDTI&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/catharsys/action/std/blender/render/std:1.0&quot;</span><span class="p">,</span>
+<span class="w">            </span>
+<span class="w">            </span><span class="c1">// The action configuration</span>
+<span class="w">            </span><span class="nt">&quot;mConfig&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="c1">// ...</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">            </span><span class="c1">// ...</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>For the naming convention and the meaning of the <code class="docutils literal notranslate"><span class="pre">sDTI</span></code> elements, see the <a class="reference internal" href="basics.html"><span class="doc">workspace basics</span></a> documentation.</p>
+<p>The file’s id is defined via a variable, using the syntax <code class="docutils literal notranslate"><span class="pre">$[variable</span> <span class="pre">name]</span></code>. See the <a class="reference external" href="../../../functional-json/html/language.html" title="(in ISON - Functional JSON)"><span class="xref std std-doc">ison language</span></a> documentation for more information on using variables and functions in JSON files. For a list of available variables see the <a class="reference internal" href="../config_proc.html"><span class="doc">configuration variables</span></a> documentation.</p>
+<p>The main Block in the launch file is the <code class="docutils literal notranslate"><span class="pre">mActions</span></code> block. Here, a set of actions is defined. The elements in the <code class="docutils literal notranslate"><span class="pre">mActions</span></code> block are freely choosable names of actions. Each action is again a dictionary specifying the action type and its configuration. In the example above, the action is called <code class="docutils literal notranslate"><span class="pre">run</span></code>. This is the action name you use when launching an action from the command line. The actual action that is started, is referenced by the <code class="docutils literal notranslate"><span class="pre">sActionDTI</span></code> element. In this case, we want to execute the standard Blender rendering action version 1.0.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You can find an overview of the available standard actions <a class="reference external" href="../../../image-render-actions-std/html/actions-overview.html" title="(in Standard Actions)"><span class="xref std std-doc">here</span></a>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When an action is installed in the Conda environment, it registers its’ name (the action DTI) as an entry point. The Catharsys system uses the name specfied in the <code class="docutils literal notranslate"><span class="pre">sActionDTI</span></code> element, to search for an action in the current environment. It’s fairly straight forward to write your on action and register it in the system using the standard action template. This template can be installed with the command <code class="docutils literal notranslate"><span class="pre">cathy</span> <span class="pre">install</span> <span class="pre">template</span> <span class="pre">std-action-python</span></code>.</p>
+</div>
+</section>
+<section id="action-configuration">
+<h3>Action Configuration<a class="headerlink" href="#action-configuration" title="Link to this heading">#</a></h3>
+<p>The action configuration parameters are contained in the <code class="docutils literal notranslate"><span class="pre">mConfig</span></code> block. In this example,</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="nt">&quot;mConfig&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;sDTI&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/catharsys/launch/args:1.1&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;sInfo&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Render blender file&quot;</span><span class="p">,</span>
+
+<span class="w">    </span><span class="c1">// IMPORTANT: All files of type &#39;.json&#39;, &#39;.json5&#39; and &#39;.ison&#39; can be</span>
+<span class="w">    </span><span class="c1">//            referenced by their basename alone, without the extension.</span>
+<span class="w">    </span><span class="c1">//            The appropriate extension is added automatically.</span>
+
+<span class="w">    </span><span class="c1">// The name of the trial file to use.</span>
+<span class="w">    </span><span class="nt">&quot;sTrialFile&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;trial&quot;</span><span class="p">,</span>
+
+<span class="w">    </span><span class="c1">// The execution configuraion file.</span>
+<span class="w">    </span><span class="c1">// IMPORTANT: All file paths are regarded as relative </span>
+<span class="w">    </span><span class="c1">//            to the path of the current file.</span>
+<span class="w">    </span><span class="nt">&quot;sExecFile&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;exec&quot;</span><span class="p">,</span>
+
+<span class="w">    </span><span class="c1">// [...]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">sInfo</span></code> element gives a short info about the action, which is displayed by the command <code class="docutils literal notranslate"><span class="pre">cathy</span> <span class="pre">ws</span> <span class="pre">info</span></code>.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">sTrialFile</span></code> and <code class="docutils literal notranslate"><span class="pre">sExecFile</span></code> reference the trial and execution configuration used for this action. The trial file specified which (partial) configurations to use for this action and the execution file specifies how to execute the action. For this Blender render action, the execution file specifies the Blender version to use, which Blender addons to install and whether Blender is executed locally or on a job distribution system.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The Blender initialization command <code class="docutils literal notranslate"><span class="pre">cathy</span> <span class="pre">blender</span> <span class="pre">init</span></code> uses the execution file of a configuration to know which Blender addons to install and how to configure them.</p>
+</div>
+<p>The trial and execution files are discussed in more detail below.</p>
+</section>
+<section id="render-action-parameters">
+<h3>Render Action Parameters<a class="headerlink" href="#render-action-parameters" title="Link to this heading">#</a></h3>
+<p>The render action expects a number of additional parameters in the <code class="docutils literal notranslate"><span class="pre">mConfig</span></code> block:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">iFrameFirst</span></code>: The index of the first frame to render</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">iFrameLast</span></code>: The index of the last frame to render</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">iFrameStep</span></code>: The step increment for the frame index</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">iRenderQuality</span></code>: The render quality in samples per pixel. This value will be used in the name of the top render folder. For example, if the render quality is set to 4, the top render folder is called <code class="docutils literal notranslate"><span class="pre">rq0004</span></code>. You can overwrite this behaviour by specifying the element <code class="docutils literal notranslate"><span class="pre">sTopFolder</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sTopFolder</span></code>: If this parameter is specified, it defines the name of the top folder, instead of using the render quality. This is useful for actions that do not render, or if the render action just generates a new Blender file. This is discussed in the render output list configuration.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bDoProcess</span></code>: Boolean flag, wether to actually process the action or not. If this is set to <code class="docutils literal notranslate"><span class="pre">false</span></code>, the configurations are processed but the actual action is not executed. For the render action, also the Blender file is modified, if so specified, but the rendering itself is not executed. This can be used in combination with the parameter <code class="docutils literal notranslate"><span class="pre">bDoStoreProcessData</span></code> to not render the Blender file but just to save it for debugging.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bDoOverwrite</span></code>: When this is <code class="docutils literal notranslate"><span class="pre">true</span></code> all output files that will be generated by this action will be deleted beforehand if they are already present.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bDoStoreProcessData</span></code>: When this is set to <code class="docutils literal notranslate"><span class="pre">true</span></code>, the modified Blender file is stored after all modifications have been applied but before it is rendered. For other actions, this paramter may have no effect or store some other data.</p></li>
+</ul>
+</section>
+</section>
+<section id="the-platform-element">
+<h2>The <code class="docutils literal notranslate"><span class="pre">__platform__</span></code> Element<a class="headerlink" href="#the-platform-element" title="Link to this heading">#</a></h2>
+<p>Before we discuss the execution file, a short aside explaining the <code class="docutils literal notranslate"><span class="pre">__platform__</span></code> element, that can be used as part of any dictionary. Before a dictionary is parsed by the configuration parser (<a class="reference external" href="../../../functional-json/html/language.html" title="(in ISON - Functional JSON)"><span class="xref std std-doc">ISON parser</span></a>), it looks for a <code class="docutils literal notranslate"><span class="pre">__platform__</span></code> element. This can be part of any dictionary not just at the top level of a JSON file. The <code class="docutils literal notranslate"><span class="pre">__platform__</span></code> block is replaced by a <code class="docutils literal notranslate"><span class="pre">__data__</span></code> block depending on the operating system and node (machine name). This is best seen in an example,</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;sDTI&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/catharsys/exec/blender/std:2.1&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;sId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;${filebasename}&quot;</span><span class="p">,</span>
+
+<span class="w">    </span><span class="nt">&quot;__platform__&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;Windows&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;__data__&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;sDTI&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/catharsys/exec/blender/std:2.1&quot;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;Linux&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;hi-025l&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;__data__&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="c1">// Use the LSF job distribution system (must be installed on system)</span>
+<span class="w">                    </span><span class="nt">&quot;sDTI&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/catharsys/exec/blender/lsf:2.1&quot;</span><span class="p">,</span>
+
+<span class="w">                    </span><span class="c1">// [...]</span>
+<span class="w">                </span><span class="p">},</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The whole <code class="docutils literal notranslate"><span class="pre">__platform__</span></code> block is replaced by the <em>contents</em> of the corresponding <code class="docutils literal notranslate"><span class="pre">__data__</span></code> block, depending on the operating system, <code class="docutils literal notranslate"><span class="pre">Windows</span></code> or <code class="docutils literal notranslate"><span class="pre">Linux</span></code>, and for Linux only if the current node is called <code class="docutils literal notranslate"><span class="pre">hi-025l</span></code>. The contents of the <code class="docutils literal notranslate"><span class="pre">__data__</span></code> block overwrites any elements of the same name defined outside the <code class="docutils literal notranslate"><span class="pre">__platform__</span></code> block. In this case, the <code class="docutils literal notranslate"><span class="pre">sDTI</span></code> element at the top will be overwritten by the platform specific <code class="docutils literal notranslate"><span class="pre">sDTI</span></code> element.</p>
+<p>In this example, the execution type is selected depending on the machine the action is launched from. If it is a Linux node with the name <code class="docutils literal notranslate"><span class="pre">hi-025l</span></code>, the jobs are executed using the LSF system. In all other cases a local execution of Blender is performed.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">__platform__</span></code> is also helpful to specify absolute paths of addons or assets depending on the machine the configuration is executed on.</p>
+</section>
+<section id="the-execution-file">
+<h2>The Execution File<a class="headerlink" href="#the-execution-file" title="Link to this heading">#</a></h2>
+<p>The main purpose of the execution file is to specify <em>how</em> to execute an action. Typically an action is a python script. The execution file now defines whether this script is executed with a Python process directly, is run inside Blender or is started as a job in a job distribution system like LSF. How a script is executed is determined by the DTI string in the <code class="docutils literal notranslate"><span class="pre">sDTI</span></code> element of the execution file. The currently available execution types are:</p>
+<ul class="simple">
+<li><p>Blender on the local machine: <code class="docutils literal notranslate"><span class="pre">/catharsys/exec/blender/std:2.1</span></code></p></li>
+<li><p>Blender on a LSF system: <code class="docutils literal notranslate"><span class="pre">/catharsys/exec/blender/lsf:2.1</span></code></p></li>
+<li><p>Python process on the local machine: <code class="docutils literal notranslate"><span class="pre">/catharsys/exec/python/std:2.0</span></code></p></li>
+<li><p>Python process on a LSF system: <code class="docutils literal notranslate"><span class="pre">/catharsys/exec/python/lsf:2.0</span></code></p></li>
+</ul>
+<p>Each of these execution types has their own set of parameters. The important element in this basic example is the element <code class="docutils literal notranslate"><span class="pre">sVersion</span></code> in the <code class="docutils literal notranslate"><span class="pre">mBlender</span></code> dictionary of the execution file <code class="docutils literal notranslate"><span class="pre">exec.json</span></code>. This determines the version of Blender to use.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Since every action specifies an execution configuration, you can use different Blender versions per action.</p>
+</div>
+<p>For a description of all elements of an execution file see <a class="reference internal" href="../config/execution.html"><span class="doc">this documentation</span></a>.</p>
+</section>
+<section id="the-manifest-file">
+<span id="manifest-file-info"></span><h2>The Manifest File<a class="headerlink" href="#the-manifest-file" title="Link to this heading">#</a></h2>
+<p>Before discussing the trial file, we first need to understand the manifest file, which is referenced by the trial file. Recall that each action specified in the launch file can reference a different trial file, which means that each action could have a different manifest file. However, typically there is one manifest file per configuration.</p>
+<p>From the overview of the Catharsys system, recall that one of the design principles of Catharsys is, to enable the combination of different partial configurations into a set of full configurations. For example, you may want to vary the camera position, the set of objects in the scene, the ego velocity of the camera, etc. Each of these variations has a configuration type associated with it. In the manifest file you declare which configuration <em>types</em> you want to vary, and in the trial file you sepecify a set of actual <em>configurations</em> for each type.</p>
+<p>Here is the manifest file of the example workspace we installed:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;sDTI&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/catharsys/manifest:1.1&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;sId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;${filebasename}&quot;</span><span class="p">,</span>
+
+<span class="w">    </span><span class="nt">&quot;mActions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;run&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;sDTI&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;manifest/action:1&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;lConfigs&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;sId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;render&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;sDTI&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;blender/render/output-list:1&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;sForm&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;file/json&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;bAddToPath&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="p">},</span>
+<span class="w">                </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;sId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;capture&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;sDTI&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;capture/std:1&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;sForm&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;file/json&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;bAddToPath&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="p">},</span>
+<span class="w">                </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;sId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;camera&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;sDTI&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;camera-name:1&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;sForm&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;value&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;bAddToPath&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">},</span>
+<span class="w">            </span><span class="p">],</span>
+<span class="w">            </span><span class="nt">&quot;lDeps&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The main part of the manifest file is the <code class="docutils literal notranslate"><span class="pre">mAction</span></code> dictionary. This dictionary must list the action(s) you want to use it for with exactly the same name as in the launch file. In this case, this is only the action <code class="docutils literal notranslate"><span class="pre">run</span></code>. For each action the list of configuration types must be defined in the <code class="docutils literal notranslate"><span class="pre">lConfigs</span></code> list. Each element of the <code class="docutils literal notranslate"><span class="pre">lConfigs</span></code> list is a dictionary with the following elements:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">sId</span></code>: an arbitrary id string, which is used in the trial file to specify the actual configurations to use.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sDTI</span></code>: The DTI string specifying the type of configuration data expected for this id.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sForm</span></code>: The form in which the configuration data is made available. The currentyl available values are</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">file/json</span></code> for a list of JSON configuration filename specified in the trial file</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">value</span></code> for a list of values specified in the trial file</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">const-value</span></code> for a a list values specified in the additional element <code class="docutils literal notranslate"><span class="pre">lValues</span></code>.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bAddToPath</span></code>: An <em>optional</em> parameter specifying whether the id of the corresponding configuration files given in the trial file, will be used in the output path. More details on this below. The default value of this parameter is <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p></li>
+</ul>
+<p>The element <code class="docutils literal notranslate"><span class="pre">lDeps</span></code> allows you to specify a list of actions, the current action depends on. This is used to automatically generate a source and target path for an action.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Note that you are not limited to configuration file types pre-defined in the Catharsys system. When a configuration is compiled, the compiler only checks that the DTI of a configuration file specified in the trial file, fits the DTI given in the manifest for the corresponding trial id. This means, you can just invent your own types, to pass configurations to an action.</p>
+</div>
+<section id="automatic-output-path-generation">
+<h3>Automatic Output Path Generation<a class="headerlink" href="#automatic-output-path-generation" title="Link to this heading">#</a></h3>
+<p>The elements in the <code class="docutils literal notranslate"><span class="pre">lConfigs</span></code> list are used to automatically generate an output path for the result data of an action. For each configuration an id is generated, either from the configuration JSON file referenced in the trial file, or the value given in the trial file. These ids are combined into a path in the order they are given in the <code class="docutils literal notranslate"><span class="pre">lConfigs</span></code> list.</p>
+<p>Using the manifest example from above, assume that the trial file specifies a configuration file with id <code class="docutils literal notranslate"><span class="pre">image</span></code> for <code class="docutils literal notranslate"><span class="pre">render</span></code>, similarly <code class="docutils literal notranslate"><span class="pre">default</span></code> for <code class="docutils literal notranslate"><span class="pre">capture</span></code> and value <code class="docutils literal notranslate"><span class="pre">cam1</span></code> for <code class="docutils literal notranslate"><span class="pre">camera</span></code>, the generated path is <code class="docutils literal notranslate"><span class="pre">image/default/cam1</span></code> if <code class="docutils literal notranslate"><span class="pre">bAddToPath</span></code> is <code class="docutils literal notranslate"><span class="pre">true</span></code> for all. In this way, each combination of configurations generates a unique path, that is used to store the resultant data.</p>
+<p>In the above example, only the camera name is used to generate the output path. The full output path adds <code class="docutils literal notranslate"><span class="pre">_render/rq0004/[trial</span> <span class="pre">id]</span></code> in front of the path generated from the manifrest, if <code class="docutils literal notranslate"><span class="pre">iRenderQuality</span></code> in the launch file is set to 4. The data rendered in the beginning is located in <code class="docutils literal notranslate"><span class="pre">_render/rq0004/just-render/Camera/Image</span></code>, because the id of the trial file is <code class="docutils literal notranslate"><span class="pre">just-render</span></code>, the name of the camera is <code class="docutils literal notranslate"><span class="pre">Camera</span></code> and the image output folder is <code class="docutils literal notranslate"><span class="pre">Image</span></code> in this case. Note that a render can output multple images in different file formats. This will be discussed with the render output list configuration.</p>
+</section>
+</section>
+<section id="the-trial-file">
+<h2>The Trial File<a class="headerlink" href="#the-trial-file" title="Link to this heading">#</a></h2>
+<p>The trial file specifies which configurations to use for the configuration types given in the manifest file. The example trial file looks like this:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;sDTI&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/catharsys/trial:1.0&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;sId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;${rel-path-config}&quot;</span><span class="p">,</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="nt">&quot;sManifestFile&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;manifest&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;mConfigs&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;render&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;render&quot;</span><span class="p">],</span>
+<span class="w">        </span><span class="nt">&quot;capture&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;capture&quot;</span><span class="p">],</span>
+<span class="w">        </span><span class="nt">&quot;camera&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">&quot;Camera&quot;</span><span class="w"> </span><span class="p">],</span>
+<span class="w">    </span><span class="p">},</span>
+
+<span class="w">    </span><span class="nt">&quot;mBlender&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;sDTI&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/catharsys/trial/blender:1.0&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;sBlenderFile&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;${path-config}/Test.blend&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The elements of the trial file are:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">sDTI</span></code>: <code class="docutils literal notranslate"><span class="pre">/catharsys/trial:1.0</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sId</span></code>: The id of the trial file. In this case we use the variable <code class="docutils literal notranslate"><span class="pre">rel-path-config</span></code>, which results in <code class="docutils literal notranslate"><span class="pre">just-render</span></code> in this case. See the <a class="reference internal" href="../config_proc.html"><span class="doc">configuration variables documentation</span></a> for a list of all variables.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sManifestFile</span></code>: The relative path to the manifest file. Note that you do not need to give the file extension if the extension is <code class="docutils literal notranslate"><span class="pre">.json</span></code>, <code class="docutils literal notranslate"><span class="pre">.json5</span></code> or <code class="docutils literal notranslate"><span class="pre">.ison</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mConfigs</span></code>: A dictionary of the ids specified in the manifest. For each id the value must be a list of value or relative JSON file paths.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mBlender</span></code>: This is only needed for an action related to Blender rendering or rendering post-processing. It contains the elements:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">sDTI</span></code>: <code class="docutils literal notranslate"><span class="pre">/catharsys/trial/blender:1.0</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sBlenderFile</span></code>: The relative or full path to a Blender file. Here the variable <code class="docutils literal notranslate"><span class="pre">path-config</span></code> is used, which is the absolute path to the current configuration.</p></li>
+</ul>
+</li>
+</ul>
+<p>This trial file is very basic, just defining one configuration for each configuration type in the manifest. The configuration types are also the minimal set of types for a Blender render action. Running the render action with this trial file will therefore only generate one configuration path with the rendered images.</p>
+<div class="admonition-exercise admonition">
+<p class="admonition-title">Exercise</p>
+<p>Define a second camera in the Blender file and add its’ name to the <code class="docutils literal notranslate"><span class="pre">camera</span></code> list in the trial file. When you launch the render action with <code class="docutils literal notranslate"><span class="pre">cathy</span> <span class="pre">ws</span> <span class="pre">launch</span> <span class="pre">-c</span> <span class="pre">just-render</span> <span class="pre">-a</span> <span class="pre">run</span></code> again, separate folders, one for each camera, should be created containing the correspondig images.</p>
+</div>
+</section>
+<section id="the-render-configurations">
+<h2>The Render Configurations<a class="headerlink" href="#the-render-configurations" title="Link to this heading">#</a></h2>
+<p>The remaining two configuration files, <code class="docutils literal notranslate"><span class="pre">render.json5</span></code> and  <code class="docutils literal notranslate"><span class="pre">capture.json5</span></code>, are specific to the render action. The render file specifies parameters for the Blender ray tracer and the types of outputs that should be generated. The capture file simply defines the frame rate in this case.</p>
+<p>For a more complex setup, there can be many more configuration files for the render process, for example, to load assets, modify the scene or create new cameras. In the example here we will concentrate on the bare minimum needed for rendering.</p>
+</section>
+<section id="the-blender-render-output-list">
+<h2>The Blender render output list<a class="headerlink" href="#the-blender-render-output-list" title="Link to this heading">#</a></h2>
+<p>The file <code class="docutils literal notranslate"><span class="pre">render.json5</span></code> specifies parameters for the Blender ray tracer and the types of outputs generated. The main structure of the file looks like this:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;sDTI&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/catharsys/blender/render/output-list:1&quot;</span><span class="p">,</span>
+<span class="w">	</span><span class="nt">&quot;sId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;${filebasename}&quot;</span><span class="p">,</span>
+
+<span class="w">	</span><span class="nt">&quot;lSettings&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="c1">// settings type 1</span>
+<span class="w">        </span><span class="p">{</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="c1">// settings type 2</span>
+<span class="w">    </span><span class="p">],</span>
+
+<span class="w">    </span><span class="nt">&quot;lOutputs&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="c1">// Output configuration 1</span>
+<span class="w">        </span><span class="p">{</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="c1">// Output configuration 2</span>
+<span class="w">    </span><span class="p">]</span><span class="w"> </span><span class="c1">// lOutputs</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<section id="settings">
+<h3>Settings<a class="headerlink" href="#settings" title="Link to this heading">#</a></h3>
+<p>The element <code class="docutils literal notranslate"><span class="pre">lSettings</span></code> is optional anc contains a list of setting type dictionaries. Currently, there are two setting types available:</p>
+<ul class="simple">
+<li><p>Render settings for the Blender variables in <code class="docutils literal notranslate"><span class="pre">bpy.context.scene.render</span></code> use the DTI <code class="docutils literal notranslate"><span class="pre">/catharsys/blender/render/settings/render:1</span></code></p></li>
+<li><p>Cycles settings for the Blender variables in <code class="docutils literal notranslate"><span class="pre">bpy.context.scene.cycles</span></code> use the DTI <code class="docutils literal notranslate"><span class="pre">/catharsys/blender/render/settings/cycles:1</span></code></p></li>
+<li><p>Catharsys Blender render action settings use the DTI <code class="docutils literal notranslate"><span class="pre">/catharsys/blender/render/settings/main:1</span></code></p></li>
+</ul>
+<p>For example, setting <code class="docutils literal notranslate"><span class="pre">bpy.context.scene.render.use_persistent_data</span></code> to <code class="docutils literal notranslate"><span class="pre">true</span></code> and <code class="docutils literal notranslate"><span class="pre">bpy.context.scene.cycles.tile_size</span></code> to 4096, is done in this way:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="w">	</span><span class="nt">&quot;lSettings&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span><span class="w"> </span>
+<span class="w">            </span><span class="nt">&quot;sDTI&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/catharsys/blender/render/settings/render:1&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;use_persistent_data&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span><span class="w"> </span>
+<span class="w">            </span><span class="nt">&quot;sDTI&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/catharsys/blender/render/settings/cycles:1&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;tile_size&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4096</span><span class="p">,</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">    </span><span class="p">],</span>
+</pre></div>
+</div>
+<p>To find out the Blender variable names, right-click on the option in Blender you want to change and select “Copy Full Data Path”. Paste this to an editor and just use the part behind <code class="docutils literal notranslate"><span class="pre">render</span></code> or <code class="docutils literal notranslate"><span class="pre">cycles</span></code>, respectively.</p>
+<section id="render-setting">
+<h4>Render Setting<a class="headerlink" href="#render-setting" title="Link to this heading">#</a></h4>
+<p>Some important render settings (<code class="docutils literal notranslate"><span class="pre">/catharsys/blender/render/settings/render:1</span></code>) are:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Element</p></th>
+<th class="head"><p>Values</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>engine</p></td>
+<td><p>“BLENDER_EEVEE”, “BLENDER_WORKBENCH”, “CYCLES”</p></td>
+<td><p>This selects the render engine in Blender</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>For example,</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="w">	</span><span class="nt">&quot;lSettings&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span><span class="w"> </span>
+<span class="w">            </span><span class="nt">&quot;sDTI&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/catharsys/blender/render/settings/render:1&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;engine&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;CYCLES&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">    </span><span class="p">],</span>
+</pre></div>
+</div>
+</section>
+<section id="cycles-setting">
+<h4>CYCLES Setting<a class="headerlink" href="#cycles-setting" title="Link to this heading">#</a></h4>
+<p>Some important settings for <strong>CYCLES</strong> (<code class="docutils literal notranslate"><span class="pre">/catharsys/blender/render/settings/cycles:1</span></code>) are:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Element</p></th>
+<th class="head"><p>Values</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>sComputeDeviceType</p></td>
+<td><p>“OPTIX”, “CUDA”</p></td>
+<td><p>This is a setting that is not directly applied to an element of cycles object in Blender. It sets which computing device to use. Usually only works if <code class="docutils literal notranslate"><span class="pre">device</span></code> is <code class="docutils literal notranslate"><span class="pre">GPU</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p>bCombinedCpuCompute</p></td>
+<td><p>true, false</p></td>
+<td><p>Whether to combine the compute power of the CPU and GPU if a GPU is available and selected.</p></td>
+</tr>
+<tr class="row-even"><td><p>device</p></td>
+<td><p>“CPU”, “GPU”</p></td>
+<td><p>Select whether to render on the CPU or GPU</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>For example,</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="w">	</span><span class="nt">&quot;lSettings&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span><span class="w"> </span>
+<span class="w">            </span><span class="nt">&quot;sDTI&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/catharsys/blender/render/settings/cycles:1&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;sComputeDeviceType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;OPTIX&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;bCombinedCpuCompute&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;device&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;GPU&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">    </span><span class="p">],</span>
+</pre></div>
+</div>
+</section>
+<section id="catharsys-render-setting">
+<h4>Catharsys Render Setting<a class="headerlink" href="#catharsys-render-setting" title="Link to this heading">#</a></h4>
+<p>There is currently only one one setting to modify the Catharsys Blender render action. The setting is <code class="docutils literal notranslate"><span class="pre">bTransformSceneToCameraFrame</span></code>, which determines, whether the whole scene is transformed so that the currently active camera is at the world origin, or not.</p>
+<p>For example,</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="w">	</span><span class="nt">&quot;lSettings&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;sDTI&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/catharsys/blender/render/settings/main:1&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="c1">// Transform scene to camera frame, so that the active camera </span>
+<span class="w">            </span><span class="c1">// is at the world origin. This is needed to ensure that the</span>
+<span class="w">            </span><span class="c1">// polynomial, pingen and LFT cameras render properly.</span>
+<span class="w">            </span><span class="nt">&quot;bTransformSceneToCameraFrame&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">    </span><span class="p">],</span>
+</pre></div>
+</div>
+<p>For more information see also <a class="reference external" href="../../../image-render-blender-camera/html/lut-camera.html" title="(in Image-Render Blender Camera Add-On)"><span>LUT Camera</span></a> and <a class="reference external" href="../../../image-render-blender-camera/html/special-camera-render.html" title="(in Image-Render Blender Camera Add-On)"><span>Rendering with LFT, LUT or Poly Cameras</span></a>.</p>
+</section>
+</section>
+<section id="outputs">
+<h3>Outputs<a class="headerlink" href="#outputs" title="Link to this heading">#</a></h3>
+<p>In the <code class="docutils literal notranslate"><span class="pre">lOutputs</span></code> list, you can specify all the different types of outputs you want to generate for a scene configuration. The available output types are:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">/catharsys/blender/render/output/image:1</span></code>: renders an image</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/catharsys/blender/render/output/blend:1</span></code>: generates a new Blender file after applying all modifications</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/catharsys/blender/render/output/anytruth/label:1</span></code>: generates label data and a semantic segmentation image</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/catharsys/blender/render/output/anytruth/pos3d:1</span></code>: renders an image where the RGB channels contain the XYZ world coordinates of the surface that generated the pixel. This can be used in a post processing step to calculate the depth.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/catharsys/blender/render/output/anytruth/local-pos3d:1</span></code>: renders an image where the RGB channels contain the XYZ local object coordinates of the surface. This is used in conjunction with the object index to evaluate optical flow ground truth.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/catharsys/blender/render/output/anytruth/object-idx:1</span></code>: renders the object index of all objects. This is used in conjunction with the local position render to evaluate optical flow ground truth.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>These output types are similar to the render layers of Blender. However, these explicit rendering types are needed for specific cameras that can be defined by <code class="docutils literal notranslate"><span class="pre">anycam</span></code> which are not Blender native. Cameras like the look-up table camera, which uses a LUT to specify the ray direction for each pixel, use an additional refractive surface in front of a standard Blender pinhole camera to render the image directly with distortion. However, Blender render layers like the depth layer, evaluate the depth only to the first surface in the ray path, which does not work here.</p>
+</div>
+<p>Each of the above render output types has different additional parameters. For this example, we will only consider the image output type. The configuration looks like this:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;sDTI&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/catharsys/blender/render/output/image:1&quot;</span><span class="p">,</span>
+
+<span class="w">    </span><span class="nt">&quot;mCompositor&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;sDTI&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/catharsys/blender/compositor:1&quot;</span><span class="p">,</span>
+
+<span class="w">        </span><span class="nt">&quot;lFileOut&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span>
+<span class="w">                </span><span class="nt">&quot;sOutput&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Image&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;sFolder&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Image&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;sContentType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;image&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;mFormat&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+<span class="w">                    </span><span class="nt">&quot;sFileFormat&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;PNG&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;sColorDepth&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;8&quot;</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">        </span><span class="p">]</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span><span class="w"> </span><span class="c1">// output type &#39;image&#39;</span>
+</pre></div>
+</div>
+<section id="compositor">
+<h4>Compositor<a class="headerlink" href="#compositor" title="Link to this heading">#</a></h4>
+<p>The only additional element is the <code class="docutils literal notranslate"><span class="pre">mCompositor</span></code> dictionary, which is used to specify which render output to save as image and how. Currently, the only element of <code class="docutils literal notranslate"><span class="pre">mCompositor</span></code>, next to the obligatory <code class="docutils literal notranslate"><span class="pre">sDTI</span></code>, is the <code class="docutils literal notranslate"><span class="pre">lFileOut</span></code> element, which contains a list of dictionaries that map a Blender compositor node output to a folder and image file type. To understand the dictionary in the <code class="docutils literal notranslate"><span class="pre">lFileTypes</span></code> list better, let’s have a look at the compositor node tree of the Blender file.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To open Blender for the <code class="docutils literal notranslate"><span class="pre">just-render</span></code> configuration with the Blender file used by the <code class="docutils literal notranslate"><span class="pre">run</span></code> action, use the command <code class="docutils literal notranslate"><span class="pre">cathy</span> <span class="pre">blender</span> <span class="pre">show</span> <span class="pre">-c</span> <span class="pre">just-render</span> <span class="pre">-a</span> <span class="pre">run</span></code>. If you want to open a different Blender file use <code class="docutils literal notranslate"><span class="pre">cathy</span> <span class="pre">blender</span> <span class="pre">show</span> <span class="pre">-c</span> <span class="pre">just-render</span> <span class="pre">-f</span> <span class="pre">[filename]</span></code>. To open Blender with the <code class="docutils literal notranslate"><span class="pre">just-render</span></code> configuration settings but a blank, new Blender file, just execute <code class="docutils literal notranslate"><span class="pre">cathy</span> <span class="pre">blender</span> <span class="pre">show</span> <span class="pre">-c</span> <span class="pre">just-render</span></code>.</p>
+</div>
+<p>The compositor node tree looks like this:</p>
+<a class="reference internal image-reference" href="../_images/level-1-compositor-1.png"><img alt="Blender compositor node tree" class="align-center" src="../_images/level-1-compositor-1.png" style="width: 600px;" />
+</a>
+<p>Catharsys can only store rendered images if a compositor node tree exists with nodes that specify output names and types.The node with the label <code class="docutils literal notranslate"><span class="pre">Out:Image:RGB</span></code> is in fact referenced by the dictionary in the <code class="docutils literal notranslate"><span class="pre">lFileOutput</span></code> list above. The <code class="docutils literal notranslate"><span class="pre">sOutput</span></code> element gives the name of the output. In the compositor node tree this name is given in the node label in the format <code class="docutils literal notranslate"><span class="pre">Out:[name]:[type]</span></code>. The node itself is just a dummy node to name an output. The image output of the <code class="docutils literal notranslate"><span class="pre">Out:Image:RGB</span></code> node is stored in the folder <code class="docutils literal notranslate"><span class="pre">Image</span></code> of the target configuration path, as specified in the element <code class="docutils literal notranslate"><span class="pre">sFolder</span></code>.</p>
+<p>This means, the element <code class="docutils literal notranslate"><span class="pre">sOutput</span></code> specifies the output name in the Blender compositor node tree and the <code class="docutils literal notranslate"><span class="pre">sFolder</span></code> element set the output folder name for this image output.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">type</span></code> part in the <code class="docutils literal notranslate"><span class="pre">Out:[name]:[type]</span></code> node name specifies how to treat the color channels. The allowed values are:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">BW</span></code> for a single channel luminance image</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">RGB</span></code> for a three channel RGB image</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">RGBA</span></code> for a four channel RGBA image, including the alpha channel</p></li>
+</ul>
+<div class="admonition-important admonition">
+<p class="admonition-title">Important</p>
+<p>Blender files can only be rendered with Catharsys if they have a compositor node tree that contains at least one node with a label name of the type <code class="docutils literal notranslate"><span class="pre">Out:[name]:[type]</span></code>.</p>
+</div>
+<p>The element <code class="docutils literal notranslate"><span class="pre">sContentType</span></code> has to be <code class="docutils literal notranslate"><span class="pre">image</span></code> or <code class="docutils literal notranslate"><span class="pre">depth</span></code>. It is currently only used for rolling shutter rendering, as the depth images are aggregated such that a standard deviation can be calculated for the final image. For standard rendering this element has no effect.</p>
+</section>
+<section id="output-file-format">
+<h4>Output File Format<a class="headerlink" href="#output-file-format" title="Link to this heading">#</a></h4>
+<p>The dictionaty <code class="docutils literal notranslate"><span class="pre">mFormat</span></code> specifies the file type and bit depth used to store the image. The dictionary always has to contain the element <code class="docutils literal notranslate"><span class="pre">sFileFormat</span></code>, which has to be one of <code class="docutils literal notranslate"><span class="pre">OPEN_EXR</span></code>, <code class="docutils literal notranslate"><span class="pre">JPEG</span></code> or <code class="docutils literal notranslate"><span class="pre">PNG</span></code>. For each of these types, there are additional parameters that can be set. These are:</p>
+<ul class="simple">
+<li><p>For <code class="docutils literal notranslate"><span class="pre">OPEN_EXR</span></code>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">sCodec</span></code>, has to be one of <code class="docutils literal notranslate"><span class="pre">ZIP</span></code> (default), <code class="docutils literal notranslate"><span class="pre">NONE</span></code>, <code class="docutils literal notranslate"><span class="pre">PIZ</span></code>, <code class="docutils literal notranslate"><span class="pre">RLE</span></code>, <code class="docutils literal notranslate"><span class="pre">ZIPS</span></code>, <code class="docutils literal notranslate"><span class="pre">PXR24</span></code> (lossy), <code class="docutils literal notranslate"><span class="pre">DWAA</span></code> (lossy), <code class="docutils literal notranslate"><span class="pre">DWAB</span></code> (lossy)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sColorDepth</span></code>, has to be 16 (half single precison float) or 32 (single precision float). The default is 32.</p></li>
+</ul>
+</li>
+<li><p>For <code class="docutils literal notranslate"><span class="pre">PNG</span></code>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">sColorDepth</span></code>, has to be 8 (8bit color) or 16 (16bit color).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">iCompression</span></code>, has to be an integer between 0 and 100, specifying how strongly to compress the image. 0 is no compression and 100 maximal compression. THe default is 15. The compression is always lossless.</p></li>
+</ul>
+</li>
+<li><p>For <code class="docutils literal notranslate"><span class="pre">JPEG</span></code>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">sColorDepth</span></code>, can be specified but has to be 8.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">iQuality</span></code>, has to be an integer between 0 and 100, specifying the (lossy) compression quality. 0 is lowest quality and 100 is highest quality.</p></li>
+</ul>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You can write the same compositor node output to any number of different folders with different file types. Simply add another dictionary to the <code class="docutils literal notranslate"><span class="pre">lFileOut</span></code> list, with the same <code class="docutils literal notranslate"><span class="pre">sOutput</span></code> name but different <code class="docutils literal notranslate"><span class="pre">sFolder</span></code> and <code class="docutils literal notranslate"><span class="pre">mFormat</span></code> settings.</p>
+</div>
+<div class="admonition-exercise admonition">
+<p class="admonition-title">Exercise</p>
+<p>Write the compositor node output of the node <code class="docutils literal notranslate"><span class="pre">Out:NoiseImage:RGB</span></code> to the folder <code class="docutils literal notranslate"><span class="pre">Noisy</span></code> in OpenEXR file format with 16bit color depth.</p>
+</div>
+</section>
+</section>
+</section>
+<section id="the-capture-configuration">
+<h2>The Capture Configuration<a class="headerlink" href="#the-capture-configuration" title="Link to this heading">#</a></h2>
+<p>The capture configuration for standard rendering is pretty basic, as it just contains the framerate to use. In this example the capture configuration looks like this:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;sDTI&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/catharsys/capture/std:1.0&quot;</span><span class="p">,</span>
+
+<span class="w">    </span><span class="nt">&quot;sId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;${filebasename}&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;dFPS&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">30.0</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The element <code class="docutils literal notranslate"><span class="pre">dFPS</span></code> specifies the framerate as floating point value. For a rolling shutter rendering, there are number of additional parameters, specifying exactly the type of rolling shutter that is to be simulated. This will be discussed with the rolling shutter render action.</p>
+<p>The reason why you can specify the framerate as a configuration value, is that you can render the same Blender file with different framerates by using different capture configurations in this way. Catharsys uses the frame index together with the framerate specified in the capture configuration to calculate a render time. This render time is used together with the framerate specified in the <em>Blender file</em> to calculate the frame index in the Blender file. This Blender frame index is then set and the image is rendered.</p>
+<div class="admonition-important admonition">
+<p class="admonition-title">Important</p>
+<p>To avoid aliasing effects, ensure that the framerate you specify in the capture configuration is a divisor of the framerate specified in the Blender file. For example, if you want to render at 15, 30 and 45 fps, the Blender file framerate should be an integer multiple of 45 fps.</p>
+</div>
+</section>
+<section id="the-jupyter-notebook-launch-ipynb">
+<h2>The Jupyter Notebook <code class="docutils literal notranslate"><span class="pre">Launch.ipynb</span></code><a class="headerlink" href="#the-jupyter-notebook-launch-ipynb" title="Link to this heading">#</a></h2>
+<p>This Jupyter notebook uses the Catharsys API to launch an action and display the resultant images. It contains some documentation of the API used. This can be a more convenient way of working with a configuration.</p>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="basics.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Workspace Basics</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../config_proc.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Configuration File Processing</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">Installation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#initialization">Initialization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration-files-overview">Configuration Files Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-launch-file">The Launch File</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#actions">Actions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#action-configuration">Action Configuration</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#render-action-parameters">Render Action Parameters</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-platform-element">The <code class="docutils literal notranslate"><span class="pre">__platform__</span></code> Element</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-execution-file">The Execution File</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-manifest-file">The Manifest File</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#automatic-output-path-generation">Automatic Output Path Generation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-trial-file">The Trial File</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-render-configurations">The Render Configurations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-blender-render-output-list">The Blender render output list</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#settings">Settings</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#render-setting">Render Setting</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#cycles-setting">CYCLES Setting</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#catharsys-render-setting">Catharsys Render Setting</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#outputs">Outputs</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#compositor">Compositor</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#output-file-format">Output File Format</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-capture-configuration">The Capture Configuration</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-jupyter-notebook-launch-ipynb">The Jupyter Notebook <code class="docutils literal notranslate"><span class="pre">Launch.ipynb</span></code></a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Christian Perwass
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022, Robert Bosch GmbH.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

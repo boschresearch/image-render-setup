@@ -1,0 +1,566 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Catharsys Overview &#8212; Image-Render Setup 3.2.36 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=5976921d"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'overview';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="System Tools &amp; Installation" href="system_main.html" />
+    <link rel="prev" title="Catharsys" href="index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Image-Render Setup 3.2.36 documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Catharsys Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="system_main.html">System Tools &amp; Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gui_main.html">Web User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workspace_main.html">Automation with Workspaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="develop.html">Code Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="change-log.html">Change Log</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/overview.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Catharsys Overview</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#system-structure">System Structure</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variation-dimensions">Variation Dimensions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration-compiler">Configuration Compiler</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#job-distribution">Job Distribution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#executor">Executor</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#action">Action</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation">Implementation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#blender-render-action">Blender Render Action</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#configurations">Configurations</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#catharsys-blender-addons">Catharsys Blender Addons</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#anycam-image-render-blender-camera">AnyCam (image-render-blender-camera)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#anyvehicles-image-render-blender-vehicles">AnyVehicles (image-render-blender-vehicles)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#anyhumans-image-render-blender-humans">AnyHumans (image-render-blender-humans)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#anypoints-image-render-blender-points">AnyPoints (image-render-blender-points)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#anytruth-image-render-blender-label">AnyTruth (image-render-blender-label)</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <!---
+<LICENSE id="CC BY-SA 4.0">
+    
+    Image-Render Setup module documentation
+    Copyright 2022 Robert Bosch GmbH and its subsidiaries
+    
+    This work is licensed under the 
+    
+        Creative Commons Attribution-ShareAlike 4.0 International License.
+    
+    To view a copy of this license, visit 
+        http://creativecommons.org/licenses/by-sa/4.0/ 
+    or send a letter to 
+        Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
+    
+</LICENSE>
+--->
+<section id="catharsys-overview">
+<h1>Catharsys Overview<a class="headerlink" href="#catharsys-overview" title="Link to this heading">#</a></h1>
+<p>At its’ heart Catharsys is simply a configuration compiler, that takes a bunch of partial configurations, combines them in some way to complete configurations, and then starts some actions passing the generated complete configuration files as argument. The actions are typically Python scripts that are executed. Typical actions are rendering with Blender or post-processing images.</p>
+<section id="system-structure">
+<h2>System Structure<a class="headerlink" href="#system-structure" title="Link to this heading">#</a></h2>
+<p>Here is an overview of the basic system structure:</p>
+<a class="reference internal image-reference" href="_images/system-overview-01.png"><img alt="_images/system-overview-01.png" class="align-center" src="_images/system-overview-01.png" style="width: 800px;" />
+</a>
+<p>There are a number of components in this image:</p>
+<section id="variation-dimensions">
+<h3>Variation Dimensions<a class="headerlink" href="#variation-dimensions" title="Link to this heading">#</a></h3>
+<p>The initial use-case for developing Catharsys was the following: some scene needed to varied in a number of ways and all combinations of variations needed to be rendered. That is, there were a couple of <em>variation dimensions</em>, like the camera position, the camera type, the camera velocity, the positions of other objects in the scene (e.g. vehicles, pedestrians).</p>
+<p>In Catharsys you can therefore describe the variation dimensions that you want to vary (in a <em>manifest</em> file) and for each dimension specify a set of configurations (in a <em>trial</em> file).</p>
+</section>
+<section id="configuration-compiler">
+<h3>Configuration Compiler<a class="headerlink" href="#configuration-compiler" title="Link to this heading">#</a></h3>
+<p>The default configuration compiler performs a nested loop over all variation dimensions using the specified configurations from the <em>trial</em> file, to create a set of complete configurations. For example, one specific camera position, camera type, ego-velocity and object positions.</p>
+</section>
+<section id="job-distribution">
+<h3>Job Distribution<a class="headerlink" href="#job-distribution" title="Link to this heading">#</a></h3>
+<p>The set of complete configurations is now distributed to a set of jobs. On a local machine this may just be a sequential processing of all jobs. However, the configurations may also be split in sub-sets and executed in parallel by starting multiple processes on you local machine, or queuing jobs on a job distribution system like LSF.</p>
+</section>
+<section id="executor">
+<h3>Executor<a class="headerlink" href="#executor" title="Link to this heading">#</a></h3>
+<p>For each action type an <em>executor</em> has to be specified, that starts the execution of the actual action. For example, the rendering action is a python scripts that is executed inside Blender. The executor therefore starts Blender, passing it the action script and the path to the complete configuration file.</p>
+</section>
+<section id="action">
+<h3>Action<a class="headerlink" href="#action" title="Link to this heading">#</a></h3>
+<p>The action is some process that is started by an appropriate executor and receives one or a set of complete configurations. The configuration file contains, next to the user specified configurations, also a path where the action should store its resultant data. This path is derived from the ids of the configuration files, so that every configuration combination has a unique target path.</p>
+</section>
+</section>
+<section id="implementation">
+<h2>Implementation<a class="headerlink" href="#implementation" title="Link to this heading">#</a></h2>
+<p>Many parts of the Catharsys system can be extended with plugins. The following image shows the various parts that are implemented as plugins.</p>
+<a class="reference internal image-reference" href="_images/system-implementation-01.png"><img alt="_images/system-implementation-01.png" class="align-center" src="_images/system-implementation-01.png" style="width: 800px;" />
+</a>
+<p>The python plugins are realized via entry points specified in the repository’s <code class="docutils literal notranslate"><span class="pre">setup.cfg</span></code> file. Installing a module in the a python environment makes the plugin available to the whole system. In the configuration files you can reference actions and other parts via id strings.</p>
+<p>For example, you can write your own action and register it in the system simply by installing it with <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span></code>. The action can then be referenced via the id-string from your configurations and you can use the configuration compilation and job distribution features of Catharsys right away.</p>
+<p>You can create an action plugin from a template using the command <code class="docutils literal notranslate"><span class="pre">cathy</span> <span class="pre">install</span> <span class="pre">template</span> <span class="pre">std-action-python</span></code>. You can list all available templates with <code class="docutils literal notranslate"><span class="pre">cathy</span> <span class="pre">install</span> <span class="pre">template</span> <span class="pre">--list</span></code>.</p>
+<p>Note that the Blender rendering is also just an action plugin. If you wanted to render using a different render engine, simply write your own action and executor.</p>
+</section>
+<section id="blender-render-action">
+<h2>Blender Render Action<a class="headerlink" href="#blender-render-action" title="Link to this heading">#</a></h2>
+<p>One of the central actions is the Blender render action. It consists of the following parts:</p>
+<a class="reference internal image-reference" href="_images/action-blender-render.png"><img alt="_images/action-blender-render.png" class="align-center" src="_images/action-blender-render.png" style="width: 800px;" />
+</a>
+<section id="configurations">
+<h3>Configurations<a class="headerlink" href="#configurations" title="Link to this heading">#</a></h3>
+<p>The main parts you need to specify to render are:</p>
+<ul class="simple">
+<li><p>a camera (select or create one)</p></li>
+<li><p>a render type, which currently can be standard rendering or rolling shutter simulation</p></li>
+<li><p>the output type(s), like image, label data, depth or optical flow</p></li>
+<li><p>scene modifications, like loading objects, changing the position of objects, randomizing a scene, or generating objects,</p></li>
+<li><p>and, of course, a Blender file.</p></li>
+</ul>
+<p>The render action itself, first loads the Blender file, loads any assets you may want to import, modifies the scene according to your configurations and finally renders. Instead of rendering, the action can also simply store the modified Blender scene. This can be helpful if you first want to create different scenes, and at a later stage render different variations of each scene.</p>
+<p>Finally, the file system is used as a database to store the generated images based on the combination of configuration ids.</p>
+</section>
+</section>
+<section id="catharsys-blender-addons">
+<h2>Catharsys Blender Addons<a class="headerlink" href="#catharsys-blender-addons" title="Link to this heading">#</a></h2>
+<p>The Catharsys system comes with a number of Blender addons, that help you creating scenes:</p>
+<section id="anycam-image-render-blender-camera">
+<h3>AnyCam (image-render-blender-camera)<a class="headerlink" href="#anycam-image-render-blender-camera" title="Link to this heading">#</a></h3>
+<p>This addon allows you to create camera from a database of cameras. The basic idea of this addon is that you can have a database of camera that combine a resolution with a projection type. Activting such a camera then sets all Blender parameters necessary to generate an appropriate imaging.</p>
+<p>Next to standard pinhole or fisheye cameras, the addon also allows you to create look-up-table based cameras and light field tracing cameras. The latter simulate ray-tracing as in optics design tools like ZEMAX. For this to work, you need to specify all optical surfaces, but it allows you to simulate distortion, depth-of-field, vignetting, chromatic abberation, psf, close to the actual optics.</p>
+</section>
+<section id="anyvehicles-image-render-blender-vehicles">
+<h3>AnyVehicles (image-render-blender-vehicles)<a class="headerlink" href="#anyvehicles-image-render-blender-vehicles" title="Link to this heading">#</a></h3>
+<p>This addon animates 4-wheel and 2-wheel vehicles. It will simulate the movement of a vehicle following a NURBS curve on a flat surface, such that the center of non-steering axis always follows that path, while the steering is (nearly) physically correct.</p>
+</section>
+<section id="anyhumans-image-render-blender-humans">
+<h3>AnyHumans (image-render-blender-humans)<a class="headerlink" href="#anyhumans-image-render-blender-humans" title="Link to this heading">#</a></h3>
+<p>This addon is a Catharsys wrapper for the Human Generator V3 Blender addon. It enable the HumGenV3 addon to be controlled via Catharsys configurations.</p>
+</section>
+<section id="anypoints-image-render-blender-points">
+<h3>AnyPoints (image-render-blender-points)<a class="headerlink" href="#anypoints-image-render-blender-points" title="Link to this heading">#</a></h3>
+<p>This addon allows you to import and animate point clouds.</p>
+</section>
+<section id="anytruth-image-render-blender-label">
+<h3>AnyTruth (image-render-blender-label)<a class="headerlink" href="#anytruth-image-render-blender-label" title="Link to this heading">#</a></h3>
+<p>This addon allows you to define labels for Blender scene collections. This enables the rendering of label ground truth with 3d boxes, 2d boxes, semantic segmentation and skeletons.</p>
+<a class="reference internal image-reference" href="_images/label-types.png"><img alt="_images/label-types.png" class="align-center" src="_images/label-types.png" style="width: 800px;" />
+</a>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="index.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Catharsys</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="system_main.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">System Tools &amp; Installation</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#system-structure">System Structure</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variation-dimensions">Variation Dimensions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration-compiler">Configuration Compiler</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#job-distribution">Job Distribution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#executor">Executor</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#action">Action</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation">Implementation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#blender-render-action">Blender Render Action</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#configurations">Configurations</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#catharsys-blender-addons">Catharsys Blender Addons</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#anycam-image-render-blender-camera">AnyCam (image-render-blender-camera)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#anyvehicles-image-render-blender-vehicles">AnyVehicles (image-render-blender-vehicles)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#anyhumans-image-render-blender-humans">AnyHumans (image-render-blender-humans)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#anypoints-image-render-blender-points">AnyPoints (image-render-blender-points)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#anytruth-image-render-blender-label">AnyTruth (image-render-blender-label)</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Christian Perwass
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022, Robert Bosch GmbH.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

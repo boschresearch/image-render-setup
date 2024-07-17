@@ -1,0 +1,625 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Web Image Viewer &#8212; Catharsys Web GUI 1.0.5 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=c05c4e54"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'image_viewer';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Modify Configurations" href="modify_configs.html" />
+    <link rel="prev" title="Catharsys Web GUI - Getting Started" href="get_started.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Catharsys Web GUI 1.0.5 documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="workflow_ex1.html">Example Workflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="get_started.html">Catharsys Web GUI - Getting Started</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Web Image Viewer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modify_configs.html">Modify Configurations</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="reference/main.html">Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="reference/controls.html">GUI Controls</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reference/gui_def.html">GUI Definition Dictionary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reference/production.html">Production Configuration Reference</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="back-to-main.html">Back to main documentation</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/image_viewer.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Web Image Viewer</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-setup">Basic Setup</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#displaying-meta-data">Displaying Meta Data</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <!---
+<LICENSE id="CC BY-SA 4.0">
+    
+    Image-Render Setup module documentation
+    Copyright 2022 Robert Bosch GmbH and its subsidiaries
+    
+    This work is licensed under the 
+    
+        Creative Commons Attribution-ShareAlike 4.0 International License.
+    
+    To view a copy of this license, visit 
+        http://creativecommons.org/licenses/by-sa/4.0/ 
+    or send a letter to 
+        Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
+    
+</LICENSE>
+--->
+<section class="tex2jax_ignore mathjax_ignore" id="web-image-viewer">
+<h1>Web Image Viewer<a class="headerlink" href="#web-image-viewer" title="Link to this heading">#</a></h1>
+<section id="basic-setup">
+<h2>Basic Setup<a class="headerlink" href="#basic-setup" title="Link to this heading">#</a></h2>
+<a class="float-end reference internal image-reference" href="_images/artefact-tree-01.png"><img alt="_images/artefact-tree-01.png" class="float-end" src="_images/artefact-tree-01.png" style="width: 250px;" />
+</a>
+<p>For the image viewer to show you anything you first need to specify what it is supposed to show. This is specified in the file <code class="docutils literal notranslate"><span class="pre">production.json</span></code>, which you need to create in each configuration you want to use the viewer for. The basic idea here is, that you define a path search pattern, where the resultant ‘artefacts’ (images, data files, etc.) of running the Catharsys configuration can be found. To explain the details, consider the following folder tree of some render results as seen on the right.</p>
+<p>We want to see the rendered images together with the depth and label images that are located in the opened folders on the right. The pattern we define is split into two parts:</p>
+<ol class="arabic simple">
+<li><p>A group path, that specifies everything down to the folder where the artefact folders start. In this case, one such path is <code class="docutils literal notranslate"><span class="pre">_render/rq0064/anytruth/test-01/std/30_fps/Cam_Lut_Std_LUT_Test_200deg_v1_Sen</span></code>.</p></li>
+<li><p>A set of artefact paths that describe the sub-paths that lead to the result data of the different artefacts. For example, one result image is located in the sub-path <code class="docutils literal notranslate"><span class="pre">Image/Frame_0001.png</span></code>, while the corresponding label preview image is under <code class="docutils literal notranslate"><span class="pre">AT_Label/full_res/Preview/Frame_0001.png</span></code>.</p></li>
+</ol>
+<p>The path patterns can be defined as a combination of fixed path elements, pre-defined variable path elements and user defined, variable path elements. For this example, the path structure pattern looks like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!production/!rq/!project/std/?fps/?camera
+</pre></div>
+</div>
+<p>All elements starting with a ‘!’ are Catharsys pre-defined variables, while elements starting with ‘?’ are user defined variables. Elements starting with neither are fixed path elements. The meaning of the variables is as follows:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">!production</span></code>: this is replaced by the main production path for this workspace. It’s the absolute path including the <code class="docutils literal notranslate"><span class="pre">_render</span></code> folder, for example, <code class="docutils literal notranslate"><span class="pre">/data/renders/example/_render</span></code> if your workspace folder is  <code class="docutils literal notranslate"><span class="pre">/data/renders/example</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">!rq</span></code>: the render quality folder, which must be of the form <code class="docutils literal notranslate"><span class="pre">rq[xxxx]</span></code>, where <code class="docutils literal notranslate"><span class="pre">xxxx</span></code> stands for the render quality value.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">!project</span></code>: the current project (confguration) folder. In this example, <code class="docutils literal notranslate"><span class="pre">anytruth/test-01</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">?fps</span></code>: this is any folder, used a result dimension <code class="docutils literal notranslate"><span class="pre">fps</span></code>. In this example, <code class="docutils literal notranslate"><span class="pre">30_fps</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">?camera</span></code>: this is any folder, used as a result dimension <code class="docutils literal notranslate"><span class="pre">camera</span></code>. In this example, <code class="docutils literal notranslate"><span class="pre">Cam_Lut_Std_LUT_Test_200deg_v1_Sen</span></code>.</p></li>
+</ul>
+<p>The actual artefacts that are shown, are specified with separate path structure patterns, one for each artefact you want to see. For example, the artefacts in this example are specified with the following patterns:</p>
+<ul class="simple">
+<li><p><strong>Images</strong>: <code class="docutils literal notranslate"><span class="pre">Image/!frame</span></code></p></li>
+<li><p><strong>Depth</strong>: <code class="docutils literal notranslate"><span class="pre">AT_Depth/full_res/Preview/!frame</span></code></p></li>
+<li><p><strong>Label</strong>: <code class="docutils literal notranslate"><span class="pre">AT_Label/full_res/Preview/!frame</span></code></p></li>
+</ul>
+<p>The pre-defined variable <code class="docutils literal notranslate"><span class="pre">!frame</span></code> stands for any file with the name pattern <code class="docutils literal notranslate"><span class="pre">Frame_[number].[suffix]</span></code>. The various artefacts can have variables that are the same over a number of artefacts, like the frame file. The viewer associates the values in the view of these variables. However, some artefacts may have additional variables. These generate a sub-grid. An example of this is shown later on.</p>
+<p>Any variable, pre-defined or user, creates a dimension in the result data presentation. The viewer creates a regular, nested grid of all dimensions with more than one element.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The same configuration is used by the <code class="docutils literal notranslate"><span class="pre">cathy</span> <span class="pre">prod</span></code> commands, that allow you to analyze the generated artefacts. See <a class="reference external" href="../../image-render-automation/html/products/analyze.html" title="(in Image-Render Automation)"><span>Production Analysis</span></a> for more details.</p>
+</div>
+<p>Here is an example <code class="docutils literal notranslate"><span class="pre">production.json</span></code>:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// The data-type-information (DTI) string. It must be exactly this.</span>
+<span class="w">    </span><span class="nt">&quot;sDTI&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/catharsys/production:1.0&quot;</span><span class="p">,</span>
+
+<span class="w">    </span><span class="c1">// You can specify a number of view groups that can be selected in the viewer</span>
+<span class="w">    </span><span class="nt">&quot;mGroups&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">        </span><span class="c1">// this is the id of a view group. You can use any id name here.</span>
+<span class="w">        </span><span class="nt">&quot;std&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="c1">// This is the displayed name for this view group</span>
+<span class="w">            </span><span class="nt">&quot;sName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Standard Render Output&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="c1">// This is the group path structure, as explained above</span>
+<span class="w">            </span><span class="nt">&quot;sPathStructure&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;!production/!rq/!project/std/?fps/?camera&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="c1">// The user defined variables are described here.</span>
+<span class="w">            </span><span class="c1">// Currently, you can only define a display name. In future versions</span>
+<span class="w">            </span><span class="c1">// additional parameters per use variable may be defined here.</span>
+<span class="w">            </span><span class="nt">&quot;mVars&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;fps&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;sName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;FPS&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="p">},</span>
+<span class="w">                </span><span class="nt">&quot;camera&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;sName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Camera&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="p">},</span>
+<span class="w">            </span><span class="p">},</span>
+
+<span class="w">            </span><span class="c1">// This is the block where all artefacts are defined</span>
+<span class="w">            </span><span class="nt">&quot;mArtefacts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="c1">// This is the artefact id. You can use any name here.</span>
+<span class="w">                </span><span class="nt">&quot;images&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="c1">// This DTI specifies the type of the artefact object.</span>
+<span class="w">                    </span><span class="c1">// In this case, these are PNG images. Other supported image file</span>
+<span class="w">                    </span><span class="c1">// extensions are &#39;jpg&#39; and &#39;exr&#39;.</span>
+<span class="w">                    </span><span class="nt">&quot;sDTI&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/catharsys/production/artefact/image/png:1.0&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="c1">// This is the display name of the artefact</span>
+<span class="w">                    </span><span class="nt">&quot;sName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Image&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="c1">// The artefact path structure pattern</span>
+<span class="w">                    </span><span class="nt">&quot;sPathStructure&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Image/!frame&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="p">},</span>
+<span class="w">                </span><span class="nt">&quot;depth&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;sDTI&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/catharsys/production/artefact/image/png:1.0&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;sName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Depth&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;sPathStructure&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;AT_Depth/full_res/Preview/!frame&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="p">},</span>
+<span class="w">                </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;sDTI&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/catharsys/production/artefact/image/png:1.0&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;sName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Label&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;sPathStructure&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;AT_Label/full_res/Preview/!frame&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="p">},</span>
+<span class="w">                </span><span class="nt">&quot;focus&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;sDTI&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/catharsys/production/artefact/image/png:1.0&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;sName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Focus&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;sPathStructure&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Focus/?fd/!frame&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="c1">// specification of the user variables for the artefact path structure</span>
+<span class="w">                    </span><span class="nt">&quot;mVars&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                        </span><span class="nt">&quot;fd&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                            </span><span class="nt">&quot;sName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Focus distance&quot;</span><span class="p">,</span>
+<span class="w">                        </span><span class="p">},</span>
+<span class="w">                    </span><span class="p">}</span>
+<span class="w">                </span><span class="p">},</span>
+<span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="c1">// end artefacts</span>
+<span class="w">        </span><span class="p">},</span><span class="w"> </span><span class="c1">// end view group</span>
+<span class="w">    </span><span class="p">},</span><span class="w"> </span><span class="c1">// end groups</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The viewer output could for example look like this:</p>
+<p><img alt="Product Viewer" src="_images/product-view-01.png" /></p>
+<p>If you open the product selection block (by clicking on it), you can select which artefacts are shown and for each variable you can select which elements to show.</p>
+<p><img alt="Product Selection" src="_images/product-selection-01.png" /></p>
+<p>The view settings block allows you to define the order of the dimensions and also select ranges for variables with more than a few elements. This may look like this:</p>
+<p><img alt="View Settings" src="_images/view-settings-01.png" /></p>
+<p>For example, if you change the order of the dimensions you could obtain this view:</p>
+<p><img alt="View Settings new order" src="_images/view-settings-02.png" /></p>
+<p>If you have many elements in a row, the row can be wrapped. Use the options <code class="docutils literal notranslate"><span class="pre">Max</span> <span class="pre">columns</span> <span class="pre">in</span> <span class="pre">top</span> <span class="pre">row</span></code> to set the maximal number of elements before wrapping in the top row and <code class="docutils literal notranslate"><span class="pre">Max</span> <span class="pre">columns</span> <span class="pre">per</span> <span class="pre">row</span></code> to the the maximal number for all following nested rows. This may look like this:</p>
+<p><img alt="Wrapped rows" src="_images/view-long-rows-01.png" /></p>
+<p>If you have artefacts that have unique variables, they are displayed in a sub-grid. Here is an example of this, where the generative render contains 2 different prompts and for each of those two different seeds:</p>
+<p><img alt="Nested Grids" src="_images/view-sub-grid-01.png" /></p>
+</section>
+<section id="displaying-meta-data">
+<h2>Displaying Meta Data<a class="headerlink" href="#displaying-meta-data" title="Link to this heading">#</a></h2>
+<p>You can also display meta information per artefact. For example, in one configuration we create one json file per image created by with a generative DNN method. Part of this json file looks, for example, like this:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;sPrompt&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;A university student is waiting at underground subway station after school.&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;sNegativePrompt&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;disfigured, bad, immature, cartoon, anime, 3d, painting, b&amp;w, monochrome, lowres, bad anatomy, worst quality, low quality&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;iSeed&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;iNumSteps&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;mImage&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;iWidth&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">960</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;iHeight&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">544</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>These JSON files are stored in a folder <code class="docutils literal notranslate"><span class="pre">control</span></code> next to the artefact image, using the name pattern <code class="docutils literal notranslate"><span class="pre">Frame_[number]_config.json</span></code>. The following artefact configuration accesses the elements <code class="docutils literal notranslate"><span class="pre">sPrompt</span></code> and <code class="docutils literal notranslate"><span class="pre">sNegativePrompt</span></code> from the JSON5 file and displays it as tooltip if you hover over the respective image.</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="nt">&quot;mArtefacts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;generative&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;sDTI&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/catharsys/production/artefact/image/png:1.0&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;sName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Generative&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;sPathStructure&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Takuma-Diffusers/?gen-cfg/?gen-prompt-cfg/?prompt/?seed/!frame&quot;</span><span class="p">,</span>
+
+<span class="w">            </span><span class="c1">// This block can contain any number of meta data references</span>
+<span class="w">            </span><span class="nt">&quot;mMeta&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="c1">// This is an arbitrary id for this meta data type</span>
+<span class="w">                </span><span class="nt">&quot;Config&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="c1">// For JSON meta data you need to use this DTI</span>
+<span class="w">                    </span><span class="nt">&quot;sDTI&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/catharsys/production/artefact/meta/json:1.0&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="c1">// The name of the meta data</span>
+<span class="w">                    </span><span class="nt">&quot;sName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Takuma Config&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="c1">// The path relative to the meta data file from the artefact</span>
+<span class="w">                    </span><span class="c1">// This path is parsed with the ISON parser, whereby all path structure</span>
+<span class="w">                    </span><span class="c1">// variables from the group path and the artefact path are available</span>
+<span class="w">                    </span><span class="c1">// as variables. For example, the `$frame` expression references the</span>
+<span class="w">                    </span><span class="c1">// current value of the pre-defined variable `!frame`. </span>
+<span class="w">                    </span><span class="c1">// The `$path.stem{}` is an ISON function that picks out the stem of a </span>
+<span class="w">                    </span><span class="c1">// filename. For example, for &#39;Frame_0001.png&#39; this would be &#39;Frame_0001&#39;.</span>
+<span class="w">                    </span><span class="nt">&quot;sRelPath&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;control/$path.stem{$frame}_config.json&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="c1">// This block defines how the meta data should be printed.</span>
+<span class="w">                    </span><span class="c1">// There may be various ways the data is shown.</span>
+<span class="w">                    </span><span class="nt">&quot;mPrint&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                        </span><span class="c1">// Currently, only the print type &#39;tooltip&#39; is defined. </span>
+<span class="w">                        </span><span class="nt">&quot;tooltip&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                            </span><span class="c1">// This gives a list of lines to printed.</span>
+<span class="w">                            </span><span class="c1">// Each string is again parsed with the ISON parser.</span>
+<span class="w">                            </span><span class="c1">// In addition to the path structure variables, the whole JSON file</span>
+<span class="w">                            </span><span class="c1">// loaded as meta data is available in the variable `meta_data`.</span>
+<span class="w">                            </span><span class="c1">// You can pick out elements from the meta data dictionary using the</span>
+<span class="w">                            </span><span class="c1">// &#39;:&#39;-notation. That is, the element &#39;sPrompt&#39; from the JSON file is</span>
+<span class="w">                            </span><span class="c1">// picked with `${meta_data:sPrompt}`. </span>
+<span class="w">                            </span><span class="c1">// The element &#39;iWidth&#39; could be retrieved with `${meta_data:mImage:iWidth}`.</span>
+<span class="w">                            </span><span class="nt">&quot;lLines&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                                </span><span class="s2">&quot;Prompt: ${meta_data:sPrompt}&quot;</span><span class="p">,</span>
+<span class="w">                                </span><span class="s2">&quot;Neg. Prompt: ${meta_data:sNegativePrompt}&quot;</span><span class="p">,</span>
+<span class="w">                            </span><span class="p">],</span>
+<span class="w">                        </span><span class="p">},</span>
+<span class="w">                    </span><span class="p">},</span>
+<span class="w">                </span><span class="p">},</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">    </span><span class="p">},</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="get_started.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Catharsys Web GUI - Getting Started</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="modify_configs.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Modify Configurations</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-setup">Basic Setup</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#displaying-meta-data">Displaying Meta Data</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Christian Perwass
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023, Robert Bosch GmbH.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

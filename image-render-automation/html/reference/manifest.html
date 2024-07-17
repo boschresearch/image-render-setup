@@ -1,0 +1,558 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Manifest Configuration &#8212; Image-Render Automation 3.1.12 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=3cdd2af7"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'reference/manifest';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Workspace Basics" href="../workspace/basics.html" />
+    <link rel="prev" title="Launch Configuration" href="launch.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Image-Render Automation 3.1.12 documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="main.html">Reference</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="launch.html">Launch Configuration</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Manifest Configuration</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../workspace/basics.html">Workspace Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../workspace/level-1.html">Level 1 - Basic Configuration Details</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../config_proc.html">Configuration File Processing</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../products/analyze.html">Production Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../products/categorize.html">Production Categorization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../back-to-main.html">Back to main documentation</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/reference/manifest.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Manifest Configuration</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#action-definition">Action Definition</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="manifest-configuration">
+<h1>Manifest Configuration<a class="headerlink" href="#manifest-configuration" title="Link to this heading">#</a></h1>
+<p>From the overview of the Catharsys system, recall that one of the design principles of Catharsys is, to enable the combination of different partial configurations into a set of full configurations. For example, you may want to vary the camera position, the set of objects in the scene, the ego velocity of the camera, etc. Each of these variations has a configuration type associated with it. In the manifest file you declare which configuration <em>types</em> you want to vary, and in the trial file you sepecify a set of actual <em>configurations</em> for each type. See also the manifest file documentation <a class="reference internal" href="../workspace/level-1.html#manifest-file-info"><span class="std std-ref">here</span></a>.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Tag</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Value Constraints</p></th>
+<th class="head"><p>Example</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>sDTI</p></td>
+<td><p>string</p></td>
+<td><p>DTI of manifest file. Must be this value.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">/catharsys/manifest:1.1</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>sId</p></td>
+<td><p>string</p></td>
+<td><p>Id of manifest file.</p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">${filebasename}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>mActions</p></td>
+<td><p>dictionary</p></td>
+<td><p>Dictionary of actions. See below for more info.</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<section id="action-definition">
+<h2>Action Definition<a class="headerlink" href="#action-definition" title="Link to this heading">#</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">mActions</span></code> dictionary defines the configuration data expected per action. Note that every action specified in the launch configuration can reference a different trial file and each trial file in turn references a manifest. The manifest specifies what configuration data type is to be expected for a given id and the trial file specifies the lists of configurations per id.</p>
+<p>Every action in the <code class="docutils literal notranslate"><span class="pre">mActions</span></code> dictionary must have this form:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="nt">&quot;[action name]&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;sDTI&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;manifest/action:1&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;lConfigs&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">            </span><span class="s2">&quot;{config declaration dictionary 1}&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;{config declaration dictionary 2}&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;[...]&quot;</span>
+<span class="w">        </span><span class="p">],</span>
+<span class="w">        </span><span class="nt">&quot;lDeps&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;name of action this action depends on&quot;</span><span class="p">],</span>
+<span class="w">    </span><span class="p">}</span>
+</pre></div>
+</div>
+<p>The elements of the <code class="docutils literal notranslate"><span class="pre">lConfigs</span></code> list must be dictionaries with the following elements:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Tag</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Value Constraints</p></th>
+<th class="head"><p>Example</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>sId</p></td>
+<td><p>string</p></td>
+<td><p>id name used in trial file to specify list of configurations</p></td>
+<td><p>no spaces or special symbals</p></td>
+<td><p>“render”</p></td>
+</tr>
+<tr class="row-odd"><td><p>sDTI</p></td>
+<td><p>string</p></td>
+<td><p>the DTI of the configurations used</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>sForm</p></td>
+<td><p>string</p></td>
+<td><p>configuration data form</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">file/json</span></code> or <code class="docutils literal notranslate"><span class="pre">value</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>bAddToPath</p></td>
+<td><p>bool</p></td>
+<td><p>indicates whether to add the id of the config to the output path</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">true</span></code> or <code class="docutils literal notranslate"><span class="pre">false</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>bEnabled</p></td>
+<td><p>bool</p></td>
+<td><p>can be used to filter certain combinations of configs</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">true</span></code> or <code class="docutils literal notranslate"><span class="pre">false</span></code></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">sForm</span></code> element defines the form in which the configuration data is presented. This can either be a json file (<code class="docutils literal notranslate"><span class="pre">file/json</span></code>) or a value (<code class="docutils literal notranslate"><span class="pre">value</span></code>) if the values are given directly in the trial file. Note that when the values are passed directly, the DTI value is not checked. However, the action may require certain DTIs to be available. For example, the Blender render action expects there to be a value element with DTI <code class="docutils literal notranslate"><span class="pre">camera-name:1</span></code> to specify the camera, if no camera set configuration file is given.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">bEnabled</span></code> element can be used to filter certain combinations of configurations. This can be done in conjunction with the configuration <code class="docutils literal notranslate"><span class="pre">id</span></code> dictionary (see also <a class="reference internal" href="../config_proc.html#config-id-dict"><span class="std std-ref">here</span></a>). For example, suppose you have two sets of configurations that are referenced in the manifest and trial files by <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code>, that is, the <code class="docutils literal notranslate"><span class="pre">sId</span></code> given in the manifest for the two configuration types is <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code>, respectively. By default, if there are a number of configuration files defined in the trial file for <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code>, the configuration compiler will generate combined configurations for all possible combinations. If you only want to use combined combinations if the configuration ids (the <code class="docutils literal notranslate"><span class="pre">sId</span></code> elements in each configuration file) are equal, then you can define the <code class="docutils literal notranslate"><span class="pre">bEnabled</span></code> element in the manifest of configuration <code class="docutils literal notranslate"><span class="pre">b</span></code> as:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="nt">&quot;bEnabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;$eq{${id:a:cfg-id}, ${id:b:cfg-id}}&quot;</span>
+</pre></div>
+</div>
+<p>Similarly, you can also place the <code class="docutils literal notranslate"><span class="pre">bEnabled</span></code> element in the top level of any configuration file. In this way, you can define a condition per configuration file and not just per configuration file type, as in the manifest.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">lDeps</span></code> element is a list of action names, the current action depends on. That means, that the current configuration set is combined with all the combinations of parent configuration.</p>
+</section>
+<section id="example">
+<h2>Example<a class="headerlink" href="#example" title="Link to this heading">#</a></h2>
+<p>Here is an example manifest configuration taken from this <a class="reference external" href="https://github.com/boschresearch/image-render-workspace-examples/blob/main/config/vars/test-04/manifest.json5">example config</a>:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;sDTI&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/catharsys/manifest:1.1&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;sId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;${filebasename}&quot;</span><span class="p">,</span>
+
+<span class="w">    </span><span class="nt">&quot;mActions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;run&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;sDTI&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;manifest/action:1&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;lConfigs&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;sId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;render&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;sDTI&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;blender/render/output-list:1&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;sForm&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;file/json&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;bAddToPath&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="p">},</span>
+<span class="w">                </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;sId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;cap&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;sDTI&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;capture/std:1&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;sForm&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;file/json&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;bAddToPath&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="p">},</span>
+<span class="w">                </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;sId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;cam&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;sDTI&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;camera-name:1&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;sForm&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;value&quot;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">                </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;sId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;meta&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;sDTI&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;meta-test:1&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;sForm&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;file/json&quot;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">                </span><span class="c1">// The type &quot;vars-test:1&quot; is just an arbitrary typename.</span>
+<span class="w">                </span><span class="c1">// However, the json file referenced in the trial config must use this DTI.</span>
+<span class="w">                </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;sId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;vars&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;sDTI&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;vars-test:1&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;sForm&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;file/json&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;bAddToPath&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">},</span>
+<span class="w">            </span><span class="p">],</span>
+<span class="w">            </span><span class="nt">&quot;lDeps&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="launch.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Launch Configuration</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../workspace/basics.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Workspace Basics</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#action-definition">Action Definition</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Christian Perwass
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022, Robert Bosch GmbH.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

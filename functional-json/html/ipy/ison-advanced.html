@@ -1,0 +1,859 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Advanced Features &#8212; ISON - Functional JSON 1.3.9 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=439117b9"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ipy/ison-advanced';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Lambda Functions" href="ison-lambda.html" />
+    <link rel="prev" title="Getting Started" href="ison-basics.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">ISON - Functional JSON 1.3.9 documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../language.html">The Language</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="ison-basics.html">Getting Started</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Advanced Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ison-lambda.html">Lambda Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ison-lambda-calc.html">Lambda Calculus (for geeks)</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../functions.html">ISON Functions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="ison-functions-convert.html">Conversion Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ison-functions-file.html">File/Path Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ison-functions-logic.html">Logic Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ison-functions-math.html">Math Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ison-functions-string.html">String Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ison-functions-struct.html">Data Structure Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ison-functions-lambda.html">Lambda Function Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ison-functions-special.html">Special Functions</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../parser.html">The Parser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../back-to-main.html">Back to main documentation</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/ipy/ison-advanced.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Advanced Features</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#runtime-variables">Runtime Variables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#including-files">Including Files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#platform-dependent-dictionary">Platform Dependent Dictionary</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wildcards-in-node-names">Wildcards in Node Names</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#logging-print-debugging">Logging &amp; Print Debugging</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="advanced-features">
+<h1>Advanced Features<a class="headerlink" href="#advanced-features" title="Link to this heading">#</a></h1>
+<p>In this section, advanced ISON language features are described.</p>
+<section id="runtime-variables">
+<h2>Runtime Variables<a class="headerlink" href="#runtime-variables" title="Link to this heading">#</a></h2>
+<p>These types of variables are declared in a dictionary block with the tag <code class="docutils literal notranslate"><span class="pre">__runtime_vars__</span></code>. Runtime variables are available just like global variables. However, they are not stored in the resultant dictionary itself, but only in the parser instance. This can be useful, if you need to read in a large file but only pick a small part from this file per configuration. In this case, you don’t want to copy the full data set to the resultant dictionary.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ison</span>
+
+<span class="n">dicData</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;__runtime_vars__&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;my_large_data&quot;</span><span class="p">:</span> <span class="s2">&quot;$range</span><span class="si">{100}</span><span class="s2">&quot;</span><span class="p">,</span>
+    <span class="p">},</span>
+
+    <span class="s2">&quot;iResult&quot;</span><span class="p">:</span> <span class="s2">&quot;$</span><span class="si">{my_large_data:40}</span><span class="s2">&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="n">dicResult</span> <span class="o">=</span> <span class="n">ison</span><span class="o">.</span><span class="n">run</span><span class="o">.</span><span class="n">Run</span><span class="p">(</span><span class="n">xData</span><span class="o">=</span><span class="n">dicData</span><span class="p">,</span> <span class="n">bStripVars</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ison</span><span class="o">.</span><span class="n">run</span><span class="o">.</span><span class="n">ToString</span><span class="p">(</span><span class="n">dicResult</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{
+    &quot;iResult&quot;: 40,
+    &quot;__globals__&quot;: {},
+    &quot;__func_globals__&quot;: {}
+}
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="including-files">
+<h2>Including Files<a class="headerlink" href="#including-files" title="Link to this heading">#</a></h2>
+<p>Additional ISON or JSON files can be included using the <code class="docutils literal notranslate"><span class="pre">__includes__</span></code> language feature.
+This must be the key of a JSON dictionary, and its’ value must be a list of strings, specifying file paths.
+If the filepaths are not absolute paths, they are regarded relative to the include statement’s file.
+The parser will ensure that cyclic includes are detected and cause an error.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">__includes__</span></code> element of a dictionary causes the parser to load all files in the order given in the list
+and update the parent dictionary with the elements of the loaded JSON files. The processing order is as follows:</p>
+<ol class="arabic simple">
+<li><p>If an <code class="docutils literal notranslate"><span class="pre">__includes__</span></code> element is defined, load all includes and update the current dictionary.</p></li>
+<li><p>All variables declared in the dictionary are processed.</p></li>
+<li><p>If any of the variable declaration dictionaries hase an <code class="docutils literal notranslate"><span class="pre">__includes__</span></code> element
+these are included and applied to the respective variable dictionary.</p></li>
+<li><p>Any variables added by including the additional files are processed.</p></li>
+</ol>
+<p>This means,</p>
+<ul class="simple">
+<li><p>you can add an <code class="docutils literal notranslate"><span class="pre">__includes__</span></code> statement inside a variable declaration dictionary like <code class="docutils literal notranslate"><span class="pre">__globals__</span></code>
+to load additional variable definitions,</p></li>
+<li><p>if you are using ISON variables in the include file paths, they must have been defined outside the current dictionary.</p></li>
+</ul>
+<p>Here are some examples.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ison</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+
+<span class="n">dicData</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="c1"># This loads the file &#39;demo.json&#39; from the same folder.</span>
+    <span class="c1"># &#39;demo.json&#39; contains this:</span>
+    <span class="c1"># {</span>
+    <span class="c1">#     &quot;hello&quot;: [&quot;world&quot;, 1]</span>
+    <span class="c1"># }</span>
+
+    <span class="s2">&quot;__includes__&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;demo&quot;</span><span class="p">],</span>
+<span class="p">}</span>
+
+<span class="n">dicResult</span> <span class="o">=</span> <span class="n">ison</span><span class="o">.</span><span class="n">run</span><span class="o">.</span><span class="n">Run</span><span class="p">(</span><span class="n">xData</span><span class="o">=</span><span class="n">dicData</span><span class="p">,</span> <span class="n">bStripVars</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">sImportPath</span><span class="o">=</span><span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ison</span><span class="o">.</span><span class="n">run</span><span class="o">.</span><span class="n">ToString</span><span class="p">(</span><span class="n">dicResult</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{
+    &quot;hello&quot;: [
+        &quot;world&quot;,
+        1
+    ]
+}
+</pre></div>
+</div>
+</div>
+</div>
+<p>In the following example, the ‘demo.json’ file is used as local variables definition.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ison</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+
+<span class="n">dicData</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="c1"># This loads the file &#39;demo.json&#39; from the same folder.</span>
+    <span class="c1"># &#39;demo.json&#39; contains this:</span>
+    <span class="c1"># {</span>
+    <span class="c1">#     &quot;hello&quot;: [&quot;world&quot;, 1]</span>
+    <span class="c1"># }</span>
+    <span class="s2">&quot;__locals__&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;__includes__&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;demo&quot;</span><span class="p">],</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;result&quot;</span><span class="p">:</span> <span class="s2">&quot;$hello&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="n">dicResult</span> <span class="o">=</span> <span class="n">ison</span><span class="o">.</span><span class="n">run</span><span class="o">.</span><span class="n">Run</span><span class="p">(</span><span class="n">xData</span><span class="o">=</span><span class="n">dicData</span><span class="p">,</span> <span class="n">bStripVars</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">sImportPath</span><span class="o">=</span><span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ison</span><span class="o">.</span><span class="n">run</span><span class="o">.</span><span class="n">ToString</span><span class="p">(</span><span class="n">dicResult</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{
+    &quot;__locals__&quot;: {
+        &quot;hello&quot;: [
+            &quot;world&quot;,
+            1
+        ]
+    },
+    &quot;result&quot;: [
+        &quot;world&quot;,
+        1
+    ],
+    &quot;__globals__&quot;: {},
+    &quot;__func_globals__&quot;: {}
+}
+</pre></div>
+</div>
+</div>
+</div>
+<p>Using a variable in an include path.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ison</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+
+<span class="n">dicData</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;__locals__&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;demo.json&quot;</span><span class="p">,</span>
+    <span class="p">},</span>
+
+    <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;__includes__&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;$path&quot;</span><span class="p">],</span>
+    <span class="p">},</span>
+<span class="p">}</span>
+
+<span class="n">dicResult</span> <span class="o">=</span> <span class="n">ison</span><span class="o">.</span><span class="n">run</span><span class="o">.</span><span class="n">Run</span><span class="p">(</span><span class="n">xData</span><span class="o">=</span><span class="n">dicData</span><span class="p">,</span> <span class="n">bStripVars</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">sImportPath</span><span class="o">=</span><span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ison</span><span class="o">.</span><span class="n">run</span><span class="o">.</span><span class="n">ToString</span><span class="p">(</span><span class="n">dicResult</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{
+    &quot;__locals__&quot;: {
+        &quot;path&quot;: &quot;demo.json&quot;
+    },
+    &quot;data&quot;: {
+        &quot;hello&quot;: [
+            &quot;world&quot;,
+            1
+        ]
+    },
+    &quot;__globals__&quot;: {},
+    &quot;__func_globals__&quot;: {}
+}
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="platform-dependent-dictionary">
+<h2>Platform Dependent Dictionary<a class="headerlink" href="#platform-dependent-dictionary" title="Link to this heading">#</a></h2>
+<p>Sometimes variables of parameters need to be specified depending on the current platform or machine the ISON file is processed on.
+This can be achieved with the <code class="docutils literal notranslate"><span class="pre">__platform__</span></code> element. The pseudo structure of platform dictionary is:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;__platform__&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;[Windows|Linux]&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;__data__&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="c1">// data for the respective system</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">            </span><span class="nt">&quot;[Node name]&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;__data__&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="c1">// data for node of respective operating system</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Elements defined in a <code class="docutils literal notranslate"><span class="pre">__data__</span></code> dictionary for a node overwrite elements defined in the <code class="docutils literal notranslate"><span class="pre">__data__</span></code> dictionary dor the operating system.
+These in turn overwrite elements in the parent dictionary of the <code class="docutils literal notranslate"><span class="pre">__platform__</span></code> key. In this way, you can either specify data for a specific
+operating system or even a specific node (computer) running this operating system. Note that if a <code class="docutils literal notranslate"><span class="pre">__data__</span></code> dictionary is defined for a node, the <code class="docutils literal notranslate"><span class="pre">__data__</span></code> dictionary for the operating system is optional.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The platform element is processed before any other element of the dictionary. After it is processed, the whole platform dictionary is removed
+and won’t appear in the result dictionary.</p>
+</div>
+<p>One use-case is specifying absolute data paths per machine.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ison</span>
+
+<span class="n">dicData</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;__locals__&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="c1"># Default value for path</span>
+        <span class="s2">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;unknown&quot;</span><span class="p">,</span>
+
+        <span class="s2">&quot;__platform__&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;Windows&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;__data__&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="c1"># default value for all windows machines</span>
+                    <span class="s2">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;demo&quot;</span><span class="p">,</span>
+                <span class="p">},</span>
+                <span class="s2">&quot;my-laptop&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">&quot;__data__&quot;</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="c1"># value for windows machine &#39;my-laptop&#39;</span>
+                        <span class="s2">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;C:/users/foo/my-data.json&quot;</span>
+                    <span class="p">}</span>
+                <span class="p">}</span>
+            <span class="p">},</span>
+            <span class="s2">&quot;Linux&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;__data__&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="c1"># Default value for all Linux machines</span>
+                    <span class="s2">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;demo2&quot;</span><span class="p">,</span>
+                <span class="p">},</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+
+    <span class="s2">&quot;result&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;__includes__&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;$path&quot;</span><span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">dicResult</span> <span class="o">=</span> <span class="n">ison</span><span class="o">.</span><span class="n">run</span><span class="o">.</span><span class="n">Run</span><span class="p">(</span><span class="n">xData</span><span class="o">=</span><span class="n">dicData</span><span class="p">,</span> <span class="n">bStripVars</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">sImportPath</span><span class="o">=</span><span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ison</span><span class="o">.</span><span class="n">run</span><span class="o">.</span><span class="n">ToString</span><span class="p">(</span><span class="n">dicResult</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{
+    &quot;__locals__&quot;: {
+        &quot;path&quot;: &quot;demo&quot;
+    },
+    &quot;result&quot;: {
+        &quot;hello&quot;: [
+            &quot;world&quot;,
+            1
+        ]
+    },
+    &quot;__globals__&quot;: {},
+    &quot;__func_globals__&quot;: {}
+}
+</pre></div>
+</div>
+</div>
+</div>
+<section id="wildcards-in-node-names">
+<h3>Wildcards in Node Names<a class="headerlink" href="#wildcards-in-node-names" title="Link to this heading">#</a></h3>
+<p>The node names can also include wildcards:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">*</span></code>: any number of characters (also none)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">?</span></code>: exactly one character</p></li>
+</ul>
+<p>For example:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ison</span>
+
+<span class="n">dicData</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;__locals__&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="c1"># Default value for path</span>
+        <span class="s2">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;unknown&quot;</span><span class="p">,</span>
+
+        <span class="s2">&quot;__platform__&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;Windows&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;__data__&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="c1"># default value for all windows machines</span>
+                    <span class="s2">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;demonstrate&quot;</span><span class="p">,</span>
+                <span class="p">},</span>
+                <span class="s2">&quot;??-C-*&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">&quot;__data__&quot;</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="c1"># value for windows machine with name &#39;??-C-*&#39;</span>
+                        <span class="s2">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;demo&quot;</span>
+                    <span class="p">}</span>
+                <span class="p">}</span>
+            <span class="p">},</span>
+            <span class="s2">&quot;Linux&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;__data__&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="c1"># Default value for all Linux machines</span>
+                    <span class="s2">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;demo2&quot;</span><span class="p">,</span>
+                <span class="p">},</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+
+    <span class="s2">&quot;result&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;__includes__&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;$path&quot;</span><span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">dicResult</span> <span class="o">=</span> <span class="n">ison</span><span class="o">.</span><span class="n">run</span><span class="o">.</span><span class="n">Run</span><span class="p">(</span><span class="n">xData</span><span class="o">=</span><span class="n">dicData</span><span class="p">,</span> <span class="n">bStripVars</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">sImportPath</span><span class="o">=</span><span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ison</span><span class="o">.</span><span class="n">run</span><span class="o">.</span><span class="n">ToString</span><span class="p">(</span><span class="n">dicResult</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{
+    &quot;__locals__&quot;: {
+        &quot;path&quot;: &quot;demo&quot;
+    },
+    &quot;result&quot;: {
+        &quot;hello&quot;: [
+            &quot;world&quot;,
+            1
+        ]
+    },
+    &quot;__globals__&quot;: {},
+    &quot;__func_globals__&quot;: {}
+}
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="logging-print-debugging">
+<h2>Logging &amp; Print Debugging<a class="headerlink" href="#logging-print-debugging" title="Link to this heading">#</a></h2>
+<p>Sometimes it is helpful to print the state of variables during parsing, or to log parsed values. This can be done with the functions <code class="docutils literal notranslate"><span class="pre">$print{}</span></code> and <code class="docutils literal notranslate"><span class="pre">$set-log-path{}</span></code>. If no logging path of file is defined with the latter, the former prints to stdout. If a path to a logging file is set, <code class="docutils literal notranslate"><span class="pre">$print{}</span></code> writes to the log file.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ison</span>
+
+<span class="n">dicData</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;__locals__&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;lA&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Hello&quot;</span><span class="p">,</span> <span class="s2">&quot;World&quot;</span><span class="p">],</span>
+        <span class="s2">&quot;dicA&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="s2">&quot;Hello&quot;</span><span class="p">:</span> <span class="s2">&quot;World&quot;</span> <span class="p">},</span>
+        <span class="s2">&quot;sLog&quot;</span><span class="p">:</span> <span class="s2">&quot;$print{Variable &#39;dicA&#39;:, $json{$dicA}, $lA}&quot;</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;result&quot;</span><span class="p">:</span> <span class="s2">&quot;$dicA&quot;</span>
+<span class="p">}</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">dicResult</span> <span class="o">=</span> <span class="n">ison</span><span class="o">.</span><span class="n">run</span><span class="o">.</span><span class="n">Run</span><span class="p">(</span><span class="n">xData</span><span class="o">=</span><span class="n">dicData</span><span class="p">,</span> <span class="n">bPrintWarnings</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">ison</span><span class="o">.</span><span class="n">run</span><span class="o">.</span><span class="n">ToString</span><span class="p">(</span><span class="n">dicResult</span><span class="p">))</span>
+
+<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">xEx</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">xEx</span><span class="p">))</span>
+<span class="c1"># endtry</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Variable &#39;dicA&#39;:
+{
+    &quot;Hello&quot;: &quot;World&quot;
+}
+[&#39;Hello&#39;, &#39;World&#39;]
+{
+    &quot;result&quot;: {
+        &quot;Hello&quot;: &quot;World&quot;
+    }
+}
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can set a logging path in three ways with <code class="docutils literal notranslate"><span class="pre">$set-log-path{}</span></code>:</p>
+<ol class="arabic simple">
+<li><p>Without arguments the current working directory is used a logging path and a filename is automatically generated.</p></li>
+<li><p>Give a path without filename. In this case, a filename is automatically generated and the path is created.</p></li>
+<li><p>Give a full filepath. If the path does not exist, it is created.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ison</span>
+
+<span class="n">dicData</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;__locals__&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;sLogPath&quot;</span><span class="p">:</span> <span class="s2">&quot;$set-log-path</span><span class="si">{}</span><span class="s2">&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;dicA&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="s2">&quot;Hello&quot;</span><span class="p">:</span> <span class="s2">&quot;World&quot;</span> <span class="p">},</span>
+        <span class="s2">&quot;sLog&quot;</span><span class="p">:</span> <span class="s2">&quot;$print{Variable &#39;dicA&#39;:, $json{$dicA}, }&quot;</span>
+    <span class="p">},</span>
+    <span class="c1"># Uncomment the following line to see the path of the log file</span>
+    <span class="c1"># in the printed output.</span>
+    <span class="c1"># &quot;log-path&quot;: &quot;${sLogPath}&quot;,</span>
+    <span class="s2">&quot;result&quot;</span><span class="p">:</span> <span class="s2">&quot;$dicA&quot;</span>
+<span class="p">}</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">dicResult</span> <span class="o">=</span> <span class="n">ison</span><span class="o">.</span><span class="n">run</span><span class="o">.</span><span class="n">Run</span><span class="p">(</span><span class="n">xData</span><span class="o">=</span><span class="n">dicData</span><span class="p">,</span> <span class="n">bPrintWarnings</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">ison</span><span class="o">.</span><span class="n">run</span><span class="o">.</span><span class="n">ToString</span><span class="p">(</span><span class="n">dicResult</span><span class="p">))</span>
+
+<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">xEx</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">xEx</span><span class="p">))</span>
+<span class="c1"># endtry</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{
+    &quot;result&quot;: {
+        &quot;Hello&quot;: &quot;World&quot;
+    }
+}
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="ison-basics.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Getting Started</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="ison-lambda.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Lambda Functions</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#runtime-variables">Runtime Variables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#including-files">Including Files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#platform-dependent-dictionary">Platform Dependent Dictionary</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wildcards-in-node-names">Wildcards in Node Names</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#logging-print-debugging">Logging &amp; Print Debugging</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Christian Perwass
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022, Robert Bosch GmbH.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

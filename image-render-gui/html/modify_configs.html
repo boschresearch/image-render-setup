@@ -1,0 +1,647 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Modify Configurations &#8212; Catharsys Web GUI 1.0.5 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=c05c4e54"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'modify_configs';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Reference" href="reference/main.html" />
+    <link rel="prev" title="Web Image Viewer" href="image_viewer.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Catharsys Web GUI 1.0.5 documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="workflow_ex1.html">Example Workflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="get_started.html">Catharsys Web GUI - Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="image_viewer.html">Web Image Viewer</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Modify Configurations</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="reference/main.html">Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="reference/controls.html">GUI Controls</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reference/gui_def.html">GUI Definition Dictionary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reference/production.html">Production Configuration Reference</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="back-to-main.html">Back to main documentation</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/modify_configs.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Modify Configurations</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variants">Variants</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#defining-gui-elements">Defining GUI Elements</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#element-naming-convention">Element Naming Convention</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#per-element-gui-definition">Per-Element GUI Definition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gui-definition-block">GUI definition block</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#launch-arguments">Launch Arguments</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#trial-arguments">Trial Arguments</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multiple-trial-files">Multiple Trial Files</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="modify-configurations">
+<h1>Modify Configurations<a class="headerlink" href="#modify-configurations" title="Link to this heading">#</a></h1>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<p><img alt="Workspace View" src="_images/workspace-view-02-annotated.png" /></p>
+<p>The main workspace view allows you to modify the launch, action and trial parameters of a configuration and execute an action. When modifying parameters here, the original parameters are not changed, however. Instead, variants of the whole configuration, the launch and the trial parameters are created, which may then be modified. When you change the original configuration files via an editor, you can update one or all variants with the changes via a GUI menu option, without overwriting all variant changes.</p>
+<p>The variants are implemented by creating a copy of the launch, trial an possibly other configuration files. These copies can then be modified by the user via the GUI. When an action is executed for a specific variant, the whole configuration with all configuration files is copied to an execution instance folder, replacing the launch and trial files with the version of the currently selected variant. This also allows the user to modify the parameters of a variant, while an action is executed on the variant, as the execution uses a separate, temporary copy of the configuration files.</p>
+<p>When images have been rendered from executing a variant, you can use the eye-icon to view the generated data. Note, that images will only be shown if a <code class="docutils literal notranslate"><span class="pre">production</span></code> configuration is available for the render configuration. See <a class="reference internal" href="image_viewer.html"><span class="doc">Web Image Viewer</span></a> for more details.</p>
+</section>
+<section id="variants">
+<h2>Variants<a class="headerlink" href="#variants" title="Link to this heading">#</a></h2>
+<p>The following shows an exemplary folder structure that may be created via the web gui.</p>
+<p><img alt="Variant folder structure" src="_images/variant-file-structure-1.png" /></p>
+<p>You can give a name and description to each variant, to more easily go back to certain configurations. If the name includes a ‘:’, then the text in front of the ‘:’ is the short title used in the drop-down box.</p>
+<p>You can create and delete variants via the menus. You can also add variants with the <code class="docutils literal notranslate"><span class="pre">+</span></code> buttons in the variant selection fields.</p>
+</section>
+<section id="defining-gui-elements">
+<h2>Defining GUI Elements<a class="headerlink" href="#defining-gui-elements" title="Link to this heading">#</a></h2>
+<p>Elements defined in the launch and trial configuration files can be made editable via the GUI in different ways:</p>
+<ul class="simple">
+<li><p>element naming convention</p></li>
+<li><p>per-element GUI definition</p></li>
+<li><p>GUI definition block <code class="docutils literal notranslate"><span class="pre">mGUI</span></code></p></li>
+</ul>
+<section id="element-naming-convention">
+<h3>Element Naming Convention<a class="headerlink" href="#element-naming-convention" title="Link to this heading">#</a></h3>
+<p>The easiest way is to use the element naming convention of the Catharsys pre-defined elements, like <code class="docutils literal notranslate"><span class="pre">iFrameStart</span></code> or <code class="docutils literal notranslate"><span class="pre">bDoProcess</span></code>. Elements in the launch file following this naming convention are automatically displayed in the GUI without any further definitions needed. Specifically, the naming convention is:</p>
+<ul class="simple">
+<li><p>the first letter is one of the following lowercase letters:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">i</span></code>: integer value</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">f</span></code>: float value</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">b</span></code>: bool value</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">s</span></code>: string value</p></li>
+</ul>
+</li>
+<li><p>The second letter must be an uppercase letter.</p></li>
+<li><p>If the rest of the variable name uses camel case for multiple words, spaces are inserted between words for the description.</p></li>
+</ul>
+<p>For example, the configuration file definitions</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="nt">&quot;bDoProcess&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="nt">&quot;iConfigCountX&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
+</pre></div>
+</div>
+<p>generates the following GUI controls:</p>
+<p><img alt="Controls Example" src="_images/controls-ex-01.png" /></p>
+</section>
+<section id="per-element-gui-definition">
+<h3>Per-Element GUI Definition<a class="headerlink" href="#per-element-gui-definition" title="Link to this heading">#</a></h3>
+<p>To define the GUI representation of a configuration element in more detail, an additional element can be defined with the naming convention <code class="docutils literal notranslate"><span class="pre">[Element</span> <span class="pre">name]/gui</span></code>, which must define a dictionary. For example,</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="nt">&quot;my_value&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">3.14</span><span class="p">,</span>
+<span class="nt">&quot;my_value/gui&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;sDTI&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;gui/control/number/float:1&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;sLabel&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;My Value&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;sTooltip&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;This is my wonderful value&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">my_value/gui</span></code> element defines the GUI representation of <code class="docutils literal notranslate"><span class="pre">my_value</span></code> explicitly. The base definition elements available for all GUI control types are:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">sDTI</span></code>: The type of GUI control element. This element is optional, if the type can be deduced from the name as described before. For a full list of availabel control types see <a class="reference internal" href="reference/controls.html"><span class="doc">GUI Controls</span></a>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sLabel</span></code>: The GUI element label. If this element is not given, the name is either deduced from the naming convention or the element name itself is used.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sTooltip</span></code>: A tooltip for the GUI element. If this element is not given, no tooltip is shown.</p></li>
+</ul>
+<p>Every control may have additional elements to specify more details. See <a class="reference internal" href="reference/controls.html"><span class="doc">GUI Controls</span></a> for a full description.</p>
+</section>
+<section id="gui-definition-block">
+<h3>GUI definition block<a class="headerlink" href="#gui-definition-block" title="Link to this heading">#</a></h3>
+<p>The GUI can be controlled in more detail using a top-level element <code class="docutils literal notranslate"><span class="pre">mGui</span></code> in the configuration file, which must be a dictionary. This dictionary must have an element <code class="docutils literal notranslate"><span class="pre">sDTI</span></code> with the value <code class="docutils literal notranslate"><span class="pre">/catharsys/gui/settings:1.0</span></code>. All other elements in this dictionary are optional. It can contain the following elements:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Element</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">mVars</span></code></p></td>
+<td><p>dictionary</p></td>
+<td><p>GUI control definitions per variable.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">mControlDefaults</span></code></p></td>
+<td><p>dictionary</p></td>
+<td><p>Default values per control type.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">bShowAllVars</span></code></p></td>
+<td><p>bool</p></td>
+<td><p>If true (default), all valid configuration elements are shown.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">lIncludeVars</span></code></p></td>
+<td><p>list</p></td>
+<td><p>List of configuration elements that are shown.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">lExcludeVars</span></code></p></td>
+<td><p>list</p></td>
+<td><p>List of configuration elements that are <strong>not</strong> shown.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">mGridLayout</span></code></p></td>
+<td><p>dictionary</p></td>
+<td><p>Definition of GUI grid layout.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>See <a class="reference internal" href="reference/gui_def.html"><span class="doc">GUI Definition Dictionary</span></a> for a detailed description.</p>
+</section>
+</section>
+<section id="launch-arguments">
+<h2>Launch Arguments<a class="headerlink" href="#launch-arguments" title="Link to this heading">#</a></h2>
+<p><img alt="Launch Arguments" src="_images/workspace-view-03-annotated.png" /></p>
+<p>By default, all global launch arguments that are pre-defined by the Catharsys system are available for modification in the GUI. Furthermore, all user defined launch arguments are automatically available, if they follow the naming convention described above.</p>
+<p>The same is true for the per-action configuration elements. These are displayed in a separate block below the global launch arguments, as shown in the image above.</p>
+<p>The GUI settings from an optional <code class="docutils literal notranslate"><span class="pre">mGui</span></code> block in the launch file apply to the global and action specific launch arguments.</p>
+</section>
+<section id="trial-arguments">
+<h2>Trial Arguments<a class="headerlink" href="#trial-arguments" title="Link to this heading">#</a></h2>
+<p>Trial configuration files are treated somewhat differently to launch configuration files. A launch file should only contain parameters that are specific to the launching of an action. For a rendering action this can be the render quality, the number of frames and the execution machine.</p>
+<p>The trial files, on the other hand, should capture all parameters that define what is done by the action. For a rendering action this can be the Blender file to use, the assets to use, the modifiers, the camera, etc. A trial file, together with the configuration files it references, should fully define the results generated by an action. To change the generated products the trial file or its’ referenced configuration files have to be changed. Also, multiple trial files can be used, to keep different versions.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>The launch configuration file must not contain any definitions that are needed to identically recreate an action content. The render quality, frame count, etc. do not modify the rendered content and are therefore part of the launch file.</p>
+</div>
+<p>The elements of a trial file that can be modified via the GUI are the local and global variables, and all elements in the <code class="docutils literal notranslate"><span class="pre">mConfigs</span></code> block. By default, no elements of a trial file are represented by GUI controls. To enable this feature you need to add a <code class="docutils literal notranslate"><span class="pre">mGui</span></code> block and either set <code class="docutils literal notranslate"><span class="pre">bShowAllVars</span></code> to true, or list all local and global variables that should be shown in <code class="docutils literal notranslate"><span class="pre">lIncludeVars</span></code>.  Note that again only those elements are shown that either follow the naming convention or that have an associated gui definition block.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Note that every action can specify a separate trial file. Therefore, the trial GUI can change when changing the active action.</p>
+</div>
+<section id="example">
+<h3>Example<a class="headerlink" href="#example" title="Link to this heading">#</a></h3>
+<p>Here is an example trial file with GUI definitions:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="nt">&quot;__globals__&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;sAssetPath&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;~/my_assets&quot;</span><span class="p">,</span>
+<span class="p">},</span>
+
+<span class="nt">&quot;__locals__&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;sBlenderFilename&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Empty&quot;</span><span class="p">,</span>
+<span class="p">},</span>
+
+<span class="nt">&quot;mGui&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;sDTI&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/catharsys/gui/settings:1.0&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;bShowAllVars&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;mVars&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// All elements of the &#39;mConfigs&#39; block should be</span>
+<span class="w">        </span><span class="c1">// selection controls. Multiple selection is enabled automatically.</span>
+<span class="w">        </span><span class="nt">&quot;mod&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;sDTI&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;gui/control/select/str:1&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;sLabel&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Modifications&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;sTooltip&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Select a set of modifications&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;lOptions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;modify/ex1&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;modify/ex2&quot;</span><span class="w"> </span><span class="p">],</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;sBlenderFilename&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;sDTI&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;gui/control/select/str:1&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;sLabel&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Blender Base File&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;sTooltip&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Select a Blender base file&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;lOptions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;Empty&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Basic_01&quot;</span><span class="p">],</span><span class="w">    </span>
+<span class="w">            </span><span class="nt">&quot;bMultiple&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">           </span>
+<span class="w">        </span><span class="p">},</span>
+
+<span class="w">    </span><span class="p">},</span>
+<span class="p">},</span>
+
+<span class="nt">&quot;mConfigs&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;render&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;render&quot;</span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;cap&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;capture&quot;</span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;cam&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;Cam.Pano.Std.Test_120deg_48KP&quot;</span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;loop_x&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;loop/rand-x&quot;</span><span class="w"> </span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;loop_y&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;loop/rand-y&quot;</span><span class="w"> </span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;mod&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;modify/ex1&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;modify/ex2&quot;</span><span class="w"> </span><span class="p">],</span>
+
+<span class="w">    </span><span class="nt">&quot;depth&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;depth&quot;</span><span class="p">],</span>
+<span class="p">},</span>
+
+<span class="nt">&quot;mBlender&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;sDTI&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/catharsys/trial/blender:1.0&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;sBlenderFile&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;${path-workspace}/blend/$sBlenderFilename.blend&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>This generates the following GUI elements:</p>
+<p><img alt="Trial controls" src="_images/workspace-trial-ex-01.png" /></p>
+<p>The variables defined under <code class="docutils literal notranslate"><span class="pre">__globals__</span></code> are available in all configurations referenced by the trial file. The <code class="docutils literal notranslate"><span class="pre">sBlenderFilename</span></code> variable defined under <code class="docutils literal notranslate"><span class="pre">__locals__</span></code> is only available in the trial configuration and is used to define the Blender file in the <code class="docutils literal notranslate"><span class="pre">mBlender</span></code> block.</p>
+<p>The variable <code class="docutils literal notranslate"><span class="pre">mod</span></code> is a configuration id as defined in the manifest file. The GUI element must be a selection element with multiple selection, so that a list is returned. In this example, the GUI element allows you to select which modification configurations are applied.</p>
+</section>
+<section id="multiple-trial-files">
+<h3>Multiple Trial Files<a class="headerlink" href="#multiple-trial-files" title="Link to this heading">#</a></h3>
+<p>As discussed above it can be useful to have multiple trial files. Note that each trial file references its’ own manifest file, such that the trials can reference different sets of configurations. To make a set of different trial files selectable via the GUI, you need to define the element <code class="docutils literal notranslate"><span class="pre">lTrialFileOptions</span></code> in the launch file, either under <code class="docutils literal notranslate"><span class="pre">mGlobalArgs</span></code> or in the <code class="docutils literal notranslate"><span class="pre">mConfig</span></code> block of a specific action definition in the launch file. The list of trial files defined for a specific action takes precedence over a list defined in the global arguments block.</p>
+<p>For example, if the available trial files are defined as</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="nt">&quot;lTrialFileOptions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;trial&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;trial-2&quot;</span><span class="p">],</span>
+</pre></div>
+</div>
+<p>there is an additional GUI control added automatically next to the trial variant selection, where the active trial file can be selected:</p>
+<p><img alt="Trial file selection" src="_images/workspace-trial-file-sel-1.png" /></p>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="image_viewer.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Web Image Viewer</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="reference/main.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Reference</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variants">Variants</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#defining-gui-elements">Defining GUI Elements</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#element-naming-convention">Element Naming Convention</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#per-element-gui-definition">Per-Element GUI Definition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gui-definition-block">GUI definition block</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#launch-arguments">Launch Arguments</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#trial-arguments">Trial Arguments</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multiple-trial-files">Multiple Trial Files</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Christian Perwass
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023, Robert Bosch GmbH.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

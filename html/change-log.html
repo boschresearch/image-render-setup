@@ -1,0 +1,1328 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Change Log &#8212; Image-Render Setup 3.2.36 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=5976921d"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'change-log';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="License" href="license.html" />
+    <link rel="prev" title="Code Development" href="develop.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Image-Render Setup 3.2.36 documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Catharsys Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="system_main.html">System Tools &amp; Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gui_main.html">Web User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workspace_main.html">Automation with Workspaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="develop.html">Code Development</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Change Log</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/change-log.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Change Log</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#catharsys-release-3-2-35">2024-06-07 Catharsys Release 3.2.35</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#catharsys-release-3-2-33">2023-12-05 Catharsys Release 3.2.33</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#catharsys-release-3-2-32">2023-11-20 Catharsys Release 3.2.32</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#catharsys-release-3-2-31">2023-11-15 Catharsys Release 3.2.31</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#catharsys-release-3-2-30">2023-10-10 Catharsys Release 3.2.30</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#catharsys-release-3-2-29">2023-10-06 Catharsys Release 3.2.29</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#catharsys-release-3-2-28">2023-06-21 Catharsys Release 3.2.28</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#catharsys-release-3-2-27">2023-06-06 Catharsys Release 3.2.27</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#catharsys-release-3-2-26">2023-05-22 Catharsys Release 3.2.26</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#catharsys-release-3-2-25">2023-05-15 Catharsys Release 3.2.25</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#catharsys-release-3-2-19">2023-04-25 Catharsys Release 3.2.19</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#catharsys-release-3-2-18">2023-04-20 Catharsys Release 3.2.18</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#catharsys-release-3-2-17">2023-04-18 Catharsys Release 3.2.17</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#catharsys-release-3-2-16">2023-04-17 Catharsys Release 3.2.16</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#catharsys-release-3-2-15">2023-04-04 Catharsys Release 3.2.15</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#catharsys-release-3-2-14">2023-04-04 Catharsys Release 3.2.14</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#catharsys-release-3-2-13">2023-02-09 Catharsys Release 3.2.13</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#catharsys-release-3-2-11">2023-01-27 Catharsys Release 3.2.11</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#catharsys-release-3-2-10">2022-12-13 Catharsys Release 3.2.10</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#catharsys-release-3-2-8">2022-12-08 Catharsys Release 3.2.8</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#catharsys-release-3-2-6">2022-11-29 Catharsys Release 3.2.6</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#catharsys-release-3-2-5">2022-11-24 Catharsys Release 3.2.5</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#catharsys-release-3-2-4">2022-11-22 Catharsys Release 3.2.4</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#catharsys-release-3-2-0">2022-11-17 Catharsys Release 3.2.0</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#catharsys-release-3-1-17">2022-10-27 Catharsys Release 3.1.17</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#catharsys-release-3-1-16">2022-10-24 Catharsys Release 3.1.16</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#catharsys-release-3-1-15">2022-10-12 Catharsys Release 3.1.15</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#catharsys-release-3-1-14">2022-10-11 Catharsys Release 3.1.14</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#catharsys-release-3-1-13">2022-10-10 Catharsys Release 3.1.13</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#catharsys-release-3-1-12">2022-10-06 Catharsys Release 3.1.12</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#catharsys-release-3-1-11">2022-10-06 Catharsys Release 3.1.11</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#catharsys-release-3-1-10">2022-10-06 Catharsys Release 3.1.10</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#catharsys-release-3-1-6">2022-09-29 Catharsys Release 3.1.6</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#catharsys-release-3-1-5">2022-09-28 Catharsys Release 3.1.5</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#catharsys-release-3-1-4">2022-09-27 Catharsys Release 3.1.4</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#catharsys-release-3-1-2">2022-09-23 Catharsys Release 3.1.2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#catharsys-release-3-1-0">2022-09-06 Catharsys Release 3.1.0</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#catharsys-release-3-0-48">2022-09-01 Catharsys Release 3.0.48</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#catharsys-release-3-0-47">2022-09-01 Catharsys Release 3.0.47</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#catharsys-release-3-0-46">2022-09-01 Catharsys Release 3.0.46</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#catharsys-release-3-0-45">2022-08-30 Catharsys Release 3.0.45</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#catharsys-release-3-0-44">2022-08-30 Catharsys Release 3.0.44</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#catharsys-release-3-0-43">2022-08-29 Catharsys Release 3.0.43</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#catharsys-release-3-0-42">2022-08-26 Catharsys Release 3.0.42</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#catharsys-release-3-0-41">2022-08-25 Catharsys Release 3.0.41</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#catharsys-release-3-0-40">2022-08-24 Catharsys Release 3.0.40</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#catharsys-release-3-0-39">2022-08-23 Catharsys Release 3.0.39</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="change-log">
+<h1>Change Log<a class="headerlink" href="#change-log" title="Link to this heading">#</a></h1>
+<section id="catharsys-release-3-2-35">
+<h2>2024-06-07 Catharsys Release 3.2.35<a class="headerlink" href="#catharsys-release-3-2-35" title="Link to this heading">#</a></h2>
+<p>This release is a collection of some bug fixes and added documentation.</p>
+<ul class="simple">
+<li><p><strong>Camera Module</strong></p>
+<ul>
+<li><p>There are some bug fixes for the OpenCV camera module by Melanie Bay, see (PR)[https://github.com/boschresearch/image-render-blender-camera/pull/4].</p></li>
+<li><p>The feature to transform the scene to the camera frame, which is needed for non-Blender native cameras, now transforms all objects of all view layers.</p></li>
+</ul>
+</li>
+<li><p><strong>Syntax Highlighting</strong></p>
+<ul>
+<li><p>The VSCode addon for the json5 syntax highlighting has been updated, so that it also works with the latest version of VSCode. The binary <code class="docutils literal notranslate"><span class="pre">.vsix</span></code> file is part of the release on GitHub.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="catharsys-release-3-2-33">
+<h2>2023-12-05 Catharsys Release 3.2.33<a class="headerlink" href="#catharsys-release-3-2-33" title="Link to this heading">#</a></h2>
+<p>To update a develop installation to this version, you need to run <code class="docutils literal notranslate"><span class="pre">cathy</span> <span class="pre">install</span> <span class="pre">system</span> <span class="pre">--update</span></code>. This should clone  new repositories and install all modified modules in the Anaconda environment. You may also have to update the Catharsys installation in Blender using <code class="docutils literal notranslate"><span class="pre">cathy</span> <span class="pre">blender</span> <span class="pre">init</span> <span class="pre">-c</span> <span class="pre">[your</span> <span class="pre">config]</span></code>.</p>
+<ul class="simple">
+<li><p><strong>Blender</strong></p>
+<ul>
+<li><p>Blender 4 has some breaking changes in its’ Python code. The Catharsys code has been adapted to support Blender 3.x and 4.0.</p></li>
+<li><p>Only the Catharsys modules that are needed in Blender are installed to Blender python now. The list of modules that are installed is given in the file <code class="docutils literal notranslate"><span class="pre">image-render-actions-std-blender/src/catharsys/plugins/std/blender/data/blender-install.json5</span></code>. The module names are actually interpreted as regular expressions.</p></li>
+</ul>
+</li>
+<li><p><strong>Generative AI Action</strong></p>
+<ul>
+<li><p>A generative AI action repository is now added as <code class="docutils literal notranslate"><span class="pre">image-render-generative</span></code>.</p></li>
+<li><p>The <a class="reference external" href="https://github.com/boschresearch/image-render-generative/blob/main/scripts/get_takuma_diffusers.ps1">PowerShell script</a> to install the code and download the network weights now contains the correct versions of all modules explicitly.</p></li>
+<li><p>The module <code class="docutils literal notranslate"><span class="pre">image-render-workspace-examples</span></code> has an additional example configuration for using the generative rendering.</p></li>
+</ul>
+</li>
+<li><p><strong>Miscellaneous</strong></p>
+<ul>
+<li><p>The JSON output of the product analysis is now better suited for further processing. The path to the missing artefacts is now given as tuple, where each part is an element of the path structure given in the production definition.</p></li>
+<li><p>You can now install a Blender modifier template module with the command <code class="docutils literal notranslate"><span class="pre">cathy</span> <span class="pre">install</span> <span class="pre">template</span> <span class="pre">std-modifier-blender</span></code>.</p></li>
+</ul>
+</li>
+<li><p><strong>Web GUI</strong></p>
+<ul>
+<li><p><strong>Much improved GUI with new split window image viewer</strong>. The image viewer is now activated by simply clicking on an image. The image is then shown in a panel to the right of the main view.</p></li>
+<li><p>Improved visualization with less empty spaces around elements. Long label names are now also broken into a number of lines at spaces, underscores and hyphens.</p></li>
+<li><p><strong>The GUI now supports annotation of the result data</strong> by categorizing the path structure variables defined in the production definition. Documentation for this feature can be found here (<a class="reference external" href="https://github.com/boschresearch/image-render-automation/tree/main/docs/source/products/categorize.md">markdown</a>|<a class="reference external" href="../image-render-automation/html/products/categorize.html" title="(in Image-Render Automation)"><span class="xref std std-doc">docs</span></a>). An example can be found in the <a class="reference external" href="https://github.com/boschresearch/image-render-workspace-examples/blob/main/config/usecase/generative/production.json5">production</a> JSON file of the <code class="docutils literal notranslate"><span class="pre">usecase/generative</span></code> configuration of the <code class="docutils literal notranslate"><span class="pre">image-render-workspace-examples</span></code> <a class="reference external" href="https://github.com/boschresearch/image-render-workspace-examples/tree/main">module</a>.</p></li>
+<li><p>The module <code class="docutils literal notranslate"><span class="pre">nicegui</span></code> which is used by Catharsys has had a major version change with breaking changes. The Catharsys code has been adopted accordingly. The Catharsys installer of the web gui module now fixes the nicegui version to 1.4.5.</p></li>
+</ul>
+</li>
+<li><p><strong>Automation</strong></p>
+<ul>
+<li><p>Whole configuration files can now be enabled/disabled with an element <code class="docutils literal notranslate"><span class="pre">bEnabled</span></code> in the manifest declaration as well as at the top level of the configuration file itself. This is an updated version of the <code class="docutils literal notranslate"><span class="pre">sFilter</span></code> element, which is evaluated as Python string. The <code class="docutils literal notranslate"><span class="pre">bEnabled</span></code> element has to evaluate to a <code class="docutils literal notranslate"><span class="pre">bool</span></code>, <code class="docutils literal notranslate"><span class="pre">integer</span></code> or <code class="docutils literal notranslate"><span class="pre">float</span></code>. Value <code class="docutils literal notranslate"><span class="pre">true</span></code> or values other than zero are regarded as <code class="docutils literal notranslate"><span class="pre">true</span></code>. You can, for example, use this element to only enable certain configurations if another specific configuration is active.</p></li>
+</ul>
+</li>
+<li><p><strong>Bug Fixes</strong></p>
+<ul>
+<li><p>Import paths were not always set correctly in the ison parser.</p></li>
+<li><p>A relative configuration path was not processed correctly by the commands <code class="docutils literal notranslate"><span class="pre">cathy</span> <span class="pre">prod</span> <span class="pre">[...]</span></code>.</p></li>
+<li><p>The logging action is now also enabled for the rolling shutter capture configurations.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="catharsys-release-3-2-32">
+<h2>2023-11-20 Catharsys Release 3.2.32<a class="headerlink" href="#catharsys-release-3-2-32" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Blender Render Action</strong></p>
+<ul>
+<li><p>Important bug fixes for rolling shutter rendering and post processing.</p></li>
+</ul>
+</li>
+<li><p><strong>Automation</strong></p>
+<ul>
+<li><p>A new nested loop configuration type has been added with id <code class="docutils literal notranslate"><span class="pre">/catharsys/manifest/control/loop/nested-range:1.0</span></code>. It allows you to specify a nested loop of arbitrary depth in a single configuration. See the configuration <code class="docutils literal notranslate"><span class="pre">config/usecase/loop-nested</span></code> of the module <code class="docutils literal notranslate"><span class="pre">image-render-workspace-examples</span></code> for an example.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="catharsys-release-3-2-31">
+<h2>2023-11-15 Catharsys Release 3.2.31<a class="headerlink" href="#catharsys-release-3-2-31" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Web GUI</strong></p>
+<ul>
+<li><p>This release adds the module <code class="docutils literal notranslate"><span class="pre">image-render-gui</span></code>, which implements a web GUI for launching Catharsys jobs and viewing created products, like images. See the <a class="reference external" href="../image-render-gui/html/get_started.html" title="(in Catharsys Web GUI)"><span class="xref std std-doc">Web GUI Documentation</span></a> for more information.</p></li>
+</ul>
+</li>
+<li><p><strong>Blender Render Action</strong></p>
+<ul>
+<li><p>The render action now also applies the render output type modifiers after possible annotation modifications have been applied to the scene. This is done with the apply type “POST_ANNOTATION”. This can, for example, be used to set materials created for annotation as arguments to geometry node trees.</p></li>
+<li><p>A modifier can now also specify the apply mode “<code class="docutils literal notranslate"><span class="pre">*</span></code>” in <code class="docutils literal notranslate"><span class="pre">lApplyModes</span></code>, to be run for all apply modes.</p></li>
+<li><p><strong>Rolling Shutter Rendering</strong> is now working again for 3d-position ground truth rendering. The rolling shutter construction action now supports calculating depth with standard deviation from this data.</p></li>
+</ul>
+</li>
+<li><p><strong>Example Workspace</strong></p>
+<ul>
+<li><p>The module <code class="docutils literal notranslate"><span class="pre">image-render-workspace-examples</span></code> now includes an example of how to render, construct and tonemap rolling shutting images. You can find it under <code class="docutils literal notranslate"><span class="pre">config/usecase/rolling-shutter</span></code>. This also includes a <code class="docutils literal notranslate"><span class="pre">production.json5</span></code> configuration for the Web GUI, to view the generated images.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="catharsys-release-3-2-30">
+<h2>2023-10-10 Catharsys Release 3.2.30<a class="headerlink" href="#catharsys-release-3-2-30" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Installation</strong></p>
+<ul>
+<li><p>The module <code class="docutils literal notranslate"><span class="pre">image-render-setup</span></code> now also installs <code class="docutils literal notranslate"><span class="pre">GitPython</span></code></p></li>
+<li><p>The system install command only demands git, when installing from repositories.</p></li>
+</ul>
+</li>
+<li><p><strong>Internals</strong></p>
+<ul>
+<li><p>Module <code class="docutils literal notranslate"><span class="pre">image-render-actions-std</span></code> no uses the module <code class="docutils literal notranslate"><span class="pre">cls_python.py</span></code> from anybase.</p></li>
+</ul>
+</li>
+<li><p><strong>ISON Parser</strong></p>
+<ul>
+<li><p>Bug fix, where some variables were not processed due to caching of processed configs.</p></li>
+</ul>
+</li>
+<li><p><strong>Blender Render Action</strong></p>
+<ul>
+<li><p>Fixes processing of render type dependent modifiers. These were not give all locals and globals
+from their parent configurations and render variable were not available.</p></li>
+</ul>
+</li>
+<li><p><strong>AnyCam</strong></p>
+<ul>
+<li><p>The anycam addon now allows you to automatically create compact camera pose paths for camera sets. That is, instead of representing the camera pose by a path, a single camera pose name is created. This can improve the usability.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="catharsys-release-3-2-29">
+<h2>2023-10-06 Catharsys Release 3.2.29<a class="headerlink" href="#catharsys-release-3-2-29" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>ISON Language</strong></p>
+<ul>
+<li><p>Bug fix: the function <code class="docutils literal notranslate"><span class="pre">$rand.generator{}</span></code> now generates consistent seeds from string and float values.</p></li>
+<li><p>The node names in the <code class="docutils literal notranslate"><span class="pre">__platform__</span></code> blocks, now allow for wildcards, i.e. ‘*’ for any number of characters
+and ‘?’ for a single character.</p></li>
+<li><p>The parsing speed has been improved by avoiding some deep copies in the code. For example, local variables are now pushed to a stack when entering nested dictionaries, instead of doing a deep copy.</p></li>
+</ul>
+</li>
+<li><p><strong>Configuration Generation</strong></p>
+<ul>
+<li><p>Bug fix: The variable <code class="docutils literal notranslate"><span class="pre">${path-trg}</span></code> and <code class="docutils literal notranslate"><span class="pre">${rel-path-trg}</span></code> are now generated correctly also for configurations that at a lower manifest loop level.</p></li>
+<li><p>The configuration generation has been sped up by improving the parsing speed itself, as well as the processing of manifest based configuration setups.</p></li>
+</ul>
+</li>
+<li><p><strong>Ground Truth</strong></p>
+<ul>
+<li><p>Optical flow ground truth estimation has been improved.</p></li>
+<li><p>Optical flow output is now black in background areas for LUT cameras and standard Blender cameras.</p></li>
+<li><p>When generating ground truth label with a LUT camera, the LUT file is now stored at the top level production
+folder and not with the image file. This reduces the amount of storage space needed.</p></li>
+<li><p>User defined label shader are now adapted automatically to using an emission or diffusion shader depending on the camera used. For example, a LUT camera must use emission shaders, while Blender native cameras can use a diffusion shader.</p></li>
+</ul>
+</li>
+<li><p><strong>Render Actions</strong></p>
+<ul>
+<li><p>adds support for EEVEE settings via configuration file. You can choose the render engine via the render settings config. In the new EEVEE settings config, the render quality etc. can be set.</p></li>
+</ul>
+</li>
+<li><p><strong>Post-Processing Actions</strong></p>
+<ul>
+<li><p>New focus blur action, that uses the depth ground truth to generate a depth-of-field effect.</p></li>
+<li><p>New motion blur action, that uses the flow ground truth to generate a motion blur effect.</p></li>
+</ul>
+</li>
+<li><p><strong>Modifiers</strong></p>
+<ul>
+<li><p>Modifier <code class="docutils literal notranslate"><span class="pre">blender/generate/collection/import/folder-type-hierarchy:1</span></code></p>
+<ul>
+<li><p>can now also import <code class="docutils literal notranslate"><span class="pre">.fbx</span></code>, <code class="docutils literal notranslate"><span class="pre">.glb</span></code> and <code class="docutils literal notranslate"><span class="pre">.gltf</span></code> files,</p></li>
+<li><p>has new option <code class="docutils literal notranslate"><span class="pre">bJoinObjectGroups</span></code> to optionally join all objects imported from a file into a single object,</p></li>
+<li><p>has new option <code class="docutils literal notranslate"><span class="pre">lIncludeFileSuffix</span></code> to optionally set a list of file types to import. Default is all file types.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>System</strong></p>
+<ul>
+<li><p>the command <code class="docutils literal notranslate"><span class="pre">cathy</span> <span class="pre">code</span> <span class="pre">init</span></code> now also sets the flag <code class="docutils literal notranslate"><span class="pre">git.alwaysSignOff</span></code> to always add a <code class="docutils literal notranslate"><span class="pre">signed-off-by</span></code> text to the commit message.</p></li>
+<li><p>the command <code class="docutils literal notranslate"><span class="pre">cathy</span> <span class="pre">repos</span> <span class="pre">release</span></code> now adds the ‘signed-off-by’ text in addition to GPG signing commits.</p></li>
+<li><p>the set of paths used to search for the <code class="docutils literal notranslate"><span class="pre">conda-hook.ps1</span></code> script on windows systems is extended to include the local app data path, and Miniconda3 as well as Anaconda3 installs. If nothing works, you can set the path to the Anaconda install with the new environment variable <code class="docutils literal notranslate"><span class="pre">CATHARSYS_CONDA_PATH</span></code>. If this environment variable is set, it is the
+only path the system looks for the conda hook script.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="catharsys-release-3-2-28">
+<h2>2023-06-21 Catharsys Release 3.2.28<a class="headerlink" href="#catharsys-release-3-2-28" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Documentation</strong></p>
+<ul>
+<li><p>There is now more information on the <a class="reference external" href="../image-render-automation/html/index.html" title="(in Image-Render Automation)"><span class="xref std std-doc">automation system</span></a>. In particular, the first part of a tutorial series on how to work with Catharsys has been added.</p></li>
+</ul>
+</li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">cathy</span></code> commands</strong></p>
+<ul>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">cathy</span> <span class="pre">code</span> <span class="pre">init</span></code> command now adds a setting to the VS Code workspace that stops VS Code from activating a conda environment, as this has already been done by the shell script generated by the command.</p></li>
+</ul>
+</li>
+<li><p><strong>Job Execution</strong></p>
+<ul>
+<li><p>New LSF execution configuration parameters <code class="docutils literal notranslate"><span class="pre">lJobExcludeHosts</span></code> and <code class="docutils literal notranslate"><span class="pre">lJobHosts</span></code>. Both expect lists of strings. The later expects host names or host group names.</p></li>
+</ul>
+</li>
+<li><p><strong>Actions</strong></p>
+<ul>
+<li><p><em>Blender render logging action</em></p>
+<ul>
+<li><p>now supports additional parameter <code class="docutils literal notranslate"><span class="pre">bLogCameraSet</span></code>. If this is set to <code class="docutils literal notranslate"><span class="pre">false</span></code>, the camera set yaml files will not be written.</p></li>
+</ul>
+</li>
+<li><p><em>Standard render action</em></p>
+<ul>
+<li><p>In the trial file you can now leave out the “sBlenderFile” parameter in the “mBlender” block, or set it to an empty string. In this case, Blender starts up with an empty Blender Scene. The default box, camera and light are automatically deleted. Note, you still need the “mBlender” block as before.</p></li>
+<li><p>You no longer need to specify a camera configuration. If no camera is specified, no camera will be activated and rendering an image will lead to errors. This is mainly used when generating new Blender files.</p></li>
+<li><p>You no longer need to specify a capture configuration for the standard Blender rendering. If no configuration is specified, the render FPS is the same as the scene FPS set in the Blender file.</p></li>
+<li><p>There is a new render output type “none”, which does not output anything. This can be useful for configurations that import assets, modify them and export them again as .obj files.</p></li>
+</ul>
+</li>
+<li><p><em>Modifier</em> <em>(<a class="reference external" href="https://github.com/boschresearch/image-render-workspace-examples/tree/main/config/modify/modifier">modifier examples and documentation</a>)</em></p>
+<ul>
+<li><p>Apply object transformations, with sDTI: <a class="reference external" href="https://github.com/boschresearch/image-render-workspace-examples/blob/main/config/modify/modifier/object/apply-transforms.json5"><code class="docutils literal notranslate"><span class="pre">/catharsys/blender/modify/object/apply-transforms:1.0</span></code></a></p></li>
+<li><p>Remesh object with voxel remesh and then bake the original object’s texture onto the remeshed object: <a class="reference external" href="https://github.com/boschresearch/image-render-workspace-examples/blob/main/config/modify/modifier/object/voxel-remesh-bake-texture.json5"><code class="docutils literal notranslate"><span class="pre">/catharsys/blender/modify/object/voxel-remesh-bake-texture:1.0</span></code></a></p></li>
+<li><p>Export object as OBJ file: <a class="reference external" href="https://github.com/boschresearch/image-render-workspace-examples/blob/main/config/modify/modifier/object/export-obj.json5"><code class="docutils literal notranslate"><span class="pre">/catharsys/blender/modify/object/export/obj:1.0</span></code></a></p></li>
+<li><p>Fixes bug where python scripts were executed twice in evaluation modifier.</p></li>
+<li><p>Adds option <code class="docutils literal notranslate"><span class="pre">lRotationEuler_deg</span></code> to set the rotation in degrees when <a class="reference external" href="https://github.com/boschresearch/image-render-workspace-examples/blob/main/config/modify/modifier/generate/import-object.json5">importing objects</a>.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Functional JSON</strong></p>
+<ul>
+<li><p>To avoid inconsistencies in generating random numbers, the new function <code class="docutils literal notranslate"><span class="pre">$rand.generator{}</span></code> has been added, which returns the reference to a random number generator instance. This reference can then be used as first parameter in all <code class="docutils literal notranslate"><span class="pre">$rand.*{}</span></code> functions. See <a class="reference external" href="../functional-json/html/ipy/ison-functions-math.html" title="(in ISON - Functional JSON)"><span class="xref std std-doc">ISON math function documentation</span></a> for more information and examples.</p></li>
+</ul>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The root of the random number generation problem was, that we typically seeded the global random number generator of the python instance. This can lead to problems, if the seeding is not done before any random number is generated. However, you cannot in general enforce a process order when defining variables in a Functional JSON file. To solve this problem, you can now create a random number generator instance and reference it from all random number functions. In this way, if it does not already exist, the random number generator is created <em>before</em> the first random number is generated.</p>
+<p>Here are some important aspects to keep in mind when generating random numbers:</p>
+<ul class="simple">
+<li><p>DO NOT generate random numbers with <code class="docutils literal notranslate"><span class="pre">$py{}</span></code>. Use the <code class="docutils literal notranslate"><span class="pre">$rand.*{}</span></code> functions with a generator reference instead.</p></li>
+<li><p>Pass a randomizing seed to all external functions that generate random numbers.</p></li>
+<li><p>Define zwicky boxes in a <code class="docutils literal notranslate"><span class="pre">__func_globals__</span></code> block and instantiate them with <code class="docutils literal notranslate"><span class="pre">$rand.zwicky{}</span></code> and a generator reference.</p></li>
+<li><p>Note that some configuration parts may only be fully executable in the Blender context. To ensure consistency, define all random values such that they are generated during the initial configuration compilation.</p></li>
+</ul>
+</div>
+</section>
+<section id="catharsys-release-3-2-27">
+<h2>2023-06-06 Catharsys Release 3.2.27<a class="headerlink" href="#catharsys-release-3-2-27" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>System</p>
+<ul>
+<li><p>Uses git directly to clone all repositories during system installation. This avoids compatibility problems between <code class="docutils literal notranslate"><span class="pre">vcstool</span></code> and <code class="docutils literal notranslate"><span class="pre">git</span></code>.</p></li>
+<li><p>Adds command <code class="docutils literal notranslate"><span class="pre">cathy</span> <span class="pre">repos</span> <span class="pre">update</span></code>, which pulls <code class="docutils literal notranslate"><span class="pre">image-render-setup</span></code> and all repositories in the <code class="docutils literal notranslate"><span class="pre">repos</span></code> folder in their current branch. This command also clones repos that are in the repo list <code class="docutils literal notranslate"><span class="pre">repos-main.yaml</span></code> but are not in the repos folder.</p></li>
+</ul>
+</li>
+<li><p>Functional JSON (ISON)</p>
+<ul>
+<li><p>Fixes bug with nested <code class="docutils literal notranslate"><span class="pre">__includes__</span></code> using relative paths.</p></li>
+</ul>
+</li>
+<li><p>image-render-blender-human</p>
+<ul>
+<li><p>Fixes bugs with certain randomization modes</p></li>
+<li><p>adds unit tests</p></li>
+</ul>
+</li>
+<li><p>Documentation</p>
+<ul>
+<li><p>adds overview documentation</p></li>
+<li><p>adds first two parts of workspace tutorial</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="catharsys-release-3-2-26">
+<h2>2023-05-22 Catharsys Release 3.2.26<a class="headerlink" href="#catharsys-release-3-2-26" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Adds repository <code class="docutils literal notranslate"><span class="pre">image-render-workspace-examples</span></code> which contains a number of configuration examples for the <code class="docutils literal notranslate"><span class="pre">image-render</span></code> automation system. You can install this workspace from a distribution install via <code class="docutils literal notranslate"><span class="pre">cathy</span> <span class="pre">install</span> <span class="pre">workspace</span> <span class="pre">examples</span></code>. If you are in a develop install, first run the command <code class="docutils literal notranslate"><span class="pre">cathy</span> <span class="pre">build</span> <span class="pre">modules</span> <span class="pre">-m</span> <span class="pre">image-render-workspace-examples</span></code>, or simply look into the cloned repository.</p></li>
+<li><p>Bug fixes</p>
+<ul>
+<li><p>now executes the render output type modifiers before applying the lable configuration. In this way, you can enable objects just for the label pass, for example.</p></li>
+<li><p>fixes bug where random object distribution could ignore obstacles for first sampled position.</p></li>
+<li><p>fixes handling of shadow catcher for label rendering</p></li>
+<li><p>fixes bug in calculating label 3d boxes for scaled objects</p></li>
+<li><p>stores anycam camera data also for polynomial fisheye cameras when rendering pos3d</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="catharsys-release-3-2-25">
+<h2>2023-05-15 Catharsys Release 3.2.25<a class="headerlink" href="#catharsys-release-3-2-25" title="Link to this heading">#</a></h2>
+<p>This is the first release on GitHub. The main changes are:</p>
+<ul class="simple">
+<li><p>Documentation adapted to describe installation from GitHub and contributing via forks and pull-requests.</p></li>
+<li><p>Extended <code class="docutils literal notranslate"><span class="pre">cathy</span></code> command functionality to simplify develop installation from fork.</p></li>
+<li><p>GitHub workflow to automatically generate documentation.</p></li>
+</ul>
+</section>
+<section id="catharsys-release-3-2-19">
+<h2>2023-04-25 Catharsys Release 3.2.19<a class="headerlink" href="#catharsys-release-3-2-19" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Ground Truth</p>
+<ul>
+<li><p>Rendering of world coordinates is changed back again to rendering the absolute world coordinates. The offset used internally during rendering is applied directly after rendering. Also, if the scene is transformed to the camera frame during rendering, this transformation is recovered.</p></li>
+<li><p>If the scene is transformed to the camera frame for rendering, this is now done only for the render operation. All scene 3d data and camera data for labelling is stored before this transformation is applied.</p></li>
+<li><p>The world background is now rendered with color (0,0,0,0) in raw pos3d image.</p></li>
+<li><p>Depth post-processing now sets world background pixels to depth 0, as this would mean a point is on the camera’s optical center, which should not occur anyway.</p></li>
+</ul>
+</li>
+<li><p>Functional JSON</p>
+<ul>
+<li><p>New function <code class="docutils literal notranslate"><span class="pre">rand.int{a,</span> <span class="pre">b}</span></code> gives a uniformly distributed integer value within range <code class="docutils literal notranslate"><span class="pre">[a,</span> <span class="pre">b]</span></code> including both <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code>.</p></li>
+<li><p>New function <code class="docutils literal notranslate"><span class="pre">rand.sample_range{a,</span> <span class="pre">b,</span> <span class="pre">n,</span> <span class="pre">unique=[true|false],</span> <span class="pre">consec-differ=[true|false]}</span></code> samples <code class="docutils literal notranslate"><span class="pre">n</span></code> integers from the range <code class="docutils literal notranslate"><span class="pre">[a,</span> <span class="pre">b]</span></code> including both <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code>. If the named parameter <code class="docutils literal notranslate"><span class="pre">unique</span></code> is <code class="docutils literal notranslate"><span class="pre">true</span></code> the sampled values are unique, default is <code class="docutils literal notranslate"><span class="pre">true</span></code>. See the <a class="reference external" href="../functional-json/html/ipy/ison-functions-math.html" title="(in ISON - Functional JSON)"><span class="xref std std-doc">ISON math function documentation</span></a> for more information and examples.</p></li>
+<li><p>The lambda function <code class="docutils literal notranslate"><span class="pre">$!foreach{}</span></code> can now iterate over named parameters. See the <a class="reference external" href="../functional-json/html/ipy/ison-functions-lambda.html" title="(in ISON - Functional JSON)"><span class="xref std std-doc">ison lambda function documentation</span></a>.</p></li>
+<li><p>Bug fix, where empty strings weren’t processed properly by the lambda parser.</p></li>
+<li><p>The syntax highlighting of named lambda parameters has been implemented.</p></li>
+<li><p>The use of named parameters has been generalized. For example, the function <code class="docutils literal notranslate"><span class="pre">$write{}</span></code> now accepts its’ optional parameters also with the syntax <code class="docutils literal notranslate"><span class="pre">[name]=[value]</span></code>. More functions may use this syntax in the future.</p></li>
+<li><p>When using the function <code class="docutils literal notranslate"><span class="pre">$*{}</span></code> to convert a string to an object, you can now use backward quotes to denote strings, so that you do not have to use escaped double quotes. See the <a class="reference external" href="../functional-json/html/ipy/ison-functions-special.html" title="(in ISON - Functional JSON)"><span class="xref std std-doc">ISON special function documentation</span></a>.</p></li>
+<li><p>The syntax highlighting has been updated to support named argument highlighting and backquote strings.</p></li>
+</ul>
+</li>
+<li><p>Modifier</p>
+<ul>
+<li><p>Random random placement modifier:</p>
+<ul>
+<li><p>bug fix: when using the camera FoV, the modifier did not distinguish in front and behind camera. This is fixed now for versions 1 and 2.</p></li>
+<li><p>bug fix: the numpy random number generator was not seeded correctly, so that the randomized scenarios were not deterministically repeatable.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="catharsys-release-3-2-18">
+<h2>2023-04-20 Catharsys Release 3.2.18<a class="headerlink" href="#catharsys-release-3-2-18" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Rebuild of release package due to inconsistent versioning in previous release.</p></li>
+</ul>
+</section>
+<section id="catharsys-release-3-2-17">
+<h2>2023-04-18 Catharsys Release 3.2.17<a class="headerlink" href="#catharsys-release-3-2-17" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">cathy</span></code> commands</p>
+<ul>
+<li><p>New option to only install the system documentation locally with <code class="docutils literal notranslate"><span class="pre">cathy</span> <span class="pre">system</span> <span class="pre">install</span> <span class="pre">--docs</span> <span class="pre">[doc</span> <span class="pre">zip</span> <span class="pre">file(s)]</span></code>. This can be helpful in a develop install, where you only pull the latest changes and do not re-run the module installation. With this new option you can easily install the latest documentation from a zip file to make it available via <code class="docutils literal notranslate"><span class="pre">cathy</span> <span class="pre">--docs</span></code>. If you do not specify a documentation zip file, the documentation from last <code class="docutils literal notranslate"><span class="pre">pip</span></code> installed <code class="docutils literal notranslate"><span class="pre">image-render-setup</span></code> module is used.</p></li>
+<li><p>New command to copy a workspace configuration within a workspace: <code class="docutils literal notranslate"><span class="pre">cathy</span> <span class="pre">ws</span> <span class="pre">copy</span> <span class="pre">config</span> <span class="pre">[source</span> <span class="pre">config]</span> <span class="pre">[target</span> <span class="pre">config]</span></code>. This is helpful, since a <code class="docutils literal notranslate"><span class="pre">cathy</span> <span class="pre">blender</span> <span class="pre">init</span></code> adds the folder <code class="docutils literal notranslate"><span class="pre">_blender</span></code> to a configuration, which you shouldn’t copy when copying a configuration, as this will copy the source code of all linked Blender addons as well, instead of just copying their links. After copying a configuration you need to run <code class="docutils literal notranslate"><span class="pre">cathy</span> <span class="pre">blender</span> <span class="pre">init</span> <span class="pre">--addons</span> <span class="pre">-c</span> <span class="pre">[config</span> <span class="pre">name]</span></code> for this configuration. If you have a develop install, you need to run <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-e</span> <span class="pre">.</span></code> in the repository folder <code class="docutils literal notranslate"><span class="pre">image-render-automation</span></code> to make this command available.</p></li>
+</ul>
+</li>
+<li><p>Automation System</p>
+<ul>
+<li><p>There are two new parameters you can set in the launch file:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">iConfigsPerGroup</span></code> specifies the number of configurations per group. If this value is given it takes prevalence over <code class="docutils literal notranslate"><span class="pre">iConfigGroups</span></code>. The number of config groups is instead calculated from <code class="docutils literal notranslate"><span class="pre">iConfigsPerGroup</span></code> so that there is one group for each <code class="docutils literal notranslate"><span class="pre">iConfigsPerGroup</span></code> block. This parameter allows you to keep the number of configurations per job constant while varying the number of jobs generated.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">iFramePerGroup</span></code> specifies the number frames processed per group. If this value is given, it takes prevalence over <code class="docutils literal notranslate"><span class="pre">iFrameGroups</span></code>, just like the <code class="docutils literal notranslate"><span class="pre">iConfigsPerGroup</span></code> parameter.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Rendering</p>
+<ul>
+<li><p>Bug fix in rendering of 3D world coordinates.</p></li>
+</ul>
+</li>
+<li><p>Templates</p>
+<ul>
+<li><p>Adds two new workspace templates that you can install with <code class="docutils literal notranslate"><span class="pre">cathy</span> <span class="pre">install</span> <span class="pre">template</span> <span class="pre">[template</span> <span class="pre">name]</span></code>. (For a list of all available templates run <code class="docutils literal notranslate"><span class="pre">cathy</span> <span class="pre">install</span> <span class="pre">template</span> <span class="pre">--list</span></code>).</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">workspace-just-render</span></code>: The most basic workspace if you just want to render a Blender file and use the job distribution system of Catharsys.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">workspace-std</span></code>: A simple standard workspace.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="catharsys-release-3-2-16">
+<h2>2023-04-17 Catharsys Release 3.2.16<a class="headerlink" href="#catharsys-release-3-2-16" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Automation System</p>
+<ul>
+<li><p>You can now run multiple jobs in parallel also on your local machine. To do this set the <code class="docutils literal notranslate"><span class="pre">iConfigGroups</span></code> and <code class="docutils literal notranslate"><span class="pre">iFrameGroups</span></code> appropriately in your launch file, so that there are multiple jobs. Then also define the new element <code class="docutils literal notranslate"><span class="pre">iMaxLocalWorkers</span></code> with the maximal number of parallel processes that should run. Now you can run the action as before and the jobs are executed in parallel. If you combine this with execution on an LSF system, only the LSF jobs are registered in parallel. The number of LSF jobs is specified in the execution configuration, as before.</p></li>
+<li><p>The loop control config <code class="docutils literal notranslate"><span class="pre">/catharsys/manifest/control/loop/range:1.1</span></code> has now one additional, optional parameter <code class="docutils literal notranslate"><span class="pre">lActiveIndices</span></code>, which specifies a list of indices. If this list is given, configs will only be generated for indices within the given range, that are also in this list. This can be helpful, if you need to re-run an action for a subset of indices. Using the <code class="docutils literal notranslate"><span class="pre">bDoOverwrite</span></code> flag set to <code class="docutils literal notranslate"><span class="pre">false</span></code> can be too slow if you have a large number of configurations.</p></li>
+<li><p>There is a new loop control config <code class="docutils literal notranslate"><span class="pre">/catharsys/manifest/control/loop/list:1.0</span></code>, which iterates over a list of indices. The list of indices is specified via <code class="docutils literal notranslate"><span class="pre">lIndices</span></code>. There are also the <em>optional</em> elements <code class="docutils literal notranslate"><span class="pre">iMin</span></code>, <code class="docutils literal notranslate"><span class="pre">iMax</span></code> and <code class="docutils literal notranslate"><span class="pre">iStep</span></code>, which refer to the index that indexes the index list given by <code class="docutils literal notranslate"><span class="pre">lIndices</span></code>.</p></li>
+</ul>
+</li>
+<li><p>Ground Truth</p>
+<ul>
+<li><p>Adds optional evaluation of ideal 2d-boxes for instances. As this can take some time, the evaluation is optional and switched off by default. To enable this, you need to add the element <code class="docutils literal notranslate"><span class="pre">bEvalBoxes2d:</span> <span class="pre">true</span></code> to the <code class="docutils literal notranslate"><span class="pre">anytruth/label</span></code> render output configuration. See <code class="docutils literal notranslate"><span class="pre">image-render-workspace-test/config/anytruth/test-01/render/output/at_label_v1.json5</span></code> for an example. 2d-boxes based on the semantic segmentation are evaluated in the label post-processing and stored in a different element, so that both, the ideal and sem-seg based, label are available.</p></li>
+</ul>
+</li>
+<li><p>Configuration parser</p>
+<ul>
+<li><p>removes <code class="docutils literal notranslate"><span class="pre">__runtime_vars__</span></code> element after processing it and speeds-up handling of runtime vars internally.</p></li>
+<li><p>bug fix for parsing of function names with a ‘.’</p></li>
+<li><p>new functions (by Julian Habekost):</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">$mod{a,</span> <span class="pre">b}</span></code>: Evaluates modulus <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">mod</span> <span class="pre">b</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">$len{x}</span></code>: Returns number of elements of list <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">$circularselect{x,</span> <span class="pre">i}</span></code>: Selects element at index <code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">mod</span> <span class="pre">len(x)</span></code> of list <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Developer</p>
+<ul>
+<li><p>Adds tooltip decorators for <code class="docutils literal notranslate"><span class="pre">ison</span></code> functions, which can be shown by VS Code add-on. (by Jochen Kall)</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="catharsys-release-3-2-15">
+<h2>2023-04-04 Catharsys Release 3.2.15<a class="headerlink" href="#catharsys-release-3-2-15" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Bug fix for <code class="docutils literal notranslate"><span class="pre">cathy</span> <span class="pre">install</span> <span class="pre">system</span></code>: installs again from ‘.whl’ files.</p></li>
+<li><p>Bug fix for <code class="docutils literal notranslate"><span class="pre">cathy</span> <span class="pre">build</span> <span class="pre">modules</span></code>: now also deletes old <code class="docutils literal notranslate"><span class="pre">.tar.gz</span></code> packages.</p></li>
+</ul>
+</section>
+<section id="catharsys-release-3-2-14">
+<h2>2023-04-04 Catharsys Release 3.2.14<a class="headerlink" href="#catharsys-release-3-2-14" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Cameras (<code class="docutils literal notranslate"><span class="pre">anycam</span></code>)</p>
+<ul>
+<li><p>Adds feature to import cameras via camera-set configuration. In this way, cameras can be imported during a render action launch and need not be present in the Blender file. See <code class="docutils literal notranslate"><span class="pre">image-render-workspace-test/config/anycam/import/camset</span></code> folder for an example.</p></li>
+<li><p>Bug fixes for LUT-cameras and Blender Poly cameras.</p></li>
+</ul>
+</li>
+<li><p>Ground Truth (<code class="docutils literal notranslate"><span class="pre">anytruth</span></code>)</p>
+<ul>
+<li><p>Rendering of additional raw ground truth data types for all camera types: object index and local position.</p></li>
+<li><p>Fix for rendering 3d position data for all camera types.</p></li>
+<li><p>Evaluation of optical flow ground truth from object index and local position raw renders.</p></li>
+</ul>
+</li>
+<li><p>Modifier</p>
+<ul>
+<li><p>Extend Parent to Object modifier by a flag to skip execution of the modifier, if the object to be parented to does not exist, default behaviour unchanged</p></li>
+<li><p>Extend Place Human on seat modifier by a rotation angle around z axis, default behaviour unchanged</p></li>
+<li><p>Adds modfier to add object to collection</p></li>
+<li><p>Adds modifier from replacing shaders for clothing materials of anyhumans</p></li>
+</ul>
+</li>
+<li><p>Configuration Parser (<code class="docutils literal notranslate"><span class="pre">ison</span></code>)</p>
+<ul>
+<li><p>Adds new variables type <code class="docutils literal notranslate"><span class="pre">__runtime_vars__</span></code>. Variables declared in such a dictionary block are only available within the parser and are <em>not</em> stored in the resultant configuration file. This can be useful, if you want to import large json data files in the configs but only use a small part of them for each config. If this data was in a <code class="docutils literal notranslate"><span class="pre">__globals__</span></code> block, it would be copied to each configuration. An example can be found in <code class="docutils literal notranslate"><span class="pre">image-render-workspace-test/config/vars/test-01/launch.json5</span></code>. There runtime variables declared there are used in the <code class="docutils literal notranslate"><span class="pre">vars-rt-01.json5</span></code> file.</p></li>
+<li><p>Extends ison function <code class="docutils literal notranslate"><span class="pre">$read{}</span></code> to also read in json files.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="catharsys-release-3-2-13">
+<h2>2023-02-09 Catharsys Release 3.2.13<a class="headerlink" href="#catharsys-release-3-2-13" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>A number of bug fixes regarding generation of ground truth data, which were introduced when implementing camera dependent label render materials with the LUT cameras.</p></li>
+<li><p>A bug fix for importing objects with the generator <code class="docutils literal notranslate"><span class="pre">catharsys.plugins.std.blender.generate.func.collection_std:LoadCollections</span></code>. The previous version read the scene scaling from the Blender file, which had unforeseen consequences for some imports. So now, you have to specify the scale of the Blender file you are importing from explicitly, if it differs from the scene you are importing to. The new argument is called <code class="docutils literal notranslate"><span class="pre">fMetersPerBlenderUnit</span></code>. You can find an example under <code class="docutils literal notranslate"><span class="pre">image-render-workspace-test/config/generate/generator/collection/load.json5</span></code>.</p></li>
+<li><p>The treatment of the camera frustums created with most AnyCam cameras has been improved. If your scene is still cluttered with frustums, then press the “refresh” button in the AnyCam addon.</p></li>
+</ul>
+</section>
+<section id="catharsys-release-3-2-11">
+<h2>2023-01-27 Catharsys Release 3.2.11<a class="headerlink" href="#catharsys-release-3-2-11" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Adds two new types of Cameras (example camera database with <code class="docutils literal notranslate"><span class="pre">cathy</span> <span class="pre">install</span> <span class="pre">asset</span> <span class="pre">cameras</span></code>):</p>
+<ul>
+<li><p>A look-up-table (LUT) based camera. For this camera you specify the ray direction per pixel in an OpenEXR file. This camera is based on a Blender fisheye camera and uses a spherical surface with a special refraction shader to “bend” the rays to the specified direction. Since the shader only uses incoming ray directions and not absolution positions, the camera can be freely moved in space, unlike the LFT, OpenCV (pingen/opencv) or older polynomial cameras. See <a class="reference external" href="../image-render-blender-camera/html/special-camera-render.html" title="(in Image-Render Blender Camera Add-On)"><span>Rendering with LFT, LUT or Poly Cameras</span></a> for more information. Labelling with AnyTruth is available apart from optical flow. <em>A detailed documentation on how to generate the LUT files will follow in one of the next releases</em>.</p></li>
+<li><p>A polynomial fisheye camera. This differs from the previously implemented polynomial camera by using the polynomial fisheye camera available directly in Blender. This has the advantage that all ground truth rendering, including optical flow, is available. However, this is a radially symmetric camera, unlike the LUT camera above. You can specify this camera either directly via the <a class="reference external" href="https://docs.blender.org/manual/en/latest/render/cycles/object_settings/cameras.html">polynomial parameters</a>, or by referencing a LUT projection of a LUT camera. In this way, you can generate an approximation of a LUT camera that has the advantage of offering optical flow ground truth and faster label rendering in complex scenes.</p></li>
+</ul>
+</li>
+<li><p>For developers:</p>
+<ul>
+<li><p><strong>IMPORTANT</strong>: If you are working with cloned repos, you still need to (re-)run the Catharsys installer for this version, as additional python modules need to be installed. In particular, <code class="docutils literal notranslate"><span class="pre">psutil</span></code> is needed for the general system and <code class="docutils literal notranslate"><span class="pre">cv2</span></code> is needed by <code class="docutils literal notranslate"><span class="pre">anycam</span></code>.</p></li>
+<li><p>Adds new cathy debugging features:</p>
+<ul>
+<li><p>Debug Blender AddOns directly with <code class="docutils literal notranslate"><span class="pre">cathy</span> <span class="pre">blender</span> <span class="pre">debug</span> <span class="pre">-c</span> <span class="pre">[configuration]</span> <span class="pre">--port</span> <span class="pre">[debug</span> <span class="pre">port]</span> <span class="pre">--wait</span> <span class="pre">[timeout]</span></code>. This starts Blender in the given configuration and waits for a debugger to attach. See <a class="reference internal" href="develop/debug-vscode-blender-addon.html"><span class="doc">How to debug Blender addons</span></a> for more information.</p></li>
+<li><p>Debug all Catharsys actions (not just Blender actions) with <code class="docutils literal notranslate"><span class="pre">cathy</span> <span class="pre">ws</span> <span class="pre">launch</span> <span class="pre">-c</span> <span class="pre">[configuration]</span> <span class="pre">-a</span> <span class="pre">[action]</span> <span class="pre">--debug-port</span> <span class="pre">[debug</span> <span class="pre">port]</span> <span class="pre">--debug-timeout</span> <span class="pre">[timeout]</span></code>. See <a class="reference internal" href="develop/debug-vscode-action.html"><span class="doc">How to debug actions</span></a> for more information.</p></li>
+</ul>
+</li>
+<li><p>In the linked documents it is shown how to automate this process, so that you can start the debugging with a single click in VSCode.</p></li>
+<li><p>New anybase modules:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">debug.py</span></code>: Functions to support debugging via <code class="docutils literal notranslate"><span class="pre">debugpy</span></code> from VSCode</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">net.py</span></code>: Currently only one function to check continually whether a port is open.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="catharsys-release-3-2-10">
+<h2>2022-12-13 Catharsys Release 3.2.10<a class="headerlink" href="#catharsys-release-3-2-10" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Modifier <code class="docutils literal notranslate"><span class="pre">/catharsys/blender/modify/collection/object-placement/rnd-surf:1.0</span></code></p>
+<ul>
+<li><p>Add optional configuration flag <code class="docutils literal notranslate"><span class="pre">bInstDrawBoundingBoxes</span></code> to create bounding box objects which are added to the scene next to the instantiated objects. This can help with debugging.</p></li>
+</ul>
+</li>
+<li><p>Bug Fixes:</p>
+<ul>
+<li><p>Fixed book-keeping of animation handlers when cleaning up scene.</p></li>
+<li><p>Fixes bug where bounding box was not rotated after rotating instance</p></li>
+<li><p>Fixes bug in anytruth, where a bounding box’s orientation was determined incorrectly.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="catharsys-release-3-2-8">
+<h2>2022-12-08 Catharsys Release 3.2.8<a class="headerlink" href="#catharsys-release-3-2-8" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Modifiers/Generators:</p>
+<ul>
+<li><p>You can now add generators to a modifier program. See the configuration <code class="docutils literal notranslate"><span class="pre">modify/modifier/generate/import-object.json5</span></code> in <code class="docutils literal notranslate"><span class="pre">image-render-workspace-test</span></code> for an example.</p></li>
+<li><p>The random placement modifier <code class="docutils literal notranslate"><span class="pre">blender/modify/collection/object-placement/rnd-surf:1.1</span></code> now has additional optional parameters:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">bCopyInstanceParentCollection</span></code> (<code class="docutils literal notranslate"><span class="pre">bool</span></code>): if true, creates a collection with the same name and labeltype as the parent collection of the instantiated object. This allows you to instantiate objects from a collection and have the instance labelled in the same way as the original. This is particularly useful in combination with the folder type hierarchy import described below.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sParentObject</span></code> (<code class="docutils literal notranslate"><span class="pre">string</span></code>): The name of an object the instantiated objects are parented to.</p></li>
+</ul>
+</li>
+<li><p>There is a new generator <code class="docutils literal notranslate"><span class="pre">/catharsys/blender/generate/collection/import/folder-type-hierarchy:1.0</span></code>, which imports objects from a folder tree and uses the relative paths as label types. It generates a label type JSON file which is stored with the folder tree and loaded into the scene. For an example, see the configuration <code class="docutils literal notranslate"><span class="pre">modify/modifier/generate/import-type-hierarchy.json5</span></code> in <code class="docutils literal notranslate"><span class="pre">image-render-workspace-test</span></code>.</p></li>
+<li><p>There is a new generator <code class="docutils literal notranslate"><span class="pre">/catharsrys/blender/generate/object/import/obj:1.0</span></code>, which uses the Blender <code class="docutils literal notranslate"><span class="pre">.obj</span></code> import to import such files. See the configuration <code class="docutils literal notranslate"><span class="pre">modify/modifier/generate/import-object.json5</span></code> in <code class="docutils literal notranslate"><span class="pre">image-render-workspace-test</span></code> for an example.</p></li>
+</ul>
+</li>
+<li><p>For developers:</p>
+<ul>
+<li><p>The revert handler structure is now removed from the modifier/generator code.</p></li>
+<li><p>The module <code class="docutils literal notranslate"><span class="pre">anyblend</span></code> has a new module <code class="docutils literal notranslate"><span class="pre">object-ops</span></code>, which wraps <code class="docutils literal notranslate"><span class="pre">bpy.ops.object</span></code> functions by creating temporary Blender contexts. In this way you do not have to rely on the correct objects being active in the Blender workspace for the functions to work, but you can call them directly for specific objects.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="catharsys-release-3-2-6">
+<h2>2022-11-29 Catharsys Release 3.2.6<a class="headerlink" href="#catharsys-release-3-2-6" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>For developers:</p>
+<ul>
+<li><p>Improves on <code class="docutils literal notranslate"><span class="pre">&#64;paramclass</span></code> decorator to declare parameter classes used by modifiers. This makes reading parameters from configurations more type safe with autocomplete, and potentially offers a possibility to automatically generate modifier documentation and GUIs. See the <code class="docutils literal notranslate"><span class="pre">image-render-actions-std-blender/src/catharsys/plugins/std/blender/modify/func/object_transform.py</span></code> file for examples of usage.</p></li>
+<li><p>This release adds a new module <code class="docutils literal notranslate"><span class="pre">image-render-templates</span></code> which contains module templates. Currently, only a python action template is available, which you can use as basis for your own render post-processing actions. Templates can be installed with the new command <code class="docutils literal notranslate"><span class="pre">cathy</span> <span class="pre">install</span> <span class="pre">template</span></code>. See the <a class="reference external" href="../image-render-templates/html/index.html" title="(in Catharsys Templates)"><span class="xref std std-doc">Catharsys Templates documentation</span></a> for more information.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="catharsys-release-3-2-5">
+<h2>2022-11-24 Catharsys Release 3.2.5<a class="headerlink" href="#catharsys-release-3-2-5" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Adds feature in anytruth to enable/disable self-occlusion labelling for armatures. This is needed, if semantic labelling of body parts in an armature is needed.</p></li>
+</ul>
+</section>
+<section id="catharsys-release-3-2-4">
+<h2>2022-11-22 Catharsys Release 3.2.4<a class="headerlink" href="#catharsys-release-3-2-4" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Bug fix in <code class="docutils literal notranslate"><span class="pre">anytruth</span></code> label module.</p></li>
+<li><p>Fixes command <code class="docutils literal notranslate"><span class="pre">cathy</span> <span class="pre">--docs</span></code></p></li>
+</ul>
+</section>
+<section id="catharsys-release-3-2-0">
+<h2>2022-11-17 Catharsys Release 3.2.0<a class="headerlink" href="#catharsys-release-3-2-0" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>New minor version 3.2, as there are many new modifiers and other features.</p></li>
+<li><p>Fixes problem with Catharsys install on some systems.</p></li>
+<li><p>Adds render output type “openGL” (only suitable in actions in <code class="docutils literal notranslate"><span class="pre">sActionDTI:</span> <span class="pre">&quot;/catharsys/action/std/blender/render/std:1.0&quot;</span></code>). See example in <code class="docutils literal notranslate"><span class="pre">image-render-workspace-test/config/anim/test-01</span></code> in action <code class="docutils literal notranslate"><span class="pre">renderGL</span></code>. This does <strong>not</strong> work, when running Blender in background mode, which is the default. Therefore, you need to run the action with the following command: <code class="docutils literal notranslate"><span class="pre">cathy</span> <span class="pre">ws</span> <span class="pre">launch</span> <span class="pre">-c</span> <span class="pre">anim\test-01</span> <span class="pre">-a</span> <span class="pre">renderGL</span> <span class="pre">--script-vars</span> <span class="pre">background=False</span> <span class="pre">quit-blender=True</span></code>.</p></li>
+<li><p>Labelling with <code class="docutils literal notranslate"><span class="pre">anytruth</span></code>:</p>
+<ul>
+<li><p>You can now create an Empty with the name <code class="docutils literal notranslate"><span class="pre">AT.Label.Orig.World</span></code>, which is then used as the world frame for all 3D-label data. This makes the label origin and orientation independent of the Blender basis.</p></li>
+<li><p>Mesh objects can now have nested child mesh objects at arbitrary depth. All children of a mesh object are regarded as belonging to the same instance.</p></li>
+<li><p>In addition to the <code class="docutils literal notranslate"><span class="pre">mCamera</span></code> dictionary in the label data output, there is now a <code class="docutils literal notranslate"><span class="pre">mCameraCV</span></code> dictionary, which gives camera data and extrinsic calibration in the typical CV orientation. That is, x-axis to the right, y-axis down and z-axis into the scene.</p></li>
+<li><p>If bones defined in a skeleton type are not found, an error is printed. Before, this was silently ignored.</p></li>
+</ul>
+</li>
+<li><p>Modifier:</p>
+<ul>
+<li><p>Random placement now changed its arguments. Unfortunately, this includes <strong>breaking changes</strong> and I missed the right time to keep the old Version in parallel to the new. This is also a reason for the minor version change to 3.2. See <code class="docutils literal notranslate"><span class="pre">image-render-workspace-test/config/modify/modifier/collection/object-placement_rnd-surf.json5</span></code> for a full documentation of all new arguments. The main features are that you can not just place a set of objects, but also create new instances which are randomly rotated. The new instances are linked to the meshes of the original objects, so that it’s memory efficient.</p></li>
+<li><p>When loading objects from an external blender file with <code class="docutils literal notranslate"><span class="pre">/catharsys/blender/generate/collection/load:1.0</span></code>, the relative scales of the current and the external files are used, to scale the imported objects appropriately. The object scales are then applied to the object meshes.</p></li>
+<li><p>Hide/Show objects if they are inside/outside the bounding box of another object with <code class="docutils literal notranslate"><span class="pre">/catharsys/blender/modify/object/enable-if/bound-box:1.0</span></code>. For documentation and an example see <code class="docutils literal notranslate"><span class="pre">image-render-workspace-test/config/modify/modifier/object/enable-if_bound-box.json5</span></code>.</p></li>
+<li><p><strong>Rigid Bodies</strong>. See <code class="docutils literal notranslate"><span class="pre">image-render-workspace-test/config/modify/modifier/rigidbody/ex1.json5</span></code> for a full example and documentation.</p>
+<ul>
+<li><p>Make an object a rigid body with <code class="docutils literal notranslate"><span class="pre">/catharsys/blender/modify/object/rigidbody/add:1.0</span></code>.</p></li>
+<li><p>Clear the rigid body world of the scene with <code class="docutils literal notranslate"><span class="pre">/catharsys/blender/modify/scene/rigidbody/clear:1.0</span></code>.</p></li>
+<li><p>Bake a rigid body world with <code class="docutils literal notranslate"><span class="pre">/catharsys/blender/modify/scene/rigidbody/bake:1.0</span></code>.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>For developers:</p>
+<ul>
+<li><p>adds a decorator <code class="docutils literal notranslate"><span class="pre">constKeywordNamespace</span></code> for defining const strings in class namespace for e.g. adressing dictionaries items</p></li>
+<li><p>adds a field type in <code class="docutils literal notranslate"><span class="pre">CParamFields</span></code> for <code class="docutils literal notranslate"><span class="pre">paramclass</span></code> decorator:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">DEPRECATED</span></code>: when inside Json the field name should change, but older names are also accepted (a Warning is printed bu no Error execption is thrown)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DISPLAY</span></code>: for GUI Usage, when field name is not suitable for displaying in GUIs, this string will be additionally available</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="catharsys-release-3-1-17">
+<h2>2022-10-27 Catharsys Release 3.1.17<a class="headerlink" href="#catharsys-release-3-1-17" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Ensures that all Blender scene drivers are updated after modifiers are applied.</p></li>
+<li><p>Ensures that changing custom properties of Blender objects triggers updates of all dependent Blender scene drivers.</p></li>
+<li><p>Adds error reporting to catharsys user path evaluation.</p></li>
+</ul>
+</section>
+<section id="catharsys-release-3-1-16">
+<h2>2022-10-24 Catharsys Release 3.1.16<a class="headerlink" href="#catharsys-release-3-1-16" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Extends documentation for “enable” modifier in <code class="docutils literal notranslate"><span class="pre">image-render-workspace-test</span></code>.</p></li>
+<li><p>Adds conda environment name to catharsys user path and Blender install path. <strong>You need to re-install Blender</strong> in Catharsys and re-init your configurations with <code class="docutils literal notranslate"><span class="pre">cathy</span> <span class="pre">blender</span> <span class="pre">init</span> <span class="pre">--all</span> <span class="pre">--addons</span></code>, before you can render again.</p></li>
+<li><p>Adds more features to the asset plane evaluation in anycam.</p></li>
+<li><p>Various bug fixes.</p></li>
+</ul>
+</section>
+<section id="catharsys-release-3-1-15">
+<h2>2022-10-12 Catharsys Release 3.1.15<a class="headerlink" href="#catharsys-release-3-1-15" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Improves tonemapping action. Now allows explicit specification of source image type, in case this differs from the initial render image type.</p></li>
+<li><p>Improves anytruth depth render action to support also cameras that have not been created with AnyCam.</p></li>
+<li><p>Fixes type annotation in Catharsys install script, so that it can be executed with python versions before 3.10.</p></li>
+<li><p>Fixes <code class="docutils literal notranslate"><span class="pre">cathy</span></code> command help, to show available commands when running <code class="docutils literal notranslate"><span class="pre">cathy</span> <span class="pre">-h</span></code>.</p></li>
+</ul>
+</section>
+<section id="catharsys-release-3-1-14">
+<h2>2022-10-11 Catharsys Release 3.1.14<a class="headerlink" href="#catharsys-release-3-1-14" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Changes <code class="docutils literal notranslate"><span class="pre">cathy</span> <span class="pre">code</span> <span class="pre">init</span></code> to generate workspace files, whose names include the corresponding conda environment name.</p></li>
+<li><p>Adapts <code class="docutils literal notranslate"><span class="pre">cathy</span> <span class="pre">code</span> <span class="pre">show</span></code> to new workspace file naming convention.</p></li>
+<li><p>Improves error reporting for <code class="docutils literal notranslate"><span class="pre">cathy-conda</span></code> install script, if conda environment cannot be activated.</p></li>
+<li><p>When initializing Blender configs with <code class="docutils literal notranslate"><span class="pre">cathy</span> <span class="pre">blender</span> <span class="pre">init</span> <span class="pre">--all</span></code>, an update check for the installed catharsys modules is only done once and not for all configs. Addons are updated for all configs, of course.</p></li>
+<li><p>Fixes bugs when running python actions with LSF job distribution system.</p></li>
+</ul>
+</section>
+<section id="catharsys-release-3-1-13">
+<h2>2022-10-10 Catharsys Release 3.1.13<a class="headerlink" href="#catharsys-release-3-1-13" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Adds animator for constant translation <code class="docutils literal notranslate"><span class="pre">/catharsys/blender/animate/object/translate/const:1.0</span></code>. Example of use can be found in <code class="docutils literal notranslate"><span class="pre">image-render-workspace-test/config/anim/test-01</span></code>. This animator translates objects with constant speed.</p></li>
+</ul>
+</section>
+<section id="catharsys-release-3-1-12">
+<h2>2022-10-06 Catharsys Release 3.1.12<a class="headerlink" href="#catharsys-release-3-1-12" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Bug fixes for logging action.</p></li>
+</ul>
+</section>
+<section id="catharsys-release-3-1-11">
+<h2>2022-10-06 Catharsys Release 3.1.11<a class="headerlink" href="#catharsys-release-3-1-11" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Fixes bug that “anybase.dec” could not be imported.</p></li>
+<li><p>Improves syntax highlighting for pure variables in ison, i.e. <code class="docutils literal notranslate"><span class="pre">$var</span></code>.</p></li>
+</ul>
+</section>
+<section id="catharsys-release-3-1-10">
+<h2>2022-10-06 Catharsys Release 3.1.10<a class="headerlink" href="#catharsys-release-3-1-10" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Asset placement maps can now be generated automatically with the AnyCam addon. This simplifies, for example, the placement of human models in a scene, depending on the camera.</p></li>
+<li><p>Adds modifier “/catharsys/blender/modify/object/properties:1.0”, which sets custom properties of an object. For example, modifying the attribute <code class="docutils literal notranslate"><span class="pre">x</span></code> of an object <code class="docutils literal notranslate"><span class="pre">objFoo</span></code>, modifies <code class="docutils literal notranslate"><span class="pre">objFoo.x</span></code>. Modifying the property <code class="docutils literal notranslate"><span class="pre">x</span></code> of the same object, modifies <code class="docutils literal notranslate"><span class="pre">objFoo[&quot;x&quot;]</span></code>. When you specify custom properties of an object in Blender, these can be accessed via <code class="docutils literal notranslate"><span class="pre">objFoo[&quot;x&quot;]</span></code>, where <code class="docutils literal notranslate"><span class="pre">x</span></code> stands for the property name. These properties can in turn be used in drivers in Blender. In this way, the property modifier gives you access to “variables” of a scene, that can be used in some complex way inside the Blender file. There is an example for using this modifier in <code class="docutils literal notranslate"><span class="pre">image-render-workspace-test</span></code> in the <code class="docutils literal notranslate"><span class="pre">modify</span></code> configuration.</p></li>
+</ul>
+</section>
+<section id="catharsys-release-3-1-6">
+<h2>2022-09-29 Catharsys Release 3.1.6<a class="headerlink" href="#catharsys-release-3-1-6" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Bug fix of <code class="docutils literal notranslate"><span class="pre">cathy</span></code> command, so that <code class="docutils literal notranslate"><span class="pre">cathy</span> <span class="pre">--docs</span></code> works again</p></li>
+</ul>
+</section>
+<section id="catharsys-release-3-1-5">
+<h2>2022-09-28 Catharsys Release 3.1.5<a class="headerlink" href="#catharsys-release-3-1-5" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Additions to ISON parser:</p>
+<ul>
+<li><p>Variables can now also be references via <code class="docutils literal notranslate"><span class="pre">$variable</span></code> in addition to <code class="docutils literal notranslate"><span class="pre">${variable}</span></code>. This reduces the number of braces somewhat. The <a class="reference external" href="../functional-json/html/language.html" title="(in ISON - Functional JSON)"><span class="xref std std-doc">ISON language</span></a> documentation is updated accordingly.</p></li>
+<li><p>The VSCode addon for the ISON syntax highlighting is updated to support the new variable reference syntax.</p></li>
+<li><p>All <a class="reference external" href="../functional-json/html/functions.html" title="(in ISON - Functional JSON)"><span class="xref std std-doc">ISON functions</span></a> are now documented with examples.</p></li>
+<li><p>Bug fixes in install script and default VSCode settings.</p></li>
+<li><p>Bug fixes in <code class="docutils literal notranslate"><span class="pre">cls_paramclass</span></code></p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="catharsys-release-3-1-4">
+<h2>2022-09-27 Catharsys Release 3.1.4<a class="headerlink" href="#catharsys-release-3-1-4" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Additions to ISON parser:</p>
+<ul>
+<li><p>New special tag ‘<strong>lambda</strong>’ to declare dictionaries as lambda functions. See the <a class="reference external" href="../functional-json/html/ipy/ison-lambda.html" title="(in ISON - Functional JSON)"><span class="xref std std-doc">ison lambda function documentation</span></a> for more details.</p></li>
+<li><p>New ison functions <code class="docutils literal notranslate"><span class="pre">$print{}</span></code> and <code class="docutils literal notranslate"><span class="pre">$set-log-path{}</span></code> for printing and logging during parsing of configuration files. Examples can also be found in the <a class="reference external" href="../functional-json/html/ipy/ison-basics.html" title="(in ISON - Functional JSON)"><span class="xref std std-doc">ison language documentation</span></a></p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="catharsys-release-3-1-2">
+<h2>2022-09-23 Catharsys Release 3.1.2<a class="headerlink" href="#catharsys-release-3-1-2" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>For developers:</p>
+<ul>
+<li><p>Applied code formatting with <code class="docutils literal notranslate"><span class="pre">black</span></code> formatter to all files. Updates default workspace VSCode configurations to activate <code class="docutils literal notranslate"><span class="pre">black</span></code> and <code class="docutils literal notranslate"><span class="pre">flake8</span></code>. Also installs necessary python modules when installing in develop mode.</p></li>
+<li><p>Updates coding conventions</p></li>
+<li><p>Adds decorators for logging and specifying functions as modifiers or generators.</p></li>
+<li><p>Adds command <code class="docutils literal notranslate"><span class="pre">cathy</span> <span class="pre">inspect</span></code> to search modifiers and generators.</p></li>
+<li><p>Adds possibility to run any <code class="docutils literal notranslate"><span class="pre">cathy</span></code> command in a debugging mode, so that an external python debugger can be attached to the process. Also works with scripts run in Blender.</p></li>
+</ul>
+</li>
+<li><p>Improves execution of <code class="docutils literal notranslate"><span class="pre">cathy</span></code> commands, so that not all modules of all commands are loaded before a command is executed.</p></li>
+<li><p>Adds the option <code class="docutils literal notranslate"><span class="pre">--all</span></code> to <code class="docutils literal notranslate"><span class="pre">cathy</span> <span class="pre">blender</span> <span class="pre">init</span></code>, which initializes all configs in a workspace. For example, to only update all addons for all configurations in a workspace use <code class="docutils literal notranslate"><span class="pre">cathy</span> <span class="pre">blender</span> <span class="pre">init</span> <span class="pre">--all</span> <span class="pre">--addons</span></code>.</p></li>
+</ul>
+</section>
+<section id="catharsys-release-3-1-0">
+<h2>2022-09-06 Catharsys Release 3.1.0<a class="headerlink" href="#catharsys-release-3-1-0" title="Link to this heading">#</a></h2>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>Since the minor version has changed, you need to install Blender again with <code class="docutils literal notranslate"><span class="pre">cathy</span> <span class="pre">blender</span> <span class="pre">install</span></code>.</p>
+</div>
+<ul class="simple">
+<li><p>A much improved ison parser, which can break some Catharsys configs regarding the use of <code class="docutils literal notranslate"><span class="pre">__globals__</span></code> and <code class="docutils literal notranslate"><span class="pre">__eval_globals__</span></code>. Due to this breaking change, the catharsys minor version has been incremented to 1.</p>
+<ul>
+<li><p>Basically, all lambda functions should now be declared in a <code class="docutils literal notranslate"><span class="pre">__func_globals__</span></code> or <code class="docutils literal notranslate"><span class="pre">__func_locals__</span></code> block, as variables declared here are only evaluated when used.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">__eval_*</span></code> are now deprecated, as <code class="docutils literal notranslate"><span class="pre">__globals__</span></code> and <code class="docutils literal notranslate"><span class="pre">__locals__</span></code> are also processed per dictionary, before the dictionary contents are parsed. This ensures variable consistency.</p></li>
+<li><p>See the <a class="reference external" href="../functional-json/html/ipy/ison-basics.html" title="(in ISON - Functional JSON)"><span class="xref std std-doc">ison language documentation</span></a> for more details.</p></li>
+</ul>
+</li>
+<li><p>There is now additional documentation for</p>
+<ul>
+<li><p>the ison language</p></li>
+<li><p>using LFT, LUT and Poly cameras with <code class="docutils literal notranslate"><span class="pre">anycam</span></code></p></li>
+<li><p>the catharsys automation configuration processing variables</p></li>
+</ul>
+</li>
+<li><p>There is an additional config in <code class="docutils literal notranslate"><span class="pre">image-render-workspace-test</span></code> to demonstrate the use of all configuration processing variables.</p></li>
+<li><p>When installing Catharsys in develop mode, the Python module <code class="docutils literal notranslate"><span class="pre">pytest</span></code> is now also installed.</p></li>
+<li><p>There is a new <code class="docutils literal notranslate"><span class="pre">cathy</span></code> command <code class="docutils literal notranslate"><span class="pre">cathy</span> <span class="pre">test</span></code>, which runs <code class="docutils literal notranslate"><span class="pre">pytest</span></code> on all unit tests of all modules. Unit tests must be located under <code class="docutils literal notranslate"><span class="pre">src/testing</span></code> per module and have to be named <code class="docutils literal notranslate"><span class="pre">test_*.py</span></code>. See the <code class="docutils literal notranslate"><span class="pre">pytest</span></code> documentation for more info. In VS Code the addon <strong>Python Test Explorer for Visual Studio Code</strong>, is quite helpful in running and debugging tests.</p></li>
+<li><p>Fixes bug when only <code class="docutils literal notranslate"><span class="pre">mGlobalArgs</span></code> is defined in a launch file.</p></li>
+</ul>
+</section>
+<section id="catharsys-release-3-0-48">
+<h2>2022-09-01 Catharsys Release 3.0.48<a class="headerlink" href="#catharsys-release-3-0-48" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Bug fix in random object distribution</p></li>
+</ul>
+</section>
+<section id="catharsys-release-3-0-47">
+<h2>2022-09-01 Catharsys Release 3.0.47<a class="headerlink" href="#catharsys-release-3-0-47" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Improved random distribution of objects on surface.</p></li>
+</ul>
+</section>
+<section id="catharsys-release-3-0-46">
+<h2>2022-09-01 Catharsys Release 3.0.46<a class="headerlink" href="#catharsys-release-3-0-46" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Improves processing of <code class="docutils literal notranslate"><span class="pre">__includes__</span></code> statements in <code class="docutils literal notranslate"><span class="pre">__globals__</span></code> etc. by making variables available in parsing of include paths.</p></li>
+<li><p>Fixes bugs in error reporting.</p></li>
+</ul>
+</section>
+<section id="catharsys-release-3-0-45">
+<h2>2022-08-30 Catharsys Release 3.0.45<a class="headerlink" href="#catharsys-release-3-0-45" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Fixes bug in config processing of loop ids.</p></li>
+</ul>
+</section>
+<section id="catharsys-release-3-0-44">
+<h2>2022-08-30 Catharsys Release 3.0.44<a class="headerlink" href="#catharsys-release-3-0-44" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Adds ISON language feature “<strong>includes</strong>”, which can be used in any dictionary. This expects a list of (relative/absolute) file paths to json files. The extension can be omitted. The dictionaries of the loaded are JSONs are integrated in the dictionary the include element is in. The “<strong>includes</strong>” element is deleted after processing. If the current dictionary contains elements that are also present in the included JSONs, they are <em>not</em> overwritten.</p></li>
+<li><p>Adds scaling modifiers for setting object scale to a specific scale, for scaling reltive to the current object scale, and for scaling w.r.t. the scene unit scale of the current scene.</p></li>
+<li><p>Adds error message, when compositor output node does not have output sockets.</p></li>
+</ul>
+</section>
+<section id="catharsys-release-3-0-43">
+<h2>2022-08-29 Catharsys Release 3.0.43<a class="headerlink" href="#catharsys-release-3-0-43" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Ensures that global variables from launch config are passed on to all modifiers and generators for later processing.</p></li>
+<li><p>Improves type conversions of config variables for modifiers and generators</p></li>
+</ul>
+</section>
+<section id="catharsys-release-3-0-42">
+<h2>2022-08-26 Catharsys Release 3.0.42<a class="headerlink" href="#catharsys-release-3-0-42" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Fixes problem with object parenting</p></li>
+</ul>
+</section>
+<section id="catharsys-release-3-0-41">
+<h2>2022-08-25 Catharsys Release 3.0.41<a class="headerlink" href="#catharsys-release-3-0-41" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Improves error reporting for modifers and generators, also displaying the source file where an error occured.</p></li>
+<li><p>Improves type conversion and checking when parsing parameters from configuration files.</p></li>
+<li><p>Improves error reporting in anycam somewhat. Displaying an error in the Blender UI does not work from all contexts.</p></li>
+</ul>
+</section>
+<section id="catharsys-release-3-0-40">
+<h2>2022-08-24 Catharsys Release 3.0.40<a class="headerlink" href="#catharsys-release-3-0-40" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>In the execution config for python based actions, you do not need to specify a python conda environment anymore.
+By default, the conda environment of the calling process is used. When using an LSF job distribution system,
+the environment should be given, as the LSF system does not run in any conda environment.</p></li>
+<li><p>Fixes problem with equidistant cameras in AnyCam, where the render resolution could be of a different parity
+than the camera resolution. This could happen, when the maximal FoV degree is set. It is now ensured that
+render resolution and camera resolution are of the same parity.</p></li>
+<li><p>It seems that in some installs the metadata of the entry points is listed twice, when using the <code class="docutils literal notranslate"><span class="pre">importlib.metadata</span></code>
+library. This may be a problem with <code class="docutils literal notranslate"><span class="pre">pip</span></code> or with the lib. In any case, when scanning for commands it is now ensured
+that the entries are unique.</p></li>
+</ul>
+</section>
+<section id="catharsys-release-3-0-39">
+<h2>2022-08-23 Catharsys Release 3.0.39<a class="headerlink" href="#catharsys-release-3-0-39" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>There is now a separate install location for Blender for a “develop” install. This allows you to have a develop and a distribution installation of Catharsys (in separate Anaconda Environments), each using separate Blender installs, so that the Catharsys installs in Blender Python are also separate.</p></li>
+<li><p>Catharsys installs now from “wheels” by default, which is much faster. You can still switch to an install from the source distribution via a command line option.</p></li>
+<li><p>The documentation is packed differently, so that the installation of the setup package is much faster.</p></li>
+</ul>
+<blockquote>
+<div><p><strong>IMPORTANT</strong>: If you are working with a develop install you need to re-install Blender from your develop environment via “cathy blender install [blender zip]”.</p>
+</div></blockquote>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="develop.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Code Development</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="license.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">License</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#catharsys-release-3-2-35">2024-06-07 Catharsys Release 3.2.35</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#catharsys-release-3-2-33">2023-12-05 Catharsys Release 3.2.33</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#catharsys-release-3-2-32">2023-11-20 Catharsys Release 3.2.32</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#catharsys-release-3-2-31">2023-11-15 Catharsys Release 3.2.31</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#catharsys-release-3-2-30">2023-10-10 Catharsys Release 3.2.30</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#catharsys-release-3-2-29">2023-10-06 Catharsys Release 3.2.29</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#catharsys-release-3-2-28">2023-06-21 Catharsys Release 3.2.28</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#catharsys-release-3-2-27">2023-06-06 Catharsys Release 3.2.27</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#catharsys-release-3-2-26">2023-05-22 Catharsys Release 3.2.26</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#catharsys-release-3-2-25">2023-05-15 Catharsys Release 3.2.25</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#catharsys-release-3-2-19">2023-04-25 Catharsys Release 3.2.19</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#catharsys-release-3-2-18">2023-04-20 Catharsys Release 3.2.18</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#catharsys-release-3-2-17">2023-04-18 Catharsys Release 3.2.17</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#catharsys-release-3-2-16">2023-04-17 Catharsys Release 3.2.16</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#catharsys-release-3-2-15">2023-04-04 Catharsys Release 3.2.15</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#catharsys-release-3-2-14">2023-04-04 Catharsys Release 3.2.14</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#catharsys-release-3-2-13">2023-02-09 Catharsys Release 3.2.13</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#catharsys-release-3-2-11">2023-01-27 Catharsys Release 3.2.11</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#catharsys-release-3-2-10">2022-12-13 Catharsys Release 3.2.10</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#catharsys-release-3-2-8">2022-12-08 Catharsys Release 3.2.8</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#catharsys-release-3-2-6">2022-11-29 Catharsys Release 3.2.6</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#catharsys-release-3-2-5">2022-11-24 Catharsys Release 3.2.5</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#catharsys-release-3-2-4">2022-11-22 Catharsys Release 3.2.4</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#catharsys-release-3-2-0">2022-11-17 Catharsys Release 3.2.0</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#catharsys-release-3-1-17">2022-10-27 Catharsys Release 3.1.17</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#catharsys-release-3-1-16">2022-10-24 Catharsys Release 3.1.16</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#catharsys-release-3-1-15">2022-10-12 Catharsys Release 3.1.15</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#catharsys-release-3-1-14">2022-10-11 Catharsys Release 3.1.14</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#catharsys-release-3-1-13">2022-10-10 Catharsys Release 3.1.13</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#catharsys-release-3-1-12">2022-10-06 Catharsys Release 3.1.12</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#catharsys-release-3-1-11">2022-10-06 Catharsys Release 3.1.11</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#catharsys-release-3-1-10">2022-10-06 Catharsys Release 3.1.10</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#catharsys-release-3-1-6">2022-09-29 Catharsys Release 3.1.6</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#catharsys-release-3-1-5">2022-09-28 Catharsys Release 3.1.5</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#catharsys-release-3-1-4">2022-09-27 Catharsys Release 3.1.4</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#catharsys-release-3-1-2">2022-09-23 Catharsys Release 3.1.2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#catharsys-release-3-1-0">2022-09-06 Catharsys Release 3.1.0</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#catharsys-release-3-0-48">2022-09-01 Catharsys Release 3.0.48</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#catharsys-release-3-0-47">2022-09-01 Catharsys Release 3.0.47</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#catharsys-release-3-0-46">2022-09-01 Catharsys Release 3.0.46</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#catharsys-release-3-0-45">2022-08-30 Catharsys Release 3.0.45</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#catharsys-release-3-0-44">2022-08-30 Catharsys Release 3.0.44</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#catharsys-release-3-0-43">2022-08-29 Catharsys Release 3.0.43</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#catharsys-release-3-0-42">2022-08-26 Catharsys Release 3.0.42</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#catharsys-release-3-0-41">2022-08-25 Catharsys Release 3.0.41</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#catharsys-release-3-0-40">2022-08-24 Catharsys Release 3.0.40</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#catharsys-release-3-0-39">2022-08-23 Catharsys Release 3.0.39</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Christian Perwass
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022, Robert Bosch GmbH.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

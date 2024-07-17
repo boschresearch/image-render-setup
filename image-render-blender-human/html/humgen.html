@@ -1,0 +1,920 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>How to generate a human &#8212; Image-Render Blender Human add-on 3.1.7 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=038e77b0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'humgen';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="License" href="license.html" />
+    <link rel="prev" title="Blender Human Add-On" href="index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Image-Render Blender Human add-on 3.1.7 documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">How to generate a human <a name="generate-anyhumans"></a></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="back-to-main.html">Back to main documentation</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/humgen.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>How to generate a human <a name="generate-anyhumans"></a></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">How to generate a human <a name="generate-anyhumans"></a></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#persona">1. Persona</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fully-random">2. Fully Random:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#realistic-random">3. Realistic Random:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zwicky-box">3. Zwicky Box:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#file">5. File:</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#anyhuman-configuration">Anyhuman configuration  <a name="anyhuman-configuration"></a></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#specifying-the-body-of-the-human">Specifying the body of the human</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#specifying-the-face-of-the-human">Specifying the face of the human</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#specifying-the-hair-and-beard">Specifying the hair and beard</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#specifying-the-outfit">Specifying the outfit</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#others">Others</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <!---
+<LICENSE id="CC BY-SA 4.0">
+    
+    Image-Render Blender Human add-on module documentation
+    Copyright 2022 Robert Bosch GmbH and its subsidiaries
+    
+    This work is licensed under the 
+    
+        Creative Commons Attribution-ShareAlike 4.0 International License.
+    
+    To view a copy of this license, visit 
+        http://creativecommons.org/licenses/by-sa/4.0/ 
+    or send a letter to 
+        Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
+    
+</LICENSE>
+--->
+<!---
+	Copyright (c) 2009, 2018 Robert Bosch GmbH and its subsidiaries.
+-->
+<section id="how-to-generate-a-human">
+<h1>How to generate a human <a name="generate-anyhumans"></a><a class="headerlink" href="#how-to-generate-a-human" title="Link to this heading">#</a></h1>
+<p>Generation of anyhumans is based on a configuration dictionary (see <a class="reference internal" href="#anyhuman-configuration"><span class="xref myst">configuration</span></a>).
+Since it is cumbersome to specify the whole configuration each time a different anyhuman is needed, there exist several parameter generator functions to help with the process.
+These are described below.</p>
+<p>It is also possible to overwrite a parameter that has been produced by a generator.</p>
+<p>The following carthasys snippit will generate a person using the persona parameter generator. The configuration will be based on the persona ‘bob’, but the hair lightness will be set in a way that Bobs dark brown hair is replaced by black hair.</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;sDTI&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/catharsys/blender/generate/object/hum-gen-3d:1.0&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;sId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Bob&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;xSeed&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;sMode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;PERSONA&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;mParamConfig&quot;</span><span class="p">:</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;sPersonaId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;bob&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;mOverwrite&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;hair&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;lightness&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;lCollectionHierarchy&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;Persons&quot;</span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;lModifiers&quot;</span><span class="p">:</span>
+<span class="w">    </span><span class="p">[</span>
+<span class="w">        </span><span class="c1">// ...</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<section id="persona">
+<h2>1. Persona<a class="headerlink" href="#persona" title="Link to this heading">#</a></h2>
+<p>Predefined settings can be loaded for several available personas.
+They are specified by the .json files in the <code class="docutils literal notranslate"><span class="pre">./personas/</span></code> folder.
+The currently available personas are</p>
+<ul class="simple">
+<li><p>alice</p></li>
+<li><p>bob</p></li>
+</ul>
+<p>Example generator snippit for catharsys:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;sDTI&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/catharsys/blender/generate/object/hum-gen-3d:1.0&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;sId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Bob&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;xSeed&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;sMode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;PERSONA&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;mParamConfig&quot;</span><span class="p">:</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;sPersonaId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;bob&quot;</span>
+<span class="w">    </span><span class="p">},</span><span class="w">            </span>
+<span class="w">    </span><span class="nt">&quot;lCollectionHierarchy&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;Persons&quot;</span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;lModifiers&quot;</span><span class="p">:</span>
+<span class="w">    </span><span class="p">[</span>
+<span class="w">        </span><span class="c1">// ...</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="fully-random">
+<h2>2. Fully Random:<a class="headerlink" href="#fully-random" title="Link to this heading">#</a></h2>
+<p>For domain randomization, it is reasonable to create completely random anyhumans. The parameters of the human will be varied over the whole range of valid values, resulting sometimes in funny and questionable configurations. However, even if these anyhumans probably will not have a correspondace in reality, it is expected that this is benefitial for AI training.</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;sDTI&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/catharsys/blender/generate/object/hum-gen-3d:1.0&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;sId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Armature.001&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;xSeed&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;sMode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;RANDOM_FULL&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;mParamConfig&quot;</span><span class="p">:</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;gender&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;female&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">// optional</span>
+<span class="w">        </span><span class="nt">&quot;additional_clothes_to_ignore&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w"> </span><span class="c1">// list of str, optional</span>
+<span class="w">    </span><span class="p">},</span><span class="w">            </span>
+<span class="w">    </span><span class="nt">&quot;lCollectionHierarchy&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;Persons&quot;</span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;lModifiers&quot;</span><span class="p">:</span>
+<span class="w">    </span><span class="p">[</span>
+<span class="w">        </span><span class="c1">// ...</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="realistic-random">
+<h2>3. Realistic Random:<a class="headerlink" href="#realistic-random" title="Link to this heading">#</a></h2>
+<p>Similar to fully random parameter generation. However, the parameters are to be expected in a more realistic range and the generated humans are supposed to be believable.</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;sDTI&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/catharsys/blender/generate/object/hum-gen-3d:1.0&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;sId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Armature.001&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;xSeed&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;sMode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;RANDOM_REALISTIC&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;mParamConfig&quot;</span><span class="p">:</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;gender&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;male&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">// optional</span>
+<span class="w">        </span><span class="nt">&quot;additional_clothes_to_ignore&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w"> </span><span class="c1">// list of str, optional</span>
+<span class="w">    </span><span class="p">},</span><span class="w">            </span>
+<span class="w">    </span><span class="nt">&quot;lCollectionHierarchy&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;Persons&quot;</span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;lModifiers&quot;</span><span class="p">:</span>
+<span class="w">    </span><span class="p">[</span>
+<span class="w">        </span><span class="c1">// ...</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="zwicky-box">
+<h2>3. Zwicky Box:<a class="headerlink" href="#zwicky-box" title="Link to this heading">#</a></h2>
+<p><strong>REMARK: NOT FULLY IMPLEMENTED YET</strong></p>
+<p>Using this setting, it is easily possible to specify an anyhuman by means of a Zwicky box.
+The current implementation of has the following dimensions:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>dimension</p></th>
+<th class="head"><p>values</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>gender</p></td>
+<td><p>male, female</p></td>
+</tr>
+<tr class="row-odd"><td><p>age</p></td>
+<td><p>young, adult, senior</p></td>
+</tr>
+<tr class="row-even"><td><p>type</p></td>
+<td><p>asian, black, caucasian</p></td>
+</tr>
+<tr class="row-odd"><td><p>bodytype</p></td>
+<td><p>thin, athletic, average, corpulent, obese</p></td>
+</tr>
+<tr class="row-even"><td><p>bodyheight</p></td>
+<td><p>short, average, tall</p></td>
+</tr>
+<tr class="row-odd"><td><p>skin_tone</p></td>
+<td><p>dark, average, bright</p></td>
+</tr>
+<tr class="row-even"><td><p>hair_legnth</p></td>
+<td><p>bald, short, average, long</p></td>
+</tr>
+<tr class="row-odd"><td><p>hair_color</p></td>
+<td><p>black, dark, average, light</p></td>
+</tr>
+<tr class="row-even"><td><p>eye_color</p></td>
+<td><p>blue, green, brown</p></td>
+</tr>
+<tr class="row-odd"><td><p>clothing</p></td>
+<td><p>casual, business</p></td>
+</tr>
+<tr class="row-even"><td><p>clothing_color</p></td>
+<td><p>mixed, bright, dark</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>For the generation, indiviual dimensions can be specified or ommitted.
+If ommitted, they will be choosen randomly from the available values. For each of the values,
+the resulting configuration will be drawn from a normal distribution around representive values.</p>
+<p>The following will generate an average sized caucasian male with short hair (all other dimensions are randomized):</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;sDTI&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/catharsys/blender/generate/object/hum-gen-3d:1.0&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;sId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Charlie&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;xSeed&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;sMode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ZWICKY&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;mParamConfig&quot;</span><span class="p">:</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;gender&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;male&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;caucasian&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;bodyheight&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;average&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;hair_length&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;short&quot;</span>
+<span class="w">    </span><span class="p">},</span><span class="w">            </span>
+<span class="w">    </span><span class="nt">&quot;lCollectionHierarchy&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;Persons&quot;</span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;lModifiers&quot;</span><span class="p">:</span>
+<span class="w">    </span><span class="p">[</span>
+<span class="w">        </span><span class="c1">// ...</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="file">
+<h2>5. File:<a class="headerlink" href="#file" title="Link to this heading">#</a></h2>
+<p><strong>REMARK: NOT IMPLEMENTED YET</strong></p>
+<p>Also, anyhuman configurations can be loaded from a json file:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;sDTI&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/catharsys/blender/generate/object/hum-gen-3d:1.0&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;sId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Dave&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;xSeed&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;sMode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;FILE&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;mParamConfig&quot;</span><span class="p">:</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;filepath&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;./personas/dave.json&quot;</span>
+<span class="w">    </span><span class="p">},</span><span class="w">            </span>
+<span class="w">    </span><span class="nt">&quot;lCollectionHierarchy&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;Persons&quot;</span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;lModifiers&quot;</span><span class="p">:</span>
+<span class="w">    </span><span class="p">[</span>
+<span class="w">        </span><span class="c1">// ...</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="anyhuman-configuration">
+<h1>Anyhuman configuration  <a name="anyhuman-configuration"></a><a class="headerlink" href="#anyhuman-configuration" title="Link to this heading">#</a></h1>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;gender&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;male&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">// &quot;male&quot; or &quot;female&quot;</span>
+<span class="w">    </span><span class="nt">&quot;body&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Caucasian 1.json&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">// from the list of available body types</span>
+<span class="w">    </span><span class="nt">&quot;muscular&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.1</span><span class="p">,</span><span class="w"> </span><span class="c1">// [0, 1]</span>
+<span class="w">    </span><span class="nt">&quot;overweight&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.1</span><span class="p">,</span><span class="w">  </span><span class="c1">// [0, 1]</span>
+<span class="w">    </span><span class="nt">&quot;skinny&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.1</span><span class="p">,</span><span class="w">  </span><span class="c1">// [0, 1]</span>
+<span class="w">    </span><span class="nt">&quot;height&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">177.6</span><span class="p">,</span><span class="w"> </span><span class="c1">// height in cm</span>
+<span class="w">    </span><span class="nt">&quot;face&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">XXX</span><span class="p">,</span><span class="w"> </span><span class="c1">// specification of the face, see below</span>
+<span class="w">    </span><span class="nt">&quot;skin&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">XXX</span><span class="p">,</span><span class="w"> </span><span class="c1">// see below</span>
+<span class="w">    </span><span class="nt">&quot;eyes&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">XXX</span><span class="p">,</span><span class="w"> </span><span class="c1">// see below</span>
+<span class="w">    </span><span class="nt">&quot;hair&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">XXX</span><span class="p">,</span><span class="w"> </span><span class="c1">// see below</span>
+<span class="w">    </span><span class="nt">&quot;beard&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">XXX</span><span class="p">,</span><span class="w"> </span><span class="c1">// see below</span>
+<span class="w">    </span><span class="nt">&quot;outfit&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">XXX</span><span class="p">,</span><span class="w"> </span><span class="c1">// see below</span>
+<span class="w">    </span><span class="nt">&quot;footwear&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">XXX</span><span class="p">,</span><span class="w"> </span><span class="c1">// see below</span>
+<span class="w">    </span><span class="nt">&quot;expression&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;\\expressions\\Base Shapekeys\\Smile.txt&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">// from the file of available expresions</span>
+<span class="w">    </span><span class="nt">&quot;posefilename&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="c1">// from the file of available poses</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<section id="specifying-the-body-of-the-human">
+<h2>Specifying the body of the human<a class="headerlink" href="#specifying-the-body-of-the-human" title="Link to this heading">#</a></h2>
+<p>if “gender” is “male”, “body” can be one of the following list:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="s2">&quot;Asian 1.json&quot;</span>
+<span class="w">    </span><span class="c1">// ..</span>
+<span class="w">    </span><span class="s2">&quot;Asian 8.json&quot;</span>
+
+<span class="w">    </span><span class="s2">&quot;Caucasian 1.json&quot;</span>
+<span class="w">    </span><span class="c1">// ..</span>
+<span class="w">    </span><span class="s2">&quot;Caucasian 5.json&quot;</span>
+<span class="w">    </span><span class="s2">&quot;Black 1.json&quot;</span>
+<span class="w">    </span><span class="c1">// ..</span>
+<span class="w">    </span><span class="s2">&quot;Black 5.json&quot;</span>
+<span class="w">    </span><span class="s2">&quot;Hispanic 1.json&quot;</span>
+</pre></div>
+</div>
+<p>if “gender” is “female”, “body” can be one of the following list:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="s2">&quot;Asian 1.json&quot;</span>
+<span class="w">    </span><span class="c1">// ..</span>
+<span class="w">    </span><span class="s2">&quot;Asian 7.json&quot;</span>
+
+<span class="w">    </span><span class="s2">&quot;Caucasian 1.json&quot;</span>
+<span class="w">    </span><span class="c1">// ..</span>
+<span class="w">    </span><span class="s2">&quot;Caucasian 5.json&quot;</span>
+<span class="w">    </span><span class="s2">&quot;Black 1.json&quot;</span>
+<span class="w">    </span><span class="c1">// ..</span>
+<span class="w">    </span><span class="s2">&quot;Black 5.json&quot;</span>
+<span class="w">    </span><span class="s2">&quot;Hispanic.json&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="specifying-the-face-of-the-human">
+<h2>Specifying the face of the human<a class="headerlink" href="#specifying-the-face-of-the-human" title="Link to this heading">#</a></h2>
+<p>The face of the human can be described by various means.</p>
+<ol class="arabic simple">
+<li><p>Completely random:</p></li>
+</ol>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;face&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;random&quot;</span><span class="w"> </span><span class="c1">// completeley random face</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>use one of the available variations</p></li>
+</ol>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;face&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;variation_7&quot;</span><span class="w"> </span><span class="c1">// completeley random face</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>“face” can be one of the following list:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="s2">&quot;asian&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;black&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;caucasion&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;variation_1&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="c1">// ..</span>
+<span class="w">    </span><span class="s2">&quot;variation_11&quot;</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>full specification (not implement yet)</p></li>
+</ol>
+</section>
+<section id="specifying-the-hair-and-beard">
+<h2>Specifying the hair and beard<a class="headerlink" href="#specifying-the-hair-and-beard" title="Link to this heading">#</a></h2>
+<p>“hair_style” for female anyhumans can be on of this list:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="err">A</span><span class="kc">fr</span><span class="err">o</span><span class="w"> </span><span class="err">Dreads</span>
+<span class="err">A</span><span class="kc">fr</span><span class="err">o</span>
+<span class="err">Curls</span><span class="w"> </span><span class="err">High</span><span class="w"> </span><span class="err">Top</span><span class="w"> </span><span class="err">Fade</span>
+<span class="err">Curly</span><span class="w"> </span><span class="err">A</span><span class="kc">fr</span><span class="err">o</span>
+<span class="err">Dreadlocks</span>
+<span class="err">Bob</span><span class="w"> </span><span class="err">Ba</span><span class="kc">n</span><span class="err">gs</span>
+<span class="err">Bob</span><span class="w"> </span><span class="err">Lo</span><span class="kc">n</span><span class="err">g</span>
+<span class="err">Bob</span><span class="w"> </span><span class="err">Shor</span><span class="kc">t</span>
+<span class="err">Bu</span><span class="kc">n</span><span class="w"> </span><span class="err">Ba</span><span class="kc">n</span><span class="err">gs</span>
+<span class="err">Bu</span><span class="kc">n</span>
+<span class="err">Medium</span><span class="w"> </span><span class="err">Ce</span><span class="kc">nter</span><span class="w"> </span><span class="err">Par</span><span class="kc">t</span>
+<span class="err">Medium</span><span class="w"> </span><span class="err">Side</span><span class="w"> </span><span class="err">Par</span><span class="kc">t</span>
+<span class="err">Po</span><span class="kc">n</span><span class="err">y</span><span class="kc">ta</span><span class="err">il</span><span class="w"> </span><span class="err">Shor</span><span class="kc">t</span>
+<span class="err">Po</span><span class="kc">n</span><span class="err">y</span><span class="kc">ta</span><span class="err">il</span>
+<span class="err">U</span><span class="kc">n</span><span class="err">dercu</span><span class="kc">t</span>
+<span class="err">Wavy</span><span class="w"> </span><span class="err">Bob</span><span class="w"> </span><span class="err">Ba</span><span class="kc">n</span><span class="err">gs</span>
+<span class="err">Bowl</span>
+<span class="err">Combed</span><span class="w"> </span><span class="err">S</span><span class="kc">t</span><span class="err">ylized</span>
+<span class="err">Fla</span><span class="kc">t</span><span class="w"> </span><span class="kc">t</span><span class="err">op</span>
+<span class="err">Mohawk</span>
+<span class="err">Pixie</span><span class="w"> </span><span class="err">Messy</span>
+<span class="err">Pixie</span>
+<span class="err">Slicked</span><span class="w"> </span><span class="err">Back</span><span class="w"> </span><span class="err">Side</span><span class="w"> </span><span class="err">Par</span><span class="kc">t</span>
+<span class="err">Slicked</span><span class="w"> </span><span class="err">Back</span>
+<span class="err">Spiked</span><span class="w"> </span><span class="err">Up</span>
+<span class="err">Buzzcu</span><span class="kc">t</span><span class="w"> </span><span class="err">Curly</span><span class="w"> </span><span class="err">Fade</span>
+<span class="err">Buzzcu</span><span class="kc">t</span><span class="w"> </span><span class="err">Fade</span>
+<span class="err">Shor</span><span class="kc">t</span><span class="w"> </span><span class="err">Combed</span>
+<span class="err">Shor</span><span class="kc">t</span><span class="w"> </span><span class="err">Curly</span><span class="w"> </span><span class="err">Fade</span>
+<span class="err">Shor</span><span class="kc">t</span><span class="w"> </span><span class="err">Side</span><span class="w"> </span><span class="err">Par</span><span class="kc">t</span>
+</pre></div>
+</div>
+<p>“hair_style” for male anyhumans can be on of this list:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="err">A</span><span class="kc">fr</span><span class="err">o</span><span class="w"> </span><span class="err">Dreads</span>
+<span class="err">A</span><span class="kc">fr</span><span class="err">o</span>
+<span class="err">Curls</span><span class="w"> </span><span class="err">High</span><span class="w"> </span><span class="err">Top</span><span class="w"> </span><span class="err">Fade</span>
+<span class="err">Curly</span><span class="w"> </span><span class="err">A</span><span class="kc">fr</span><span class="err">o</span>
+<span class="err">Dreadlocks</span>
+<span class="err">Bob</span><span class="w"> </span><span class="err">Lo</span><span class="kc">n</span><span class="err">g</span>
+<span class="err">Bu</span><span class="kc">n</span>
+<span class="err">Medium</span><span class="w"> </span><span class="err">Ce</span><span class="kc">nter</span><span class="w"> </span><span class="err">Par</span><span class="kc">t</span>
+<span class="err">Medium</span><span class="w"> </span><span class="err">Side</span><span class="w"> </span><span class="err">Par</span><span class="kc">t</span>
+<span class="err">Po</span><span class="kc">n</span><span class="err">y</span><span class="kc">ta</span><span class="err">il</span><span class="w"> </span><span class="err">Shor</span><span class="kc">t</span>
+<span class="err">Po</span><span class="kc">n</span><span class="err">y</span><span class="kc">ta</span><span class="err">il</span>
+<span class="err">U</span><span class="kc">n</span><span class="err">dercu</span><span class="kc">t</span>
+<span class="err">Wavy</span><span class="w"> </span><span class="err">Bob</span><span class="w"> </span><span class="err">Ba</span><span class="kc">n</span><span class="err">gs</span>
+<span class="err">Bowl</span>
+<span class="err">Combed</span><span class="w"> </span><span class="err">S</span><span class="kc">t</span><span class="err">ylized</span>
+<span class="err">Fla</span><span class="kc">t</span><span class="w"> </span><span class="kc">t</span><span class="err">op</span>
+<span class="err">Mohawk</span>
+<span class="err">Pixie</span><span class="w"> </span><span class="err">Messy</span>
+<span class="err">Pixie</span>
+<span class="err">Slicked</span><span class="w"> </span><span class="err">Back</span><span class="w"> </span><span class="err">Side</span><span class="w"> </span><span class="err">Par</span><span class="kc">t</span>
+<span class="err">Slicked</span><span class="w"> </span><span class="err">Back</span>
+<span class="err">Spiked</span><span class="w"> </span><span class="err">Up</span>
+<span class="err">Buzzcu</span><span class="kc">t</span><span class="w"> </span><span class="err">Curly</span><span class="w"> </span><span class="err">Fade</span>
+<span class="err">Buzzcu</span><span class="kc">t</span><span class="w"> </span><span class="err">Fade</span>
+<span class="err">Shor</span><span class="kc">t</span><span class="w"> </span><span class="err">Combed</span>
+<span class="err">Shor</span><span class="kc">t</span><span class="w"> </span><span class="err">Curly</span><span class="w"> </span><span class="err">Fade</span>
+<span class="err">Shor</span><span class="kc">t</span><span class="w"> </span><span class="err">Side</span><span class="w"> </span><span class="err">Par</span><span class="kc">t</span>
+</pre></div>
+</div>
+<p>“beard_style” can be one of the following:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="err">Full_Beard_</span><span class="mi">1</span>
+<span class="err">Goa</span><span class="kc">tee</span>
+<span class="err">Groomed_Beard_</span><span class="mi">1</span>
+<span class="err">Ha</span><span class="kc">n</span><span class="err">dlebar_Mus</span><span class="kc">ta</span><span class="err">che</span>
+<span class="err">Large_Mus</span><span class="kc">ta</span><span class="err">che_</span><span class="p">[</span><span class="err">Full</span><span class="p">]</span>
+<span class="err">Large_Mus</span><span class="kc">ta</span><span class="err">che_</span><span class="p">[</span><span class="err">Shor</span><span class="kc">t</span><span class="p">]</span>
+<span class="err">S</span><span class="kc">tu</span><span class="err">bble_Mus</span><span class="kc">ta</span><span class="err">che_</span><span class="mi">1</span>
+<span class="err">S</span><span class="kc">tu</span><span class="err">bble_Lo</span><span class="kc">n</span><span class="err">g</span>
+<span class="err">S</span><span class="kc">tu</span><span class="err">bble_Shor</span><span class="kc">t</span>
+</pre></div>
+</div>
+</section>
+<section id="specifying-the-outfit">
+<h2>Specifying the outfit<a class="headerlink" href="#specifying-the-outfit" title="Link to this heading">#</a></h2>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="nt">&quot;outfit&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;outfit_style&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">XXX</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;outfit_pattern&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">XXX</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;outfit_color_value_modifier&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">XXX</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;outfit_brightness&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">XXX</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;outfit_saturation&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">XXX</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;outfit_contrast&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">XXX</span><span class="p">,</span>
+<span class="p">},</span>
+</pre></div>
+</div>
+<p>“outfit_style” can be either “random” or from the list:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="c1">// female outfit styles</span>
+<span class="err">Casual/Ski</span><span class="kc">nn</span><span class="err">y_Look</span>
+<span class="err">Casual/Smar</span><span class="kc">t</span><span class="err">_Casual</span>
+<span class="err">Casual/S</span><span class="kc">t</span><span class="err">ylish_Casual</span>
+<span class="err">Casual/Weeke</span><span class="kc">n</span><span class="err">d_Warrior</span>
+<span class="err">O</span><span class="kc">ff</span><span class="err">ice/New_I</span><span class="kc">ntern</span>
+<span class="err">O</span><span class="kc">ff</span><span class="err">ice/Ope</span><span class="kc">n</span><span class="err">_Sui</span><span class="kc">t</span>
+<span class="err">O</span><span class="kc">ff</span><span class="err">ice/Pa</span><span class="kc">ntsu</span><span class="err">i</span><span class="kc">t</span>
+<span class="err">O</span><span class="kc">ff</span><span class="err">ice/Relaxed_Dresscode</span>
+<span class="err">O</span><span class="kc">ff</span><span class="err">ice/S</span><span class="kc">t</span><span class="err">ock_Excha</span><span class="kc">n</span><span class="err">ge</span>
+<span class="err">O</span><span class="kc">ff</span><span class="err">ice/Summer_Lawyer</span>
+<span class="err">Summer/BBQ_Barbara</span>
+<span class="err">Summer/Beach_Day</span>
+<span class="err">Summer/O</span><span class="kc">ff</span><span class="err">ice_Excursio</span><span class="kc">n</span>
+<span class="err">Wi</span><span class="kc">nter</span><span class="err">/Fros</span><span class="kc">t</span><span class="err">y_Eve</span><span class="kc">n</span><span class="err">i</span><span class="kc">n</span><span class="err">g</span>
+<span class="err">Ex</span><span class="kc">tra</span><span class="w"> </span><span class="err">Ou</span><span class="kc">tf</span><span class="err">i</span><span class="kc">ts</span><span class="w"> </span><span class="err">Pack/CEO</span>
+<span class="err">Ex</span><span class="kc">tra</span><span class="w"> </span><span class="err">Ou</span><span class="kc">tf</span><span class="err">i</span><span class="kc">ts</span><span class="w"> </span><span class="err">Pack/Dress</span>
+<span class="err">Ex</span><span class="kc">tra</span><span class="w"> </span><span class="err">Ou</span><span class="kc">tf</span><span class="err">i</span><span class="kc">ts</span><span class="w"> </span><span class="err">Pack/Fligh</span><span class="kc">t</span><span class="w"> </span><span class="err">Sui</span><span class="kc">t</span>
+<span class="err">Ex</span><span class="kc">tra</span><span class="w"> </span><span class="err">Ou</span><span class="kc">tf</span><span class="err">i</span><span class="kc">ts</span><span class="w"> </span><span class="err">Pack/Kimo</span><span class="kc">n</span><span class="err">o</span>
+<span class="err">Ex</span><span class="kc">tra</span><span class="w"> </span><span class="err">Ou</span><span class="kc">tf</span><span class="err">i</span><span class="kc">ts</span><span class="w"> </span><span class="err">Pack/Lab</span><span class="w"> </span><span class="err">Tech</span>
+<span class="err">Ex</span><span class="kc">tra</span><span class="w"> </span><span class="err">Ou</span><span class="kc">tf</span><span class="err">i</span><span class="kc">ts</span><span class="w"> </span><span class="err">Pack/Pira</span><span class="kc">te</span>
+<span class="err">Ex</span><span class="kc">tra</span><span class="w"> </span><span class="err">Ou</span><span class="kc">tf</span><span class="err">i</span><span class="kc">ts</span><span class="w"> </span><span class="err">Pack/Prese</span><span class="kc">ntat</span><span class="err">io</span><span class="kc">n</span>
+<span class="err">Ex</span><span class="kc">tra</span><span class="w"> </span><span class="err">Ou</span><span class="kc">tf</span><span class="err">i</span><span class="kc">ts</span><span class="w"> </span><span class="err">Pack/Spri</span><span class="kc">n</span><span class="err">g</span><span class="kc">t</span><span class="err">ime</span>
+<span class="err">Ex</span><span class="kc">tra</span><span class="w"> </span><span class="err">Ou</span><span class="kc">tf</span><span class="err">i</span><span class="kc">ts</span><span class="w"> </span><span class="err">Pack/Tip</span><span class="w"> </span><span class="err">Top</span>
+
+<span class="c1">// male outfit styles</span>
+<span class="err">Casual/Casual_Weekday</span>
+<span class="err">Casual/Relaxed_O</span><span class="kc">ff</span><span class="err">ice</span>
+<span class="err">Casual/Ski</span><span class="kc">nn</span><span class="err">y_Look</span>
+<span class="err">Casual/Smar</span><span class="kc">t</span><span class="err">_Casual</span>
+<span class="err">Casual/S</span><span class="kc">t</span><span class="err">ylish_Casual</span>
+<span class="err">Casual/Weeke</span><span class="kc">n</span><span class="err">d_Warrior</span>
+<span class="err">O</span><span class="kc">ff</span><span class="err">ice/New_I</span><span class="kc">ntern</span>
+<span class="err">O</span><span class="kc">ff</span><span class="err">ice/Ope</span><span class="kc">n</span><span class="err">_Sui</span><span class="kc">t</span>
+<span class="err">O</span><span class="kc">ff</span><span class="err">ice/Relaxed_Dresscode</span>
+<span class="err">O</span><span class="kc">ff</span><span class="err">ice/S</span><span class="kc">t</span><span class="err">ock_Excha</span><span class="kc">n</span><span class="err">ge</span>
+<span class="err">O</span><span class="kc">ff</span><span class="err">ice/Sui</span><span class="kc">t</span><span class="err">_N_Tie</span>
+<span class="err">O</span><span class="kc">ff</span><span class="err">ice/Summer_Lawyer</span>
+<span class="err">Summer/BBQ_Barry</span>
+<span class="err">Summer/Beach_Day</span>
+<span class="err">Summer/O</span><span class="kc">ff</span><span class="err">ice_Excursio</span><span class="kc">n</span>
+<span class="err">Wi</span><span class="kc">nter</span><span class="err">/Fros</span><span class="kc">t</span><span class="err">y_Eve</span><span class="kc">n</span><span class="err">i</span><span class="kc">n</span><span class="err">g</span>
+<span class="err">Ex</span><span class="kc">tra</span><span class="w"> </span><span class="err">Ou</span><span class="kc">tf</span><span class="err">i</span><span class="kc">ts</span><span class="w"> </span><span class="err">Pack/Bomber</span><span class="w"> </span><span class="err">look</span>
+<span class="err">Ex</span><span class="kc">tra</span><span class="w"> </span><span class="err">Ou</span><span class="kc">tf</span><span class="err">i</span><span class="kc">ts</span><span class="w"> </span><span class="err">Pack/Fligh</span><span class="kc">t</span><span class="w"> </span><span class="err">Sui</span><span class="kc">t</span>
+<span class="err">Ex</span><span class="kc">tra</span><span class="w"> </span><span class="err">Ou</span><span class="kc">tf</span><span class="err">i</span><span class="kc">ts</span><span class="w"> </span><span class="err">Pack/Gol</span><span class="kc">f</span><span class="w"> </span><span class="err">Day</span>
+<span class="err">Ex</span><span class="kc">tra</span><span class="w"> </span><span class="err">Ou</span><span class="kc">tf</span><span class="err">i</span><span class="kc">ts</span><span class="w"> </span><span class="err">Pack/Lab</span><span class="w"> </span><span class="err">Tech</span>
+<span class="err">Ex</span><span class="kc">tra</span><span class="w"> </span><span class="err">Ou</span><span class="kc">tf</span><span class="err">i</span><span class="kc">ts</span><span class="w"> </span><span class="err">Pack/O</span><span class="kc">n</span><span class="w"> </span><span class="kc">t</span><span class="err">he</span><span class="w"> </span><span class="err">road</span>
+<span class="err">Ex</span><span class="kc">tra</span><span class="w"> </span><span class="err">Ou</span><span class="kc">tf</span><span class="err">i</span><span class="kc">ts</span><span class="w"> </span><span class="err">Pack/Pira</span><span class="kc">te</span>
+<span class="err">Ex</span><span class="kc">tra</span><span class="w"> </span><span class="err">Ou</span><span class="kc">tf</span><span class="err">i</span><span class="kc">ts</span><span class="w"> </span><span class="err">Pack/Relaxed</span><span class="w"> </span><span class="err">Fi</span><span class="kc">t</span>
+</pre></div>
+</div>
+<p>To pattern and color the output, use either a constant value, a list, or a dictionary for the remaining outfit values.
+Using a constant value, the provided value will be applied to all clothing items.
+Using a list, the values in the list will be appliedt to clothing items in a consecutive manner.
+Using a dictionary, the keys will be used for lookup of the items to apply to.</p>
+<p>Example:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="nt">&quot;outfit&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;outfit_style&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Casual/Relaxed_Weekday&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;outfit_pattern&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;random&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;outfit_color&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;TSHIRT&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;green&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;Jeans&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;gray&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;outfit_color_value_modifier&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;TSHIRT&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;Jeans&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;outfit_brightness&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mf">1.0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.5</span><span class="p">,</span><span class="w"> </span><span class="mf">2.5</span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;outfit_saturation&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1.1</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="others">
+<h2>Others<a class="headerlink" href="#others" title="Link to this heading">#</a></h2>
+<p>Documentation of other values will be added in the future.</p>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="index.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Blender Human Add-On</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="license.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">License</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">How to generate a human <a name="generate-anyhumans"></a></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#persona">1. Persona</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fully-random">2. Fully Random:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#realistic-random">3. Realistic Random:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zwicky-box">3. Zwicky Box:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#file">5. File:</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#anyhuman-configuration">Anyhuman configuration  <a name="anyhuman-configuration"></a></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#specifying-the-body-of-the-human">Specifying the body of the human</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#specifying-the-face-of-the-human">Specifying the face of the human</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#specifying-the-hair-and-beard">Specifying the hair and beard</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#specifying-the-outfit">Specifying the outfit</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#others">Others</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Dirk Fortmeier, Jorina Baum-Renken, Christian Perwass
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022, Robert Bosch GmbH and its subsidiaries.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

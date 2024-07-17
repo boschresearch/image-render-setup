@@ -1,0 +1,543 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Catharsys Development Installation &#8212; Image-Render Setup 3.2.36 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=5976921d"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'install_development';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Image-Render Setup 3.2.36 documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Catharsys Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="system_main.html">System Tools &amp; Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gui_main.html">Web User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workspace_main.html">Automation with Workspaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="develop.html">Code Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="change-log.html">Change Log</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/install_development.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Catharsys Development Installation</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contributing">Contributing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#branching-model">Branching Model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation-steps">Installation Steps</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1">Step 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2">Step 2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3">Step 3</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4">Step 4</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5">Step 5</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-6">Step 6</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-7">Step 7</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#next-steps">Next Steps</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="catharsys-development-installation">
+<h1>Catharsys Development Installation<a class="headerlink" href="#catharsys-development-installation" title="Link to this heading">#</a></h1>
+<p>A development installation installs all Catharsys Python source in <code class="docutils literal notranslate"><span class="pre">editable</span></code> mode. This means, you can use all commands registered in the Python environment by Catharsys, but the code executed is the one in your cloned repositories and not code installed in <code class="docutils literal notranslate"><span class="pre">site-packages</span></code>.</p>
+<p>If you just want to have a source installation and do not plan to modify the code, not all the steps described in the following will be necessary. The advantage of a source install is, that you can get the latest (possible buggy) features with the command <code class="docutils literal notranslate"><span class="pre">cathy</span> <span class="pre">repos</span> <span class="pre">update</span></code>. This pulls the main branch for all repositories in the system.</p>
+<p>The steps that are only needed if you want to contribute code, will be denoted by “<strong>(for contribution install)</strong>”. You can leave these out if you just want to use the source install.</p>
+<section id="contributing">
+<h2>Contributing<a class="headerlink" href="#contributing" title="Link to this heading">#</a></h2>
+<p>If you want to contribute to any of the repositories, make sure to read and follow the instructions in the repository’s <code class="docutils literal notranslate"><span class="pre">CONTRIBUTION.md</span></code> file. Note that the projects have different Open Source licenses. In particular, all Blender related projects are <strong>GPL-v3</strong> licensed, while the other projects are <strong>Apache-2.0</strong> licensed, unless stated otherwise. The documentation is <code class="docutils literal notranslate"><span class="pre">CC-BY-4.0</span></code> and the example configurations <code class="docutils literal notranslate"><span class="pre">CC-4.0</span></code> licensed. In any case, the license file that is included with a project determines its’ license. Here is the <a class="reference internal" href="CONTRIBUTING.html"><span class="std std-doc">CONTRIBUTING.md</span></a> file of the <code class="docutils literal notranslate"><span class="pre">image-render-setup</span></code> project.</p>
+</section>
+<section id="branching-model">
+<h2>Branching Model<a class="headerlink" href="#branching-model" title="Link to this heading">#</a></h2>
+<p>This project uses the GitFlow branching model. However, the naming of the branches is adapted to make the workflow with GitHub easier. What would typically be called <code class="docutils literal notranslate"><span class="pre">develop</span></code> branch becomes the <code class="docutils literal notranslate"><span class="pre">main</span></code> branch, which is the default GitHub branch. The <code class="docutils literal notranslate"><span class="pre">main</span></code> or <code class="docutils literal notranslate"><span class="pre">master</span></code> branch of the GitFlow model becomes the <code class="docutils literal notranslate"><span class="pre">stable</span></code> branch. That is, you develop in a feature branch (<code class="docutils literal notranslate"><span class="pre">feature/[your</span> <span class="pre">feature]</span></code>) and then create a pull request agains the <code class="docutils literal notranslate"><span class="pre">main</span></code> branch. Pull requests against the <code class="docutils literal notranslate"><span class="pre">stable</span></code> branch will be rejected.</p>
+<p>Releases are tagged with a version number in the stable branch. This allows to go back to a specific version from which to create a new release branch, if multiple releases need to be developed or fixed in parallel.</p>
+<p>Note that you need to fork this repository if you want to modify it. When forking, it is sufficient to only include the <code class="docutils literal notranslate"><span class="pre">main</span></code> branch in the fork.</p>
+</section>
+<section id="installation-steps">
+<h2>Installation Steps<a class="headerlink" href="#installation-steps" title="Link to this heading">#</a></h2>
+<div class="admonition-windows admonition">
+<p class="admonition-title">Windows</p>
+<p>For a Windows install, it is assumed that you are using a PowerShell. This should be the default in all current Windows installations. If you are unfamiliar with PowerShell, <a class="reference internal" href="powershell.html"><span class="std std-doc">here</span></a> is a list of helpful commands and information. Make sure that you have the permissions to run PowerShell scripts. You can enable this locally with the command <code class="docutils literal notranslate"><span class="pre">Set-ExecutionPolicy</span> <span class="pre">RemoteSigned</span> <span class="pre">-Scope</span> <span class="pre">CurrentUser</span></code>.</p>
+</div>
+<p><strong>IMPORTANT</strong>: If you just want a source code install without contributing to the code via forked repositories, you only need to do steps 3, 5, 6, 7.</p>
+<section id="step-1">
+<h3>Step 1<a class="headerlink" href="#step-1" title="Link to this heading">#</a></h3>
+<p><em>(for contribution install)</em></p>
+<p>To install the Catharsys system from the Python sources, you first need to create forks from all repositories starting with <code class="docutils literal notranslate"><span class="pre">image-render</span></code> in the <a class="reference external" href="https://github.com/boschresearch">github.com/boschresearch</a> organization. In addition you also need forks of <code class="docutils literal notranslate"><span class="pre">functional-json</span></code> and <code class="docutils literal notranslate"><span class="pre">functional-json-vscode</span></code> also in <code class="docutils literal notranslate"><span class="pre">boschresearch</span></code>.</p>
+<p>To be precise, you only really need to fork those repositories that you want to modify. The others can be used directly from the <code class="docutils literal notranslate"><span class="pre">boschresearch</span></code> organization. This may, however, become quite confusing later on.</p>
+</section>
+<section id="step-2">
+<h3>Step 2<a class="headerlink" href="#step-2" title="Link to this heading">#</a></h3>
+<p><em>(for contribution install)</em></p>
+<p>Pull requests can only be merged with the repositories on <code class="docutils literal notranslate"><span class="pre">boschresearch</span></code>, if <strong>all</strong> commits are signed with a GPG key <strong>and</strong> the commit message contains a ‘signed-off-by’ statement. With <code class="docutils literal notranslate"><span class="pre">gpg</span></code> signing a commit message you certify that you authored the patch or otherwise have the right to submit it under an open source license. You also agree with the DCO that is given in the <code class="docutils literal notranslate"><span class="pre">CONTRIBUTION</span></code> file.</p>
+<p>To automatically add a ‘signed-off-by’ text in your commit message you can use the <code class="docutils literal notranslate"><span class="pre">-s</span></code> flag for the <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span></code> command. If you are using VS Code, enable the setting <code class="docutils literal notranslate"><span class="pre">git.alwaysSignOff</span></code> to sign all commits in this way. Note that this is not the same as GPG signing your commits, which will be discussed in the following.</p>
+<p>There is a nice description of how to set this up <a class="reference external" href="https://dev.to/devmount/signed-git-commits-in-vs-code-36do">here</a>. Here is the <code class="docutils literal notranslate"><span class="pre">TL;DR</span></code> version:</p>
+<ul class="simple">
+<li><p>Install <code class="docutils literal notranslate"><span class="pre">gpg</span></code> from <a class="reference internal" href="#"><span class="xref myst">https://www.gnupg.org/download/</span></a>.</p></li>
+<li><p>Generate a key, e.g. with the newly installed Kleopatra tool. (You can also import keys, of course) Make sure that your key is secured with a password.</p></li>
+<li><p>Check that <code class="docutils literal notranslate"><span class="pre">gpg</span></code> is available with <code class="docutils literal notranslate"><span class="pre">gpg</span> <span class="pre">--version</span></code></p></li>
+<li><p>Get the signature of the newly created key: <code class="docutils literal notranslate"><span class="pre">gpg</span> <span class="pre">--list-signatures</span></code> (look for a line starting with <code class="docutils literal notranslate"><span class="pre">sig</span></code>)</p></li>
+<li><p>Run <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">config</span> <span class="pre">--global</span> <span class="pre">user.signingkey</span> <span class="pre">[signature]</span></code></p></li>
+<li><p>Run <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">config</span> <span class="pre">--global</span> <span class="pre">commit.gpgsign</span> <span class="pre">true</span></code></p></li>
+<li><p>On Windows, <code class="docutils literal notranslate"><span class="pre">git</span></code> will likely not find the correct <code class="docutils literal notranslate"><span class="pre">gpg</span></code> install. The easiest way to fix this is with the following command in a PowerShell: <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">config</span> <span class="pre">--global</span> <span class="pre">gpg.program</span> <span class="pre">(get-command</span> <span class="pre">gpg).source</span></code></p></li>
+<li><p>Copy and paste your <em>public</em> key to the corresponding GitHub page (Personal -&gt; Settings -&gt; SSH and GPG Keys)</p></li>
+<li><p>Adapt VSCode settings to:</p>
+<ul>
+<li><p>Enable commit signing by searching for <code class="docutils literal notranslate"><span class="pre">gpg</span></code> in the VSCode Settings and enable code signing.</p></li>
+<li><p>Enable automatic addition of “signed-off by” to commit messages in VSCode, by searching for “git always sign off” in the settings and enabling it.</p></li>
+</ul>
+</li>
+<li><p>You can enable caching of your gpg-key passphrase with the <code class="docutils literal notranslate"><span class="pre">gpg-agent</span></code>.</p>
+<ul>
+<li><p>Set the timeouts for caching the <code class="docutils literal notranslate"><span class="pre">~/.gnupg/gpg-agent.conf</span></code> file with these two lines: <code class="docutils literal notranslate"><span class="pre">default-cache-ttl</span> <span class="pre">34560000</span></code> and <code class="docutils literal notranslate"><span class="pre">max-cache-ttl</span> <span class="pre">34560000</span></code>. See e.g. <a class="reference external" href="https://superuser.com/questions/624343/keep-gnupg-credentials-cached-for-entire-user-session">this page</a> for more details.</p></li>
+<li><p>For Windows, create the folder with <code class="docutils literal notranslate"><span class="pre">mkdir</span> <span class="pre">~\.gnupg</span></code> and then generate the config file with this one-liner: <code class="docutils literal notranslate"><span class="pre">Set-Content</span> <span class="pre">-Path</span> <span class="pre">~\.gnupg\gpg-agent.conf</span> <span class="pre">-Value</span> <span class="pre">&quot;default-cache-ttl</span> <span class="pre">34560000$([System.Environment]::NewLine)max-cache-ttl</span> <span class="pre">34560000&quot;</span></code> (taken from the page linked above).</p></li>
+<li><p>Now start the agent with <code class="docutils literal notranslate"><span class="pre">gpg-agent</span></code>.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="step-3">
+<h3>Step 3<a class="headerlink" href="#step-3" title="Link to this heading">#</a></h3>
+<p>Clone the <code class="docutils literal notranslate"><span class="pre">image-render-setup</span></code> repository to your local machine and open the cloned folder with VSCode.</p>
+</section>
+<section id="step-4">
+<h3>Step 4<a class="headerlink" href="#step-4" title="Link to this heading">#</a></h3>
+<p><em>(for contribution install)</em></p>
+<p>Within the <code class="docutils literal notranslate"><span class="pre">image-render-setup</span></code> folder, copy and <strong>rename</strong> the file <code class="docutils literal notranslate"><span class="pre">repos/repos-main.yaml</span></code> to a new folder <code class="docutils literal notranslate"><span class="pre">_local/repos-main-fork.yaml</span></code>. We will use this copy to specify which repositories should be cloned from where. If you have forked all repositories simply replace <code class="docutils literal notranslate"><span class="pre">boschresearch</span></code> with your GitHub user name. For example, <code class="docutils literal notranslate"><span class="pre">https://github.com/boschresearch/functional-json.git</span></code> becomes <code class="docutils literal notranslate"><span class="pre">https://github.com/&lt;user&gt;/functional-json.git</span></code>.</p>
+</section>
+<section id="step-5">
+<h3>Step 5<a class="headerlink" href="#step-5" title="Link to this heading">#</a></h3>
+<p>Open a terminal in the <code class="docutils literal notranslate"><span class="pre">image-render-setup</span></code> folder.</p>
+<div class="admonition-windows admonition">
+<p class="admonition-title">Windows</p>
+<p>If the base Conda environment is not active run <code class="docutils literal notranslate"><span class="pre">.\scripts\CondaActivate.ps1</span></code> if <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">activate</span> <span class="pre">base</span></code> does not work.</p>
+</div>
+<p>Now install the Catharsys system with one of the following commands. If you forked any repository and created a new repository list <code class="docutils literal notranslate"><span class="pre">./_local/repos-main-fork.yaml</span></code>, then use this command:</p>
+<div class="admonition-shell admonition">
+<p class="admonition-title">Shell</p>
+<p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">./scripts/cathy-conda.py</span> <span class="pre">install</span> <span class="pre">[new</span> <span class="pre">environment</span> <span class="pre">name]</span> <span class="pre">--develop</span> <span class="pre">./_local/repos-main-fork.yaml</span></code></p>
+</div>
+<p>If you didn’t fork any repositories and just want to get a source install, run this command:</p>
+<div class="admonition-shell admonition">
+<p class="admonition-title">Shell</p>
+<p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">./scripts/cathy-conda.py</span> <span class="pre">install</span> <span class="pre">[new</span> <span class="pre">environment</span> <span class="pre">name]</span> <span class="pre">--develop</span></code></p>
+</div>
+<p>In the remainder of the installation documentation it is assumed that the environment name is <code class="docutils literal notranslate"><span class="pre">cex1</span></code>, short for <em>Catharsys Example 1</em>.</p>
+<p>The script will create a new Conda environment with the given name. You can install different Catharsys versions side-by-side on your system, as long as they are in different Conda environments.</p>
+</section>
+<section id="step-6">
+<h3>Step 6<a class="headerlink" href="#step-6" title="Link to this heading">#</a></h3>
+<p>Switch to the new environment with:</p>
+<div class="admonition-shell admonition">
+<p class="admonition-title">Shell</p>
+<p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">activate</span> <span class="pre">[new</span> <span class="pre">environment</span> <span class="pre">name]</span></code></p>
+</div>
+<p>Go to the latest <a class="reference external" href="https://github.com/boschresearch/image-render-setup/releases">release</a> for <code class="docutils literal notranslate"><span class="pre">image-render-setup</span></code> and download the ISON language VS-Code addon. This should be a <code class="docutils literal notranslate"><span class="pre">.vsix</span></code> file. You can <a class="reference external" href="https://vscode-docs.readthedocs.io/en/stable/extensions/install-extension/">install</a> this directly via VS-Code.
+In VSCode select the <code class="docutils literal notranslate"><span class="pre">ISON</span> <span class="pre">language</span></code> extension as the default syntax highlighting for <code class="docutils literal notranslate"><span class="pre">.json5</span></code> and <code class="docutils literal notranslate"><span class="pre">.ison</span></code> files.</p>
+</section>
+<section id="step-7">
+<h3>Step 7<a class="headerlink" href="#step-7" title="Link to this heading">#</a></h3>
+<p>To start working with the Catharsys system, you can create a VSCode workspace file, that contains references to all repositories and sets parameters for the <code class="docutils literal notranslate"><span class="pre">black</span></code>-formatter etc. You generate a workspace file by running the following command in the <code class="docutils literal notranslate"><span class="pre">image-render-setup</span></code> folder:</p>
+<div class="admonition-shell admonition">
+<p class="admonition-title">Shell</p>
+<p><code class="docutils literal notranslate"><span class="pre">cathy</span> <span class="pre">code</span> <span class="pre">init</span></code></p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This command only works either inside the <code class="docutils literal notranslate"><span class="pre">image-render-setup</span></code> folder or in a workspace (as discussed later).</p>
+</div>
+<p>You should now see a <code class="docutils literal notranslate"><span class="pre">.code-workspace</span></code> file. If you open this file with VSCode, all repositories should be listed in the file explorer. Also, when you open a terminal, the conda environment that was active when you executed the <code class="docutils literal notranslate"><span class="pre">cathy</span> <span class="pre">code</span> <span class="pre">init</span></code> command, will be activated again. It is also the default environment for all debugging calls.</p>
+</section>
+</section>
+<section id="next-steps">
+<h2>Next Steps<a class="headerlink" href="#next-steps" title="Link to this heading">#</a></h2>
+<p>Now go back to the <a class="reference internal" href="setup.html#catharsys-system"><span class="std std-ref">main setup document</span></a> for the next steps.</p>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contributing">Contributing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#branching-model">Branching Model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation-steps">Installation Steps</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1">Step 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2">Step 2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3">Step 3</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4">Step 4</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5">Step 5</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-6">Step 6</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-7">Step 7</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#next-steps">Next Steps</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Christian Perwass
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022, Robert Bosch GmbH.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

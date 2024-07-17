@@ -1,0 +1,643 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Special Functions &#8212; ISON - Functional JSON 1.3.9 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=439117b9"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ipy/ison-functions-special';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="The Parser" href="../parser.html" />
+    <link rel="prev" title="Lambda Function Handling" href="ison-functions-lambda.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">ISON - Functional JSON 1.3.9 documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../language.html">The Language</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="ison-basics.html">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ison-advanced.html">Advanced Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ison-lambda.html">Lambda Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ison-lambda-calc.html">Lambda Calculus (for geeks)</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../functions.html">ISON Functions</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="ison-functions-convert.html">Conversion Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ison-functions-file.html">File/Path Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ison-functions-logic.html">Logic Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ison-functions-math.html">Math Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ison-functions-string.html">String Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ison-functions-struct.html">Data Structure Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ison-functions-lambda.html">Lambda Function Handling</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Special Functions</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../parser.html">The Parser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../back-to-main.html">Back to main documentation</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/ipy/ison-functions-special.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Special Functions</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-structure-from-string"><code class="docutils literal notranslate"><span class="pre">*</span></code> - Create Structure from String</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#print-print-to-console-or-log"><code class="docutils literal notranslate"><span class="pre">print</span></code> - Print to Console or Log</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-log-path-set-logging-path"><code class="docutils literal notranslate"><span class="pre">set-log-path</span></code> - Set Logging Path</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#s-string"><code class="docutils literal notranslate"><span class="pre">S</span></code> - String</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="special-functions">
+<h1>Special Functions<a class="headerlink" href="#special-functions" title="Link to this heading">#</a></h1>
+<section id="create-structure-from-string">
+<h2><code class="docutils literal notranslate"><span class="pre">*</span></code> - Create Structure from String<a class="headerlink" href="#create-structure-from-string" title="Link to this heading">#</a></h2>
+<p>Convert the string argument to an object. Expects the string to be JSON parsable.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ison</span>
+
+<span class="n">dicData</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;__locals__&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;sA&quot;</span><span class="p">:</span> <span class="s2">&quot;{ </span><span class="se">\&quot;</span><span class="s2">a</span><span class="se">\&quot;</span><span class="s2">: 1, </span><span class="se">\&quot;</span><span class="s2">b</span><span class="se">\&quot;</span><span class="s2">: 2 }&quot;</span>
+    <span class="p">},</span>
+
+    <span class="s2">&quot;result&quot;</span><span class="p">:</span> <span class="s2">&quot;$*{$sA}&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="n">dicResult</span> <span class="o">=</span> <span class="n">ison</span><span class="o">.</span><span class="n">run</span><span class="o">.</span><span class="n">Run</span><span class="p">(</span><span class="n">xData</span><span class="o">=</span><span class="n">dicData</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ison</span><span class="o">.</span><span class="n">run</span><span class="o">.</span><span class="n">ToString</span><span class="p">(</span><span class="n">dicResult</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{
+    &quot;result&quot;: {
+        &quot;a&quot;: 1,
+        &quot;b&quot;: 2
+    }
+}
+</pre></div>
+</div>
+</div>
+</div>
+<p>Instead of using the escaped quotes in the definition of <code class="docutils literal notranslate"><span class="pre">sA</span></code>, you can also use the backward quote (`) as in this example:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ison</span>
+
+<span class="n">dicData</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;__locals__&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;sA&quot;</span><span class="p">:</span> <span class="s2">&quot;{ `a`: 1, `b`: 2 }&quot;</span>
+    <span class="p">},</span>
+
+    <span class="s2">&quot;result&quot;</span><span class="p">:</span> <span class="s2">&quot;$*{$sA}&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="n">dicResult</span> <span class="o">=</span> <span class="n">ison</span><span class="o">.</span><span class="n">run</span><span class="o">.</span><span class="n">Run</span><span class="p">(</span><span class="n">xData</span><span class="o">=</span><span class="n">dicData</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ison</span><span class="o">.</span><span class="n">run</span><span class="o">.</span><span class="n">ToString</span><span class="p">(</span><span class="n">dicResult</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{
+    &quot;result&quot;: {
+        &quot;a&quot;: 1,
+        &quot;b&quot;: 2
+    }
+}
+</pre></div>
+</div>
+</div>
+</div>
+<p>If you need to nest stings within string, you can use the function <code class="docutils literal notranslate"><span class="pre">$S{}</span></code>, which allows arbitrary deep nesting.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ison</span>
+
+<span class="n">dicData</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;__locals__&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;sA&quot;</span><span class="p">:</span> <span class="s2">&quot;{ $S</span><span class="si">{a}</span><span class="s2">: 1, $S</span><span class="si">{b}</span><span class="s2">: $S{{$S</span><span class="si">{c}</span><span class="s2">: 1}} }&quot;</span>
+    <span class="p">},</span>
+
+    <span class="s2">&quot;result&quot;</span><span class="p">:</span> <span class="s2">&quot;$*{$sA}&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="n">dicResult</span> <span class="o">=</span> <span class="n">ison</span><span class="o">.</span><span class="n">run</span><span class="o">.</span><span class="n">Run</span><span class="p">(</span><span class="n">xData</span><span class="o">=</span><span class="n">dicData</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ison</span><span class="o">.</span><span class="n">run</span><span class="o">.</span><span class="n">ToString</span><span class="p">(</span><span class="n">dicResult</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{
+    &quot;result&quot;: {
+        &quot;a&quot;: 1,
+        &quot;b&quot;: &quot;{\&quot;c\&quot;: 1}&quot;
+    }
+}
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="print-print-to-console-or-log">
+<h2><code class="docutils literal notranslate"><span class="pre">print</span></code> - Print to Console or Log<a class="headerlink" href="#print-print-to-console-or-log" title="Link to this heading">#</a></h2>
+<p>This function can help to debug ISON scripts, by printing out values to the console during parsing. If a log file path is set with the function <code class="docutils literal notranslate"><span class="pre">$set-log-path{}</span></code>, <code class="docutils literal notranslate"><span class="pre">$print{}</span></code> writes to this log file instead of the console.</p>
+<p>Each comma separated argument of the <code class="docutils literal notranslate"><span class="pre">$print{}</span></code> function prints to a new line.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ison</span>
+
+<span class="n">dicData</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;__locals__&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;lA&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Hello&quot;</span><span class="p">,</span> <span class="s2">&quot;World&quot;</span><span class="p">],</span>
+        <span class="s2">&quot;dicA&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="s2">&quot;Hello&quot;</span><span class="p">:</span> <span class="s2">&quot;World&quot;</span> <span class="p">},</span>
+        <span class="s2">&quot;sLog&quot;</span><span class="p">:</span> <span class="s2">&quot;$print{Variable &#39;dicA&#39;:, $json{$dicA}, $lA}&quot;</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;result&quot;</span><span class="p">:</span> <span class="s2">&quot;$dicA&quot;</span>
+<span class="p">}</span>
+
+<span class="n">dicResult</span> <span class="o">=</span> <span class="n">ison</span><span class="o">.</span><span class="n">run</span><span class="o">.</span><span class="n">Run</span><span class="p">(</span><span class="n">xData</span><span class="o">=</span><span class="n">dicData</span><span class="p">,</span> <span class="n">bPrintWarnings</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ison</span><span class="o">.</span><span class="n">run</span><span class="o">.</span><span class="n">ToString</span><span class="p">(</span><span class="n">dicResult</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Variable &#39;dicA&#39;:
+{
+    &quot;Hello&quot;: &quot;World&quot;
+}
+[&#39;Hello&#39;, &#39;World&#39;]
+{
+    &quot;result&quot;: {
+        &quot;Hello&quot;: &quot;World&quot;
+    }
+}
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="set-log-path-set-logging-path">
+<h2><code class="docutils literal notranslate"><span class="pre">set-log-path</span></code> - Set Logging Path<a class="headerlink" href="#set-log-path-set-logging-path" title="Link to this heading">#</a></h2>
+<p>You can set a logging path in three ways with <code class="docutils literal notranslate"><span class="pre">$set-log-path{}</span></code>:</p>
+<ol class="arabic simple">
+<li><p>Without arguments the current working directory is used a logging path and a filename is automatically generated.</p></li>
+<li><p>Give a path without filename. In this case, a filename is automatically generated and the path is created.</p></li>
+<li><p>Give a full filepath. If the path does not exist, it is created.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ison</span>
+
+<span class="n">dicData</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;__locals__&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;sLogPath&quot;</span><span class="p">:</span> <span class="s2">&quot;$set-log-path</span><span class="si">{}</span><span class="s2">&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;dicA&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="s2">&quot;Hello&quot;</span><span class="p">:</span> <span class="s2">&quot;World&quot;</span> <span class="p">},</span>
+        <span class="s2">&quot;sLog&quot;</span><span class="p">:</span> <span class="s2">&quot;$print{Variable &#39;dicA&#39;:, $json{$dicA}, }&quot;</span>
+    <span class="p">},</span>
+    <span class="c1"># Uncomment the following line to see the path of the log file</span>
+    <span class="c1"># in the printed output.</span>
+    <span class="c1"># &quot;log-path&quot;: &quot;${sLogPath}&quot;,</span>
+    <span class="s2">&quot;result&quot;</span><span class="p">:</span> <span class="s2">&quot;$dicA&quot;</span>
+<span class="p">}</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">dicResult</span> <span class="o">=</span> <span class="n">ison</span><span class="o">.</span><span class="n">run</span><span class="o">.</span><span class="n">Run</span><span class="p">(</span><span class="n">xData</span><span class="o">=</span><span class="n">dicData</span><span class="p">,</span> <span class="n">bPrintWarnings</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">ison</span><span class="o">.</span><span class="n">run</span><span class="o">.</span><span class="n">ToString</span><span class="p">(</span><span class="n">dicResult</span><span class="p">))</span>
+
+<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">xEx</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">xEx</span><span class="p">))</span>
+<span class="c1"># endtry</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{
+    &quot;result&quot;: {
+        &quot;Hello&quot;: &quot;World&quot;
+    }
+}
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="s-string">
+<h2><code class="docutils literal notranslate"><span class="pre">S</span></code> - String<a class="headerlink" href="#s-string" title="Link to this heading">#</a></h2>
+<p>This function is mainly used internally when converting structures to lambda functions. Internally lambda functions are strings. To support arbitrarily nested string expressions the structure <code class="docutils literal notranslate"><span class="pre">$S{}</span></code> is used instead of double quotes.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ison</span>
+
+<span class="n">dicData</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;result&quot;</span><span class="p">:</span> <span class="s2">&quot;$S{Hello $S</span><span class="si">{Christian}</span><span class="s2">}&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="n">dicResult</span> <span class="o">=</span> <span class="n">ison</span><span class="o">.</span><span class="n">run</span><span class="o">.</span><span class="n">Run</span><span class="p">(</span><span class="n">xData</span><span class="o">=</span><span class="n">dicData</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ison</span><span class="o">.</span><span class="n">run</span><span class="o">.</span><span class="n">ToString</span><span class="p">(</span><span class="n">dicResult</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{
+    &quot;result&quot;: &quot;\&quot;Hello \\\&quot;Christian\\\&quot;\&quot;&quot;
+}
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="ison-functions-lambda.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Lambda Function Handling</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../parser.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">The Parser</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-structure-from-string"><code class="docutils literal notranslate"><span class="pre">*</span></code> - Create Structure from String</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#print-print-to-console-or-log"><code class="docutils literal notranslate"><span class="pre">print</span></code> - Print to Console or Log</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-log-path-set-logging-path"><code class="docutils literal notranslate"><span class="pre">set-log-path</span></code> - Set Logging Path</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#s-string"><code class="docutils literal notranslate"><span class="pre">S</span></code> - String</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Christian Perwass
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022, Robert Bosch GmbH.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

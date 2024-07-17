@@ -1,0 +1,589 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Example Workflow &#8212; Catharsys Web GUI 1.0.5 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=c05c4e54"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'workflow_ex1';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Catharsys Web GUI - Getting Started" href="get_started.html" />
+    <link rel="prev" title="Web GUI" href="index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Catharsys Web GUI 1.0.5 documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Example Workflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="get_started.html">Catharsys Web GUI - Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="image_viewer.html">Web Image Viewer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modify_configs.html">Modify Configurations</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="reference/main.html">Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="reference/controls.html">GUI Controls</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reference/gui_def.html">GUI Definition Dictionary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reference/production.html">Production Configuration Reference</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="back-to-main.html">Back to main documentation</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/workflow_ex1.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Example Workflow</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-the-example">0. Install the Example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prepare-the-project">1. Prepare the Project</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#start-the-web-server">2. Start the Web Server</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-the-parameters">3. Set the Parameters</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#name-the-trial-variant">Name the trial variant</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-new-trial-variant">Create new trial variant</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#render-variants">4. Render Variants</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#show-rendered-images">5. Show Rendered Images</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#view-settings">View Settings</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#production-selection">Production Selection</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-artefacts">Additional Artefacts</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#marking-categories">6. Marking Categories</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="example-workflow">
+<h1>Example Workflow<a class="headerlink" href="#example-workflow" title="Link to this heading">#</a></h1>
+<p>This is a walkthrough of a typical workflow using Catharsys for rendering and post-processing with the web GUI.
+The basic idea is that a specialist prepares a Cataharsys configuration, exposing some parameters to the GUI that can be changed by a user. Typical parameters could be the camera to use, the objects to import and anything else that can be modified in a Blender scene. The user then uses the Web GUI to set the parameters, launch rendering and post-processing and view the rendered images.</p>
+<p>The web server executing the renders can be on any machine that is reachable via the network. The system also supports mutliple concurrent users working with the same base configuration and starting renderings or other actions.</p>
+<section id="install-the-example">
+<h2>0. Install the Example<a class="headerlink" href="#install-the-example" title="Link to this heading">#</a></h2>
+<p>To follow along with this example, you need to have Catharsys installed (<a class="reference external" href="../../html/setup.html" title="(in Image-Render Setup)"><span>Catharsys Installation</span></a>). Then clone the workspace <a class="reference external" href="https://github.com/boschresearch/image-render-workspace-ex-gui"><code class="docutils literal notranslate"><span class="pre">image-render-workspace-ex-gui</span></code></a> and in the top folder of the cloned repository run</p>
+<div class="admonition-shell admonition">
+<p class="admonition-title">Shell</p>
+<p>cathy blender init –all –addons</p>
+</div>
+<p>This only works if Blender 4.1 is already installed in the Catharsys system. Otherwise, install Blender 4.1 in Catharsys as described here: <a class="reference external" href="../../html/setup.html#blender-setup" title="(in Image-Render Setup)"><span>Blender</span></a>.</p>
+<div class="admonition-tl-dr admonition">
+<p class="admonition-title">TL;DR</p>
+<p>Open a terminal in the main folder of the cloned example workspace, run <code class="docutils literal notranslate"><span class="pre">cathy</span> <span class="pre">gui</span> <span class="pre">ws</span></code> which should open a web browser, select configuration <code class="docutils literal notranslate"><span class="pre">ex3</span></code> in the shown workspace view, select action <code class="docutils literal notranslate"><span class="pre">render</span></code>, click <code class="docutils literal notranslate"><span class="pre">prepare</span> <span class="pre">launch</span></code>, launch the render, go back to workspace tab, click the eye-icon, click <code class="docutils literal notranslate"><span class="pre">Scan</span> <span class="pre">Filesystem</span></code> and then <code class="docutils literal notranslate"><span class="pre">Update</span> <span class="pre">View</span></code>.</p>
+</div>
+</section>
+<section id="prepare-the-project">
+<h2>1. Prepare the Project<a class="headerlink" href="#prepare-the-project" title="Link to this heading">#</a></h2>
+<p>The first step is to prepare your Catharsys project for use with the GUI.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you cloned the example, it is already prepared and you can go to section 2.</p>
+</div>
+<p>If you just use a standard configuration you will also have a minimal GUI that allows you to start renders and post-processing actions. However, not all arguments you are interested in may be visible and the GUI can be overloaded with parameters a user doesn’t need to or shouldn’t change.</p>
+<ul class="simple">
+<li><p>To specify what parameters are displayed how, see <a class="reference internal" href="modify_configs.html"><span class="doc">Modify Configurations</span></a> and the reference sections <a class="reference internal" href="reference/controls.html"><span class="doc">GUI Controls</span></a> and <a class="reference internal" href="reference/gui_def.html"><span class="doc">GUI Definition Dictionary</span></a>.</p></li>
+<li><p>To see the rendered images in the image viewer, you first need to specify the path structure of the rendered images in the <code class="docutils literal notranslate"><span class="pre">production.json</span></code> configuration. See <a class="reference internal" href="image_viewer.html"><span class="doc">Web Image Viewer</span></a> and <a class="reference external" href="../../image-render-automation/html/products/analyze.html" title="(in Image-Render Automation)"><span>Production Analysis</span></a> for a detailed description.</p></li>
+<li><p>To allow the user to flag or evaluate images or categories, see <a class="reference external" href="../../image-render-automation/html/products/categorize.html" title="(in Image-Render Automation)"><span>Production Categorization</span></a> for a detailed description. The example configurations <code class="docutils literal notranslate"><span class="pre">ex1</span></code>, <code class="docutils literal notranslate"><span class="pre">ex2</span></code> and <code class="docutils literal notranslate"><span class="pre">ex3</span></code> of <code class="docutils literal notranslate"><span class="pre">image-render-workspace-ex-gui</span></code> contain such a definition.</p></li>
+</ul>
+</section>
+<section id="start-the-web-server">
+<h2>2. Start the Web Server<a class="headerlink" href="#start-the-web-server" title="Link to this heading">#</a></h2>
+<p>To run the web server locally with standard settings, just execute</p>
+<div class="admonition-shell admonition">
+<p class="admonition-title">Shell</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cathy gui ws
+</pre></div>
+</div>
+</div>
+<p><img alt="Workspace View" src="_images/walkthrough-ex1-view-01.png" /></p>
+<p>You can access the web server with an <code class="docutils literal notranslate"><span class="pre">http</span></code> instead of a <code class="docutils literal notranslate"><span class="pre">https</span></code>-connection by starting it with the option <code class="docutils literal notranslate"><span class="pre">--no-ssl</span></code>:</p>
+<div class="admonition-shell admonition">
+<p class="admonition-title">Shell</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cathy gui ws --no-ssl
+</pre></div>
+</div>
+</div>
+<p>This will open a web-browser automatically with the workspace view. You can also start the web server on any other machine and then connect to it via one of the IP adresses shown in the terminal. You may have to establish an SSH tunnel for this to work. If you are using a terminal in VSCode on a remote machine, then VSCode will establish an SSH tunnel automatically. For more details on setting up the web server and creating user accounts, see <a class="reference internal" href="get_started.html"><span class="doc">Catharsys Web GUI - Getting Started</span></a>.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Note that all configuration variants and other settings and result data, are stored independently per OS-user. This allows multiple OS-users to run web servers on the same workspace concurrently.</p>
+</div>
+</section>
+<section id="set-the-parameters">
+<h2>3. Set the Parameters<a class="headerlink" href="#set-the-parameters" title="Link to this heading">#</a></h2>
+<p>Select the configuration <code class="docutils literal notranslate"><span class="pre">ex3</span></code> and unfold the global launch, action and trial parameter views.</p>
+<p><img alt="Select " src="_images/walkthrough-ex1-view-02.png" /></p>
+<section id="name-the-trial-variant">
+<h3>Name the trial variant<a class="headerlink" href="#name-the-trial-variant" title="Link to this heading">#</a></h3>
+<p>Name the trial variant <code class="docutils literal notranslate"><span class="pre">Monkey:</span> <span class="pre">Use</span> <span class="pre">object</span> <span class="pre">'Monkey'</span></code> in the field next to the variant selection. The text in front of the <code class="docutils literal notranslate"><span class="pre">:</span></code> is used as name in the drop-down selection box.</p>
+<p><img alt="Name trial variant" src="_images/walkthrough-ex1-name-trial.png" /></p>
+</section>
+<section id="create-new-trial-variant">
+<h3>Create new trial variant<a class="headerlink" href="#create-new-trial-variant" title="Link to this heading">#</a></h3>
+<p>Create a new trial variant by clicking on the <code class="docutils literal notranslate"><span class="pre">+</span></code> next to the trial variant name.</p>
+<p><img alt="New trial variant" src="_images/walkthrough-ex1-add-tv.png" /></p>
+<p>Now give the second trial a name and change the rendered object to <code class="docutils literal notranslate"><span class="pre">cylinder</span></code> as shown here:</p>
+<p><img alt="Set object" src="_images/walkthrough-ex1-new-tv-set.png" /></p>
+<p>You can, of course, also change any other settings, like the set of cameras to use or which modifiers to apply.</p>
+</section>
+</section>
+<section id="render-variants">
+<h2>4. Render Variants<a class="headerlink" href="#render-variants" title="Link to this heading">#</a></h2>
+<p>Select the first trial variant <code class="docutils literal notranslate"><span class="pre">Monkey</span></code> and in the action block select the <code class="docutils literal notranslate"><span class="pre">render</span></code> action as shown here:</p>
+<p><img alt="Select render action" src="_images/walkthrough-ex1-sel-act-render.png" /></p>
+<p>Then click the <code class="docutils literal notranslate"><span class="pre">Prepare</span> <span class="pre">Launch</span></code> button next to the action. This will create a copy of all configuration files for the currently selected variants and open this new view:</p>
+<p><img alt="Prepare to launch" src="_images/walkthrough-ex1-launch-render-tv1.png" /></p>
+<p>You can still go back to the workspace view by clicking on <code class="docutils literal notranslate"><span class="pre">WORKSPACE</span></code> at the top and return to this launch screen. This is also possible, while the actual rendering is running. Note that changing configuration parameters while the rendering runs <strong>is</strong> possible, since the render job(s) use a copy of all configuration files. However, this makes it more difficult to associate a configuration with the rendered images.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The variant files and launch instances are stored in a folder <code class="docutils literal notranslate"><span class="pre">.variants-[system</span> <span class="pre">user</span> <span class="pre">id]</span></code> inside the corresponding configuration folder. This enables multiple system users to start a web server for the same workspace concurrently. Inside a variants folder, the actually modified configuration files are stored in sub-folders per web user as managed by the Catharsys web view.</p>
+</div>
+<p>If you press the <code class="docutils literal notranslate"><span class="pre">Launch</span></code> button the action, in this case the rendering, starts. The output can be seen in the <code class="docutils literal notranslate"><span class="pre">Job</span> <span class="pre">Output</span></code> area. If the web server runs on a GPU cluster with an LSF job management system and the execution configuration configures the use of that system, you may see a number of jobs in this view. The job status is shown but the job’s output is only available once the job finishes.</p>
+<p>If you press the <code class="docutils literal notranslate"><span class="pre">Close</span></code> button, all jobs are terminated and the copy of the configuration files created for the processing is deleted. The view is also closed and you return to the workspace view.</p>
+<p>Now press <code class="docutils literal notranslate"><span class="pre">Launch</span></code> and wait for the images to be rendered. The progress is also shown in the status line below the buttons. When the rendering is finished the view should look like this:</p>
+<p><img alt="Rendering finished" src="_images/walkthrough-ex1-render-finished.png" /></p>
+<p>Press the <code class="docutils literal notranslate"><span class="pre">Close</span></code> button to close the view and delete the configuration instance files used for this rendering.</p>
+<p>Now select the <code class="docutils literal notranslate"><span class="pre">Cylinder</span></code> trial variant and render the images the same way as before.</p>
+</section>
+<section id="show-rendered-images">
+<h2>5. Show Rendered Images<a class="headerlink" href="#show-rendered-images" title="Link to this heading">#</a></h2>
+<p>To view the rendered images, select the eye-icon in the workspace view, next to the configuration selection, as shown here:</p>
+<p><img alt="Image Viewer" src="_images/walkthrough-ex1-sel-viewer.png" /></p>
+<p>This creates a new tab, which initially looks like this:</p>
+<p><img alt="Image Viewer initial view" src="_images/walkthrough-ex1-img-view-01.png" /></p>
+<p>Note, that you can open a viewer for each configuration in the workspace concurrently. To view the generated images, first click on <code class="docutils literal notranslate"><span class="pre">Scan</span> <span class="pre">Filesystem</span></code> and the <code class="docutils literal notranslate"><span class="pre">Update</span> <span class="pre">View</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You have to re-scan the filesystem every time you render new artefacts (images, depth, ground truth, etc.). The <code class="docutils literal notranslate"><span class="pre">Update</span> <span class="pre">View</span></code> button has to be pressed every time the file system was re-scanned, or the product or view settings were changed.</p>
+</div>
+<p><img alt="Rendered Images" src="_images/walkthrough-ex1-img-view-02.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The category of a label is shown, when you hover with the mouse over the label.</p>
+</div>
+<section id="view-settings">
+<h3>View Settings<a class="headerlink" href="#view-settings" title="Link to this heading">#</a></h3>
+<p>The order of the variation dimensions is set in the view settings, which currently look like this:</p>
+<p><img alt="View Settings" src="_images/walkthrough-ex1-img-view-settings.png" /></p>
+<p>You can order the variation dimensions arbitrarily. Here is another order:</p>
+<p><img alt="Different View Settings" src="_images/walkthrough-ex1-img-view-settings-2.png" /></p>
+<p>If you go back to the workspace settings, you can modify the parameters, render again, then re-scan the filesystem in the viewer and update the view, to see the effect of the changes.</p>
+</section>
+<section id="production-selection">
+<h3>Production Selection<a class="headerlink" href="#production-selection" title="Link to this heading">#</a></h3>
+<p>In the <code class="docutils literal notranslate"><span class="pre">Product</span> <span class="pre">Selection</span></code> block, you can select which elements are shown per variation dimension. By default all elements are selected in each dimension. Here is an example of selecting only a sub-set of all products:</p>
+<p><img alt="Selecting sub-set of products" src="_images/walkthrough-ex1-img-view-prod-sel.png" /></p>
+</section>
+</section>
+<section id="additional-artefacts">
+<h2>Additional Artefacts<a class="headerlink" href="#additional-artefacts" title="Link to this heading">#</a></h2>
+<p>If you execute the depth action from the workspace view for just the cylinder trial variant, and the re-scan and update the view, the output looks like this:</p>
+<p><img alt="Image and depth data" src="_images/walkthrough-ex1-img-view-depth.png" /></p>
+<p>As no depth images have been generated for the trial variant <code class="docutils literal notranslate"><span class="pre">Monkey</span></code>, the missing elements are displays as a warning triangle.</p>
+</section>
+<section id="marking-categories">
+<h2>6. Marking Categories<a class="headerlink" href="#marking-categories" title="Link to this heading">#</a></h2>
+<p>The production configuration defines the category <code class="docutils literal notranslate"><span class="pre">Favourite</span></code> as a boolean and associates it with the camera, the two loops and the modifier. The empty stars in the image viewer can be clicked to select the category <code class="docutils literal notranslate"><span class="pre">Favourite</span></code> for a specific element in one of the variables. For example, for one of the loops you can select one index to make it your favourite. For more details see <a class="reference external" href="../../image-render-automation/html/products/categorize.html" title="(in Image-Render Automation)"><span>Production Categorization</span></a>.</p>
+<p>The selected categories are written immediately to JSON file in the <code class="docutils literal notranslate"><span class="pre">_output/[os</span> <span class="pre">user]/[web</span> <span class="pre">user]</span></code> directory of the corresponding workspace. The <code class="docutils literal notranslate"><span class="pre">os-user</span></code> is the user logged into the OS and the <code class="docutils literal notranslate"><span class="pre">web-user</span></code> is the user logged into the Catharsys web GUI. If no explicit web users were created, the <code class="docutils literal notranslate"><span class="pre">web-user</span></code> is <code class="docutils literal notranslate"><span class="pre">public</span></code>. This file can be analysed later for further post-processing of the selected data.</p>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="index.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Web GUI</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="get_started.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Catharsys Web GUI - Getting Started</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-the-example">0. Install the Example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prepare-the-project">1. Prepare the Project</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#start-the-web-server">2. Start the Web Server</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-the-parameters">3. Set the Parameters</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#name-the-trial-variant">Name the trial variant</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-new-trial-variant">Create new trial variant</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#render-variants">4. Render Variants</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#show-rendered-images">5. Show Rendered Images</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#view-settings">View Settings</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#production-selection">Production Selection</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-artefacts">Additional Artefacts</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#marking-categories">6. Marking Categories</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Christian Perwass
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023, Robert Bosch GmbH.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

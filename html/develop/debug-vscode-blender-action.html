@@ -1,0 +1,569 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>How to debug Blender actions (alternate method) &#8212; Image-Render Setup 3.2.36 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=5976921d"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'develop/debug-vscode-blender-action';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Image-Render Setup 3.2.36 documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Catharsys Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../system_main.html">System Tools &amp; Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gui_main.html">Web User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../workspace_main.html">Automation with Workspaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../develop.html">Code Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../change-log.html">Change Log</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../license.html">License</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/develop/debug-vscode-blender-action.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>How to debug Blender actions (alternate method)</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">How to debug Blender actions (alternate method)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#debugging-the-catharsys-script-itself">Debugging the catharsys script itself</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#debugging-the-blender-script-that-was-called-by-catharsys">Debugging the Blender script, that was called by catharsys</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#settings-by-project-code-workspace">Settings by <code class="docutils literal notranslate"><span class="pre">project.code-workspace</span></code></a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="how-to-debug-blender-actions-alternate-method">
+<h1>How to debug Blender actions (alternate method)<a class="headerlink" href="#how-to-debug-blender-actions-alternate-method" title="Link to this heading">#</a></h1>
+<p><em>by Dirk Rapröger</em></p>
+<p>Debugging with VS-Code is more or less easy. <br/>
+You will find the Debug-Icon in the left Tool Bar. Afterwards, the targets to debug can be choosen and configured
+by that drop-down Menue, shown in the image below.</p>
+<p><img alt="DebugTargets" src="develop/images/dTargets.png" /></p>
+<p>Configurations can be done for your workspace individually in file: <code class="docutils literal notranslate"><span class="pre">launch.json</span></code></p>
+<p>The default debugging is to debug the current file. For that task, the launch.json file may look like:</p>
+<div class="json docutils">
+<p>{
+“version”: “0.2.0”,
+“configurations”: [
+{
+“name”: “Current Python File”,
+“type”: “python”,
+“request”: “launch”,
+“program”: “${file}”,
+“args”: [
+“–debug”
+],
+“cwd”: “${workspaceFolder:cws-infra-02}”,
+“console”: “integratedTerminal”,
+“justMyCode”: false,
+“subProcess”: true
+},
+]
+}</p>
+</div>
+<p>Assuming you work with a workspace, the different folders that are selected inside the explorer view can be used to
+select for example the ‘cwd’ parameter of that configuration.</p>
+<p>Arguments to the python script must be given as a comma-separated-array, here shown in <code class="docutils literal notranslate"><span class="pre">args</span></code></p>
+<section id="debugging-the-catharsys-script-itself">
+<h2>Debugging the catharsys script itself<a class="headerlink" href="#debugging-the-catharsys-script-itself" title="Link to this heading">#</a></h2>
+<p>When debugging the cathy tool that runs just before the blender render process, one can define
+a configuration like that:</p>
+<div class="json docutils">
+<p>{
+“version”: “0.2.0”,
+“configurations”: [
+{
+“name”: “Cathy Launch Workspace”,
+“type”: “python”,
+“request”: “launch”,
+“program”: “${workspaceFolder:image-render-setup-develop}/${config:cathy-script}”,
+“args”: [
+“–log-call”,
+“–debug”,
+“ws”,
+“launch”,
+“–config”,
+“cs1”,
+“–action”,
+“render”,
+],
+“cwd”: “${workspaceFolder:cws-infra-02}”,
+“console”: “integratedTerminal”,
+“justMyCode”: false,
+“subProcess”: true
+},
+]
+}</p>
+</div>
+<p>The first debugging argument <code class="docutils literal notranslate"><span class="pre">--log-call</span></code> activate the logging mechanism, that are wrapped around some function
+calls. The calling stack is logged into file: <code class="docutils literal notranslate"><span class="pre">cathy.cal.md</span></code>. Opening that file with VS-Code editor can be
+just to</p>
+<ol class="arabic simple">
+<li><p>view the calling hierarchy during the catharsys script in some selected functions and suplementary informations</p></li>
+<li><p>navigating directly to the python code with <code class="docutils literal notranslate"><span class="pre">ctrl-klick</span></code> onto the link</p></li>
+</ol>
+<p>The second debug arg <code class="docutils literal notranslate"><span class="pre">--debug</span></code> will show some detatiled information in the unlikely case of failure,
+the catharsys Error-Message Trace for example.</p>
+<p>Placing and navigating with breakpoints are the well known features of the python VS-Code environment.</p>
+</section>
+</section>
+<section id="debugging-the-blender-script-that-was-called-by-catharsys">
+<h1>Debugging the Blender script, that was called by catharsys<a class="headerlink" href="#debugging-the-blender-script-that-was-called-by-catharsys" title="Link to this heading">#</a></h1>
+<p>In the similiar way as debugging the original python code with the VS-Code launch mechanism, debugging of the Blender-Python
+is possible too.</p>
+<p>VS-Code is able to attach the Debugger to a process, that can be started in advance.</p>
+<p>That means, first a task must be started: the catharsys-script with the ‘normal’ python script. This script will call the blender
+process, and here the debugger must attaches to it.</p>
+<p>A configuration may look like this for attaching to a prelaunch task:</p>
+<div class="json docutils">
+<p>{
+“version”: “0.2.0”,
+“configurations”: [
+{
+“name”: “Python: Attach_host-CS1”,
+“type”: “python”,
+“request”: “attach”,
+“preLaunchTask”: “Launch-Debug-CS1”,
+“justMyCode”: false,
+“host”: “localhost”,
+“port”: 5678
+},
+]
+}</p>
+</div>
+<p>The prelaunch task itself must be defined in a separate VS-Code configuration file <code class="docutils literal notranslate"><span class="pre">task.json</span></code>
+This task is similiar to the debug configuration, as you can see it below:</p>
+<div class="json docutils">
+<p>{
+“version”: “2.0.0”,
+“tasks”: [
+{
+“label”: “Launch-Debug-CS1”,
+“type”: “shell”,
+“command”: “${workspaceFolder:cws-infra-02}/.catharsys/cathy-task”,
+“options”: {
+“cwd”: “${workspaceFolder:cws-infra-02}”,
+},
+“isBackground”: true,
+“args”: [
+“${workspaceFolder:image-render-setup-develop}/${config:cathy-script}”,
+“–log-call”,
+“–debug”,
+“ws”,
+“launch”,
+“–config”,
+“cs1”,
+“–action”,
+“render”,
+“–script-vars”,
+“break=True”,
+“__skip-action”,
+“background=False”,
+“quit-blender=False”,
+],
+“problemMatcher”: []
+},
+]
+}</p>
+</div>
+<p>Calling the blender script wil be performed, and a first debug point will be reached automatically. This is important, to synchronize the
+Blender-Python environment with te VS-Code-Debugger. After Sync, you can press <code class="docutils literal notranslate"><span class="pre">F5</span></code> to run your actual blender script and debug your algorithm.</p>
+<p>To control the blender script, there are several more arguments following <code class="docutils literal notranslate"><span class="pre">--script-args</span></code>.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">break=True</span></code>, that is important because of the mentioned sync mechanism of the debugger. (set to False, the blender script will not acceptd your following breakpoints)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">skip-action</span></code>, may be, you want develop some action/ operators or other stuff inside blender itself, and you need only a starting point for debugging. Than catharsys only configure
+the action and prepare the blend file, but will not perform the action automatically. You can call your scripts by every blender operator you want, and if you have placed a breakpoint
+in the corresponding script, VS-Code will stop. (In this example the argument is ‘commented out’ by <code class="docutils literal notranslate"><span class="pre">__</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">background=False</span></code>, normally blender will run in background mode, but when you will interactively change something, it is possible to start blender
+with normal GUI interface</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">quit-blender</span></code>, normally blender will quit its process after finishing the script, but if desired for further steps, you can allow blender to live longer.
+(until you quit blender interactively, this only makes sense in windows system and not when running in batch-mode)</p></li>
+</ul>
+</section>
+<section id="settings-by-project-code-workspace">
+<h1>Settings by <code class="docutils literal notranslate"><span class="pre">project.code-workspace</span></code><a class="headerlink" href="#settings-by-project-code-workspace" title="Link to this heading">#</a></h1>
+<p>It is a common method, to organize all the settings inside a <code class="docutils literal notranslate"><span class="pre">project.code-workspace</span></code> file to bind your settings onto that special project that you are working for.
+Unfortunately, the described debugging and prelaunch tasks must be separated into that special files and must not be integrated into your project settings.
+This is a described bug of VS-Code.</p>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">How to debug Blender actions (alternate method)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#debugging-the-catharsys-script-itself">Debugging the catharsys script itself</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#debugging-the-blender-script-that-was-called-by-catharsys">Debugging the Blender script, that was called by catharsys</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#settings-by-project-code-workspace">Settings by <code class="docutils literal notranslate"><span class="pre">project.code-workspace</span></code></a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Christian Perwass
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022, Robert Bosch GmbH.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

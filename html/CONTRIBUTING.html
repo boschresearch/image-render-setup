@@ -1,0 +1,553 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Contributing &#8212; Image-Render Setup 3.2.36 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=5976921d"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'CONTRIBUTING';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Image-Render Setup 3.2.36 documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Catharsys Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="system_main.html">System Tools &amp; Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gui_main.html">Web User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workspace_main.html">Automation with Workspaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="develop.html">Code Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="change-log.html">Change Log</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/CONTRIBUTING.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Contributing</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#branching-model">Branching Model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#add-retain-copyright-notices">Add / retain copyright notices</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sign-your-work">Sign your work</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#signing-commits-with-gpg-key">Signing Commits with GPG Key</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#individual-vs-corporate-contributors">Individual vs. Corporate Contributors</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#maintain-copyright-holder-contributor-list">Maintain Copyright holder / Contributor list</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="contributing">
+<h1>Contributing<a class="headerlink" href="#contributing" title="Link to this heading">#</a></h1>
+<p>Want to contribute? Great! You can do so through the standard GitHub pull
+request model. For large contributions we do encourage you to file a ticket in
+the GitHub issues tracking system prior to any code development to coordinate
+with the project development team early in the process. Coordinating up
+front helps to avoid frustration later on.  Please follow the <a class="reference internal" href="#docs/source/develop/style-guide.md"><span class="xref myst">coding guidelines</span></a>.</p>
+<p>Your contribution must be licensed under the Apache-2.0 license, the <a class="reference internal" href="#LICENSE.md"><span class="xref myst">license</span></a>
+used by this project.</p>
+<section id="branching-model">
+<h2>Branching Model<a class="headerlink" href="#branching-model" title="Link to this heading">#</a></h2>
+<p>This project uses the GitFlow branching model. However, the naming of the branches is adapted to make the workflow with GitHub easier. What would typically be called <code class="docutils literal notranslate"><span class="pre">develop</span></code> branch is here the <code class="docutils literal notranslate"><span class="pre">main</span></code> branch, which is the default GitHub branch. The <code class="docutils literal notranslate"><span class="pre">main</span></code> or <code class="docutils literal notranslate"><span class="pre">master</span></code> branch of the GitFlow model is here called <code class="docutils literal notranslate"><span class="pre">stable</span></code>. That is, you develop in a feature branch (<code class="docutils literal notranslate"><span class="pre">feature/[your</span> <span class="pre">feature]</span></code>) and then create a pull request agains the <code class="docutils literal notranslate"><span class="pre">main</span></code> branch. Pull requests against the <code class="docutils literal notranslate"><span class="pre">stable</span></code> branch will be rejected.</p>
+<p>Releases are tagged with a version number in the stable branch. This allows to go back to a specific version from which to create a new release branch, if multiple releases need to be developed or fixed in parallel.</p>
+<p>Note that you need to fork this repository if you want to modify it. When forking, it is sufficient to only include the <code class="docutils literal notranslate"><span class="pre">main</span></code> branch in the fork.</p>
+</section>
+<section id="add-retain-copyright-notices">
+<h2>Add / retain copyright notices<a class="headerlink" href="#add-retain-copyright-notices" title="Link to this heading">#</a></h2>
+<p>Include a copyright notice and license in each new file to be contributed,
+consistent with the style used by this project. For python files use this block as template:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># &lt;LICENSE id=&quot;Apache-2.0&quot;&gt;</span>
+<span class="c1">#</span>
+<span class="c1">#   [PROJECT] module</span>
+<span class="c1">#   Copyright [YYYY] [Your copyright, for corporate developers use your company]</span>
+<span class="c1">#</span>
+<span class="c1">#   Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="c1">#   you may not use this file except in compliance with the License.</span>
+<span class="c1">#   You may obtain a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#     http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1">#   Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1">#   distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1">#   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1">#   See the License for the specific language governing permissions and</span>
+<span class="c1">#   limitations under the License.</span>
+<span class="c1">#</span>
+<span class="c1"># &lt;/LICENSE&gt;</span>
+</pre></div>
+</div>
+<p>If your contribution contains code under the copyright of a third party, document its origin, license, and
+copyright holders in the <a class="reference internal" href="#3rd-party-licenses.md"><span class="xref myst">3rd-party-licenses</span></a> file. See the <a class="reference internal" href="#3rd-party-licenses-template.txt"><span class="xref myst">3rd-party-licenses-template</span></a> file for a template of how to do this.</p>
+</section>
+<section id="sign-your-work">
+<h2>Sign your work<a class="headerlink" href="#sign-your-work" title="Link to this heading">#</a></h2>
+<p>This project tracks patch provenance and licensing using the Developer
+Certificate of Origin 1.1 (DCO) from <a class="reference external" href="https://developercertificate.org/">developercertificate.org</a>. In addition it is required that <strong>all commits are signed with a GPG key</strong>, so that they are recognized as verified commits by GitHub. See below for a description of how to do this if you are unsure.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Developer Certificate of Origin
+Version 1.1
+
+Copyright (C) 2004, 2006 The Linux Foundation and its contributors.
+1 Letterman Drive
+Suite D4700
+San Francisco, CA, 94129
+
+Everyone is permitted to copy and distribute verbatim copies of this
+license document, but changing it is not allowed.
+
+
+Developer&#39;s Certificate of Origin 1.1
+
+By making a contribution to this project, I certify that:
+
+(a) The contribution was created in whole or in part by me and I
+    have the right to submit it under the open source license
+    indicated in the file; or
+
+(b) The contribution is based upon previous work that, to the best
+    of my knowledge, is covered under an appropriate open source
+    license and I have the right under that license to submit that
+    work with modifications, whether created in whole or in part
+    by me, under the same open source license (unless I am
+    permitted to submit under a different license), as indicated
+    in the file; or
+
+(c) The contribution was provided directly to me by some other
+    person who certified (a), (b) or (c) and I have not modified
+    it.
+
+(d) I understand and agree that this project and the contribution
+    are public and that a record of the contribution (including all
+    personal information I submit with it, including my sign-off) is
+    maintained indefinitely and may be redistributed consistent with
+    this project or the open source license(s) involved.
+</pre></div>
+</div>
+<section id="signing-commits-with-gpg-key">
+<h3>Signing Commits with GPG Key<a class="headerlink" href="#signing-commits-with-gpg-key" title="Link to this heading">#</a></h3>
+<p>With <code class="docutils literal notranslate"><span class="pre">gpg</span></code> signing a commit message you certify that you authored the patch
+or otherwise have the right to submit it under an open source license.</p>
+<p>There is a nice description of how to set this up <a class="reference external" href="https://dev.to/devmount/signed-git-commits-in-vs-code-36do">here</a>. Here is the <code class="docutils literal notranslate"><span class="pre">TL;DR</span></code> version:</p>
+<ul class="simple">
+<li><p>Install <code class="docutils literal notranslate"><span class="pre">gpg</span></code> from <a class="reference internal" href="#"><span class="xref myst">https://www.gnupg.org/download/</span></a>.</p></li>
+<li><p>Generate a key, e.g. with the newly installed Kleopatra tool. (You can also import keys, of course) Make sure that your key is secured with a password.</p></li>
+<li><p>Check that <code class="docutils literal notranslate"><span class="pre">gpg</span></code> is available with <code class="docutils literal notranslate"><span class="pre">gpg</span> <span class="pre">--version</span></code></p></li>
+<li><p>Get the signature of the newly created key: <code class="docutils literal notranslate"><span class="pre">gpg</span> <span class="pre">--list-signatures</span></code> (look for a line starting with <code class="docutils literal notranslate"><span class="pre">sig</span></code>)</p></li>
+<li><p>Run <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">config</span> <span class="pre">--global</span> <span class="pre">user.signingkey</span> <span class="pre">[signature]</span></code></p></li>
+<li><p>Run <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">config</span> <span class="pre">--global</span> <span class="pre">commit.gpgsign</span> <span class="pre">true</span></code></p></li>
+<li><p>On Windows, <code class="docutils literal notranslate"><span class="pre">git</span></code> will likely not find the correct <code class="docutils literal notranslate"><span class="pre">gpg</span></code> install. The easiest way to fix this is with the following command in a PowerShell: <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">config</span> <span class="pre">--global</span> <span class="pre">gpg.program</span> <span class="pre">(get-command</span> <span class="pre">gpg).source</span></code></p></li>
+<li><p>Copy and paste your <em>public</em> key to the corresponding GitHub page (Personal -&gt; Settings -&gt; SSH and GPG Keys)</p></li>
+<li><p>Enable commit signing in VSCode. Search for <code class="docutils literal notranslate"><span class="pre">gpg</span></code> in the VSCode Settings and enable code signing.</p></li>
+<li><p>You can enable caching of your gpg-key passphrase with the <code class="docutils literal notranslate"><span class="pre">gpg-agent</span></code>.</p>
+<ul>
+<li><p>Set the timeouts for caching the <code class="docutils literal notranslate"><span class="pre">~/.gnupg/gpg-agent.conf</span></code> file with these two lines: <code class="docutils literal notranslate"><span class="pre">default-cache-ttl</span> <span class="pre">34560000</span></code> and <code class="docutils literal notranslate"><span class="pre">max-cache-ttl</span> <span class="pre">34560000</span></code>. See e.g. <a class="reference external" href="https://superuser.com/questions/624343/keep-gnupg-credentials-cached-for-entire-user-session">this page</a> for more details.</p></li>
+<li><p>For Windows, create the folder with <code class="docutils literal notranslate"><span class="pre">mkdir</span> <span class="pre">~\.gnupg</span></code> and then generate the config file with this one-liner: <code class="docutils literal notranslate"><span class="pre">Set-Content</span> <span class="pre">-Path</span> <span class="pre">~\.gnupg\gpg-agent.conf</span> <span class="pre">-Value</span> <span class="pre">&quot;default-cache-ttl</span> <span class="pre">34560000$([System.Environment]::NewLine)max-cache-ttl</span> <span class="pre">34560000&quot;</span></code> (taken from the page linked above).</p></li>
+<li><p>Now start the agent with <code class="docutils literal notranslate"><span class="pre">gpg-agent</span></code>.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="individual-vs-corporate-contributors">
+<h3>Individual vs. Corporate Contributors<a class="headerlink" href="#individual-vs-corporate-contributors" title="Link to this heading">#</a></h3>
+<p>Often employers or academic institution have ownership over code that is
+written in certain circumstances, so please do due diligence to ensure that
+you have the right to submit the code.</p>
+<p>If you are a developer who is authorized to contribute to this project on
+behalf of your employer, then please use your corporate email address in the
+Signed-off-by tag. Otherwise please use a personal email address.</p>
+</section>
+</section>
+<section id="maintain-copyright-holder-contributor-list">
+<h2>Maintain Copyright holder / Contributor list<a class="headerlink" href="#maintain-copyright-holder-contributor-list" title="Link to this heading">#</a></h2>
+<p>Each contributor is responsible for identifying themselves in the
+<a class="reference internal" href="NOTICE.html"><span class="doc std std-doc">NOTICE</span></a> file, the project’s list of copyright holders and authors.
+Please add the respective information corresponding to the Signed-off-by tag
+as part of your first pull request.</p>
+<p>If you are a developer who is authorized to contribute to this project on
+behalf of your employer, then add your company / organization to the list of
+copyright holders in the <a class="reference internal" href="NOTICE.html"><span class="doc std std-doc">NOTICE</span></a> file. As author of a corporate
+contribution you can also add your name and corporate email address as in the
+Signed-off-by tag.</p>
+<p>If your contribution is covered by this project’s DCO’s clause “(c) The
+contribution was provided directly to me by some other person who certified
+(a) or (b) and I have not modified it”, please add the appropriate copyright
+holder(s) to the <a class="reference internal" href="NOTICE.html"><span class="doc std std-doc">NOTICE</span></a> file as part of your contribution.</p>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#branching-model">Branching Model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#add-retain-copyright-notices">Add / retain copyright notices</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sign-your-work">Sign your work</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#signing-commits-with-gpg-key">Signing Commits with GPG Key</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#individual-vs-corporate-contributors">Individual vs. Corporate Contributors</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#maintain-copyright-holder-contributor-list">Maintain Copyright holder / Contributor list</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Christian Perwass
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022, Robert Bosch GmbH.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

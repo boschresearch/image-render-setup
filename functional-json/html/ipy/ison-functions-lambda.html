@@ -1,0 +1,1046 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Lambda Function Handling &#8212; ISON - Functional JSON 1.3.9 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=439117b9"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ipy/ison-functions-lambda';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Special Functions" href="ison-functions-special.html" />
+    <link rel="prev" title="Data Structure Functions" href="ison-functions-struct.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">ISON - Functional JSON 1.3.9 documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../language.html">The Language</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="ison-basics.html">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ison-advanced.html">Advanced Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ison-lambda.html">Lambda Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ison-lambda-calc.html">Lambda Calculus (for geeks)</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../functions.html">ISON Functions</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="ison-functions-convert.html">Conversion Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ison-functions-file.html">File/Path Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ison-functions-logic.html">Logic Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ison-functions-math.html">Math Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ison-functions-string.html">String Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ison-functions-struct.html">Data Structure Functions</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Lambda Function Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ison-functions-special.html">Special Functions</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../parser.html">The Parser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../back-to-main.html">Back to main documentation</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/ipy/ison-functions-lambda.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Lambda Function Handling</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#l-define-lambda-function"><code class="docutils literal notranslate"><span class="pre">L</span></code> - Define Lambda Function</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#l-convert-structure-to-lambda-function"><code class="docutils literal notranslate"><span class="pre">L*</span></code> - Convert Structure to Lambda Function</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explicit-lambda-function-execution"><code class="docutils literal notranslate"><span class="pre">!</span></code> - Explicit Lambda Function Execution</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#foreach-execute-lambda-function-for-each-element"><code class="docutils literal notranslate"><span class="pre">!foreach</span></code> - Execute Lambda Function for Each Element</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#named-arguments">Named Arguments</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#where-select-with-lambda-condition"><code class="docutils literal notranslate"><span class="pre">!where</span></code> - Select with Lambda Condition</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="lambda-function-handling">
+<h1>Lambda Function Handling<a class="headerlink" href="#lambda-function-handling" title="Link to this heading">#</a></h1>
+<section id="l-define-lambda-function">
+<h2><code class="docutils literal notranslate"><span class="pre">L</span></code> - Define Lambda Function<a class="headerlink" href="#l-define-lambda-function" title="Link to this heading">#</a></h2>
+<p>Defines a lambda function. The argument is not processed until the lambda function is executed, either via <code class="docutils literal notranslate"><span class="pre">${[func],</span> <span class="pre">[arg</span> <span class="pre">1],</span> <span class="pre">...}</span></code>, or explicit execution <code class="docutils literal notranslate"><span class="pre">$!{[func],</span> <span class="pre">[arg</span> <span class="pre">1],</span> <span class="pre">...}</span></code>. The latter has to be used, if the function is itself a lambda argument.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ison</span>
+
+<span class="n">dicData</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;__func_locals__&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;$L{Hello %0}&quot;</span>
+    <span class="p">},</span>
+
+    <span class="s2">&quot;result&quot;</span><span class="p">:</span> <span class="s2">&quot;${func, Christian}&quot;</span>
+<span class="p">}</span>
+
+<span class="n">dicResult</span> <span class="o">=</span> <span class="n">ison</span><span class="o">.</span><span class="n">run</span><span class="o">.</span><span class="n">Run</span><span class="p">(</span><span class="n">xData</span><span class="o">=</span><span class="n">dicData</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ison</span><span class="o">.</span><span class="n">run</span><span class="o">.</span><span class="n">ToString</span><span class="p">(</span><span class="n">dicResult</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{
+    &quot;result&quot;: &quot;Hello Christian&quot;
+}
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="l-convert-structure-to-lambda-function">
+<h2><code class="docutils literal notranslate"><span class="pre">L*</span></code> - Convert Structure to Lambda Function<a class="headerlink" href="#l-convert-structure-to-lambda-function" title="Link to this heading">#</a></h2>
+<p>If the element that should become a lambda function is a dictionary or a list, you need to use this function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ison</span>
+
+<span class="n">dicData</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;__func_locals__&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;def_func&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="s2">&quot;Hello %0&quot;</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;$L*</span><span class="si">{def_func}</span><span class="s2">&quot;</span>
+    <span class="p">},</span>
+
+    <span class="s2">&quot;result&quot;</span><span class="p">:</span> <span class="s2">&quot;${func, Christian}&quot;</span>
+<span class="p">}</span>
+
+<span class="n">dicResult</span> <span class="o">=</span> <span class="n">ison</span><span class="o">.</span><span class="n">run</span><span class="o">.</span><span class="n">Run</span><span class="p">(</span><span class="n">xData</span><span class="o">=</span><span class="n">dicData</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ison</span><span class="o">.</span><span class="n">run</span><span class="o">.</span><span class="n">ToString</span><span class="p">(</span><span class="n">dicResult</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{
+    &quot;result&quot;: {
+        &quot;a&quot;: &quot;Hello Christian&quot;
+    }
+}
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note that this can also be achieved using the <code class="docutils literal notranslate"><span class="pre">__lambda__</span></code> tag inside the dictionary.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ison</span>
+
+<span class="n">dicData</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;__func_locals__&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;func&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;__lambda__&quot;</span><span class="p">:</span> <span class="p">{},</span>
+            <span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="s2">&quot;Hello %0&quot;</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+
+    <span class="s2">&quot;result&quot;</span><span class="p">:</span> <span class="s2">&quot;${func, Christian}&quot;</span>
+<span class="p">}</span>
+
+<span class="n">dicResult</span> <span class="o">=</span> <span class="n">ison</span><span class="o">.</span><span class="n">run</span><span class="o">.</span><span class="n">Run</span><span class="p">(</span><span class="n">xData</span><span class="o">=</span><span class="n">dicData</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ison</span><span class="o">.</span><span class="n">run</span><span class="o">.</span><span class="n">ToString</span><span class="p">(</span><span class="n">dicResult</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{
+    &quot;result&quot;: {
+        &quot;a&quot;: &quot;Hello Christian&quot;
+    }
+}
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="explicit-lambda-function-execution">
+<h2><code class="docutils literal notranslate"><span class="pre">!</span></code> - Explicit Lambda Function Execution<a class="headerlink" href="#explicit-lambda-function-execution" title="Link to this heading">#</a></h2>
+<p>If a lambda function wants to execute an argument again as lambda function, the explicit execution function <code class="docutils literal notranslate"><span class="pre">$!{}</span></code> has to be used.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ison</span>
+
+<span class="n">dicData</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;__func_locals__&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;func_a&quot;</span><span class="p">:</span> <span class="s2">&quot;$L{${%0, %1}}&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;func_b&quot;</span><span class="p">:</span> <span class="s2">&quot;$L{$!{%0, %1}}&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;func_x&quot;</span><span class="p">:</span> <span class="s2">&quot;$L{`%0, hello`}&quot;</span>
+    <span class="p">},</span>
+
+    <span class="s2">&quot;result 1&quot;</span><span class="p">:</span> <span class="s2">&quot;${func_a, $func_x, Christian}&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;result 2&quot;</span><span class="p">:</span> <span class="s2">&quot;${func_b, $func_x, Christian}&quot;</span>
+<span class="p">}</span>
+
+<span class="n">dicResult</span> <span class="o">=</span> <span class="n">ison</span><span class="o">.</span><span class="n">run</span><span class="o">.</span><span class="n">Run</span><span class="p">(</span><span class="n">xData</span><span class="o">=</span><span class="n">dicData</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ison</span><span class="o">.</span><span class="n">run</span><span class="o">.</span><span class="n">ToString</span><span class="p">(</span><span class="n">dicResult</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{
+    &quot;result 1&quot;: &quot;${$L{`%0, hello`}, Christian}&quot;,
+    &quot;result 2&quot;: &quot;Christian, hello&quot;
+}
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="foreach-execute-lambda-function-for-each-element">
+<h2><code class="docutils literal notranslate"><span class="pre">!foreach</span></code> - Execute Lambda Function for Each Element<a class="headerlink" href="#foreach-execute-lambda-function-for-each-element" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">!*{}</span></code> is an alias of this function.</p>
+<p>This processes a lambda function for each given argument and returns the result in a list.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ison</span>
+
+<span class="n">dicData</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;__func_locals__&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;$L{&gt;%0&lt;}&quot;</span><span class="p">,</span>
+    <span class="p">},</span>
+
+    <span class="s2">&quot;result&quot;</span><span class="p">:</span> <span class="s2">&quot;$!foreach{$func, 1, 2}&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="n">dicResult</span> <span class="o">=</span> <span class="n">ison</span><span class="o">.</span><span class="n">run</span><span class="o">.</span><span class="n">Run</span><span class="p">(</span><span class="n">xData</span><span class="o">=</span><span class="n">dicData</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ison</span><span class="o">.</span><span class="n">run</span><span class="o">.</span><span class="n">ToString</span><span class="p">(</span><span class="n">dicResult</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{
+    &quot;result&quot;: [
+        &quot;&gt;1&lt;&quot;,
+        &quot;&gt;2&lt;&quot;
+    ]
+}
+</pre></div>
+</div>
+</div>
+</div>
+<p>To execute a lambda function for each element of a list, you need to unroll the list.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ison</span>
+
+<span class="n">dicData</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;__func_locals__&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;$L{&gt;%0&lt;}&quot;</span><span class="p">,</span>
+    <span class="p">},</span>
+
+    <span class="s2">&quot;__locals__&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;lA&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+    <span class="p">},</span>
+
+    <span class="s2">&quot;result&quot;</span><span class="p">:</span> <span class="s2">&quot;$!foreach{$func, *$lA}&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="n">dicResult</span> <span class="o">=</span> <span class="n">ison</span><span class="o">.</span><span class="n">run</span><span class="o">.</span><span class="n">Run</span><span class="p">(</span><span class="n">xData</span><span class="o">=</span><span class="n">dicData</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ison</span><span class="o">.</span><span class="n">run</span><span class="o">.</span><span class="n">ToString</span><span class="p">(</span><span class="n">dicResult</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{
+    &quot;result&quot;: [
+        &quot;&gt;1&lt;&quot;,
+        &quot;&gt;2&lt;&quot;,
+        &quot;&gt;3&lt;&quot;
+    ]
+}
+</pre></div>
+</div>
+</div>
+</div>
+<p>This can also be combined with the <code class="docutils literal notranslate"><span class="pre">$range{}</span></code> function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ison</span>
+
+<span class="n">dicData</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;__func_locals__&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;$L{&gt;%0&lt;}&quot;</span><span class="p">,</span>
+    <span class="p">},</span>
+
+    <span class="s2">&quot;__locals__&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;lA&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+    <span class="p">},</span>
+
+    <span class="s2">&quot;result&quot;</span><span class="p">:</span> <span class="s2">&quot;$!foreach{$func, *$range</span><span class="si">{5}</span><span class="s2">}&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="n">dicResult</span> <span class="o">=</span> <span class="n">ison</span><span class="o">.</span><span class="n">run</span><span class="o">.</span><span class="n">Run</span><span class="p">(</span><span class="n">xData</span><span class="o">=</span><span class="n">dicData</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ison</span><span class="o">.</span><span class="n">run</span><span class="o">.</span><span class="n">ToString</span><span class="p">(</span><span class="n">dicResult</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{
+    &quot;result&quot;: [
+        &quot;&gt;0&lt;&quot;,
+        &quot;&gt;1&lt;&quot;,
+        &quot;&gt;2&lt;&quot;,
+        &quot;&gt;3&lt;&quot;,
+        &quot;&gt;4&lt;&quot;
+    ]
+}
+</pre></div>
+</div>
+</div>
+</div>
+<p>If a number of arguments should be passed to each instance of the lambda function execution, you can specify tuples as follows,</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ison</span>
+
+<span class="n">dicData</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;__func_locals__&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;$L{%0: &gt;%1&lt; - %2}&quot;</span><span class="p">,</span>
+    <span class="p">},</span>
+
+    <span class="s2">&quot;result&quot;</span><span class="p">:</span> <span class="s2">&quot;$!foreach{$func, (1, a, x), (2, b, y)}&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="n">dicResult</span> <span class="o">=</span> <span class="n">ison</span><span class="o">.</span><span class="n">run</span><span class="o">.</span><span class="n">Run</span><span class="p">(</span><span class="n">xData</span><span class="o">=</span><span class="n">dicData</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ison</span><span class="o">.</span><span class="n">run</span><span class="o">.</span><span class="n">ToString</span><span class="p">(</span><span class="n">dicResult</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{
+    &quot;result&quot;: [
+        &quot;1: &gt;a&lt; - x&quot;,
+        &quot;2: &gt;b&lt; - y&quot;
+    ]
+}
+</pre></div>
+</div>
+</div>
+</div>
+<p>This is actually used by the function <code class="docutils literal notranslate"><span class="pre">$enumerate{}</span></code> to generate tuples of list indices with list elements:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ison</span>
+
+<span class="n">dicData</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;__func_locals__&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;$L{%0: &gt;%1&lt;}&quot;</span><span class="p">,</span>
+    <span class="p">},</span>
+
+    <span class="s2">&quot;__locals__&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;lA&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+    <span class="p">},</span>
+
+    <span class="s2">&quot;result&quot;</span><span class="p">:</span> <span class="s2">&quot;$!foreach{$func, *$enumerate{$lA}}&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="n">dicResult</span> <span class="o">=</span> <span class="n">ison</span><span class="o">.</span><span class="n">run</span><span class="o">.</span><span class="n">Run</span><span class="p">(</span><span class="n">xData</span><span class="o">=</span><span class="n">dicData</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ison</span><span class="o">.</span><span class="n">run</span><span class="o">.</span><span class="n">ToString</span><span class="p">(</span><span class="n">dicResult</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{
+    &quot;result&quot;: [
+        &quot;0: &gt;1&lt;&quot;,
+        &quot;1: &gt;2&lt;&quot;,
+        &quot;2: &gt;3&lt;&quot;
+    ]
+}
+</pre></div>
+</div>
+</div>
+</div>
+<p>In general, any number of lists can be combined to a list of grouped tuples using the  <code class="docutils literal notranslate"><span class="pre">$group{}</span></code> function:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ison</span>
+
+<span class="n">dicData</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;__func_locals__&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;$L{%0: &gt;%1&lt; - %2}&quot;</span><span class="p">,</span>
+    <span class="p">},</span>
+
+    <span class="s2">&quot;__locals__&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;lA&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">],</span>
+        <span class="s2">&quot;lB&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+        <span class="s2">&quot;lC&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="s2">&quot;z&quot;</span><span class="p">]</span>
+    <span class="p">},</span>
+
+    <span class="s2">&quot;result&quot;</span><span class="p">:</span> <span class="s2">&quot;$!foreach{$func, *$group{$lA, $lB, $lC}}&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="n">dicResult</span> <span class="o">=</span> <span class="n">ison</span><span class="o">.</span><span class="n">run</span><span class="o">.</span><span class="n">Run</span><span class="p">(</span><span class="n">xData</span><span class="o">=</span><span class="n">dicData</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ison</span><span class="o">.</span><span class="n">run</span><span class="o">.</span><span class="n">ToString</span><span class="p">(</span><span class="n">dicResult</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{
+    &quot;result&quot;: [
+        &quot;a: &gt;1&lt; - x&quot;,
+        &quot;b: &gt;2&lt; - y&quot;,
+        &quot;c: &gt;3&lt; - z&quot;
+    ]
+}
+</pre></div>
+</div>
+</div>
+</div>
+<section id="named-arguments">
+<h3>Named Arguments<a class="headerlink" href="#named-arguments" title="Link to this heading">#</a></h3>
+<p>For lambdas with named parameters there is a slightly different syntax to iterate over a list of parameters. Note that you cannot mix named and positional lambda arguments in a <code class="docutils literal notranslate"><span class="pre">$!foreach{}</span></code> call.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ison</span>
+
+<span class="n">dicData</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;__func_globals__&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;L_foo&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;__lambda__&quot;</span><span class="p">:</span> <span class="p">{},</span> 
+            <span class="s2">&quot;sKey&quot;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="si">%s</span><span class="s2">Key%&quot;</span><span class="p">,</span> 
+            <span class="s2">&quot;iValue&quot;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="si">%i</span><span class="s2">Value%&quot;</span>
+        <span class="p">},</span>
+    <span class="p">},</span>
+
+    <span class="s2">&quot;__globals__&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;lKeys&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="s2">&quot;d&quot;</span><span class="p">],</span> 
+        <span class="s2">&quot;lValues&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+    <span class="p">},</span>
+
+    <span class="s2">&quot;result&quot;</span><span class="p">:</span> <span class="s2">&quot;$!foreach{$L_foo, sKey=*$lKeys, iValue=*$lValues}&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="n">dicResult</span> <span class="o">=</span> <span class="n">ison</span><span class="o">.</span><span class="n">run</span><span class="o">.</span><span class="n">Run</span><span class="p">(</span><span class="n">xData</span><span class="o">=</span><span class="n">dicData</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ison</span><span class="o">.</span><span class="n">run</span><span class="o">.</span><span class="n">ToString</span><span class="p">(</span><span class="n">dicResult</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{
+    &quot;result&quot;: [
+        {
+            &quot;sKey&quot;: &quot;a&quot;,
+            &quot;iValue&quot;: 1
+        },
+        {
+            &quot;sKey&quot;: &quot;b&quot;,
+            &quot;iValue&quot;: 2
+        },
+        {
+            &quot;sKey&quot;: &quot;c&quot;,
+            &quot;iValue&quot;: 3
+        }
+    ]
+}
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can also partially process with named arguments, which can be processed further at a later stage.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ison</span>
+
+<span class="n">dicData</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;__func_globals__&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;L_foo&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;__lambda__&quot;</span><span class="p">:</span> <span class="p">{},</span> 
+            <span class="s2">&quot;sKey&quot;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="si">%s</span><span class="s2">Key%&quot;</span><span class="p">,</span> 
+            <span class="s2">&quot;iValue&quot;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="si">%i</span><span class="s2">Value%&quot;</span>
+        <span class="p">},</span>
+    <span class="p">},</span>
+
+    <span class="s2">&quot;__globals__&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;lKeys&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="s2">&quot;d&quot;</span><span class="p">],</span> 
+        <span class="s2">&quot;lValues&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+        <span class="s2">&quot;lPartial&quot;</span><span class="p">:</span> <span class="s2">&quot;$!foreach{$L_foo, iValue=*$lValues}&quot;</span>
+    <span class="p">},</span>
+
+    <span class="s2">&quot;result 1&quot;</span><span class="p">:</span> <span class="s2">&quot;$lPartial&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;result 2&quot;</span><span class="p">:</span> <span class="s2">&quot;$!foreach{$</span><span class="si">{lPartial:0}</span><span class="s2">, sKey=*$lKeys}&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="n">dicResult</span> <span class="o">=</span> <span class="n">ison</span><span class="o">.</span><span class="n">run</span><span class="o">.</span><span class="n">Run</span><span class="p">(</span><span class="n">xData</span><span class="o">=</span><span class="n">dicData</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ison</span><span class="o">.</span><span class="n">run</span><span class="o">.</span><span class="n">ToString</span><span class="p">(</span><span class="n">dicResult</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{
+    &quot;result 1&quot;: [
+        &quot;$L{$*{^{$S{sKey}: $S{%sKey%}, $S{iValue}: $S{$*{^1}}}}}&quot;,
+        &quot;$L{$*{^{$S{sKey}: $S{%sKey%}, $S{iValue}: $S{$*{^2}}}}}&quot;,
+        &quot;$L{$*{^{$S{sKey}: $S{%sKey%}, $S{iValue}: $S{$*{^3}}}}}&quot;
+    ],
+    &quot;result 2&quot;: [
+        {
+            &quot;sKey&quot;: &quot;a&quot;,
+            &quot;iValue&quot;: 1
+        },
+        {
+            &quot;sKey&quot;: &quot;b&quot;,
+            &quot;iValue&quot;: 1
+        },
+        {
+            &quot;sKey&quot;: &quot;c&quot;,
+            &quot;iValue&quot;: 1
+        },
+        {
+            &quot;sKey&quot;: &quot;d&quot;,
+            &quot;iValue&quot;: 1
+        }
+    ]
+}
+</pre></div>
+</div>
+</div>
+</div>
+<p>If a number of unrolled lists of values are given, the number of iterations depend on the shortest list of values. However, if some named parameters are defined with single values, these values are repeated for all iterations.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ison</span>
+
+<span class="n">dicData</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;__func_globals__&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;L_foo&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;__lambda__&quot;</span><span class="p">:</span> <span class="p">{},</span> 
+            <span class="s2">&quot;sKey&quot;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="si">%s</span><span class="s2">Key%&quot;</span><span class="p">,</span> 
+            <span class="s2">&quot;iValue&quot;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="si">%i</span><span class="s2">Value%&quot;</span>
+        <span class="p">},</span>
+    <span class="p">},</span>
+
+    <span class="s2">&quot;__globals__&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;lKeys&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="s2">&quot;d&quot;</span><span class="p">],</span> 
+        <span class="s2">&quot;iValue&quot;</span><span class="p">:</span> <span class="mi">42</span>
+    <span class="p">},</span>
+
+    <span class="s2">&quot;result&quot;</span><span class="p">:</span> <span class="s2">&quot;$!foreach{$L_foo, sKey=*$lKeys, iValue=$iValue}&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="n">dicResult</span> <span class="o">=</span> <span class="n">ison</span><span class="o">.</span><span class="n">run</span><span class="o">.</span><span class="n">Run</span><span class="p">(</span><span class="n">xData</span><span class="o">=</span><span class="n">dicData</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ison</span><span class="o">.</span><span class="n">run</span><span class="o">.</span><span class="n">ToString</span><span class="p">(</span><span class="n">dicResult</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{
+    &quot;result&quot;: [
+        {
+            &quot;sKey&quot;: &quot;a&quot;,
+            &quot;iValue&quot;: 42
+        },
+        {
+            &quot;sKey&quot;: &quot;b&quot;,
+            &quot;iValue&quot;: 42
+        },
+        {
+            &quot;sKey&quot;: &quot;c&quot;,
+            &quot;iValue&quot;: 42
+        },
+        {
+            &quot;sKey&quot;: &quot;d&quot;,
+            &quot;iValue&quot;: 42
+        }
+    ]
+}
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can also directly specify a list value that for-each iterates over for a specific named argument, by using the tuple notation <code class="docutils literal notranslate"><span class="pre">()</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ison</span>
+
+<span class="n">dicData</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;__func_globals__&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;L_foo&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;__lambda__&quot;</span><span class="p">:</span> <span class="p">{},</span> 
+            <span class="s2">&quot;sKey&quot;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="si">%s</span><span class="s2">Key%&quot;</span><span class="p">,</span> 
+            <span class="s2">&quot;iValue&quot;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="si">%i</span><span class="s2">Value%&quot;</span>
+        <span class="p">},</span>
+    <span class="p">},</span>
+
+    <span class="s2">&quot;__globals__&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;lKeys&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="s2">&quot;d&quot;</span><span class="p">],</span> 
+        <span class="s2">&quot;iValue&quot;</span><span class="p">:</span> <span class="mi">42</span>
+    <span class="p">},</span>
+
+    <span class="s2">&quot;result&quot;</span><span class="p">:</span> <span class="s2">&quot;$!foreach{$L_foo, sKey=*$lKeys, iValue=(10, 23, 17, 49)}&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="n">dicResult</span> <span class="o">=</span> <span class="n">ison</span><span class="o">.</span><span class="n">run</span><span class="o">.</span><span class="n">Run</span><span class="p">(</span><span class="n">xData</span><span class="o">=</span><span class="n">dicData</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ison</span><span class="o">.</span><span class="n">run</span><span class="o">.</span><span class="n">ToString</span><span class="p">(</span><span class="n">dicResult</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{
+    &quot;result&quot;: [
+        {
+            &quot;sKey&quot;: &quot;a&quot;,
+            &quot;iValue&quot;: &quot;10&quot;
+        },
+        {
+            &quot;sKey&quot;: &quot;b&quot;,
+            &quot;iValue&quot;: &quot;23&quot;
+        },
+        {
+            &quot;sKey&quot;: &quot;c&quot;,
+            &quot;iValue&quot;: &quot;17&quot;
+        },
+        {
+            &quot;sKey&quot;: &quot;d&quot;,
+            &quot;iValue&quot;: &quot;49&quot;
+        }
+    ]
+}
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="where-select-with-lambda-condition">
+<h2><code class="docutils literal notranslate"><span class="pre">!where</span></code> - Select with Lambda Condition<a class="headerlink" href="#where-select-with-lambda-condition" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">!?{}</span></code> is an alias of this function.</p>
+<p>Executes lambda function for each argument. Those arguments where the lambda function return <code class="docutils literal notranslate"><span class="pre">true</span></code> or a non-zero scalar, are added to the resultant list of elements.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ison</span>
+
+<span class="n">dicData</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;__func_locals__&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="c1"># Compare the element &#39;x&#39; of the first lambda parameter with &#39;1&#39;</span>
+        <span class="c1"># for equality. </span>
+        <span class="s2">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;$L{$eq{${%0:x}, 1}}&quot;</span><span class="p">,</span>
+    <span class="p">},</span>
+
+    <span class="s2">&quot;__locals__&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;lA&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span> <span class="s2">&quot;x&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">:</span> <span class="s2">&quot;a&quot;</span> <span class="p">},</span>
+            <span class="p">{</span> <span class="s2">&quot;x&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">:</span> <span class="s2">&quot;b&quot;</span> <span class="p">},</span>
+            <span class="p">{</span> <span class="s2">&quot;x&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">:</span> <span class="s2">&quot;c&quot;</span> <span class="p">}</span>
+        <span class="p">]</span>
+    <span class="p">},</span>
+
+    <span class="c1"># Select only those elements of lA, where the &#39;x&#39; element is 1</span>
+    <span class="s2">&quot;result&quot;</span><span class="p">:</span> <span class="s2">&quot;$!where{$func, *$lA}&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="n">dicResult</span> <span class="o">=</span> <span class="n">ison</span><span class="o">.</span><span class="n">run</span><span class="o">.</span><span class="n">Run</span><span class="p">(</span><span class="n">xData</span><span class="o">=</span><span class="n">dicData</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ison</span><span class="o">.</span><span class="n">run</span><span class="o">.</span><span class="n">ToString</span><span class="p">(</span><span class="n">dicResult</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{
+    &quot;result&quot;: [
+        {
+            &quot;x&quot;: 1,
+            &quot;y&quot;: &quot;a&quot;
+        },
+        {
+            &quot;x&quot;: 1,
+            &quot;y&quot;: &quot;c&quot;
+        }
+    ]
+}
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="ison-functions-struct.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Data Structure Functions</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="ison-functions-special.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Special Functions</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#l-define-lambda-function"><code class="docutils literal notranslate"><span class="pre">L</span></code> - Define Lambda Function</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#l-convert-structure-to-lambda-function"><code class="docutils literal notranslate"><span class="pre">L*</span></code> - Convert Structure to Lambda Function</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explicit-lambda-function-execution"><code class="docutils literal notranslate"><span class="pre">!</span></code> - Explicit Lambda Function Execution</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#foreach-execute-lambda-function-for-each-element"><code class="docutils literal notranslate"><span class="pre">!foreach</span></code> - Execute Lambda Function for Each Element</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#named-arguments">Named Arguments</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#where-select-with-lambda-condition"><code class="docutils literal notranslate"><span class="pre">!where</span></code> - Select with Lambda Condition</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Christian Perwass
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022, Robert Bosch GmbH.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

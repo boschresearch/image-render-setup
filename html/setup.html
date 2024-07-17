@@ -1,0 +1,636 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Catharsys Installation &#8212; Image-Render Setup 3.2.36 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=5976921d"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'setup';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Image-Render Setup 3.2.36 documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Catharsys Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="system_main.html">System Tools &amp; Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gui_main.html">Web User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workspace_main.html">Automation with Workspaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="develop.html">Code Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="change-log.html">Change Log</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/setup.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Catharsys Installation</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pre-requisites">Pre-requisites</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#catharsys-system">Catharsys System</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-cathy-command">The <code class="docutils literal notranslate"><span class="pre">cathy</span></code> command</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#blender">Blender</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-workspace">Example Workspace</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-example-workspace">Install Example Workspace</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#initialize-for-vs-code-use">Initialize for VS-Code use</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#open-the-workspace-in-vs-code">Open the Workspace in VS-Code</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#workspace-info">Workspace Info</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#initialize-blender-for-workspace">Initialize Blender for Workspace</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#open-blender-for-a-configuration-action">Open Blender for a configuration action</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#launch-a-rendering-job">Launch a rendering job</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#catharsys-api">Catharsys API</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-s-next">What’s next?</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <!---
+<LICENSE id="CC BY-SA 4.0">
+    
+    Image-Render Setup module documentation
+    Copyright 2022 Robert Bosch GmbH and its subsidiaries
+    
+    This work is licensed under the 
+    
+        Creative Commons Attribution-ShareAlike 4.0 International License.
+    
+    To view a copy of this license, visit 
+        http://creativecommons.org/licenses/by-sa/4.0/ 
+    or send a letter to 
+        Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
+    
+</LICENSE>
+--->
+<section id="catharsys-installation">
+<h1>Catharsys Installation<a class="headerlink" href="#catharsys-installation" title="Link to this heading">#</a></h1>
+<p>These are the basic steps to install the image render system <strong>Catharsys</strong> from scratch. There are two modes of installation, which are both described in this document:</p>
+<ol class="arabic simple">
+<li><p>a <strong>distribution</strong> install from a <code class="docutils literal notranslate"><span class="pre">.zip</span></code> package, if you just want to use Catharsys,</p></li>
+<li><p>a <strong>develop</strong> install from a fork, if you want to modify or contribute code.</p></li>
+</ol>
+<p>The Catharsys modules are entirely written in Python and the software repositories can be installed locally via <code class="docutils literal notranslate"><span class="pre">pip</span></code>. However, the modules are currently not available on <code class="docutils literal notranslate"><span class="pre">pypi</span></code>. Instead, there is an installation script that prepares the environment and installs all the packages you need.</p>
+<section id="pre-requisites">
+<h2>Pre-requisites<a class="headerlink" href="#pre-requisites" title="Link to this heading">#</a></h2>
+<p>Prepare the following, before you start installing Catharsys.</p>
+<p><strong>Python</strong></p>
+<p>An Anaconda (miniconda) Python installation is needed.</p>
+<p><strong>Blender</strong></p>
+<p>To render images with Blender, you need to download an <em>archive version</em> (*.zip, *.tar.gz) of the Blender you need from the <a class="reference external" href="https://www.blender.org/download/">Blender download page</a> or the <a class="reference external" href="https://download.blender.org/release/">Blender index of all releases</a>.</p>
+<p><strong>Do not</strong> unpack the archive right now. This will be done later on by a Catharsys tool.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Catharsys has to install Blender in a special Catharsys folder, because the Catharsys code is installed in the Python distributon that comes with Blender. Therefore, there is a separate Blender installation for each Blender version (Major.Minor version) and for each Catharsys version (Major.Minor version), so that they can be used side-by-side.</p>
+</div>
+<p><strong>Visual Studio Code</strong></p>
+<p><a class="reference external" href="https://code.visualstudio.com/">Visual Studio Code</a> gives you a very good interface to work with Catharsys configurations and to run actions (e.g. render jobs) also on remote machines and GPU clusters.</p>
+</section>
+<section id="catharsys-system">
+<h2>Catharsys System<a class="headerlink" href="#catharsys-system" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>For a <strong>distribution</strong> installation from a <code class="docutils literal notranslate"><span class="pre">.zip</span></code> file, <a class="reference internal" href="install_distribution.html"><span class="std std-doc">go to this document</span></a>.</p></li>
+<li><p>For a <strong>development</strong> install from a fork of the <code class="docutils literal notranslate"><span class="pre">image-render-*</span></code> repositories, <a class="reference internal" href="install_development.html"><span class="std std-doc">read on here</span></a>.</p></li>
+</ul>
+<div class="admonition-important admonition">
+<p class="admonition-title">IMPORTANT</p>
+<p>Only carry on, if you successfully installed the system with one of the above workflows.</p>
+</div>
+</section>
+<section id="the-cathy-command">
+<h2>The <code class="docutils literal notranslate"><span class="pre">cathy</span></code> command<a class="headerlink" href="#the-cathy-command" title="Link to this heading">#</a></h2>
+<p>You can access the <code class="docutils literal notranslate"><span class="pre">cathy</span></code> commands from any folder, as long as you are in the <code class="docutils literal notranslate"><span class="pre">cex1</span></code> environment.</p>
+<p>To get help for any <code class="docutils literal notranslate"><span class="pre">cathy</span></code> command, use the <code class="docutils literal notranslate"><span class="pre">-h</span></code> or <code class="docutils literal notranslate"><span class="pre">--help</span></code> option as in:</p>
+<div class="admonition-shell admonition">
+<p class="admonition-title">Shell</p>
+<p><code class="docutils literal notranslate"><span class="pre">cathy</span> <span class="pre">[command</span> <span class="pre">[sub-command]]</span> <span class="pre">-h</span></code></p>
+</div>
+<p>If a command returns with an error and you think it’s a bug, or you do not understand where the error is comming from, run the command again with the <code class="docutils literal notranslate"><span class="pre">--debug</span></code> option. This should show a trace, where in the code the error occurred. Note, that the option <code class="docutils literal notranslate"><span class="pre">--debug</span></code> must be the first element after <code class="docutils literal notranslate"><span class="pre">cathy</span></code> for any command. For example,</p>
+<div class="admonition-shell admonition">
+<p class="admonition-title">Shell</p>
+<p><code class="docutils literal notranslate"><span class="pre">cathy</span> <span class="pre">--debug</span> <span class="pre">[command</span> <span class="pre">[sub-command]]</span> <span class="pre">[option</span> <span class="pre">[...]]</span></code></p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>See <a class="reference internal" href="cathy_main.html"><span class="doc">Command-Line Tool cathy</span></a> for more information on <code class="docutils literal notranslate"><span class="pre">cathy</span></code></p>
+</div>
+</section>
+<section id="blender">
+<span id="blender-setup"></span><h2>Blender<a class="headerlink" href="#blender" title="Link to this heading">#</a></h2>
+<p>Since Catharsys needs to install itself in the Python environment that comes with Blender, the Blender installation is done by a Catharsys tool. Blender will be installed in the path</p>
+<p><code class="docutils literal notranslate"><span class="pre">~/.catharsys/[Conda</span> <span class="pre">environment]/[Catharsys</span> <span class="pre">version]/Blender/[Blender</span> <span class="pre">archive</span> <span class="pre">folder]</span></code></p>
+<p>For example, for Catharsys 3.0 installed in the Conda environment <code class="docutils literal notranslate"><span class="pre">cex1</span></code> and the Blender archive <code class="docutils literal notranslate"><span class="pre">blender-3.2.2-windows-x64.zip</span></code>, Blender will be unpacked in the folder:</p>
+<p><code class="docutils literal notranslate"><span class="pre">~/.catharsys/cex1/3.0/Blender/blender-3.2.2-windows-x64</span></code></p>
+<p>In this way, each Catharsys version has its’ own group of Blender installs. In addition, the following symbolic link (or junction in Windows) is created, that points to the above folder:</p>
+<p><code class="docutils literal notranslate"><span class="pre">~/.catharsys/cex1/3.0/blender-3.2</span></code></p>
+<p>This link always points to the latest Blender 3.2 version installed.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The Blender configuration and add-ons are installed per workspace configuration. This will be shown later on.</p>
+</div>
+<p>To install the Blender archive, run the following command in the <code class="docutils literal notranslate"><span class="pre">cex1</span></code> Anaconda environment and the path where the Blender archive is located:</p>
+<div class="admonition-shell admonition">
+<p class="admonition-title">Shell</p>
+<p><code class="docutils literal notranslate"><span class="pre">cathy</span> <span class="pre">blender</span> <span class="pre">install</span> <span class="pre">./blender-3.2.2-windows-x64.zip</span></code></p>
+</div>
+<p>This will install Blender and install all Catharsys modules in Blender Python.</p>
+</section>
+<section id="example-workspace">
+<h2>Example Workspace<a class="headerlink" href="#example-workspace" title="Link to this heading">#</a></h2>
+<p>The image render setup includes a number of template workspaces, that you can use as starting points for your own projects. You can obtain a list of the available templates with the command:</p>
+<div class="admonition-shell admonition">
+<p class="admonition-title">Shell</p>
+<p><code class="docutils literal notranslate"><span class="pre">cathy</span> <span class="pre">install</span> <span class="pre">template</span> <span class="pre">--list</span></code></p>
+</div>
+<section id="install-example-workspace">
+<h3>Install Example Workspace<a class="headerlink" href="#install-example-workspace" title="Link to this heading">#</a></h3>
+<p>Let´s go ahead and create a workspace based on the <code class="docutils literal notranslate"><span class="pre">just-render</span></code> template workspace. In this example, we navigate to the folder <code class="docutils literal notranslate"><span class="pre">~/code</span></code> and run the following shell command:</p>
+<div class="admonition-shell admonition">
+<p class="admonition-title">Shell</p>
+<p><code class="docutils literal notranslate"><span class="pre">cathy</span> <span class="pre">install</span> <span class="pre">template</span> <span class="pre">workspace-just-render</span></code></p>
+</div>
+<p>You will be prompted for a new name for the workspace and a name for a configuration. In this example, we choose <code class="docutils literal notranslate"><span class="pre">cws-just-render</span></code> for the workspace name and <code class="docutils literal notranslate"><span class="pre">trial-01</span></code> for the configuration name.</p>
+<p>There should now be a folder <code class="docutils literal notranslate"><span class="pre">cws-just-render</span></code>. There are just a few more steps we need to do before we can render images.</p>
+<p>For the following steps, we will change into the newly created workspace directory via</p>
+<div class="admonition-shell admonition">
+<p class="admonition-title">Shell</p>
+<p><code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">cws-just-render</span></code></p>
+</div>
+</section>
+<section id="initialize-for-vs-code-use">
+<h3>Initialize for VS-Code use<a class="headerlink" href="#initialize-for-vs-code-use" title="Link to this heading">#</a></h3>
+<p>To initialize the workspace for use with VS-Code run:</p>
+<div class="admonition-shell admonition">
+<p class="admonition-title">Shell</p>
+<p><code class="docutils literal notranslate"><span class="pre">cathy</span> <span class="pre">code</span> <span class="pre">init</span></code></p>
+</div>
+<p>This generates a workspace file for VS-Code and installs the functional json (ison) syntax highlighter add-on. This add-on implements syntax highlighting for <code class="docutils literal notranslate"><span class="pre">*.json</span></code>, <code class="docutils literal notranslate"><span class="pre">*.json5</span></code> and <code class="docutils literal notranslate"><span class="pre">*.ison</span></code> (functional json) files.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When you opened a <code class="docutils literal notranslate"><span class="pre">*.json</span></code>, <code class="docutils literal notranslate"><span class="pre">*.json5</span></code> or <code class="docutils literal notranslate"><span class="pre">*.ison</span></code> file in VS-Code, click on the selected language type in the bottom right of VS-Code window and select <code class="docutils literal notranslate"><span class="pre">ison</span></code> from the set of choices, to enable the addon for this file type.</p>
+</div>
+</section>
+<section id="open-the-workspace-in-vs-code">
+<h3>Open the Workspace in VS-Code<a class="headerlink" href="#open-the-workspace-in-vs-code" title="Link to this heading">#</a></h3>
+<p>You can now open the workspace in VS-Code directly from the command line via</p>
+<div class="admonition-shell admonition">
+<p class="admonition-title">Shell</p>
+<p><code class="docutils literal notranslate"><span class="pre">cathy</span> <span class="pre">code</span> <span class="pre">show</span></code></p>
+</div>
+<p>You need to be in the workspace folder for this to work.</p>
+<p>This command first looks for a user install of VS-Code. If it cannot find that, it tries to open a system install. If that installation also cannot be found, if checks whether the command <code class="docutils literal notranslate"><span class="pre">code</span></code> is availabe and deduces the path to VS-Code from there.</p>
+<p>Should this command not work for you, simply open the workspace file directly from VS-Code.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The generated workspace file also defines the default terminal for Windows and Linux. This calls one of the initialization scripts to activate the appropriate Anaconda environment. These scripts are located in the <code class="docutils literal notranslate"><span class="pre">.catharsys</span></code> folder in the workspace. This has the advantage that when you open the workspace file directly from the recent folder list of VS-Code, the integrated terminal will automatically switch to the correct Anaconda workspace.</p>
+</div>
+</section>
+<section id="workspace-info">
+<h3>Workspace Info<a class="headerlink" href="#workspace-info" title="Link to this heading">#</a></h3>
+<p>Each workspace may contain a number of configuration projects. Each project consists of a set of configuration files that describe a set of actions, like rendering, post-processing, etc. All configuration files of a workspace must be in the folder <code class="docutils literal notranslate"><span class="pre">config</span></code>. To list all available configuration projects and their respective actions, run the following command:</p>
+<div class="admonition-shell admonition">
+<p class="admonition-title">Shell</p>
+<p><code class="docutils literal notranslate"><span class="pre">cathy</span> <span class="pre">ws</span> <span class="pre">info</span></code></p>
+</div>
+<p>This will generate an output like this:</p>
+<img alt="_images/cathy_ws_info_ex1.png" src="_images/cathy_ws_info_ex1.png" />
+<p>The configurations are the folders in the <code class="docutils literal notranslate"><span class="pre">config</span></code> folder and the names listes after the <code class="docutils literal notranslate"><span class="pre">*</span></code> are the actions per configuration.</p>
+</section>
+<section id="initialize-blender-for-workspace">
+<h3>Initialize Blender for Workspace<a class="headerlink" href="#initialize-blender-for-workspace" title="Link to this heading">#</a></h3>
+<p>Before you can render images with Blender using a project configuration in the workspace, you need to initialize Blender for that project configuration. This sets default user preferences and installs the add-ons needed by a configuration of the workspace. The add-ons are specified in the execution configurations of a project.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The structure of Workspaces for Blender rendering is discussed <a class="reference external" href="../image-render-automation/html/index.html" title="(in Image-Render Automation)"><span class="xref std std-doc">here</span></a>.</p>
+</div>
+<p>To initialize the project configuration <code class="docutils literal notranslate"><span class="pre">trial-01</span></code> run the following command:</p>
+<div class="admonition-shell admonition">
+<p class="admonition-title">Shell</p>
+<p><code class="docutils literal notranslate"><span class="pre">cathy</span> <span class="pre">blender</span> <span class="pre">init</span> <span class="pre">-c</span> <span class="pre">trial-01</span></code></p>
+</div>
+<p>This command also checks whether Catharsys is installed in the Blender Python and installs it if not. To avoid checking for the installation every time you update the Blender configuration, you can run the command:</p>
+<div class="admonition-shell admonition">
+<p class="admonition-title">Shell</p>
+<p><code class="docutils literal notranslate"><span class="pre">cathy</span> <span class="pre">blender</span> <span class="pre">init</span> <span class="pre">-c</span> <span class="pre">trial-01</span> <span class="pre">--addons</span></code></p>
+</div>
+</section>
+<section id="open-blender-for-a-configuration-action">
+<h3>Open Blender for a configuration action<a class="headerlink" href="#open-blender-for-a-configuration-action" title="Link to this heading">#</a></h3>
+<p>A rendering configuration references the Blender file to use in a trial file, which in turn is referenced by an action. To open the blender file that is used by the action <code class="docutils literal notranslate"><span class="pre">render</span></code> of the configuration <code class="docutils literal notranslate"><span class="pre">test</span></code>, run the command:</p>
+<div class="admonition-shell admonition">
+<p class="admonition-title">Shell</p>
+<p><code class="docutils literal notranslate"><span class="pre">cathy</span> <span class="pre">blender</span> <span class="pre">show</span> <span class="pre">-c</span> <span class="pre">trial-01</span> <span class="pre">-a</span> <span class="pre">render</span></code></p>
+</div>
+<p>This opens the correct Blender version with the correct Blender configuration for the Catharsys action.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Note that actions can have any name. That is, an action that renders something does not necessarily have the name <code class="docutils literal notranslate"><span class="pre">render</span></code>.</p>
+</div>
+</section>
+<section id="launch-a-rendering-job">
+<h3>Launch a rendering job<a class="headerlink" href="#launch-a-rendering-job" title="Link to this heading">#</a></h3>
+<p>Finally, let’s launch the rendering action <code class="docutils literal notranslate"><span class="pre">render</span></code> for configuration <code class="docutils literal notranslate"><span class="pre">trial-01</span></code> with:</p>
+<div class="admonition-shell admonition">
+<p class="admonition-title">Shell</p>
+<p><code class="docutils literal notranslate"><span class="pre">cathy</span> <span class="pre">ws</span> <span class="pre">launch</span> <span class="pre">-c</span> <span class="pre">trial-01</span> <span class="pre">-a</span> <span class="pre">render</span></code></p>
+</div>
+<p>This should start Blender in background mode and render six images in the folder <code class="docutils literal notranslate"><span class="pre">./_render/rq0004/trial-01/Camera/delta_rot_01/rot_01/Image</span></code>.</p>
+</section>
+</section>
+<section id="catharsys-api">
+<h2>Catharsys API<a class="headerlink" href="#catharsys-api" title="Link to this heading">#</a></h2>
+<p>Instead of working with workspaces from the command line, you can also use the Catharsys API. This is especially nice, when you are using Jupyter notebooks. They are available directly in VS-Code as well.</p>
+<p>As an example, open the <code class="docutils literal notranslate"><span class="pre">cws-just-render</span></code> in VS-Code and open the file <code class="docutils literal notranslate"><span class="pre">./config/trial-01/launch.ipynb</span></code>. When you open the notebook for the first time, you will have to select the python kernel the notebook is run with. This can be selected in the top right corner of the notebook window. Ensure that is says <code class="docutils literal notranslate"><span class="pre">cex1</span></code> in this example.</p>
+<p>Now execute the Code blocks in the document to launch the action and display the resultant images. The API objects and commands can be used in any Python program, so you can write an automation for the rendering automation system ;-)</p>
+</section>
+<section id="what-s-next">
+<h2>What’s next?<a class="headerlink" href="#what-s-next" title="Link to this heading">#</a></h2>
+<p>The next step is to understand the basic workspace and configuration structure, so that you can define your own workspaces and use Catharsys productively.</p>
+<p><a class="reference external" href="../image-render-automation/html/index.html" title="(in Image-Render Automation)"><span>Automation System</span></a></p>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pre-requisites">Pre-requisites</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#catharsys-system">Catharsys System</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-cathy-command">The <code class="docutils literal notranslate"><span class="pre">cathy</span></code> command</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#blender">Blender</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-workspace">Example Workspace</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-example-workspace">Install Example Workspace</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#initialize-for-vs-code-use">Initialize for VS-Code use</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#open-the-workspace-in-vs-code">Open the Workspace in VS-Code</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#workspace-info">Workspace Info</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#initialize-blender-for-workspace">Initialize Blender for Workspace</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#open-blender-for-a-configuration-action">Open Blender for a configuration action</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#launch-a-rendering-job">Launch a rendering job</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#catharsys-api">Catharsys API</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-s-next">What’s next?</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Christian Perwass
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022, Robert Bosch GmbH.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,678 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Production Categorization &#8212; Image-Render Automation 3.1.12 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=3cdd2af7"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'products/categorize';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="License" href="../license.html" />
+    <link rel="prev" title="Production Analysis" href="analyze.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Image-Render Automation 3.1.12 documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../reference/main.html">Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../reference/launch.html">Launch Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/manifest.html">Manifest Configuration</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../workspace/basics.html">Workspace Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../workspace/level-1.html">Level 1 - Basic Configuration Details</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../config_proc.html">Configuration File Processing</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="analyze.html">Production Analysis</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Production Categorization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../back-to-main.html">Back to main documentation</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/products/categorize.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Production Categorization</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#category-definition">Category Definition</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#categories-for-catharsys-variables">Categories for Catharsys Variables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#category-type-boolean-group">Category Type: Boolean Group</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#user-to-system-variable-association">User to System Variable Association</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#storage-format">Storage Format</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="production-categorization">
+<h1>Production Categorization<a class="headerlink" href="#production-categorization" title="Link to this heading">#</a></h1>
+<p>It can be helpful to annotate the generated data with respect to a set of user defined categories. With the Catharsys production viewer, categories can be defined and associated with path structure variables and set in the web view. The annotations are stored in a JSON file in the <code class="docutils literal notranslate"><span class="pre">_output/[os</span> <span class="pre">user]/[web</span> <span class="pre">user]</span></code> directory of the corresponding workspace. The <code class="docutils literal notranslate"><span class="pre">os-user</span></code> is the user logged into the OS and the <code class="docutils literal notranslate"><span class="pre">web-user</span></code> is the user logged into the Catharsys web GUI. If no explicit web users were created, the <code class="docutils literal notranslate"><span class="pre">web-user</span></code> is <code class="docutils literal notranslate"><span class="pre">public</span></code>.</p>
+<p>For example, the user can define a boolean category ‘bad’ for a ‘frame’ variable, so that bad frames can be marked in the viewer.</p>
+<p>The following examples are taken from <a class="reference external" href="https://github.com/boschresearch/image-render-workspace-examples/blob/main/config/usecase/generative/production.json5">production configuration</a> of the <code class="docutils literal notranslate"><span class="pre">usecase/generative</span></code> configuration of the <code class="docutils literal notranslate"><span class="pre">image-render-workspace-examples</span></code> <a class="reference external" href="https://github.com/boschresearch/image-render-workspace-examples">module</a>.</p>
+<section id="category-definition">
+<h2>Category Definition<a class="headerlink" href="#category-definition" title="Link to this heading">#</a></h2>
+<p>Categories are defined in the <code class="docutils literal notranslate"><span class="pre">production.json</span></code> configuration file per group under the tag <code class="docutils literal notranslate"><span class="pre">mCategories</span></code>. Here is an example definition of a boolean category ‘bad’:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="nt">&quot;mCategories&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// User defined category &#39;bad&#39;</span>
+<span class="w">        </span><span class="nt">&quot;bad&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="c1">// The DTI of the category. In this case, it is a boolean category.</span>
+<span class="w">            </span><span class="nt">&quot;sDTI&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/catharsys/production/category/boolean:1.0&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="c1">// The name of the category, used for display</span>
+<span class="w">            </span><span class="nt">&quot;sName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Do not use&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="c1">// optional, default value, if not set, the default value is false</span>
+<span class="w">            </span><span class="nt">&quot;bDefautValue&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">            </span><span class="c1">// the icon to use when the value is true.</span>
+<span class="w">            </span><span class="c1">// The available icon names can be found here: https://fonts.google.com/icons?icon.set=Material+Icons</span>
+<span class="w">            </span><span class="nt">&quot;sIconTrue&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;star&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="c1">// the icon to use when the value is false.</span>
+<span class="w">            </span><span class="nt">&quot;sIconFalse&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;star_border&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="c1">// the color to use when the value is true.</span>
+<span class="w">            </span><span class="nt">&quot;sIconColor&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;red&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">    </span><span class="p">}</span>
+</pre></div>
+</div>
+<p>Suppose the path structure looks like this:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="nt">&quot;sPathStructure&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;!production/!rq/!project/?idx&quot;</span><span class="p">,</span>
+</pre></div>
+</div>
+<p>and the variable <code class="docutils literal notranslate"><span class="pre">idx</span></code> is to be annotated with the category ‘bad’, then the variable definition looks like this:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="nt">&quot;mVars&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;idx&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;sName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Configuration Index&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;lCategories&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;bad&quot;</span><span class="p">],</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">    </span><span class="p">},</span>
+</pre></div>
+</div>
+<p>The element <code class="docutils literal notranslate"><span class="pre">lCategories</span></code> defines a list of categories that can be used for this variable. The following image shows how this category is visualized in the viewer. The row labels shown in the first column now have a star icon next to the label, which can be checked/unchecked by the user. The value of the <code class="docutils literal notranslate"><span class="pre">sName</span></code> element is shown as tooltip, when the mouse hovers over icon.</p>
+<img alt="../_images/category-ex-01.png" src="../_images/category-ex-01.png" />
+</section>
+<section id="categories-for-catharsys-variables">
+<h2>Categories for Catharsys Variables<a class="headerlink" href="#categories-for-catharsys-variables" title="Link to this heading">#</a></h2>
+<p>You can also associate categories with variables pre-defined by the Catharsys system, like the <code class="docutils literal notranslate"><span class="pre">!frame</span></code> variable. This is done in the optional <code class="docutils literal notranslate"><span class="pre">mSystemVars</span></code> block. For example, to associate the ‘bad’ category with the <code class="docutils literal notranslate"><span class="pre">!frame</span></code> variable, the block would look like this:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="c1">// The &#39;mSystenVars&#39; block is optional. It can be used to define</span>
+<span class="w">    </span><span class="c1">// categories for the Catharsys system variables.</span>
+<span class="w">    </span><span class="nt">&quot;mSystemVars&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// The &#39;frame&#39; variable is a Catharsys system variable.</span>
+<span class="w">        </span><span class="c1">// It is used to define the frame of the production.</span>
+<span class="w">        </span><span class="nt">&quot;frame&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="c1">// currently, only the &#39;lCategories&#39; array is supported.</span>
+<span class="w">            </span><span class="nt">&quot;lCategories&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;bad&quot;</span><span class="p">],</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">},</span>
+</pre></div>
+</div>
+</section>
+<section id="category-type-boolean-group">
+<h2>Category Type: Boolean Group<a class="headerlink" href="#category-type-boolean-group" title="Link to this heading">#</a></h2>
+<p>Another category type next to the boolean, is a boolean group, which allows the user to select one from a set of values. Here is an example for a three state selection:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="nt">&quot;mCategories&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// User defined category &#39;quality&#39;</span>
+<span class="w">        </span><span class="nt">&quot;quality&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="c1">// The DTI of the category. In this case, it is a boolean group category.</span>
+<span class="w">            </span><span class="c1">// The boolean group category is used to define a set of values for a variable.</span>
+<span class="w">            </span><span class="c1">// The values are defined in the &#39;lGroup&#39; array.</span>
+<span class="w">            </span><span class="nt">&quot;sDTI&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/catharsys/production/category/boolean-group:1.0&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="c1">// The name of the category, used for display</span>
+<span class="w">            </span><span class="nt">&quot;sName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Quality&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="c1">// optional, default value, if not set, the default value is the first value of the &#39;lGroup&#39; array.</span>
+<span class="w">            </span><span class="nt">&quot;iDefaultValue&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">            </span><span class="c1">// The &#39;lGroup&#39; array defines the values of the category.</span>
+<span class="w">            </span><span class="nt">&quot;lGroup&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="c1">// The description of the value, used for display (tooltip)</span>
+<span class="w">                    </span><span class="nt">&quot;sDescription&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Low quality&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="c1">// The icon to use for the value.</span>
+<span class="w">                    </span><span class="nt">&quot;sIcon&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;thumb_down&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="c1">// The color to use for the value.</span>
+<span class="w">                    </span><span class="nt">&quot;sColor&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;red&quot;</span>
+<span class="w">                </span><span class="p">},</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="c1">// The description of the value, used for display (tooltip)</span>
+<span class="w">                    </span><span class="nt">&quot;sDescription&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Medium quality&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="c1">// The icon to use for the value.</span>
+<span class="w">                    </span><span class="nt">&quot;sIcon&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;thumbs_up_down&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="c1">// The color to use for the value.</span>
+<span class="w">                    </span><span class="nt">&quot;sColor&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;yellow&quot;</span>
+<span class="w">                </span><span class="p">},</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="c1">// The description of the value, used for display (tooltip)</span>
+<span class="w">                    </span><span class="nt">&quot;sDescription&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Good quality&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="c1">// The icon to use for the value.</span>
+<span class="w">                    </span><span class="nt">&quot;sIcon&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;thumb_up&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="c1">// The color to use for the value.</span>
+<span class="w">                    </span><span class="nt">&quot;sColor&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;green&quot;</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">]</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+</pre></div>
+</div>
+<p>To associate the categories ‘bad’ and ‘quality’ with the variable <code class="docutils literal notranslate"><span class="pre">idx</span></code> the variable definition has to look like this:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="nt">&quot;mVars&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;idx&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;sName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Configuration Index&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;lCategories&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;bad&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;quality&quot;</span><span class="p">],</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">    </span><span class="p">},</span>
+</pre></div>
+</div>
+<p>The visualization of this additional category looks like this:</p>
+<img alt="../_images/category-ex-02.png" src="../_images/category-ex-02.png" />
+</section>
+<section id="user-to-system-variable-association">
+<h2>User to System Variable Association<a class="headerlink" href="#user-to-system-variable-association" title="Link to this heading">#</a></h2>
+<p>A Catharsys action or other custom processing may result in per-frame artefacts that do not conform with the default frame name format <code class="docutils literal notranslate"><span class="pre">Frame_[XXXX].[ext]</span></code>. However, it is useful to associate such artefacts with the Catharsys system variable <code class="docutils literal notranslate"><span class="pre">!frame</span></code> so that they are grouped together in the visualization. This can be done by defining an artefact specific user variable with the same name as the pre-defined Catharsys variable, but with an appropriate regular expression for parsing. Here is an example of an artefact definition that uses this feature by defining a user variable <code class="docutils literal notranslate"><span class="pre">frame</span></code>:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="nt">&quot;mArtefacts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;gen&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;sDTI&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/catharsys/production/artefact/image/png:1.0&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;sName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Generative&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="c1">// Note that a USER variable &#39;frame&#39; is used here.</span>
+<span class="w">            </span><span class="c1">// The USER variable &#39;frame&#39; is defined in the &#39;mVars&#39; block, and is parsed as defined in the &#39;mVars&#39; block.</span>
+<span class="w">            </span><span class="c1">// The reason to use a user variable with the same name as a system variable is to be able to use the same</span>
+<span class="w">            </span><span class="c1">// variable in the path structure of different artefacts, while defining a different parsing rule for each artefact.</span>
+<span class="w">            </span><span class="c1">// In the visualisation, the user variable &#39;frame&#39; and the system variable &#39;frame&#39; will be regarded as a common variable.</span>
+<span class="w">            </span><span class="c1">// This means that all artefacts with same frame id are grouped together. So we can see the source image grouped with the</span>
+<span class="w">            </span><span class="c1">// associated generative images</span>
+<span class="w">            </span><span class="nt">&quot;sPathStructure&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Takuma-Diffusers/?pidx/?dwidx/?frame&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;mVars&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;pidx&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;sName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Prompt Index&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;lCategories&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;bad&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;quality&quot;</span><span class="p">],</span>
+<span class="w">                </span><span class="p">},</span>
+<span class="w">                </span><span class="nt">&quot;dwidx&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;sName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Depth Weight Index&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="p">},</span>
+<span class="w">                </span><span class="nt">&quot;frame&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;sName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Image&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="c1">// The &#39;sRegExParseValue&#39; and &#39;sRegExReplaceValue&#39; are used to parse the value of the variable.</span>
+<span class="w">                    </span><span class="c1">// In this case, the value of the variable is a file name, and we want to extract the frame number from the file name.</span>
+<span class="w">                    </span><span class="c1">// The generative action does not create files with the default frame name format, so we need to parse the file name.</span>
+<span class="w">                    </span><span class="nt">&quot;sRegExParseValue&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;^Frame_[0]*(\\d+)_uint8png\\.png&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;sRegExReplaceValue&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;\\1&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="p">},</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="storage-format">
+<h2>Storage Format<a class="headerlink" href="#storage-format" title="Link to this heading">#</a></h2>
+<p>The data is stored in a JSON file in the <code class="docutils literal notranslate"><span class="pre">_output</span></code> folder of the workspace. The filename has the structure <code class="docutils literal notranslate"><span class="pre">CategoryData_[configuration</span> <span class="pre">id]_[group</span> <span class="pre">id].json</span></code>. It contains the category definitions used as well as additional meta data. The important parts of the meta data are the lists of the group path, the artefact and the common artefact variable ids. These are important to intepret the paths used for storing the category values.</p>
+<p>Here is an example of the meta data block:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="nt">&quot;mMeta&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;sProjectId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;usecase/generative&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;sGroupId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;std&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;sGroupName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Generative&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;lGroupPathStructure&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">            </span><span class="s2">&quot;production&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;rq&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;project&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;idx&quot;</span>
+<span class="w">        </span><span class="p">],</span>
+<span class="w">        </span><span class="nt">&quot;mArtefactPathStructures&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;image&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="s2">&quot;Image&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;frame&quot;</span>
+<span class="w">            </span><span class="p">],</span>
+<span class="w">            </span><span class="nt">&quot;depth&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="s2">&quot;AT_Depth&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;depth&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;Preview&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;frame&quot;</span>
+<span class="w">            </span><span class="p">],</span>
+<span class="w">            </span><span class="nt">&quot;gen&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="s2">&quot;Takuma-Diffusers&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;pidx&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;dwidx&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;frame&quot;</span>
+<span class="w">            </span><span class="p">]</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;lCommonArtefactVarIds&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">            </span><span class="s2">&quot;frame&quot;</span>
+<span class="w">        </span><span class="p">]</span>
+<span class="w">    </span><span class="p">},</span>
+</pre></div>
+</div>
+<p>The data itself is stored in the <code class="docutils literal notranslate"><span class="pre">mData</span></code> block. Here is an example, which will be discussed below:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="nt">&quot;mData&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;frame&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;0&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;quality&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;*|*|*|1&amp;image&amp;*|*&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;*|*|*|*&amp;*&amp;*&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">            </span><span class="nt">&quot;1&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;quality&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;*|*|*|1&amp;image&amp;*|*&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;*|*|*|1&amp;depth&amp;*|*|*|*&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;idx&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;1&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;quality&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;*|*|*|*&amp;image&amp;*|0&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;*|*|*|*&amp;*&amp;*&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+</pre></div>
+</div>
+<p>The data dictionary has the following levels:</p>
+<ul class="simple">
+<li><p>The first level is a dictionary with the <strong>variable id</strong> as key and a dictionary as value.</p></li>
+<li><p>The second level is a dictionary with the <strong>variable value</strong> as key and a dictionary as value.</p></li>
+<li><p>The third level is a dictionary with the <strong>category id</strong> as key and a dictionary as value.</p></li>
+<li><p>The fourth level is a dictionary with the <strong>path</strong> as key and the <strong>category value</strong> as value.</p></li>
+</ul>
+<p>Depending on the order in which the user displays the various variable dimensions, setting a category value is stored under a different path. For example, if the frame is displayed as top level element, then the artefact type and then the configuration index (<code class="docutils literal notranslate"><span class="pre">idx</span></code>), selecting a category for a configuration index is meant for just a specific frame and not all frames. If, however, the configuration index were the top element, then categorizing it is intended for all frames.</p>
+<p>These differences are stored in the paths as follows:
+- The path has three parts, separated by <code class="docutils literal notranslate"><span class="pre">&amp;</span></code>: <code class="docutils literal notranslate"><span class="pre">[group</span> <span class="pre">path]&amp;[artefact</span> <span class="pre">id]&amp;[artefact</span> <span class="pre">path]</span></code>.
+- The elements of the group path and the artefact path are separated by the <code class="docutils literal notranslate"><span class="pre">|</span></code> symbol.
+- The variable ids the group path values refer to are given in the <code class="docutils literal notranslate"><span class="pre">lGroupPathStructure</span></code> element.
+- The variable ids the artefact path values refer to are given in the <code class="docutils literal notranslate"><span class="pre">mArtefactPathStructures</span></code> element depending on the artefact id.
+- If the artefact id is <code class="docutils literal notranslate"><span class="pre">*</span></code> then the artefact path elements refer to the <code class="docutils literal notranslate"><span class="pre">lCommonArtefactVarIds</span></code> element.</p>
+<p><strong>Important</strong>: The default values for a category are not stored explicitly. The only case where a category default value is explicitly stored, is if a more general path is set to a different value.</p>
+<p>Consider the first path for <code class="docutils literal notranslate"><span class="pre">frame</span> <span class="pre">-&gt;</span> <span class="pre">0</span> <span class="pre">-&gt;</span> <span class="pre">quality</span></code>, which is <code class="docutils literal notranslate"><span class="pre">*|*|*|1&amp;image&amp;*|*</span></code> and set to value 2. This means that artefact <code class="docutils literal notranslate"><span class="pre">image</span></code> for configuration <code class="docutils literal notranslate"><span class="pre">1</span></code> and frame <code class="docutils literal notranslate"><span class="pre">0</span></code> has quality value 2.</p>
+<p>The second path <code class="docutils literal notranslate"><span class="pre">*|*|*|*&amp;*&amp;*</span></code> is more general, as it refers to all configurations. Therefore, frame <code class="docutils literal notranslate"><span class="pre">0</span></code> has quality value 0 for all artefacts and configurations, unless it is overwritten by a more specific path.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To process these paths and test for containment etc., you can use the class <code class="docutils literal notranslate"><span class="pre">catharsys.api.products.cls_view_dim_node_path.CViewDimNodePath</span></code> (<a class="reference external" href="https://github.com/boschresearch/image-render-automation/blob/main/src/catharsys/api/products/cls_view_dim_node_path.py">file</a>)</p>
+</div>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="analyze.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Production Analysis</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../license.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">License</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#category-definition">Category Definition</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#categories-for-catharsys-variables">Categories for Catharsys Variables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#category-type-boolean-group">Category Type: Boolean Group</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#user-to-system-variable-association">User to System Variable Association</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#storage-format">Storage Format</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Christian Perwass
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022, Robert Bosch GmbH.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
