@@ -130,24 +130,18 @@ def Run(*, sPathWorkspace=None, sPrintPrefix=">> "):
 
     dicWS = {}
 
-    bHasPwd = False
-    lFolders = dicWS["folders"] = []
+    # Add the workspace folder to the list of folders at the first position.
+    lFolders = dicWS["folders"] = [{"path": "."}]
     for pathModule in lPathModules:
         if pathModule.is_relative_to(pathWS):
             sPath = pathModule.relative_to(pathWS).as_posix()
-            if sPath == ".":
-                bHasPwd = True
-            # endif
         else:
             sPath = pathModule.as_posix()
         # endif
 
-        lFolders.append({"path": sPath})
+        if sPath != ".":
+            lFolders.append({"path": sPath})
     # endfor
-
-    if bHasPwd is False:
-        lFolders.append({"path": "."})
-    # endif
 
     if bIsDevelop is True:
         ##############################################################################
