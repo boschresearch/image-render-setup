@@ -12,10 +12,13 @@
   - Adds generator to load materials from another Blender file: `/catharsys/blender/generate/material/load:1.0`.
   - Adds modifier to set material of an object: `/catharsys/blender/modify/object/set-material:1.0`. In this first version is completely replaces all materials that are set for the object with a single new material.
   - Adds modifier to change node values in scene compositor: `/catharsys/blender/modify/scene/compositor/node-values:1.0`.
+  - Updates EColorSpace enum for Blender >= 4.0
+  
 
 - **AnyCam**
   - When using a standard Blender camera and the anycam addon is not installed, the resolution specified as render resolution in the Blender file is used, instead of a default Full HD resolution.
-
+  - Fixes opencv camera, by using the standard LUT camera implementation also for opencv LUT.
+  
 
 ## 2024-06-07 Catharsys Release 3.2.35
 
