@@ -191,6 +191,18 @@ To initialize the project configuration `trial-01` run the following command:
 ```{admonition} Shell
 `cathy blender init -c trial-01`
 ```
+If you receive an error like
+```{admonition} Shell
+`ERROR: Error running command 'init'
+` 1> Error initializing Blender 3.3 for
+`  |   config file 'config/trail-01/exec'
+`  |   at path: C:/Users/xxx/.catharsys/cex3234/3.2/blender-3.3
+`  | Maybe you need to install Blender 3.3 with 'cathy blender install [Blender ZIP-file]'
+`  | You can download the various Blender versions from https://www.blender.org/download/
+` 2> Error initializing Blender configuration
+` 3> Blender not found at path: C:/Users/tobim/.catharsys/cex3234/3.2/blender-3.3
+```
+Change the `sVersion` in `config/trail-01/exec.json5` from `3.3` to the installed Blender version.
 
 This command also checks whether Catharsys is installed in the Blender Python and installs it if not. To avoid checking for the installation every time you update the Blender configuration, you can run the command:
 
