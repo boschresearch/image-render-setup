@@ -26,8 +26,7 @@
 
 
 ####################################################################
-from catharsys.setup import args, version
-
+from catharsys.setup import args, version, logging
 
 ##########################################################################################################
 # Main CLI script that distributes workload to specialized scripts
@@ -70,6 +69,10 @@ def RunCli():
     # ####################################################################################################
     # parse command line and extend sub parser
     try:
+        # Print logs for everything above or equal to INFO
+        logging.set_logging(logging.LogConfig(stdout_level=3, stdout_format=logging.ELogFormat.SIMPLE))
+        clog = logging.logger
+
         sVersion = version.AsString()
         parseMain = argparse.ArgumentParser(
             prog="cathy", description=f"Catharsys v{sVersion} main system command", exit_on_error=False
@@ -125,7 +128,7 @@ def RunCli():
         sys.stdout.flush()
 
     except Exception as xEx:
-        print("ERROR parsing runtime arguments:\n{}\n".format(str(xEx)))
+        clog.error(f"ERROR parsing runtime arguments:\n{xEx!s}\n")
         sys.exit(1)
     # endtry
 
@@ -144,7 +147,7 @@ def RunCli():
             try:
                 import webbrowser
             except Exception as xEx:
-                raise RuntimeError("Cannot import module 'webbrowser'\n{}\n".format(str(xEx)))
+                clog.error(f"ERROR importing webbrowser module:\n{xEx!s}\n")
             # endtry
             import catharsys.setup.version as cathver
             from catharsys.setup import util
@@ -153,7 +156,7 @@ def RunCli():
             pathCathUser = util.GetCathUserPath(_bCheckExists=True)
             pathDocs = pathCathUser / "docs/html/index.html"
             if not pathDocs.exists():
-                raise RuntimeError(f"Catharsys HTML documentation cannot be found at: {pathDocs}")
+                clog.error(f"ERROR: Catharsys HTML documentation cannot be found at: {pathDocs}")
             # endif
             webbrowser.open(pathDocs.as_posix())
 
