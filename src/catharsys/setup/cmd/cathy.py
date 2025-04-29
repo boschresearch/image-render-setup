@@ -26,7 +26,8 @@
 
 
 ####################################################################
-from catharsys.setup import args, version, logging
+from catharsys.setup import args, version
+
 
 ##########################################################################################################
 # Main CLI script that distributes workload to specialized scripts
@@ -50,6 +51,14 @@ def RunCli():
         bHasDecorators = False
     # endtry
 
+    try:
+        from anybase import logging
+        clog = logging.logger
+    except Exception:
+        logging = None
+        clog = None 
+    # endtry
+
     sys.stdout.write(".")
     sys.stdout.flush()
 
@@ -70,8 +79,10 @@ def RunCli():
     # parse command line and extend sub parser
     try:
         # Print logs for everything above or equal to INFO
-        logging.set_logging(logging.LogConfig(stdout_level=3, stdout_format=logging.ELogFormat.SIMPLE))
-        clog = logging.logger
+        if logging is not None:
+            logging.set_logging(logging.LogConfig(stdout_level=3, stdout_format=logging.ELogFormat.SIMPLE))
+            clog = logging.logger
+        # endif
 
         sVersion = version.AsString()
         parseMain = argparse.ArgumentParser(
@@ -128,7 +139,11 @@ def RunCli():
         sys.stdout.flush()
 
     except Exception as xEx:
-        clog.error(f"ERROR parsing runtime arguments:\n{xEx!s}\n")
+        if clog is not None:
+            clog.error(f"ERROR parsing runtime arguments:\n{xEx!s}\n")
+        else:
+            print(f"ERROR parsing runtime arguments:\n{xEx!s}\n")
+        # endif
         sys.exit(1)
     # endtry
 
@@ -147,8 +162,13 @@ def RunCli():
             try:
                 import webbrowser
             except Exception as xEx:
-                clog.error(f"ERROR importing webbrowser module:\n{xEx!s}\n")
+                if clog is not None:
+                    clog.error(f"ERROR importing webbrowser module:\n{xEx!s}\n")
+                else:
+                    print(f"ERROR importing webbrowser module:\n{xEx!s}\n")
+                # endif
             # endtry
+
             import catharsys.setup.version as cathver
             from catharsys.setup import util
 
@@ -156,7 +176,11 @@ def RunCli():
             pathCathUser = util.GetCathUserPath(_bCheckExists=True)
             pathDocs = pathCathUser / "docs/html/index.html"
             if not pathDocs.exists():
-                clog.error(f"ERROR: Catharsys HTML documentation cannot be found at: {pathDocs}")
+                if clog is not None:
+                    clog.error(f"ERROR: Catharsys HTML documentation cannot be found at: {pathDocs}")
+                else:
+                    print(f"ERROR: Catharsys HTML documentation cannot be found at: {pathDocs}")
+                #endif
             # endif
             webbrowser.open(pathDocs.as_posix())
 
