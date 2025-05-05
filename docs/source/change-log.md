@@ -16,8 +16,9 @@
   - Adds modifier to set material of an object: `/catharsys/blender/modify/object/set-material:1.0`. In this first version it completely replaces all materials that are set for the object with a single new material.
   - Adds modifier to change node values in scene compositor: `/catharsys/blender/modify/scene/compositor/node-values:1.0`.
   - Updates EColorSpace enum for Blender >= 4.0
+  - Adds modifier `/catharsys/blender/modify/object/interpolate-pose/linear:1.0`, which sets the pose (location, rotation and scale) of and object as a linear interpolation between two Empties. See also the example in `image-render-workspace-examples/config/modify/modifier/object/interpolate-pose.json5`.
+  - Adds modifier `/catharsys/blender/modify/object/delta-transform/proxy:1.0`, which transforms an object with the relative transformation between two proxy objects. See also the example in `image-render-workspace-examples/config/modify/modifier/object/delta-transform-proxy.json5`.
   
-
 - **AnyCam**
   - When using a standard Blender camera and the anycam addon is not installed, the resolution specified as render resolution in the Blender file is used, instead of a default Full HD resolution.
   - Fixes opencv camera, by using the standard LUT camera implementation also for opencv LUT.
