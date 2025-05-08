@@ -9,15 +9,31 @@
     - `$get{}`, tries to return element of a dictionary or list (first argument). If the element referenced by the second argument is not found, it returns a default value (third argument).
 
 - **Blender**
-  - Adds modifier `for-each-material` to loop over all materials.
-  - Adds option `bSkipIfNodeMissing` to modifier `blender/modify/material/node-values`.
-  - Adds option `bKeepScale` to modifier `blender/modify/object/parent`.
-  - Adds generator to load materials from another Blender file: `/catharsys/blender/generate/material/load:1.0`.
-  - Adds modifier to set material of an object: `/catharsys/blender/modify/object/set-material:1.0`. In this first version it completely replaces all materials that are set for the object with a single new material.
-  - Adds modifier to change node values in scene compositor: `/catharsys/blender/modify/scene/compositor/node-values:1.0`.
-  - Updates EColorSpace enum for Blender >= 4.0
-  - Adds modifier `/catharsys/blender/modify/object/interpolate-pose/linear:1.0`, which sets the pose (location, rotation and scale) of and object as a linear interpolation between two Empties. See also the example in `image-render-workspace-examples/config/modify/modifier/object/interpolate-pose.json5`.
-  - Adds modifier `/catharsys/blender/modify/object/delta-transform/proxy:1.0`, which transforms an object with the relative transformation between two proxy objects. See also the example in `image-render-workspace-examples/config/modify/modifier/object/delta-transform-proxy.json5`.
+  - New generators
+    - `/catharsys/blender/generate/material/load:1.0`: load materials from another Blender file.
+
+  - New compositor modifiers:
+    - `/catharsys/blender/modify/scene/compositor/node-values:1.0`: change node values in scene compositor.
+
+  - New object modifiers:
+    - `/catharsys/blender/modify/object/for-each-material:1.0`: loop over all materials.
+    - `/catharsys/blender/modify/object/set-material:1.0`: set material of an object. In this first version it completely replaces all materials that are set for the object with a single new material.
+    - `/catharsys/blender/modify/object/interpolate-pose/linear:1.0`: sets the pose (location, rotation and scale) of and object as a linear interpolation between two Empties. See also the example in `image-render-workspace-examples/config/modify/modifier/object/interpolate-pose.json5`.
+    - `/catharsys/blender/modify/object/delta-transform/proxy:1.0`: transforms an object with the relative transformation between two proxy objects. See also the example in `image-render-workspace-examples/config/modify/modifier/object/delta-transform-proxy.json5`.
+    - `/catharsys/blender/modify/object/move/to:1.0`: moves an object to the position and orientation of another object or empty.
+    - `/catharsys/blender/modify/object/move/from:1.0`: moves an object such that a given child object or empty lies at the object's current position.
+
+  - New material modifiers:
+    - `/catharsys/blender/modify/material/replace-with:1.0`: replaces the current material with a given one.
+    - `/catharsys/blender/modify/material/copy:1.0`: copy a material.
+
+  - Changes to modifiers:
+    - Adds option `bSkipIfNodeMissing` to modifier `blender/modify/material/node-values`.
+    - Adds option `bKeepScale` to modifier `blender/modify/object/parent`.
+
+  - General:
+    - Updates EColorSpace enum for Blender >= 4.0
+  
   
 - **AnyCam**
   - When using a standard Blender camera and the anycam addon is not installed, the resolution specified as render resolution in the Blender file is used, instead of a default Full HD resolution.
