@@ -7,6 +7,8 @@
     - `$div{}`, divides the first element by the second element.
     - `$in{}`, tests whether the first argument is contained in all other arguments.
     - `$get{}`, tries to return element of a dictionary or list (first argument). If the element referenced by the second argument is not found, it returns a default value (third argument).
+    - `$re.is_match{}`, return true if the regular expression pattern in the first argument, has a match in the string in the second argument. This uses the python function `re.search()`.
+    - `$re.is_full_match{}`, return true if the regular expression pattern in the first argument, completely matches the string in the second argument. This uses the python function `re.fullmatch()`. 
 
 - **Blender**
   - New generators
