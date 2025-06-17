@@ -6,6 +6,11 @@
   - Adds ison functions:
     - `$div{}`, divides the first element by the second element.
     - `$in{}`, tests whether the first argument is contained in all other arguments.
+    - `$lt{}`, tests whether the first argument is less than all remaining arguments.
+    - `$le{}`, tests whether the first argument is less than or equal to all remaining arguments.
+    - `$gt{}`, tests whether the first argument is greater than all remaining arguments.
+    - `$ge{}`, tests whether the first argument is greater than or equal to all remaining arguments.
+    - `$runion{}`, creates a union of dictionaries recursively.
     - `$get{}`, tries to return element of a dictionary or list (first argument). If the element referenced by the second argument is not found, it returns a default value (third argument).
     - `$re.is_match{}`, return true if the regular expression pattern in the first argument, has a match in the string in the second argument. This uses the python function `re.search()`.
     - `$re.is_full_match{}`, return true if the regular expression pattern in the first argument, completely matches the string in the second argument. This uses the python function `re.fullmatch()`. 
